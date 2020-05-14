@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActivitesTable extends Migration
+class CreateArticleActivitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateActivitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('activites', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('article_activites', function (Blueprint $table) {
+            $table->Increments('Article_id');
+            $table->string('Article_titre');
+            $table->longText('Article_text');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateActivitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activites');
+        Schema::dropIfExists('article_activites');
     }
 }
