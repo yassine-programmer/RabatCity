@@ -16,7 +16,7 @@ class CreateActivitesTable extends Migration
         Schema::create('activites', function (Blueprint $table) {
             $table->increments('Activite_id');
             $table->string('Activite_intitule');
-            $table->string('Activite+resume');
+            $table->string('Activite_resume');
             $table->integer('Article_id')->unsigned();
             $table->foreign('Article_id')->references('Article_id')->on('article_activites');
             $table->timestamps();
