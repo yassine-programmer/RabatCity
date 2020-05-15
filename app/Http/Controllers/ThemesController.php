@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Theme;
 
 class ThemesController extends Controller
 {
@@ -13,7 +14,8 @@ class ThemesController extends Controller
      */
     public function index()
     {
-        return view('Themes.index');
+        $themes = Theme::all();
+        return view('Themes.index')->with('themes',$themes);
     }
 
     /**
@@ -34,7 +36,17 @@ class ThemesController extends Controller
      */
     public function store(Request $request)
     {
-        return 'store';
+        $this->validate($request,[
+           'Theme_type' => 'required',
+            'Theme_intitule' => 'required',
+            'Theme_image' => 'required'
+        ]);
+        $theme = new Theme;
+        $theme->Theme_type = $request->input('Theme_type');
+        $theme->Theme_intitule = $request->input('Theme_intitule');
+        $theme->Theme_image = $request->input('Theme_image');
+        $theme->save();
+        return redirect('themes');
     }
 
     /**
@@ -56,7 +68,8 @@ class ThemesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $theme = Theme::where('Theme_id',$id)->get();
+        return view('Themes.edit')->with('theme',$theme);
     }
 
     /**
