@@ -111,6 +111,8 @@ class ThemesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $theme = Theme::find($id);
+        $theme->delete();
+        return redirect('themes');
     }
 }

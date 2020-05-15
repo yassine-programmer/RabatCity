@@ -1,5 +1,5 @@
 <div>
-
+    <h1><a href="/themes/create" >Ajouter</a></h1>
     @if(count($themes)>0)
         @foreach($themes as $theme)
     <div  class="container text-center">
@@ -11,13 +11,13 @@
         <b>image : {{$theme->Theme_image}}</b><br>
         <a href="/themes/{{$theme->Theme_id}}">Afficher</a>
         <a href="/themes/{{$theme->Theme_id}}/edit">Edit</a>
-       <?php
-         // {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right']) !!}
-        //{{ Form::hidden('_methos','DELETE') }}
-        //{{ Form::submit('Delete',['class'=>'btm btn-danger']) }}
 
-        //{!! Form::close !!}
-        ?>
+         {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right']) !!}
+        {{ Form::hidden('_method','DELETE') }}
+        {{ Form::submit('Delete',['class'=>'btm btn-danger']) }}
+
+        {!! Form::close() !!}
+
     </div>
         @endforeach
     @endif
