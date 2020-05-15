@@ -57,7 +57,11 @@ class ThemesController extends Controller
      */
     public function show($id)
     {
-        //
+        $theme = Theme::find($id);
+        //return $theme->Theme_intitule;
+        return view('Themes.show')->with('theme',$theme);
+
+
     }
 
     /**
@@ -68,7 +72,8 @@ class ThemesController extends Controller
      */
     public function edit($id)
     {
-        $theme = Theme::where('Theme_id',$id)->get();
+        $theme = Theme::find($id);
+        //return $theme->Theme_intitule;
         return view('Themes.edit')->with('theme',$theme);
     }
 
@@ -81,7 +86,20 @@ class ThemesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $this->validate($request,[  'Theme_type' => 'required',
+               'Theme_intitule' => 'required',
+               'Theme_image' => 'required'
+           ]
+       );
+        $theme = Theme::find($id);
+        $theme->Theme_type = $request->input('Theme_type');
+        $theme->Theme_intitule = $request->input('Theme_intitule');
+        $theme->Theme_image = $request->input('Theme_image');
+        $theme->save();
+        return redirect('themes');
+        //return $theme;
+
+
     }
 
     /**

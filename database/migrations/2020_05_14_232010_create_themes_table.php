@@ -21,7 +21,7 @@ class CreateThemesTable extends Migration
             $table->string('Theme_image');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE themes ADD CONSTRAINT chk_theme_type check (Theme_type in ('services','activites'))");
+        DB::statement("ALTER TABLE themes ADD CONSTRAINT chk_theme_type check (Theme_type in ('services','activites','evenements'))");
 
     }
 
