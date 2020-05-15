@@ -39,8 +39,7 @@ class CategoriesController extends Controller
         $this->validate($request,[
             'Theme_type' => 'required',
             'Categorie_intitule' => 'required',
-            'Categorie_image' => 'required',
-            'Categorie_type' => 'required'
+            'Categorie_image' => 'required'
         ]);
         $categorie = new Categorie;
         $categorie->Categorie_intitule = $request->input('Categorie_intitule');
