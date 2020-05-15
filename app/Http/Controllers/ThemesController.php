@@ -58,9 +58,10 @@ class ThemesController extends Controller
     public function show($id)
     {
         $theme = Theme::find($id);
-        //return $theme->Theme_intitule;
-        return view('Themes.show')->with('theme',$theme);
 
+        //return $theme->Theme_intitule;
+        //return view('Themes.show')->with('theme',$theme);
+        return redirect('categories/'.$theme.'/index');
 
     }
 

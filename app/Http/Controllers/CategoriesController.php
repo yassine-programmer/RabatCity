@@ -16,6 +16,7 @@ class CategoriesController extends Controller
     public function index($id)
     {
         $categories = Categorie::where([['Theme_id',$id],['Cat_id',null]])->get();
+        return $id;
         return view('Categories.index')->with('categories',$categories);
     }
 
