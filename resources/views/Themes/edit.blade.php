@@ -3,9 +3,8 @@
     <div  class="container text-center">
         <b>Le type du theme: </b>
         <select name="Theme_type">
-            <option>{{$theme->Theme_type}}</option>
-            <option @if($theme->Theme_type == 'Services') hidden  @endif>Services</option>
-            <option @if($theme->Theme_type == 'Activites') hidden @endif  >Activites</option>
+            <option @if($theme->Theme_type == 'Services') selected="selected" @endif>Services</option>
+            <option @if($theme->Theme_type == 'Activites') selected="selected" @endif  >Activites</option>
         </select>
         <br>
         <b>Theme intitule : </b>

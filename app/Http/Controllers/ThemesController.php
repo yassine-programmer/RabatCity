@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Theme;
+use App\Categorie;
 
 class ThemesController extends Controller
 {
@@ -58,11 +59,8 @@ class ThemesController extends Controller
     public function show($id)
     {
         $theme = Theme::find($id);
-
-        //return $theme->Theme_intitule;
-        //return view('Themes.show')->with('theme',$theme);
-        return redirect('categories/'.$theme.'/index');
-
+        $catgories = Categorie::where([['Theme_id',$id],['Cat_id',null]])->get();;
+        return view('Themes.show')->with(['theme'=>$theme , 'categories' => $catgories]);
     }
 
     /**

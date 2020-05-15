@@ -13,11 +13,9 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $categories = Categorie::where([['Theme_id',$id],['Cat_id',null]])->get();
-        return $id;
-        return view('Categories.index')->with('categories',$categories);
+        return 1;
     }
 
     /**
@@ -27,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return 1;
+        return view('Categories.create');
     }
 
     /**
@@ -38,7 +36,20 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'Theme_type' => 'required',
+            'Categorie_intitule' => 'required',
+            'Categorie_image' => 'required',
+            'Categorie_type' => 'required'
+        ]);
+        $categorie = new Categorie;
+        $categorie->Categorie_intitule = $request->input('Categorie_intitule');
+        $categorie->Categorie_image = $request->input('Categorie_image');
+        $categorie->Categorie_id = $request->input('Categorie_type');
+        $categorie->Theme_id = $request->input('Theme_type');
+        $categorie->save();
+        return redirect('themes');
+        return 1;
     }
 
     /**
@@ -49,8 +60,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-
-        return 1;
+       //
     }
 
     /**
