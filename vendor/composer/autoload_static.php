@@ -411,6 +411,7 @@ class ComposerStaticInit30a976155905b63b2184f411fa20b72a
     );
 
     public static $classMap = array (
+        'App\\Categorie' => __DIR__ . '/../..' . '/app/Categorie.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -419,6 +420,7 @@ class ComposerStaticInit30a976155905b63b2184f411fa20b72a
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\CategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoriesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ThemesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ThemesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
