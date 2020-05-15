@@ -14,5 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/activites','Activites');
+Route::resource('themes','ThemesController');
 
