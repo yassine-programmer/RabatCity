@@ -46,7 +46,7 @@ class CategoriesController extends Controller
         $categorie = new Categorie;
         $categorie->Categorie_intitule = $request->input('Categorie_intitule');
         $categorie->Categorie_image = $request->input('Categorie_image');
-        $categorie->Categorie_id = $request->input('Categorie_type');
+        $categorie->Cat_id = $request->input('Categorie_type');
         $categorie->Theme_id = $request->input('Theme_type');
         $categorie->save();
         return redirect('themes');
