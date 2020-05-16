@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Categorie;
+use App\Theme;
 
 class CategoriesController extends Controller
 {
@@ -23,9 +24,10 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createCategorie($Theme_type)
     {
-        return view('Categories.create');
+        $themes =  Theme::where("Theme_type",$Theme_type)->get();
+        return view('Categories.create')->with('themes',$themes);
     }
 
     /**

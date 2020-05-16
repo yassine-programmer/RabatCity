@@ -14,6 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::resource('themes','ThemesController');
 Route::resource('categories','CategoriesController');
+Route::get('categories/createCategorie/{id}','CategoriesController@createCategorie');
 
+Route::get('/AjaxCat', function () {
+    return view('Categories.AjaxCategorie');
+});
+
+Route::get('/Ajax', function () {
+    return view('AjaxTest');
+});
+Route::get('data', function () {
+    return view('data');
+});
