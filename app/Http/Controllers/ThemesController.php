@@ -15,18 +15,21 @@ class ThemesController extends Controller
      */
     public function index()
     {
-        $themes = Theme::all();
-        return view('Themes.index')->with('themes',$themes);
+
+            $themes = Theme::all();
+            return view('Themes.index')->with('themes',$themes);
     }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($theme_type)
     {
-        return view('Themes.create');
+
+        return view('Themes.create')->with('theme_type',$theme_type);
     }
 
     /**
@@ -60,8 +63,10 @@ class ThemesController extends Controller
     {
         $theme = Theme::find($id);
         $catgories = Categorie::where([['Theme_id',$id],['Cat_id',null]])->get();;
+        view('Categories.create')->with('theme',$theme);
         return view('Themes.show')->with(['theme'=>$theme , 'categories' => $catgories]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

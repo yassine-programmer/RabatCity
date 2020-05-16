@@ -25,7 +25,7 @@
                         </div>
                     @endforeach
                     @endif
-                    <a href="/categories/createCategorie/{{$theme->Theme_type}}">create</a>
+                    <a href="/categories/createCategorie/{{$theme->Theme_id}}">create</a>
             </div>
 
 

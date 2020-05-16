@@ -3,8 +3,7 @@
     <div  class="container text-center">
         <b>Le type du theme: </b>
             <select name="Theme_type">
-                <option>Services</option>
-                <option>Activites</option>
+                <option>{{$theme_type}}</option>
             </select>
         <br>
         <b>Theme intitule : </b>

@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('themes','ThemesController');
+Route::get('themes/create/{theme_type}','ThemesController@create');
 Route::resource('categories','CategoriesController');
 Route::get('categories/createCategorie/{id}','CategoriesController@createCategorie');
 
@@ -29,3 +30,5 @@ Route::get('/Ajax', function () {
 Route::get('data', function () {
     return view('data');
 });
+Route::resource('services','ServicesController');
+Route::resource('activites','ActivitesController');

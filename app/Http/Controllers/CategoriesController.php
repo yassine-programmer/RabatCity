@@ -24,10 +24,10 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createCategorie($Theme_type)
+    public function createCategorie($Theme_id)
     {
-        $themes =  Theme::where("Theme_type",$Theme_type)->get();
-        return view('Categories.create')->with('themes',$themes);
+        $theme =  Theme::where("Theme_id",$Theme_id)->get();
+        return view('Categories.create')->with('theme',$theme); // this is sending an array and we need to use theme[0] to access the first line
     }
 
     /**
@@ -61,7 +61,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-       //
+        //
     }
 
     /**
