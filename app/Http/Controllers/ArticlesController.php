@@ -15,15 +15,15 @@ class ArticlesController extends Controller
      */
     public function afficher($Categorie_id)
     {
-        $articles = Article::where('Categorie_id','=',$Categorie_id)->paginate(1);
+        $articles = Article::where('Categorie_id','=',$Categorie_id)->get();
         $categorie = Categorie::find($Categorie_id);
-
         if(count($articles)>0){
-            return view('Articles.index')->with(['articles'=>$articles,'categorie'=>$categorie]);
+            return $this->show($articles[0]->Categorie_id);
         }
         else{
-            return $this->create($Categorie_id);
+            return view('Articles.index')->with('categorie',$categorie);
         }
+
 
     }
 
@@ -67,7 +67,10 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $categorie = Categorie::find($id);
+        $articles = Article::where('Categorie_id',$id)->paginate(1);
+        return view('Articles.show')->with(['articles'=>$articles,'categorie'=>$categorie]);
     }
 
     /**

@@ -8,21 +8,12 @@
     <br>
     <hr>
     <br><br><br><br>
-    // Articles :
-    <a href="/articles/create/{{$categorie->Categorie_id}}"> + Ajouter un article </a>
-    <br><br><br><br>
-    @if(count($articles)>0)
-        @foreach($articles as $article)
-            <h3>Titre article : {{$article->Article_titre}}</h3>
-            <a href="/articles/{{$article->Article_id}}/edit">Edit</a>
-            {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right']) !!}
-            {{ Form::hidden('_method','DELETE') }}
-            {{ Form::submit('Delete',['class'=>'btm btn-danger']) }}
-            <br>
-            <div>{{$article->Article_text}}</div>
+    // Les categories fils de cette categorie :
 
-            @endforeach
-        {{$articles->links()}}
-        @endif
+    <br><br><br><br>
+    <br>
+    <a href="/articles/create/{{$categorie->Categorie_id}}">Ajouter Article</a>
+    <br>
+    <a href="/categories/{{$categorie->Categorie_id}}/create-sous-categorie">Creer une Sous Categorie de {{$categorie->Categorie_intitule}} </a>
 
 </div>

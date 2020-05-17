@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Categorie;
 use App\Theme;
 
+
 class CategoriesController extends Controller
 {
     /**
