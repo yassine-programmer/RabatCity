@@ -28,9 +28,14 @@ Route::resource('articles','ArticlesController');
 Route::get('Articles/{Categorie_id}','ArticlesController@afficher');
 Route::get('articles/create/{Categorie_id}','ArticlesController@create');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/AjaxCat', function () {
     return view('Categories.AjaxCategorie');
 });
+
 
 
 
@@ -42,5 +47,5 @@ Route::get('/Ajax', function () {
 Route::get('data', function () {
     return view('data');
 });
-Route::resource('services','ServicesController');
-Route::resource('activites','ActivitesController');
+
+
