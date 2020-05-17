@@ -27,7 +27,14 @@ class CategoriesController extends Controller
     public function createCategorie($Theme_id)
     {
         $theme =  Theme::where("Theme_id",$Theme_id)->get();
-        return view('Categories.create')->with('theme',$theme); // this is sending an array and we need to use theme[0] to access the first line
+
+
+        return view('Categories.create')->with(['theme'=>$theme]); // this is sending an array for theme and we need to use theme[0] to access the first line
+    }
+    public function createSousCategorie($categorieParent_id){
+        $categorie_parent=Categorie::where('Categorie_id',$categorieParent_id)->get();
+        $theme=Theme::find($categorie_parent[0]->Theme_id)->get();
+        return view('Categories.create')->with(['categorie_parent'=>$categorie_parent,'theme'=>$theme]);
     }
 
     /**
@@ -49,8 +56,9 @@ class CategoriesController extends Controller
         $categorie->Cat_id = $request->input('Categorie_type');
         $categorie->Theme_id = $request->input('Theme_type');
         $categorie->save();
-        return redirect('themes');
-        return 1;
+
+        return redirect('themes/'.$categorie->Theme_id);
+
     }
 
     /**
@@ -59,9 +67,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //id is the parent categorie id
     {
-        //
+        $categorie_parent=Categorie::find($id);
+        $categories_fils=Categorie::where("Cat_id",$categorie_parent->Categorie_id)->get();
+        return view('Categories/show')->with(['categorie_parent'=>$categorie_parent , 'categories_fils'=>$categories_fils]);
     }
 
     /**

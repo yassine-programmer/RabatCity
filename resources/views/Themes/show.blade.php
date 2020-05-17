@@ -12,7 +12,11 @@
                 <br>
                 <br>
 
-            //Categories are meant to be listed here
+            //<b>Parent</b> Categories are meant to be listed here
+                <br>
+                <br>
+                <br>
+                <div style="border-style: outset;">
                 @if(count($categories)>0)
                     @foreach($categories as $categorie)
                         <div  class="container text-center">
@@ -22,10 +26,12 @@
                             <b>Categorie image : {{$categorie->Categorie_image}}</b>
                             <br>
                             <a href="/themes/{{$categorie->Categorie_id}}/edit">edit</a>
+                            <a href="/categories/{{$categorie->Categorie_id}}"> Afficher</a>
                         </div>
                     @endforeach
                     @endif
-                    <a href="/categories/createCategorie/{{$theme->Theme_id}}">create</a>
+                </div>
+                <a href="/categories/createCategorie/{{$theme->Theme_id}}">create</a>
             </div>
 
 

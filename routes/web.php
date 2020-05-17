@@ -18,7 +18,9 @@ Route::get('/', function () {
 Route::resource('themes','ThemesController');
 Route::get('themes/create/{theme_type}','ThemesController@create');
 Route::resource('categories','CategoriesController');
+Route::get('categories/{id}','CategoriesController@show');
 Route::get('categories/createCategorie/{id}','CategoriesController@createCategorie');
+Route::get('categories/{id}/create-sous-categorie','CategoriesController@createSousCategorie');
 
 Route::get('/AjaxCat', function () {
     return view('Categories.AjaxCategorie');
