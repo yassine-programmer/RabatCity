@@ -13,10 +13,10 @@ class ThemesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function afficher($Theme_type)
     {
 
-            $themes = Theme::all();
+            $themes = Theme::where('Theme_type',$Theme_type)->get();
             return view('Themes.index')->with('themes',$themes);
     }
 
@@ -50,7 +50,7 @@ class ThemesController extends Controller
         $theme->Theme_intitule = $request->input('Theme_intitule');
         $theme->Theme_image = $request->input('Theme_image');
         $theme->save();
-        return redirect('themes');
+        return $this->afficher($theme->Theme_type);
     }
 
     /**
@@ -100,7 +100,7 @@ class ThemesController extends Controller
         $theme->Theme_intitule = $request->input('Theme_intitule');
         $theme->Theme_image = $request->input('Theme_image');
         $theme->save();
-        return redirect('themes');
+        return  $this->afficher($theme->Theme_type);
         //return $theme;
 
 
@@ -116,6 +116,6 @@ class ThemesController extends Controller
     {
         $theme = Theme::find($id);
         $theme->delete();
-        return redirect('themes');
+        return  $this->afficher($theme->Theme_type);
     }
 }

@@ -87,8 +87,8 @@
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
-                    <a href="/services"><u>Services</u></a>
-                    <a href="/actualites"><u>Actualites</u></a>
+                    <a href="/Themes/services"><u>Services</u></a>
+                    <a href="/Themes/activites"><u>Activites</u></a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>

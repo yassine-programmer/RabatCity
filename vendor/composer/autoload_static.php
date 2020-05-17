@@ -411,9 +411,11 @@ class ComposerStaticInit30a976155905b63b2184f411fa20b72a
     );
 
     public static $classMap = array (
+        'App\\Article' => __DIR__ . '/../..' . '/app/Article.php',
         'App\\Categorie' => __DIR__ . '/../..' . '/app/Categorie.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\ActivitesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ActivitesController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -422,6 +424,7 @@ class ComposerStaticInit30a976155905b63b2184f411fa20b72a
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoriesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\ServicesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ServicesController.php',
         'App\\Http\\Controllers\\ThemesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ThemesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

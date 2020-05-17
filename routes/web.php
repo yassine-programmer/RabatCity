@@ -16,15 +16,25 @@ Route::get('/', function () {
 });
 
 Route::resource('themes','ThemesController');
+Route::get('Themes/{Theme_type}','ThemesController@afficher');
 Route::get('themes/create/{theme_type}','ThemesController@create');
+
 Route::resource('categories','CategoriesController');
 Route::get('categories/{id}','CategoriesController@show');
 Route::get('categories/createCategorie/{id}','CategoriesController@createCategorie');
 Route::get('categories/{id}/create-sous-categorie','CategoriesController@createSousCategorie');
 
+Route::resource('articles','ArticlesController');
+Route::get('Articles/{Categorie_id}','ArticlesController@afficher');
+Route::get('articles/create/{Categorie_id}','ArticlesController@create');
+
 Route::get('/AjaxCat', function () {
     return view('Categories.AjaxCategorie');
 });
+
+
+
+
 
 Route::get('/Ajax', function () {
     return view('AjaxTest');

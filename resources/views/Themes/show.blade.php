@@ -27,6 +27,9 @@
                             <br>
                             <a href="/categories/{{$categorie->Categorie_id}}/edit">Edit</a>
                             <a href="/categories/{{$categorie->Categorie_id}}"> Afficher</a>
+                            {!! Form::open([ 'action'=>['CategoriesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right']) !!}
+                            {{ Form::hidden('_method','DELETE') }}
+                            {{ Form::submit('Delete',['class'=>'btm btn-danger']) }}
                         </div>
                     @endforeach
                     @endif

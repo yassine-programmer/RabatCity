@@ -2,7 +2,7 @@
     <h1>{{$themes[0]->Theme_type}}</h1>
     <br>
 
-    <a href="themes/create/{{$themes[0]->Theme_type}}">Ajouter</a>
+    <a href="/themes/create/{{$themes[0]->Theme_type}}">Ajouter</a>
     @if(count($themes)>0)
         @foreach($themes as $theme)
     <div  class="container text-center">
