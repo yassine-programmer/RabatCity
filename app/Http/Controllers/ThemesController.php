@@ -100,7 +100,7 @@ class ThemesController extends Controller
         $theme->Theme_intitule = $request->input('Theme_intitule');
         $theme->Theme_image = $request->input('Theme_image');
         $theme->save();
-        return  $this->afficher($theme->Theme_type);
+        return  view('Themes/'.$theme->Theme_type );
         //return $theme;
 
 
@@ -115,7 +115,7 @@ class ThemesController extends Controller
     public function destroy($id)
     {
         $theme = Theme::find($id);
-        $theme->delete();
-        return  $this->afficher($theme->Theme_type);
+        //$theme->delete();
+        return  redirect('Themes/'.$theme->Theme_type);
     }
 }

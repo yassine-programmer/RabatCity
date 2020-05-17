@@ -117,7 +117,15 @@ class CategoriesController extends Controller
         $categorie->Categorie_intitule = $request->input('Categorie_intitule');
         $categorie->Categorie_image = $request->input('Categorie_image');
         $categorie->save();
-        return redirect('categories/'.$id);
+
+        if(empty($categorie->Cat_id)){
+
+            return redirect()->action(
+                'ThemesController@show',  $categorie->Theme_id
+            );
+        }
+        else
+            return redirect('categories/'.$categorie->Cat_id);
     }
 
     /**

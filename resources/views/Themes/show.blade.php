@@ -21,7 +21,6 @@
                     @foreach($categories as $categorie)
                         <div  class="container text-center">
                             <b>Categorie Intitule: {{$categorie->Categorie_intitule}}</b>
-
                             <br>
                             <b>Categorie image : {{$categorie->Categorie_image}}</b>
                             <br>
@@ -36,9 +35,6 @@
                 </div>
                 <a href="/categories/createCategorie/{{$theme->Theme_id}}">create</a>
             </div>
-
-
-
 </div>
 
 
