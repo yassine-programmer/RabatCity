@@ -25,7 +25,7 @@
                             <br>
                             <b>Categorie image : {{$categorie->Categorie_image}}</b>
                             <br>
-                            <a href="/themes/{{$categorie->Categorie_id}}/edit">edit</a>
+                            <a href="/categories/{{$categorie->Categorie_id}}/edit">Edit</a>
                             <a href="/categories/{{$categorie->Categorie_id}}"> Afficher</a>
                         </div>
                     @endforeach

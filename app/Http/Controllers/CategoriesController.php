@@ -82,7 +82,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categorie=Categorie::find($id);
+
+        return view('Categories.edit')->with('categorie',$categorie);
     }
 
     /**
@@ -94,7 +96,18 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+                'Categorie_intitule' => 'required',
+                'Categorie_image' => 'required'
+            ]
+        );
+
+        $categorie = Categorie::find($id);
+
+        $categorie->Categorie_intitule = $request->input('Categorie_intitule');
+        $categorie->Categorie_image = $request->input('Categorie_image');
+        $categorie->save();
+        return redirect('categories/'.$id);
     }
 
     /**
