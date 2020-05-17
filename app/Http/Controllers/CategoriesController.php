@@ -56,8 +56,14 @@ class CategoriesController extends Controller
         };
         $categorie->Theme_id = $request->input('Theme_id');
         $categorie->save();
-        return redirect('themes/'.$categorie->Theme_id);
+        if(empty($categorie->Cat_id)){
 
+            return redirect()->action(
+                'ThemesController@show',  $categorie->Theme_id
+            );
+        }
+        else
+         return redirect('categories/'.$categorie->Cat_id);
     }
 
     /**
@@ -108,7 +114,6 @@ class CategoriesController extends Controller
         );
 
         $categorie = Categorie::find($id);
-
         $categorie->Categorie_intitule = $request->input('Categorie_intitule');
         $categorie->Categorie_image = $request->input('Categorie_image');
         $categorie->save();
@@ -125,6 +130,6 @@ class CategoriesController extends Controller
     {
         $categorie = Categorie::find($id);
         $categorie->delete();
-        return redirect('categories/'.$id);
+        return back()->withInput();
     }
 }

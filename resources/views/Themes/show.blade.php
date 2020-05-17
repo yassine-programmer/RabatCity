@@ -40,3 +40,7 @@
 
 
 </div>
+
+
+<h2>PATH</h2>
+@include('showFullPath')

@@ -14,12 +14,13 @@
     @if(count($articles)>0)
         @foreach($articles as $article)
             <h3>Titre article : {{$article->Article_titre}}</h3>
+            <div>Contenu article: {{$article->Article_text}}</div>
+            <br><br>
             <a href="/articles/{{$article->Article_id}}/edit">Edit</a>
             {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right']) !!}
             {{ Form::hidden('_method','DELETE') }}
             {{ Form::submit('Delete',['class'=>'btm btn-danger']) }}
             <br>
-            <div>{{$article->Article_text}}</div>
 
         @endforeach
         {{$articles->links()}}

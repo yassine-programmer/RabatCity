@@ -62,7 +62,7 @@ class ThemesController extends Controller
     public function show($id)
     {
         $theme = Theme::find($id);
-        $catgories = Categorie::where([['Theme_id',$id],['Cat_id',null]])->get();;
+        $catgories = Categorie::where([['Theme_id',$id],['Cat_id',null]])->get();
         view('Categories.create')->with('theme',$theme);
         return view('Themes.show')->with(['theme'=>$theme , 'categories' => $catgories]);
     }
