@@ -16,12 +16,13 @@
             <h3>Titre article : {{$article->Article_titre}}</h3>
             <div>Contenu article: {{$article->Article_text}}</div>
             <br><br>
+            @if(Session::get('role')!='user')
             <a href="/articles/{{$article->Article_id}}/edit">Edit</a>
             {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right']) !!}
             {{ Form::hidden('_method','DELETE') }}
             {{ Form::submit('Delete',['class'=>'btm btn-danger']) }}
             <br>
-
+              @endif
         @endforeach
         {{$articles->links()}}
     @endif

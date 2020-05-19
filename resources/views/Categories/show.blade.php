@@ -20,19 +20,24 @@
                     <br>
                     <b>Categorie image : {{$categorie->Categorie_image}}</b>
                     <br>
-                    <a href="/categories/{{$categorie->Categorie_id}}/edit">edit</a>
                     <a href="/categories/{{$categorie->Categorie_id}}"> Afficher</a>
+                    @if(Session::get('role')!='user')
+                    <a href="/categories/{{$categorie->Categorie_id}}/edit">edit</a>
                     {!! Form::open([ 'action'=>['CategoriesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right']) !!}
                     {{ Form::hidden('_method','DELETE') }}
                     {{ Form::submit('Delete',['class'=>'btm btn-danger']) }}
+                    @endif
                 </div>
             @endforeach
         @endif
     </div>
     <br>
+    @if(Session::get('role')!='user')
     <a href="/categories/{{$categorie_parent->Categorie_id}}/create-sous-categorie">Creer une Sous Categorie de {{$categorie_parent->Categorie_intitule}} </a>
-
+        @endif
 </div>
-
+<!-- path -->
+@if(Session::get('role')!='user')
 <h2>PATH</h2>
 @include('showFullPath')
+@endif

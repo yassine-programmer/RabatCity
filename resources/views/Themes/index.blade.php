@@ -13,11 +13,14 @@
         <br>
         <b>image : {{$theme->Theme_image}}</b><br>
         <a href="/themes/{{$theme->Theme_id}}">Afficher</a>
-        @if(Session::get('role')=='admin') <a href="/themes/{{$theme->Theme_id}}/edit">Edit</a> @endif
-
          {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right']) !!}
-        @if(Session::get('role')=='admin')  {{ Form::hidden('_method','DELETE') }}
-        {{ Form::submit('Delete',['class'=>'btm btn-danger']) }}@endif
+        @if(Session::get('role')!='user')
+
+            <a href="/themes/{{$theme->Theme_id}}/edit">Edit</a>
+            {{ Form::hidden('_method','DELETE') }}
+        {{ Form::submit('Delete',['class'=>'btm btn-danger']) }}
+
+        @endif
 
         {!! Form::close() !!}
 

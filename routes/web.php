@@ -47,5 +47,14 @@ Route::get('/Ajax', function () {
 Route::get('data', function () {
     return view('data');
 });
+Route::get('modal', function (){
+    return view('layouts.modal');
+});
 
+Route::get('media-manager', function (){
+    return view('MediaManager');
+});
 
+Route::get('navbar',function (){
+    return view ('header/header');
+});

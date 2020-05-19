@@ -86,7 +86,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                 @if(Session::get('role')=='admin')   Laravel @else {{Session::get('name')}} @endif
+
+                 @if(Session::get('role')=='admin')  {{Session::get('name')}}-admin @elseif(Session::get('name'))  {{Session::get('name')}} @else Sign-in @endif
+
                 </div>
 
                 <div class="links">
