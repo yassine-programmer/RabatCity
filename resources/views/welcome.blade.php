@@ -6,10 +6,15 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/ckeditor.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/adapters/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <!-- Styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <style>
             html, body {
                 background-color: #fff;
@@ -81,7 +86,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                 @if(Session::get('role')=='admin')   Laravel @else {{Session::get('name')}} @endif
                 </div>
 
                 <div class="links">

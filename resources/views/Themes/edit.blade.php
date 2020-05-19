@@ -1,3 +1,4 @@
+@if(Session::get('role')=='admin')
 <div>
     {!! Form::open([ 'action' => ['ThemesController@update',$theme->Theme_id],'method' => 'post']) !!}
     <div  class="container text-center">
@@ -20,3 +21,6 @@
     {!! Form::close() !!}
 
 </div>
+    @else
+    khrj fhalk
+@endif
