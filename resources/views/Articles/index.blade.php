@@ -12,7 +12,7 @@
 
     <br><br><br><br>
     <br>
-    @if(Session::get('role')!='user')
+    @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
     <a href="/articles/create/{{$categorie->Categorie_id}}">Ajouter Article</a>
     <br>
     <a href="/categories/{{$categorie->Categorie_id}}/create-sous-categorie">Creer une Sous Categorie de {{$categorie->Categorie_intitule}} </a>

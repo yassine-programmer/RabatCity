@@ -16,12 +16,16 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <style>
+
             html, body {
-                background-color: #fff;
+                background-image: url("https://www.paris.fr/packs/images/nef-blackpearl-12b885a16f7d54a73bd9d582dd3f3bed.svg");
+                background-repeat: no-repeat;
+                background-position: 58.1px -186px;
+                background-size: 70%;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
+
                 margin: 0;
             }
 

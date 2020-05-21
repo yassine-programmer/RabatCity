@@ -25,7 +25,7 @@
                             <b>Categorie image : {{$categorie->Categorie_image}}</b>
                             <br>
                             <a href="/categories/{{$categorie->Categorie_id}}"> Afficher</a>
-                            @if(Session::get('role')!='user')
+                            @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                             <a href="/categories/{{$categorie->Categorie_id}}/edit">Edit</a>
                             {!! Form::open([ 'action'=>['CategoriesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right']) !!}
                             {{ Form::hidden('_method','DELETE') }}
@@ -35,14 +35,14 @@
                     @endforeach
                     @endif
                 </div>
-                @if(Session::get('role')!='user')
+                @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                 <a href="/categories/createCategorie/{{$theme->Theme_id}}">create</a>
                     @endif
             </div>
 </div>
 
 <!-- path -->
-@if(Session::get('role')!='user')
+@if(Session::get('role')=='admin' || Session::get('role')=='moderator')
     <h2>PATH</h2>
     @include('showFullPath')
 @endif

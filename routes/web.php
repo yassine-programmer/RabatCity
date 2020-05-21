@@ -30,8 +30,9 @@ Route::get('articles/create/{Categorie_id}','ArticlesController@create');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+//Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('userupdate','HomeController@update');
+Route::resource('home','HomeController');
 Route::get('/AjaxCat', function () {
     return view('Categories.AjaxCategorie');
 });

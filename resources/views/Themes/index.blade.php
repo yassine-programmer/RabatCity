@@ -2,7 +2,7 @@
     <h1>{{$themes[0]->Theme_type}}</h1>
     <br>
 
-    @if(Session::get('role')=='admin') <a href="/themes/create/{{$themes[0]->Theme_type}}">Ajouter</a> @endif
+    @if(Session::get('role')=='admin' || Session::get('role')=='moderator') <a href="/themes/create/{{$themes[0]->Theme_type}}">Ajouter</a> @endif
     @if(count($themes)>0)
         @foreach($themes as $theme)
     <div  class="container text-center">
@@ -14,7 +14,7 @@
         <b>image : {{$theme->Theme_image}}</b><br>
         <a href="/themes/{{$theme->Theme_id}}">Afficher</a>
          {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right']) !!}
-        @if(Session::get('role')!='user')
+        @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
 
             <a href="/themes/{{$theme->Theme_id}}/edit">Edit</a>
             {{ Form::hidden('_method','DELETE') }}
