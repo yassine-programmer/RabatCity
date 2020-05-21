@@ -21,7 +21,7 @@
                 background-image: url("https://www.paris.fr/packs/images/nef-blackpearl-12b885a16f7d54a73bd9d582dd3f3bed.svg");
                 background-repeat: no-repeat;
                 background-size: 776px;
-                background-position: 58.1px -188px;
+                background-position: 248.1px -188px;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
