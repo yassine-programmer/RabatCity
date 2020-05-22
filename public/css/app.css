@@ -8656,6 +8656,7 @@ button.bg-dark:focus {
 .pt-4,
 .py-4 {
   padding-top: 1.5rem !important;
+    margin-top: 3rem;
 }
 
 .pr-4,
@@ -10933,18 +10934,31 @@ a.text-dark:focus {
   }
 }
 
+.navbar{
+    background-image: url("https://www.paris.fr/packs/images/nef-blackpearl-12b885a16f7d54a73bd9d582dd3f3bed.svg");
+    background-repeat: no-repeat;
+    background-size: 776px;
+    background-position: 248.1px -188px ;
+    background-attachment: unset;
 
+}
  html, body {
      background-image: url("https://www.paris.fr/packs/images/nef-blackpearl-12b885a16f7d54a73bd9d582dd3f3bed.svg");
      background-repeat: no-repeat;
      background-size: 776px;
      background-position: 248.1px -188px;
-     color: #636b6f;
-     font-family: 'Nunito', sans-serif;
-     font-weight: 200;
+
 
      margin: 0;
+
+     color: #071f32;
+
+     font-family: Montserrat,sans-serif;
+
+     font-weight: 400;
+
  }
+
 
 .full-height {
     height: 100vh;

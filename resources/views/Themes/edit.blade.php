@@ -1,3 +1,5 @@
+@extends("layouts.app")
+@section("content")
 @if(Session::get('role')=='admin')
 <div>
     {!! Form::open([ 'action' => ['ThemesController@update',$theme->Theme_id],'method' => 'post']) !!}
@@ -24,3 +26,4 @@
     @else
     khrj fhalk
 @endif
+@endsection

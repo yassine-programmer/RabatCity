@@ -1,3 +1,5 @@
+@extends("layouts.app")
+@section("content")
 <div>
     {!! Form::open([ 'action' => ['CategoriesController@update',$categorie->Categorie_id],'method' => 'post']) !!}
     <div  class="container text-center">
@@ -14,3 +16,4 @@
     {!! Form::close() !!}
 
 </div>
+@endsection

@@ -37,8 +37,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <li><a class="nav-item nav-link" href="#">Services<span class="sr-only">(current)</span></a> </li>
-                    <li><a class="nav-item nav-link" href="#">Actualites</a> </li>
+                    <li><a class="nav-item nav-link" href="/Themes/services">Services<span class="sr-only">(current)</span></a> </li>
+                    <li><a class="nav-item nav-link" href="/Themes/activites">Activites</a> </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

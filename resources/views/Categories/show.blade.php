@@ -1,3 +1,5 @@
+@extends("layouts.app")
+@section("content")
 <div  class="container text-center">
     <h1>Categorie Intitule: {{$categorie_parent->Categorie_intitule}}</h1>
     <br>
@@ -41,3 +43,4 @@
 <h2>PATH</h2>
 @include('showFullPath')
 @endif
+@endsection

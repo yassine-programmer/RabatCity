@@ -1,3 +1,5 @@
+@extends("layouts.app")
+@section("content")
 <div>
     {!! Form::open(['action' => 'ThemesController@store', 'method' => 'post']) !!}
     <div  class="container text-center">
@@ -18,3 +20,4 @@
     {!! Form::close() !!}
 
 </div>
+@endsection
