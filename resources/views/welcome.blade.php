@@ -1,93 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/ckeditor.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.11/adapters/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- Styles -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <style>
-
-            html, body {
-                background-image: url("https://www.paris.fr/packs/images/nef-blackpearl-12b885a16f7d54a73bd9d582dd3f3bed.svg");
-                background-repeat: no-repeat;
-                background-size: 776px;
-                background-position: 248.1px -188px;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
+@extends("layouts.app")
+@section("content")
             <div class="content">
                 <div class="title m-b-md">
 
@@ -105,7 +17,8 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur autem cumque harum ipsum, maiores minima molestiae nemo numquam, perferendis, quisquam sed voluptatem! Adipisci aliquam consequatur dignissimos dolorum, earum est, ipsa minima mollitia nobis, nostrum quae quod recusandae reiciendis rem sequi tempore vitae. Accusantium delectus dignissimos dolorem ducimus eos eum excepturi exercitationem facere fugit in repellat repellendus, similique sint suscipit tempora totam voluptas voluptates! Consequuntur distinctio earum, enim impedit iste modi, molestias mollitia nihil quae quam quasi rem sit unde. Aspernatur dolor doloribus error iure magni minima neque nihil provident quidem! Ab, alias aut beatae culpa dolor dolore eligendi eveniet expedita facere facilis laboriosam, magnam maiores, minus modi molestiae odit qui quo quod reprehenderit sequi tempora tempore veritatis voluptas. A accusantium ad animi aspernatur aut beatae blanditiis corporis cupiditate debitis, deleniti distinctio doloremque dolorum enim est et fugit impedit in ipsum iure, iusto laboriosam magni maiores molestias neque nesciunt nisi obcaecati odit placeat quas quia rem repudiandae sapiente soluta suscipit tempora voluptate voluptatibus? Animi, aspernatur corporis deleniti eaque, eius explicabo illo impedit laborum magnam necessitatibus optio pariatur praesentium quaerat quam repellat saepe sed soluta, velit? Adipisci animi aut culpa, dolore ea error eveniet explicabo fugiat harum hic incidunt ipsam itaque laudantium magni maiores minus, necessitatibus numquam officia optio porro quia ratione repudiandae sed sint totam vero voluptas voluptatibus. Blanditiis consectetur dolor dolores dolorum earum, repellat. Accusamus ad delectus doloribus, quasi recusandae tempore unde? Ab adipisci blanditiis dolor, ea eos eveniet excepturi, facilis fuga laboriosam maiores mollitia nostrum pariatur quaerat quidem quod saepe sed sunt vel velit voluptatibus. Accusantium animi commodi delectus doloremque illum laboriosam nostrum, placeat suscipit. Adipisci at debitis ipsum iste voluptas! Aperiam autem, cum ducimus eveniet fugit illum minima minus modi odit quam quas quod, reprehenderit repudiandae tempora voluptatem? Deserunt omnis quos tenetur. Aperiam aspernatur aut, beatae culpa dignissimos dolorum eius et eum iure laborum molestiae nam natus non nostrum placeat quae rerum similique soluta suscipit tempore velit veritatis, voluptates. Exercitationem sint sit tempora? Amet architecto at atque deleniti dolore, dolorem eius, eum id illo laboriosam minus officiis, perspiciatis quos rem repellat rerum sunt vel? A animi asperiores at corporis culpa debitis dolor ea eligendi facere hic illum in magni modi mollitia nesciunt odio porro provident quae quibusdam quidem quis repellendus sapiente sequi, similique sint suscipit veniam vitae? Accusamus animi autem deleniti dolore, earum eos minus nam odio pariatur repellat repellendus sapiente, sit vero voluptates voluptatum! Consequuntur culpa doloremque expedita facere laboriosam non quasi quibusdam ratione ut! Ab inventore laudantium non. Ab adipisci alias aliquid aperiam autem corporis dolor dolorem dolores eaque enim eveniet ex, exercitationem explicabo facilis, hic inventore ipsam ipsum itaque laudantium molestias nemo nesciunt nihil possimus praesentium quidem quisquam ratione recusandae reiciendis tempora voluptates! Atque, aut blanditiis dolorum eaque harum, iusto laudantium minus, molestias quod recusandae repellat totam voluptatem. Ab accusamus aut dicta illo suscipit? Accusamus ad animi architecto atque commodi cum distinctio dolor doloremque dolores eos eum explicabo harum impedit ipsa iure labore magni maxime modi molestias, nisi obcaecati odio pariatur perferendis placeat quaerat quia quisquam quod reiciendis rem repellendus sed similique tempora temporibus velit veniam vero voluptatem. Alias aliquid at beatae corporis cumque distinctio hic, illum incidunt iste iure nisi nobis placeat quae quaerat recusandae soluta unde! A ab adipisci atque aut corporis distinctio dolore doloremque ducimus eaque error esse eum eveniet expedita facere illum itaque molestias nemo nisi nobis non nostrum nulla officia officiis perferendis perspiciatis provident quae quos saepe, sapiente similique veniam voluptas voluptatem voluptates! Ab accusamus ad alias cum cumque deserunt distinctio dolorum ea eum magnam maiores nostrum omnis quae, quam ratione repellendus sint sunt voluptatum? Aperiam at, dicta dolore dolores ex hic itaque laborum mollitia nisi perferendis quae quam qui repellat repellendus repudiandae saepe similique sunt tenetur ut veritatis! Magnam maiores rem repellat velit! Animi assumenda aut delectus dolor dolore earum error hic labore, maiores molestias nemo perspiciatis porro quia repellendus tempora! Accusamus accusantium, amet aspernatur at culpa deleniti distinctio ea esse est exercitationem inventore iusto nam natus necessitatibus nisi nostrum odit pariatur perferendis possimus quas reprehenderit rerum sed veritatis. Ab aliquid at aut beatae blanditiis cumque deserunt distinctio dolorem dolores doloribus, ea earum et hic itaque iusto labore, magnam minima natus nesciunt nisi numquam quaerat quam saepe suscipit totam ut voluptas! Alias aperiam doloremque dolorum eum impedit iure necessitatibus nemo odit reiciendis? Aperiam beatae corporis facilis libero veniam! Cupiditate distinctio dolor excepturi fugit laudantium quas quo vel voluptatum! Architecto consequuntur hic maiores pariatur! Corporis doloremque iste nostrum sunt tenetur, voluptatibus? Autem fuga fugit, necessitatibus nihil omnis quaerat quod rerum sunt. Adipisci aliquid amet architecto aspernatur beatae consectetur culpa cum, debitis delectus dicta dignissimos dolorem dolores eaque ex facilis fugit iste libero maiores mollitia necessitatibus neque numquam officia optio praesentium quaerat quas quasi qui quia quibusdam quidem quo quos repellat repellendus reprehenderit similique tempore tenetur. Excepturi fugiat id maiores necessitatibus numquam quaerat repellendus suscipit! A amet atque, autem consectetur consequatur consequuntur cupiditate distinctio dolore eligendi explicabo harum id illum labore maiores maxime nemo nulla optio praesentium, provident quam quasi ratione reiciendis reprehenderit soluta sunt, veniam voluptate! Corporis, eligendi, est exercitationem itaque laboriosam magni nobis nostrum numquam officiis ratione saepe voluptates? Consectetur cupiditate ducimus nam natus rem. Ab, accusamus assumenda blanditiis dolorum eligendi eveniet exercitationem explicabo id laborum magni nostrum provident quod soluta ullam ut, veritatis voluptates voluptatibus! Accusantium adipisci alias aliquam aperiam asperiores autem cumque debitis deleniti dicta dignissimos dolor dolorem ducimus eaque enim est, eveniet facere impedit in inventore ipsa ipsum laborum laudantium minima natus nobis numquam, officiis optio pariatur praesentium quam quisquam sapiente temporibus ut veniam veritatis vitae, voluptates. Dicta enim minima non praesentium repellat. Adipisci aliquid, animi aperiam asperiores aspernatur beatae consequuntur cum deleniti dicta doloremque doloribus eligendi error eum eveniet exercitationem illo, ipsum labore laudantium necessitatibus non officia possimus quae quas quasi qui quia quidem quisquam quod recusandae repudiandae sit tempora tenetur vel. Accusantium animi consectetur corporis cupiditate dolore enim esse excepturi hic illo ipsa ipsum, laborum maxime necessitatibus, nemo numquam placeat provident quos rem soluta, temporibus tenetur totam vero voluptas voluptatem voluptates! Eos, libero?
             </div>
-        </div>
-    </body>
-</html>
+
+@endsection
