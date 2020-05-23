@@ -43,12 +43,12 @@ class ThemesController extends Controller
         $this->validate($request,[
            'Theme_type' => 'required',
             'Theme_intitule' => 'required',
-            'Theme_image' => 'required'
+            'filepath' => 'required'
         ]);
         $theme = new Theme;
         $theme->Theme_type = $request->input('Theme_type');
         $theme->Theme_intitule = $request->input('Theme_intitule');
-        $theme->Theme_image = $request->input('Theme_image');
+        $theme->Theme_image = $request->input('filepath');
         $theme->save();
         return $this->afficher($theme->Theme_type);
     }
