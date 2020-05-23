@@ -1,0 +1,70 @@
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .hero-content-area .hero-text {
+        width: 450px;
+    }
+
+    .fplus-static-welcome-area {
+        height: 450px;
+    }
+    .static-content {
+        padding: 50px 70px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .fplus-blog-area .col-12:last-of-type .fplus-single-blog-area {
+        margin-top: 30px;
+    }
+
+    .hero-content-area .hero-text {
+        width: 330px;
+    }
+
+    .hero-content-area .hero-text h2 {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+
+    .fplus-blog-area .col-12:last-of-type .fplus-single-blog-area {
+        margin-bottom: 0;
+    }
+
+    .hero-content-area {
+        width: calc(80% - 15px);
+        padding: 50px 0;
+    }
+
+    .hero-content-area .hero-text h2 {
+        font-size: 30px;
+        margin-bottom: 50px;
+    }
+    .hero-content-area .hero-text {
+        width: 225px;
+    }
+
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .hero-content-area .hero-text {
+        width: 320px;
+    }
+    .single-portfolio-text {
+        width: 380px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .hero-content-area .hero-text {
+        width: 400px;
+    }
+    .single-portfolio-text {
+        width: 460px;
+    }
+    .single-portfolio-text p {
+        font-size: 11px;
+    }
+}
