@@ -1,6 +1,6 @@
 @extends("layouts.app")
 @section("content")
-
+    @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
     <div>
         {!! Form::open(['action' => 'ThemesController@store', 'method' => 'post']) !!}
         <div  class="container text-center">
@@ -14,14 +14,13 @@
             <br>
             <b>image : </b>
 
-                    <h2 class="mt-4">Standalone Image Button</h2>
                         <div class="input-group">
                                           <span class="input-group-btn">
                                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
                                               <i class="fa fa-picture-o"></i> Choose
                                             </a>
                                           </span>
-                            <input id="thumbnail" class="form-control" type="text" name="filepath">
+                            <input id="thumbnail" class="form-control" type="text" name="Theme_image">
                         </div>
                     <div id="holder" style="margin-top:15px;max-height:100px;"></div>
 
@@ -78,7 +77,9 @@
         $('#lfm').filemanager('image');
     </script>
 
-
+@else
+        khrj fhalk
+    @endif
 @endsection
 
 @section('script')
