@@ -1,5 +1,5 @@
-function showusers() {
-    var x = document.getElementById("users");
+function showdiv($id) {
+    var x = document.getElementById($id);
     if (x.classList.contains("d-none")) {
         x.classList.remove('d-none');
         x.classList.add('d-inline');

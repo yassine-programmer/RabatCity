@@ -53,10 +53,10 @@ Route::get('data', function () {
 Route::get('modal', function (){
     return view('layouts.modal');
 });
-
-Route::get('media-manager', function (){
-    return view('MediaManager');
-});
+//
+//Route::get('media-manager', function (){
+//    return view('MediaManager');
+//});
 
 Route::get('navbar',function (){
     return view ('header/header');

@@ -16,7 +16,7 @@
                     @endif
                     @if(Session::get('role')=='admin')
                     <div class="container text-center" >
-                        <button  class="btn-lg" onclick="showusers()">Afficher les utilisateurs</button>
+                        <button  class="btn-lg" onclick="showdiv('users')">Afficher les utilisateurs</button>
                             <br>
                              @include('Dashboard.ListAllUsers')
                         @endif

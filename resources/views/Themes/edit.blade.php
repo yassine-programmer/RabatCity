@@ -18,6 +18,7 @@
         <br>
         <input type="submit" value="update">
 
+
     </div>
     {!! Form::hidden('_method','PUT') !!}
     {!! Form::close() !!}
