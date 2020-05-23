@@ -11,8 +11,11 @@
     <section class="fplus-hero-area" style="background-image: url(/img/bg-img/hero-1.jpg)" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
-                <h2>For More Agency</h2>
-                <a href="#projects" class="view-portfolio-btn" id="scrollDown"><i class="fa fa-plus" aria-hidden="true"></i> View Portfolio</a>
+                <h2>{{$themes[0]->Theme_type}}</h2>
+                @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+                    <a href="/themes/create/{{$themes[0]->Theme_type}}" class="view-portfolio-btn" id="scrollDown">
+                        <i class="fa fa-plus" aria-hidden="true"></i>Creer un theme</a>
+                    @endif
             </div>
         </div>
     </section>
@@ -31,24 +34,97 @@
 
             <div class="row">
                 <!-- Single Blog Post Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s">
-                        <!-- Blog Thumbnail -->
-                        <img src="/img/bg-img/hero-1.jpg" alt="">
-                        <!-- Blog Content -->
-                        <div class="fplus-blog-content">
+                @if(count($themes)>0)
+                    @foreach($themes as $theme)
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                                <!-- Blog Thumbnail -->
+                                <img  src="{{$theme->Theme_image}}"  alt="" style="height: 200px;width:400px; ">
+                                <!-- Blog Content -->
+                                {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right']) !!}
+                                <div class="fplus-blog-content">
 
-                            <h5>Featured</h5>
-
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="#" >Cras justo odio</a></li>
-                                <li class="list-group-item"><a href="#" >Dapibus ac facilisis in</a></li>
-                                <li class="list-group-item"><a href="#" >Vestibulum at eros</a></li>
-                            </ul>
-
+                                    <h3>{{$theme->Theme_intitule}}</h3>
+                                    <h5>{{$theme->Theme_description}}</h5>
+                                    @php($categories = App\Categorie::where([['Theme_id',$theme->Theme_id],['Cat_id',null]])->take(3)->get())
+                                    @if(count($categories)== 1)
+                                        <ul class="list-group list-group-flush">
+                                            @foreach($categories as $categorie)
+                                            <li class="list-group-item"><a href="/categories/{{$categorie->Categorie_id}}" >
+                                                        {{$categorie->Categorie_intitule}}
+                                                </a></li>
+                                            @endforeach
+                                            <li class="list-group-item"><a href="#" >
+                                                        ...
+                                                </a></li>
+                                            <li class="list-group-item"><a href="#" >
+                                                        ...
+                                                 </a></li>
+                                                @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+                                                    <li class="list-group-item">
+                                                        <a class="btn btn-danger" href="#">
+                                                            <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+                                                        <a class="btn btn-default btn-sm" href="#">
+                                                            <i class="fa fa-cog"></i> Settings</a>
+                                                    </li>
+                                                @endif
+                                        </ul>
+                                    @elseif(count($categories)== 2)
+                                        <ul class="list-group list-group-flush">
+                                             @foreach($categories as $categorie)
+                                             <li class="list-group-item"><a href="/categories/{{$categorie->Categorie_id}}" >
+                                                          {{$categorie->Categorie_intitule}}
+                                                  </a></li>
+                                            @endforeach
+                                             <li class="list-group-item"><a href="#" >
+                                                     ...
+                                                 </a></li>
+                                                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+                                                     <li class="list-group-item">
+                                                         <a class="btn btn-danger" href="#">
+                                                             <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+                                                         <a class="btn btn-default btn-sm" href="#">
+                                                             <i class="fa fa-cog"></i> Settings</a>
+                                                     </li>
+                                                 @endif
+                                        </ul>
+                                    @elseif(count($categories)== 3)
+                                         <ul class="list-group list-group-flush">
+                                             @foreach($categories as $categorie)
+                                                 <li class="list-group-item"><a href="/categories/{{$categorie->Categorie_id}}" >
+                                                         {{$categorie->Categorie_intitule}}
+                                                     </a></li>
+                                             @endforeach
+                                                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+                                                     <li class="list-group-item">
+                                                         <a class="btn btn-danger" href="#">
+                                                             <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+                                                         <a class="btn btn-default btn-sm" href="#">
+                                                             <i class="fa fa-cog"></i> Settings</a>
+                                                     </li>
+                                                 @endif
+                                         </ul>
+                                    @else
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"><a href="#" >...</a></li>
+                                            <li class="list-group-item"><a href="#" >...</a></li>
+                                            <li class="list-group-item"><a href="#" >...</a></li>
+                                            @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+                                                <li class="list-group-item">
+                                                    <a class="btn btn-danger" href="#">
+                                                        <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+                                                    <a class="btn btn-default btn-sm" href="#">
+                                                        <i class="fa fa-cog"></i> Settings</a>
+                                                </li>
+                                            @endif
+                                        </ul>
+                                    @endif
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

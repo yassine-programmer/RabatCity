@@ -34,6 +34,7 @@
 
     </main>
 </div>
+   @include('inc.footer')
 @yield('script')
 
 
