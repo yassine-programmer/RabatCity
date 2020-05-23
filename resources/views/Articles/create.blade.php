@@ -1,9 +1,5 @@
-<html>
-    <head>
-        <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
-    </head>
-    <body>
-
+@if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+<script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
     <div>
         {!! Form::open(['action' => 'ArticlesController@store', 'method' => 'post']) !!}
         <br><br>
@@ -27,6 +23,7 @@
             </script>
             <br>
             <br>
+            <b>Image </b><input type="text" id="Article_image">
             <input type="submit" value="create">
 
         </div>
@@ -36,5 +33,7 @@
     <script>
         CKEDITOR.replace('my-editor', options);
     </script>
-    </body>
-</html>
+
+@else
+    khrj fhalk
+@endif

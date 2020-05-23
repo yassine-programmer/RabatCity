@@ -109,13 +109,16 @@ class CategoriesController extends Controller
     {
         $this->validate($request,[
                 'Categorie_intitule' => 'required',
-                'Categorie_image' => 'required'
+                'Categorie_image' => 'nullable'
             ]
         );
 
         $categorie = Categorie::find($id);
         $categorie->Categorie_intitule = $request->input('Categorie_intitule');
+        if ($request->input('Categorie_image'))
         $categorie->Categorie_image = $request->input('Categorie_image');
+        else
+            $categorie->Categorie_image="noimage.jpg";
         $categorie->save();
 
         if(empty($categorie->Cat_id)){

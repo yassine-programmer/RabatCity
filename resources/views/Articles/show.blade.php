@@ -15,8 +15,10 @@
         @foreach($articles as $article)
             <h3>Titre article : {{$article->Article_titre}}</h3>
             <div>Contenu article: {!! $article->Article_text !!}</div>
+            <br>
+            Image : {{$article->Article_image}}
             <br><br>
-            @if(Session::get('role')!='user')
+            @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
             <a href="/articles/{{$article->Article_id}}/edit">Edit</a>
             {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right']) !!}
             {{ Form::hidden('_method','DELETE') }}
