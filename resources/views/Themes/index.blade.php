@@ -37,102 +37,69 @@
                 @if(count($themes)>0)
                     @foreach($themes as $theme)
                         <div class="col-12 col-md-6 col-lg-4">
-                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});">
                                 <!-- Blog Thumbnail -->
                                 <img  src="{{$theme->Theme_image}}"  alt="" style="height: 200px;width:400px; ">
                                 <!-- Blog Content -->
-                                {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right']) !!}
+
                                 <div class="fplus-blog-content">
 
                                     <h3>{{$theme->Theme_intitule}}</h3>
                                     <h5>{{$theme->Theme_description}}</h5>
                                     @php($categories = App\Categorie::where([['Theme_id',$theme->Theme_id],['Cat_id',null]])->take(3)->get())
-                                    @if(count($categories)== 1)
+
                                         <ul class="list-group list-group-flush">
-                                            @foreach($categories as $categorie)
-                                            <li class="list-group-item"><a href="/categories/{{$categorie->Categorie_id}}" >
-                                                        {{$categorie->Categorie_intitule}}
+                                            @for($i=0;$i<3;$i++)
+                                            @if(isset($categories[$i]))
+                                            <li class="list-group-item"><a href="/categories/{{$categories[$i]->Categorie_id}}" >
+                                                        {{$categories[$i]->Categorie_intitule}}
                                                 </a></li>
-                                            @endforeach
-                                            <li class="list-group-item"><a href="#" >
-                                                        ...
-                                                </a></li>
-                                            <li class="list-group-item"><a href="#" >
-                                                        ...
-                                                 </a></li>
+                                            @else
+                                                    <li class="list-group-item"><a href="#">
+                                                            ...
+                                                        </a></li>
+                                             @endif
+                                            @endfor
                                                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                                                    <li class="list-group-item">
-                                                        <a class="btn btn-danger" href="#">
-                                                            <i class="fa fa-trash-o fa-lg"></i> Delete</a>
-                                                        <a class="btn btn-default btn-sm" href="#">
-                                                            <i class="fa fa-cog"></i> Settings</a>
+                                                    <li class="list-group-item d-none" id="manager_btn_{{$theme->Theme_id}}">
+                                                        {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$theme->Theme_id]) !!}
+                                                        {{ Form::hidden('_method','DELETE') }}
+                                                        <button class="btn btn-danger"  onclick="document.getElementById('form_{{$theme->Theme_id}}').submit();">
+                                                            <i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                                                        {!! Form::close() !!}
+                                                        <a class="btn btn-default btn-sm" id="Edit_btn" href="/themes/{{$theme->Theme_id}}/edit">
+                                                            <i class="fa fa-cog"></i> Edit</a>
                                                     </li>
                                                 @endif
                                         </ul>
-                                    @elseif(count($categories)== 2)
-                                        <ul class="list-group list-group-flush">
-                                             @foreach($categories as $categorie)
-                                             <li class="list-group-item"><a href="/categories/{{$categorie->Categorie_id}}" >
-                                                          {{$categorie->Categorie_intitule}}
-                                                  </a></li>
-                                            @endforeach
-                                             <li class="list-group-item"><a href="#" >
-                                                     ...
-                                                 </a></li>
-                                                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                                                     <li class="list-group-item">
-                                                         <a class="btn btn-danger" href="#">
-                                                             <i class="fa fa-trash-o fa-lg"></i> Delete</a>
-                                                         <a class="btn btn-default btn-sm" href="#">
-                                                             <i class="fa fa-cog"></i> Settings</a>
-                                                     </li>
-                                                 @endif
-                                        </ul>
-                                    @elseif(count($categories)== 3)
-                                         <ul class="list-group list-group-flush">
-                                             @foreach($categories as $categorie)
-                                                 <li class="list-group-item"><a href="/categories/{{$categorie->Categorie_id}}" >
-                                                         {{$categorie->Categorie_intitule}}
-                                                     </a></li>
-                                             @endforeach
-                                                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                                                     <li class="list-group-item">
-                                                         <a class="btn btn-danger" href="#">
-                                                             <i class="fa fa-trash-o fa-lg"></i> Delete</a>
-                                                         <a class="btn btn-default btn-sm" href="#">
-                                                             <i class="fa fa-cog"></i> Settings</a>
-                                                     </li>
-                                                 @endif
-                                         </ul>
-                                    @else
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item"><a href="#" >...</a></li>
-                                            <li class="list-group-item"><a href="#" >...</a></li>
-                                            <li class="list-group-item"><a href="#" >...</a></li>
-                                            @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                                                <li class="list-group-item">
-                                                    <a class="btn btn-danger" href="#">
-                                                        <i class="fa fa-trash-o fa-lg"></i> Delete</a>
-                                                    <a class="btn btn-default btn-sm" href="#">
-                                                        <i class="fa fa-cog"></i> Settings</a>
-                                                </li>
-                                            @endif
-                                        </ul>
-                                    @endif
+
                                 </div>
-                                {!! Form::close() !!}
+
                             </div>
                         </div>
                     @endforeach
                 @endif
             </div>
         </div>
+        <br>
     </section>
     <!-- ****** Blog Area End ****** -->
 @endsection
 
 @section('script')
+    <script>
+        function ShowOnHover($id) {
+            var x = document.getElementById('manager_btn_'+$id);
 
+                x.classList.remove('d-none');
+                x.classList.add('d-inline');
+        }
+        function Hide($id){
+            var x = document.getElementById('manager_btn_'+$id);
+            x.classList.remove('d-inline');
+            x.classList.add('d-none');
+        }
+        </script>
     <!-- Popper js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!-- All Plugins js -->
