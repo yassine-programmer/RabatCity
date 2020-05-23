@@ -37,7 +37,9 @@ Route::get('/AjaxCat', function () {
     return view('Categories.AjaxCategorie');
 });
 
-
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 
 

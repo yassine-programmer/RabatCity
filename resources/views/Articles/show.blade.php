@@ -14,7 +14,7 @@
     @if(count($articles)>0)
         @foreach($articles as $article)
             <h3>Titre article : {{$article->Article_titre}}</h3>
-            <div>Contenu article: {{$article->Article_text}}</div>
+            <div>Contenu article: {!! $article->Article_text !!}</div>
             <br><br>
             @if(Session::get('role')!='user')
             <a href="/articles/{{$article->Article_id}}/edit">Edit</a>

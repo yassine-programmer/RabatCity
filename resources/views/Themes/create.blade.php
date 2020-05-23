@@ -12,6 +12,7 @@
             <input type="text" name="Theme_intitule">
         <br>
         <b>image : </b>
+        @include('inc.StandaloneImageButton')
             <input type="text" name="Theme_image">
         <br>
         <input type="submit" value="create">
