@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row top-buffer" >
                 <!-- Single Blog Post Area -->
                 @if(count($themes)>0)
                     @foreach($themes as $theme)

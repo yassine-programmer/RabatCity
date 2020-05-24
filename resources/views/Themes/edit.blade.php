@@ -13,6 +13,8 @@
         <b>Theme intitule : </b>
         <input type="text" name="Theme_intitule" value="{{$theme->Theme_intitule}}">
         <br>
+        <b>Description : </b> <input type="text" name="Theme_description" value="{{$theme->Theme_description}}">
+        <br>
         <b>image : </b>
 
         <div class="input-group">

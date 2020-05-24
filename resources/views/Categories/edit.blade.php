@@ -8,6 +8,8 @@
         <b>Categorie intitule : </b>
         <input type="text" name="Categorie_intitule" value="{{$categorie->Categorie_intitule}}">
         <br>
+        <b>Description : </b> <input type="text" name="Categorie_description" value="{{$categorie->Categorie_description}}">
+        <br>
         <b>Image : </b>
         <div class="input-group">
                                           <span class="input-group-btn">

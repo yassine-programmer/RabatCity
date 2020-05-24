@@ -21,6 +21,8 @@
         <b>Categorie intitule : </b>
         <input type="text" name="Categorie_intitule">
         <br>
+        <b>Description : </b> <input type="text" name="Categorie_description">
+        <br>
         <b>image : </b>
         <div class="input-group">
                                           <span class="input-group-btn">
