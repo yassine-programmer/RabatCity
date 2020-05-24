@@ -43,11 +43,13 @@ class ThemesController extends Controller
         $this->validate($request,[
            'Theme_type' => 'required',
             'Theme_intitule' => 'required',
+            'Theme_description' => 'required',
             'Theme_image' => 'nullable'
         ]);
         $theme = new Theme;
         $theme->Theme_type = $request->input('Theme_type');
         $theme->Theme_intitule = $request->input('Theme_intitule');
+        $theme->Theme_description = $request->input('Theme_description');
         if ( $request->input('Theme_image'))
         $theme->Theme_image = $request->input('Theme_image');
         else
@@ -95,12 +97,14 @@ class ThemesController extends Controller
     {
        $this->validate($request,[  'Theme_type' => 'required',
                'Theme_intitule' => 'required',
+               'Theme_description' => 'required',
                'Theme_image' => 'required'
            ]
        );
         $theme = Theme::find($id);
         $theme->Theme_type = $request->input('Theme_type');
         $theme->Theme_intitule = $request->input('Theme_intitule');
+        $theme->Theme_description = $request->input('Theme_description');
         $theme->Theme_image = $request->input('Theme_image');
         $theme->save();
         return  view('Themes/'.$theme->Theme_type );

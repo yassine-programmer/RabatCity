@@ -46,10 +46,12 @@ class CategoriesController extends Controller
     {
         $this->validate($request,[
             'Categorie_intitule' => 'required',
+            'Categorie_description' => 'required',
             'Categorie_image' => 'required'
         ]);
         $categorie = new Categorie;
         $categorie->Categorie_intitule = $request->input('Categorie_intitule');
+        $categorie->Categorie_description = $request->input('Categorie_description');
         $categorie->Categorie_image = $request->input('Categorie_image');
         if(empty($categorie->Cat_id)){
             $categorie->Cat_id = $request->input('Cat_id');
@@ -109,12 +111,14 @@ class CategoriesController extends Controller
     {
         $this->validate($request,[
                 'Categorie_intitule' => 'required',
+                'Categorie_description' => 'required',
                 'Categorie_image' => 'nullable'
             ]
         );
 
         $categorie = Categorie::find($id);
         $categorie->Categorie_intitule = $request->input('Categorie_intitule');
+        $categorie->Categorie_description = $request->input('Categorie_description');
         if ($request->input('Categorie_image'))
         $categorie->Categorie_image = $request->input('Categorie_image');
         else
