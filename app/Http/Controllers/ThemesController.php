@@ -17,7 +17,8 @@ class ThemesController extends Controller
     {
 
             $themes = Theme::where('Theme_type',$Theme_type)->get();
-            return view('Themes.index')->with('themes',$themes);
+
+            return view('Themes.index')->with(['themes'=>$themes,'Theme_type'=>$Theme_type]);
     }
 
 

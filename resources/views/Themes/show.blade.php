@@ -12,7 +12,7 @@
     <section class="fplus-hero-area" style="background-image: url({{$theme->Theme_image}})" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
-                <h2>{{$theme->Theme_intitule}}</h2>
+                <h2>{{$theme->Theme_intitule }}</h2>
                 <h5>{{$theme->Theme_description}}</h5>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                     <a href="/categories/createCategorie/{{$theme->Theme_id}}" class="view-portfolio-btn" id="scrollDown">

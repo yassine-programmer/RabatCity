@@ -22,9 +22,9 @@
     <section class="fplus-hero-area" style="background-image: url(/img/bg-img/hero-1.jpg)" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
-                <h2>{{$themes[0]->Theme_type}}</h2>
+                <h2>{{$Theme_type}}</h2>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                    <a href="/themes/create/{{$themes[0]->Theme_type}}" class="view-portfolio-btn" id="scrollDown">
+                    <a href="/themes/create/{{$Theme_type}}" class="view-portfolio-btn" id="scrollDown">
                         <i class="fa fa-plus" aria-hidden="true"></i>Creer un theme</a>
                     @endif
             </div>
@@ -45,7 +45,8 @@
 
             <div class="row top-buffer" >
                 <!-- Single Blog Post Area -->
-                @if(count($themes)>0)
+
+                @if(isset($themes) && count($themes)>0)
                     @foreach($themes as $theme)
                         <div class="col-12 col-md-6 col-lg-4 mt-5">
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});">
@@ -92,22 +93,16 @@
                             </div>
                         </div>
                     @endforeach
-                        <div class="col-12 col-md-6 col-lg-4" style="padding-top: 4%;">
-                            <a href="/themes/create/{{$themes[0]->Theme_type}}">
-                            <div class="fplus-single-blog-area wow fadeInUp add" data-wow-delay="0.5s" style=" border: 3px dashed" >
 
 
-
-
-                                    <img src="https://i.imgur.com/7yPHMCB.png" style="width: 120px; margin-top: 50%; margin-bottom: 50%; margin-left: 29%;">
-
-
-
-                        </table>
-                        </div>
-                            </a>
-            </div>
                 @endif
+            <div class="col-12 col-md-6 col-lg-4" style="padding-top: 4%;">
+                <a href="/themes/create/{{$Theme_type}}">
+                    <div class="fplus-single-blog-area wow fadeInUp add" data-wow-delay="0.5s" style=" border: 3px dashed" >
+                        <img src="https://i.imgur.com/7yPHMCB.png" style="width: 120px; margin-top: 50%; margin-bottom: 50%; margin-left: 29%;">
+                    </div>
+                </a>
+            </div>
             </div>
         </div>
         <br>
