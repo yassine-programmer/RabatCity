@@ -1,38 +1,57 @@
 @extends("layouts.app")
+@section("css")
+    <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
+    @endsection
 @section("content")
     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-    <div>
         {!! Form::open(['action' => 'ThemesController@store', 'method' => 'post']) !!}
-        <div  class="container text-center">
-            <b>Le type du theme: </b>
-                <select name="Theme_type">
-                    <option>{{$theme_type}}</option>
-                </select>
-            <br>
-            <b>Theme intitule : </b>
-                <input type="text" name="Theme_intitule">
-            <br>
-            <b>Description : </b> <input type="text" name="Theme_description">
-            <br>
-            <b>image : </b>
+        <div class="container-contact100">
+            <div class="wrap-contact100">
+                <form class="contact100-form">
+				<span class="contact100-form-title">
+					Ajouter un Theme :
+				</span>
+                    <div class="wrap-input100 bg1" style="margin-top: 30px">
+                        <span class="label-input100"><b>Type Theme *</b></span>
+                        <input class="input100" type="text" name="Theme_type" placeholder="{{$theme_type}}" disabled>
+                    </div>
 
+                    <div class=" wrap-input100 bg1">
+                        <span class="label-input100"><b>Theme Intitule *</b></span>
+                        <input class="input100" type="text" name="Theme_intitule" placeholder="Saisissez l'intitule du theme">
+                    </div>
+
+                    <div class=" wrap-input100 bg1">
+                        <span class="label-input100"><b>Theme Image *</b></span>
                         <div class="input-group">
                                           <span class="input-group-btn">
                                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
                                               <i class="fa fa-picture-o"></i> Choose
                                             </a>
                                           </span>
-                            <input id="thumbnail" class="form-control" type="text" name="Theme_image">
+                            <input id="thumbnail" class="form-control input100" type="text" name="Theme_image">
                         </div>
-                    <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                    </div>
 
-            <br>
-            <input type="submit" value="create">
 
+                    <div class="wrap-input100  bg0">
+                        <span class="label-input100"><b>Theme Description *</b></span>
+                        <textarea class="input100" name="Theme_description" placeholder="Votre description..."></textarea>
+                    </div>
+
+                    <div class="container-contact100-form-btn">
+                        <button class="contact100-form-btn">
+						<span>
+							Valider
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
         {!! Form::close() !!}
-
-    </div>
     <!-- Scripts -->
     <script type="application/javascript">
         (function( $ ){
