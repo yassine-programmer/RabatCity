@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Categorie;
@@ -77,14 +78,14 @@ class CategoriesController extends Controller
     public function show($id) //id is the parent categorie id
     {
         $categorie_parent=Categorie::find($id);
-        $categories_fils=Categorie::where("Cat_id",$categorie_parent->Categorie_id)->get();
-        if(count($categories_fils)>0){
-            return view('Categories/show')->with(['categorie_parent'=>$categorie_parent , 'categories_fils'=>$categories_fils]);
-        }
-        else{
-            return redirect('Articles/'.$categorie_parent->Categorie_id);
-        }
-
+        $categories_fils=Categorie::where("Cat_id",$id)->get();
+        $articles = Article::where("Categorie_id",$id)->get();
+        if (count($categories_fils)>0)
+         return view('Categories.show')->with(['categories_fils'=>$categories_fils,'categorie_parent'=>$categorie_parent]);
+        elseif (count($articles)>0)
+            return view('Categories.showArticles')->with(['articles'=>$articles,'categorie_parent'=>$categorie_parent]);
+        else
+            return view('Categories.showEmpty')->with('categorie_parent',$categorie_parent);
     }
 
     /**
