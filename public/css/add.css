@@ -1,0 +1,9 @@
+.add {
+    opacity: 0.2;
+    filter: alpha(opacity=40);
+}
+
+.add:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}

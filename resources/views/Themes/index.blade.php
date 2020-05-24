@@ -3,17 +3,7 @@
 @section('css')
     <link  href="/css/styleTheme.css" rel="stylesheet">
     <link  href="/css/responsive/responsive.css" rel="stylesheet">
-    <style>
-        .add {
-            opacity: 0.2;
-            filter: alpha(opacity=40);
-        }
-
-        .add:hover {
-            opacity: 1.0;
-            filter: alpha(opacity=100);
-        }
-    </style>
+    <link href="/css/add.css" rel="stylesheet">
     @endsection
 
 @section("content")
