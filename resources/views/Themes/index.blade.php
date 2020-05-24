@@ -36,15 +36,16 @@
                 <!-- Single Blog Post Area -->
                 @if(count($themes)>0)
                     @foreach($themes as $theme)
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6 col-lg-4 mt-5">
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});">
                                 <!-- Blog Thumbnail -->
-                                <img  src="{{$theme->Theme_image}}"  alt="" style="height: 200px;width:400px; ">
+                                <a href="/themes/{{$theme->Theme_id}}">
+                                    <img  src="{{$theme->Theme_image}}"  alt="" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
 
                                 <div class="fplus-blog-content">
 
-                                    <h3>{{$theme->Theme_intitule}}</h3>
+                                    <a href="/themes/{{$theme->Theme_id}}"><h3>{{$theme->Theme_intitule}}</h3></a>
                                     <h5>{{$theme->Theme_description}}</h5>
                                     @php($categories = App\Categorie::where([['Theme_id',$theme->Theme_id],['Cat_id',null]])->take(3)->get())
 
