@@ -36,7 +36,7 @@
 
             <div class="row">
                 <!-- Single Blog Post Area -->
-                @if($categories_fils)>0)
+                @if(count($categories_fils)>0)
                     @foreach($categories_fils as $categorie)
                         <div class="col-12 col-md-6 col-lg-3 mt-5">
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie_parent->Categorie_id}});" onmouseleave="Hide({{$categorie_parent->Categorie_id}});">
@@ -47,14 +47,15 @@
 
                                 <div class="fplus-blog-content">
 
-                                    <a href="/categories/{{$categorie->Categorie_id}}">
-                                        <h3>{{$categorie->Categorie_intitule}}</h3></a>
+                                    <a class="text-center" href="/categories/{{$categorie->Categorie_id}}" >
+                                        <h4>{{$categorie->Categorie_intitule}}</h4></a>
                                     @php($categories = App\Categorie::where('Cat_id',$categorie->Categorie_id)->take(3)->get())
 
                                     <ul class="list-group list-group-flush">
                                         @for($i=0;$i<3;$i++)
                                             @if(isset($categories[$i]))
-                                                <li class="list-group-item"><a href="/categories/{{$categories[$i]->Categorie_id}}" >
+                                                <li class="list-group-item">
+                                                    <a href="/categories/{{$categories[$i]->Categorie_id}}" >
                                                         {{$categories[$i]->Categorie_intitule}}
                                                     </a></li>
                                             @else

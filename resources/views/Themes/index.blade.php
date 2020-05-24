@@ -36,7 +36,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-heading text-center">
+                    <div class="section-heading text-center mt-3">
                         <h4>Themes</h4>
                         <div class="section-heading-line"></div>
                     </div>
@@ -56,8 +56,10 @@
 
                                 <div class="fplus-blog-content">
 
-                                    <a href="/themes/{{$theme->Theme_id}}"><h3>{{$theme->Theme_intitule}}</h3></a>
-                                    <h5>{{$theme->Theme_description}}</h5>
+                                    <a class="text-center" href="/themes/{{$theme->Theme_id}}"><h4>{{$theme->Theme_intitule}}</h4></a>
+                                    <h6><?php
+                                        echo substr($theme->Theme_description, 0, 28);
+                                        ?>...</h6>
                                     @php($categories = App\Categorie::where([['Theme_id',$theme->Theme_id],['Cat_id',null]])->take(3)->get())
 
                                         <ul class="list-group list-group-flush">

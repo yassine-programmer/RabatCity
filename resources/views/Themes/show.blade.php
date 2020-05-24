@@ -48,7 +48,7 @@
                                 <div class="fplus-blog-content">
 
                                     <a href="/categories/{{$categorie->Categorie_id}}">
-                                        <h3>{{$categorie->Categorie_intitule}}</h3></a>
+                                        <h4 class="text-center">{{$categorie->Categorie_intitule}}</h4></a>
                                     @php($categories = App\Categorie::where('Cat_id',$categorie->Categorie_id)->take(3)->get())
 
                                     <ul class="list-group list-group-flush">
