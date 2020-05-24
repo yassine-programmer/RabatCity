@@ -51,15 +51,20 @@
                                     <a class="text-center" href="/categories/{{$categorie->Categorie_id}}" >
                                         <h4>{{$categorie->Categorie_intitule}}</h4></a>
 
+                                    @php($categories = App\Categorie::where('Cat_id',$categorie->Categorie_id)->take(3)->get())
+                                    @php($articles = App\Article::where('Categorie_id',$categorie->Categorie_id)->take(3)->get())
                                     <ul class="list-group list-group-flush">
                                         @for($i=0;$i<3;$i++)
                                             @if(isset($categories[$i]))
-                                                <li class="list-group-item">
-                                                    <a href="/categories/{{$categories[$i]->Categorie_id}}" >
+                                                <li class="list-group-item"><a href="/categories/{{$categories[$i]->Categorie_id}}" >
                                                         {{$categories[$i]->Categorie_intitule}}
                                                     </a></li>
-
-                                                @else
+                                            @elseif(isset($articles[$i]))
+                                                <li class="list-group-item">
+                                                    <a href="#" >
+                                                        #{{$articles[$i]->Article_titre}}
+                                                    </a></li>
+                                            @else
                                                 <li class="list-group-item"><a href="#">
                                                         ...
                                                     </a></li>
