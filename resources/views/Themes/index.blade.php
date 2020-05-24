@@ -3,6 +3,17 @@
 @section('css')
     <link  href="/css/styleTheme.css" rel="stylesheet">
     <link  href="/css/responsive/responsive.css" rel="stylesheet">
+    <style>
+        .add {
+            opacity: 0.2;
+            filter: alpha(opacity=40);
+        }
+
+        .add:hover {
+            opacity: 1.0;
+            filter: alpha(opacity=100);
+        }
+    </style>
     @endsection
 
 @section("content")
@@ -79,6 +90,23 @@
                             </div>
                         </div>
                     @endforeach
+                        <div class="col-12 col-md-6 col-lg-4" style="padding-top: 4%;">
+                            <a href="/themes/create/{{$themes[0]->Theme_type}}">
+                            <div class="fplus-single-blog-area wow fadeInUp add" data-wow-delay="0.5s" style=" border: 3px dashed" >
+
+                            <table >
+
+                            <tr>
+                                <td>
+
+                                    <img src="https://i.imgur.com/7yPHMCB.png" style="width: 120px;margin-top: 200%;margin-bottom: 200%;margin-left: 90%;">
+
+
+                            </tr>
+                        </table>
+                        </div>
+                            </a>
+            </div>
                 @endif
             </div>
         </div>
