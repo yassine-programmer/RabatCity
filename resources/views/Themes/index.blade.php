@@ -96,6 +96,7 @@
 
 
                 @endif
+                @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
             <div class="col-12 col-md-6 col-lg-4" style="padding-top: 4%;">
                 <a href="/themes/create/{{$Theme_type}}">
                     <div class="fplus-single-blog-area wow fadeInUp add" data-wow-delay="0.5s" style=" border: 3px dashed" >
@@ -103,6 +104,7 @@
                     </div>
                 </a>
             </div>
+                    @endif
             </div>
         </div>
         <br>
