@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('Article_titre');
             $table->string('Article_image');
             $table->longText('Article_text');
-            $table->integer('Categorie_id')->references('Categorie_id')->on('categories');
+            $table->integer('Categorie_id')->references('Categorie_id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -57,9 +57,33 @@
                         </div>
                     </div>
                 </div>
-
-            </section>
             <!-- ****** About Us Area end ****** -->
+            <!-- ****** new article ****** -->
+                <div class="section-heading text-center" style="margin-top: 70px">
+                    <h4>Articles Recent</h4>
+                    <div class="section-heading-line"></div>
+                    <div class="container">
+                        <div class="row">
+                            <!-- Single Feature -->
+                            @php($newArticles = App\Article::where('Article_id','<>',$article->Article_id)->take(3)->get())
+                            @foreach($newArticles as $newArticle)
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="fplus-single-feature wow fadeInUp" data-wow-delay="1s">
+                                    <a href="#">
+                                        <img  src="{{$newArticle->Article_image}}"  alt="" style="height: 200px;width:400px; ">
+                                    </a>
+                                    <div class="feature-title d-flex align-items-center" style="margin-top: 20px">
+                                        <h5>{{$newArticle->Article_titre}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                            <!-- Single Feature -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+                <!-- ****** new article end ****** -->
 
                 
                 @endsection
