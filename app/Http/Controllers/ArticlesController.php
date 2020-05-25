@@ -53,10 +53,10 @@ class ArticlesController extends Controller
         if ( $request->input('Article_image'))
         $article->Article_image = $request->input('Article_image');
         else
-            $article->Article_image= "noimage.jpg";
+        $article->Article_image= "noimage.jpg";
         $article->Categorie_id = $request->input('Categorie_id');
         $article->save();
-        return redirect('Articles/'.$article->Categorie_id);
+        return $this->show($article->Article_id);
     }
 
     /**
@@ -118,7 +118,18 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         $article = Article::find($id);
+        $Categorie2 = $article->Categorie_id;
         $article->delete();
-        return redirect('Articles/'.$article->Categorie_id);
+        $categories_fils=Categorie::where("Categorie_id",$Categorie2)->get();
+        $categorie_parent=Categorie::where("Categorie_id",$categories_fils[0]->Cat_id)->get();
+        $articles = Article::where("Categorie_id",$categorie_parent[0]->Categorie_id)->get();
+        if(count($articles)>0)
+            return view('Categories.showArticles')->with(['articles'=>$articles,'categorie_parent'=>$categorie_parent]);
+        else {
+            if (empty($categories_fils->Cat_id))
+                return redirect('/categories/' . $categories_fils[0]->Categorie_id);
+            else
+                return view('Categories.show')->with(['categories_fils' => $categories_fils, 'categorie_parent' => $categorie_parent]);
+        }
     }
 }
