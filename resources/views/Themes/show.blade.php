@@ -71,7 +71,7 @@
                                         @endfor
                                         @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                             <li class="btn-sm list-group-item d-none" id="manager_btn_{{$categorie->Categorie_id}}">
-                                                {!! Form::open([ 'action'=>['CategoriesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie->Categorie_id]) !!}
+                                                {!! Form::open([ 'action'=>['CategoriesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie->Categorie_id,'onsubmit' => 'return confirm("Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table");']) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
                                                 <button class="btn btn-danger btn-sm"  onclick="document.getElementById('form_{{$categorie->Categorie_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>

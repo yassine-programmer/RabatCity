@@ -65,9 +65,9 @@
                                                         </a></li>
                                              @endif
                                             @endfor
-                                                @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                                     <li class="list-group-item d-none" id="manager_btn_{{$theme->Theme_id}}">
-                                                        {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$theme->Theme_id]) !!}
+                                                        {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$theme->Theme_id,'onsubmit' => 'return confirm("Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table");']) !!}
+                                                        @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                                         {{ Form::hidden('_method','DELETE') }}
                                                         <button class="btn btn-danger"  onclick="document.getElementById('form_{{$theme->Theme_id}}').submit();">
                                                             <i class="fa fa-trash-o fa-lg"></i> Delete</button>
