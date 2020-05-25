@@ -43,7 +43,7 @@
                                     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                         <br>
                                         <li class="list-group-item d-none" id="manager_btn_{{$categorie[0]->Categorie_id}}">
-                                            {!! Form::open([ 'action'=>['ThemesController@destroy',$categorie[0]->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie[0]->Categorie_id]) !!}
+                                            {!! Form::open([ 'action'=>['ArticlesController@destroy',$categorie[0]->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie[0]->Categorie_id]) !!}
                                             {{ Form::hidden('_method','DELETE') }}
                                             <button class="btn btn-danger"  onclick="document.getElementById('form_{{$categorie[0]->Categorie_id}}').submit();">
                                                 <i class="fa fa-trash-o fa-lg"></i> Delete</button>

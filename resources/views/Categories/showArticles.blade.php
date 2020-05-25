@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading text-center">
-                        <h4>Categories</h4>
+                        <h4>Articles</h4>
                         <div class="section-heading-line"></div>
                     </div>
                 </div>
@@ -45,13 +45,8 @@
                                 <a href="/Articles/{{$article->Article_id}}">
                                     <img  src="{{$article->Article_image}}"  alt="" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
-
                                 <div class="fplus-blog-content">
-
                                     <a class="text-center" href="/Articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>
-
-
-
                                     <ul class="list-group list-group-flush">
                                         @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                             <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
