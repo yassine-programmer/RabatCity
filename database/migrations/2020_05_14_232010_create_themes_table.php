@@ -15,7 +15,7 @@ class CreateThemesTable extends Migration
     public function up()
     {
         Schema::create('themes', function (Blueprint $table) {
-            $table->Increments('Theme_id');
+            $table->increments('Theme_id');
             $table->string('Theme_type');
             $table->string('Theme_intitule')->unique();
             $table->string('Theme_image');

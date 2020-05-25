@@ -48,12 +48,15 @@ class CategoriesController extends Controller
         $this->validate($request,[
             'Categorie_intitule' => 'required',
             'Categorie_description' => 'required',
-            'Categorie_image' => 'required'
+            'Categorie_image' => 'nullable'
         ]);
         $categorie = new Categorie;
         $categorie->Categorie_intitule = $request->input('Categorie_intitule');
         $categorie->Categorie_description = $request->input('Categorie_description');
+        if ($request->input('Categorie_image'))
         $categorie->Categorie_image = $request->input('Categorie_image');
+        else
+            $categorie->Categorie_image ='noimage.jpg';
         if(empty($categorie->Cat_id)){
             $categorie->Cat_id = $request->input('Cat_id');
         };

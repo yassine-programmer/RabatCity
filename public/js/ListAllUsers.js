@@ -44,7 +44,7 @@ function textToInput($nameId,$id){
     document.getElementById($nameId+'_user_'+$id).classList.add('d-none');
     document.getElementById($nameId+'_user_input_'+$id).classList.remove('d-none');
     document.getElementById($nameId+'_user_input_'+$id).classList.add('d-inline');
-    i.size = Math.max(i.value.length, 1);
+    i.size = Math.max((i.value.length >= 5) ? i.value.length : 6, 1);
 }
 function textToselect($id ){
     var i=document.getElementById('role_user_select_'+$id);

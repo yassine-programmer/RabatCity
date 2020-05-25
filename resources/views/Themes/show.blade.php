@@ -3,6 +3,7 @@
 @section('css')
     <link  href="/css/styleTheme.css" rel="stylesheet">
     <link  href="/css/responsive/responsive.css" rel="stylesheet">
+    <link href="/css/add.css" rel="stylesheet">
 @endsection
 
 
@@ -42,7 +43,7 @@
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie->Categorie_id}});" onmouseleave="Hide({{$categorie->Categorie_id}});">
                                 <!-- Blog Thumbnail -->
                                 <a href="/categories/{{$categorie->Categorie_id}}">
-                                    <img  src="{{$categorie->Categorie_image}}"  alt="" style="height: 200px;width:400px; "></a>
+                                    <img  src="{{$categorie->Categorie_image}}"  class="grow" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
 
                                 <div class="fplus-blog-content">
@@ -88,9 +89,10 @@
                     @endforeach
                 @endif
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+
                     <div class="col-12 col-md-6 col-lg-4" style="padding-top: 4%;">
                         <a href="/categories/createCategorie/{{$theme->Theme_id}}">
-                            <div class="fplus-single-blog-area wow fadeInUp add" data-wow-delay="0.5s" style=" border: 3px dashed" >
+                            <div class="fplus-single-blog-area wow fadeInUp add " data-wow-delay="0.5s" style=" border: 3px dashed" >
                                 <img src="https://i.imgur.com/7yPHMCB.png" style="width: 120px; margin-top: 50%; margin-bottom: 50%; margin-left: 29%;">
                             </div>
                         </a>
