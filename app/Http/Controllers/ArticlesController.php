@@ -53,7 +53,7 @@ class ArticlesController extends Controller
         if ( $request->input('Article_image'))
         $article->Article_image = $request->input('Article_image');
         else
-        $article->Article_image= "noimage.jpg";
+        $article->Article_image= "/storage/photos/shares/noimage.jpg";
         $article->Categorie_id = $request->input('Categorie_id');
         $article->save();
         return $this->show($article->Article_id);

@@ -56,7 +56,7 @@ class CategoriesController extends Controller
         if ($request->input('Categorie_image'))
         $categorie->Categorie_image = $request->input('Categorie_image');
         else
-            $categorie->Categorie_image ='noimage.jpg';
+            $categorie->Categorie_image ='/storage/photos/shares/noimage.jpg';
         if(empty($categorie->Cat_id)){
             $categorie->Cat_id = $request->input('Cat_id');
         };
