@@ -18,10 +18,10 @@ class CreateArticlesTable extends Migration
             $table->string('Article_titre');
             $table->string('Article_image');
             $table->longText('Article_text');
-            $table->integer('Categorie_id');
+            $table->integer('Categorie_id')->unsigned();
             $table->timestamps();
         });
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::table('articles', function (Blueprint $table) {
         $table->foreign('Categorie_id')->references('Categorie_id')->on('categories')->onDelete('cascade');
         });
     }
