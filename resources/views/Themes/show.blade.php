@@ -39,7 +39,7 @@
                 @if(count($categories)>0)
                     @foreach($categories as $categorie)
                         <div class="col-12 col-md-6 col-lg-3 mt-5">
-                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});">
+                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie->Categorie_id}});" onmouseleave="Hide({{$categorie->Categorie_id}});">
                                 <!-- Blog Thumbnail -->
                                 <a href="/categories/{{$categorie->Categorie_id}}">
                                     <img  src="{{$categorie->Categorie_image}}"  alt="" style="height: 200px;width:400px; "></a>
@@ -69,13 +69,13 @@
                                             @endif
                                         @endfor
                                         @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                                            <li class="list-group-item d-none" id="manager_btn_{{$categorie->Categorie_id}}">
+                                            <li class="btn-sm list-group-item d-none" id="manager_btn_{{$categorie->Categorie_id}}">
                                                 {!! Form::open([ 'action'=>['ThemesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie->Categorie_id]) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
-                                                <button class="btn btn-danger"  onclick="document.getElementById('form_{{$categorie->Categorie_id}}').submit();">
+                                                <button class="btn btn-danger btn-sm"  onclick="document.getElementById('form_{{$categorie->Categorie_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                 {!! Form::close() !!}
-                                                <a class="btn btn-default btn-sm" id="Edit_btn" href="/themes/{{$categorie->Categorie_id}}/edit">
+                                                <a class="btn btn-default btn-sm" id="Edit_btn" href="/categories/{{$categorie->Categorie_id}}/edit">
                                                     <i class="fa fa-cog"></i> Edit</a>
                                             </li>
                                         @endif
@@ -104,12 +104,6 @@
 
 
 
-<!-- path -->
-@if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-    <h2>PATH</h2>
-    @include('showFullPath')
-@endif
-@endsection
 
 
 @section('script')

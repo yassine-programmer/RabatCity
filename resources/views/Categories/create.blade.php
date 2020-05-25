@@ -1,91 +1,122 @@
 @extends("layouts.app")
+@section("css")
+    <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
+
+@endsection
 @section("content")
     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-<div>
-    {!! Form::open(['action' => 'CategoriesController@store', 'method' => 'post']) !!}
+        {!! Form::open(['action' => 'CategoriesController@store', 'method' => 'post','id'=>'form']) !!}
+        <div class="container-contact100">
+            <div class="wrap-contact100">
+                <form class="contact100-form">
+				<span class="contact100-form-title">
+					Ajouter une Categorie :
+				</span>
+                    @if(isset($categorie_parent))
+                        <div class="wrap-input100 bg1" style="margin-top: 30px">
+                            <span class="label-input100"><b>Type Intitule *</b></span>
+                            <input class="input100" type="text" name="" value="{{$theme->Theme_intitule}}" disabled>
+                            <input class="input100" type="text" name="Theme_id" value="{{$theme->Theme_id}}" hidden>
+                        </div>
+                        <div class="wrap-input100 bg1" style="margin-top: 30px">
+                            <span class="label-input100"><b>Categorie Parent *</b></span>
+                            <input class="input100" type="text" name="" value="{{$categorie_parent[0]->Categorie_intitule}}" disabled>
+                            <input class="input100" type="text" name="Cat_id" value="{{$categorie_parent[0]->Categorie_id}}" hidden>
+                        </div>
+                    @else
+                        <div class="wrap-input100 bg1" style="margin-top: 30px">
+                            <span class="label-input100"><b>Type Intitule *</b></span>
+                            <input class="input100" type="text" name="" value="{{$theme[0]->Theme_intitule}}" disabled>
+                            <input class="input100" type="text" name="Theme_id" value="{{$theme[0]->Theme_id}}" hidden>
+                        </div>
+                    @endif
 
-    @if(isset($categorie_parent))
-    <h1>Le theme : {{$theme->Theme_intitule}}</h1>
-        <input type="text" name="Theme_id" value="{{$theme->Theme_id}}" hidden/>
-    <h1>La categorie parent : {{$categorie_parent[0]->Categorie_intitule}}</h1>
-        <input type="text" name="Cat_id" value="{{$categorie_parent[0]->Categorie_id}}" hidden/>
-        @else
-    <h1>Le theme : {{$theme[0]->Theme_intitule}}</h1>
-        <input type="text" name="Theme_id" value="{{$theme[0]->Theme_id}}" hidden/>
-    @endif
+                    <div class=" wrap-input100 bg1">
+                        <span class="label-input100"><b>Categorie intitule : </b></span>
+                        <input class="input100" type="text" name="Categorie_intitule" placeholder="Saisissez l'intitule du categorie">
+                    </div>
 
-    <br><br>
-
-    <div  class="container text-center">
-        <br>
-        <b>Categorie intitule : </b>
-        <input type="text" name="Categorie_intitule">
-        <br>
-        <b>Description : </b> <input type="text" name="Categorie_description">
-        <br>
-        <b>image : </b>
-        <div class="input-group">
+                    <div class=" wrap-input100 bg1">
+                        <span class="label-input100"><b>Categorie Image *</b></span>
+                        <div class="input-group">
                                           <span class="input-group-btn">
                                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
                                               <i class="fa fa-picture-o"></i> Choose
                                             </a>
                                           </span>
-            <input id="thumbnail" class="form-control" type="text" name="Categorie_image">
+                            <input id="thumbnail" class="form-control input100" type="text" name="Categorie_image">
+                        </div>
+                        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                    </div>
+
+
+                    <div class="wrap-input100  bg0">
+                        <span class="label-input100"><b>Categorie Description *</b></span>
+                        <textarea class="input100" name="Categorie_description" placeholder="Votre description..."></textarea>
+                    </div>
+                    <div class="container-contact100-form-btn">
+                        <button type="button" class="contact100-form-btn" onclick="document.getElementById('form').submit();">
+						<span>
+							Valider
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
-        <br>
-        <br>
-        <input type="submit" value="create">
+        {!! Form::close() !!}
+        <!-- Scripts -->
+        <script type="application/javascript">
+            (function( $ ){
 
-    </div>
-    {!! Form::close() !!}
-</div>
-<!-- Scripts -->
-<script type="application/javascript">
-    (function( $ ){
+                $.fn.filemanager = function(type, options) {
+                    type = type || 'file';
 
-        $.fn.filemanager = function(type, options) {
-            type = type || 'file';
+                    $("a#lfm").on('click', function(e) {
+                        var route_prefix = (options && options.prefix) ? options.prefix : '/filemanager';
+                        var target_input = $('#' + $(this).data('input'));
+                        var target_preview = $('#' + $(this).data('preview'));
+                        window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
+                        window.SetUrl = function (items) {
+                            var file_path = items.map(function (item) {
+                                return item.url;
+                            }).join(',');
 
-            $("a#lfm").on('click', function(e) {
-                var route_prefix = (options && options.prefix) ? options.prefix : '/filemanager';
-                var target_input = $('#' + $(this).data('input'));
-                var target_preview = $('#' + $(this).data('preview'));
-                window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
-                window.SetUrl = function (items) {
-                    var file_path = items.map(function (item) {
-                        return item.url;
-                    }).join(',');
+                            // set the value of the desired input to image url
+                            target_input.val('').val(file_path).trigger('change');
 
-                    // set the value of the desired input to image url
-                    target_input.val('').val(file_path).trigger('change');
+                            // clear previous preview
+                            target_preview.html('');
 
-                    // clear previous preview
-                    target_preview.html('');
+                            // set or change the preview image src
+                            items.forEach(function (item) {
+                                target_preview.append(
+                                    $('<img>').css('height', '5rem').attr('src', item.thumb_url)
+                                );
+                            });
 
-                    // set or change the preview image src
-                    items.forEach(function (item) {
-                        target_preview.append(
-                            $('<img>').css('height', '5rem').attr('src', item.thumb_url)
-                        );
+                            // trigger change event
+                            target_preview.trigger('change');
+                        };
+                        return false;
                     });
+                }
 
-                    // trigger change event
-                    target_preview.trigger('change');
-                };
-                return false;
-            });
-        }
+            })(jQuery);
 
-    })(jQuery);
+        </script>
 
-</script>
+        <script type="application/javascript">
 
-<script type="application/javascript">
+            $('#lfm').filemanager('image');
+        </script>
 
-    $('#lfm').filemanager('image');
-</script>
-@else
-    khrj fhalk
+    @else
+        khrj fhalk
     @endif
+@endsection
+
+@section('script')
+
 @endsection

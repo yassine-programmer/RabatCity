@@ -12,7 +12,6 @@
     <title>RabatCity</title>
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
-    <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 

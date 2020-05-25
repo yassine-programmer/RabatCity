@@ -4,7 +4,7 @@
     @endsection
 @section("content")
     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-        {!! Form::open(['action' => 'ThemesController@store', 'method' => 'post']) !!}
+        {!! Form::open(['action' => 'ThemesController@store', 'method' => 'post','id'=>'form']) !!}
         <div class="container-contact100">
             <div class="wrap-contact100">
                 <form class="contact100-form">
@@ -13,7 +13,8 @@
 				</span>
                     <div class="wrap-input100 bg1" style="margin-top: 30px">
                         <span class="label-input100"><b>Type Theme *</b></span>
-                        <input class="input100" type="text" name="Theme_type" placeholder="{{$theme_type}}" disabled>
+                        <input class="input100" type="text" name="" value="{{$theme_type}}" disabled>
+                        <input class="input100" type="text" name="Theme_type" value="{{$theme_type}}" hidden>
                     </div>
 
                     <div class=" wrap-input100 bg1">
@@ -39,9 +40,8 @@
                         <span class="label-input100"><b>Theme Description *</b></span>
                         <textarea class="input100" name="Theme_description" placeholder="Votre description..."></textarea>
                     </div>
-
                     <div class="container-contact100-form-btn">
-                        <button class="contact100-form-btn">
+                        <button type="button" class="contact100-form-btn" onclick="document.getElementById('form').submit();">
 						<span>
 							Valider
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>

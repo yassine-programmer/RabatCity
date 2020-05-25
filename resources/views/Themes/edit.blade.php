@@ -1,87 +1,109 @@
 @extends("layouts.app")
+@section("css")
+    <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
+@endsection
 @section("content")
     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-<div>
-    {!! Form::open([ 'action' => ['ThemesController@update',$theme->Theme_id],'method' => 'post']) !!}
-    <div  class="container text-center">
-        <b>Le type du theme: </b>
-        <select name="Theme_type">
-            <option @if($theme->Theme_type == 'Services') selected="selected" @endif>Services</option>
-            <option @if($theme->Theme_type == 'Activites') selected="selected" @endif  >Activites</option>
-        </select>
-        <br>
-        <b>Theme intitule : </b>
-        <input type="text" name="Theme_intitule" value="{{$theme->Theme_intitule}}">
-        <br>
-        <b>Description : </b> <input type="text" name="Theme_description" value="{{$theme->Theme_description}}">
-        <br>
-        <b>image : </b>
+        {!! Form::open(['action' => ['ThemesController@update',$theme->Theme_id], 'method' => 'post','id'=>'form']) !!}
+        <div class="container-contact100">
+            <div class="wrap-contact100">
+				<span class="contact100-form-title">
+					Ajouter un Theme :
+				</span>
+                    <div class="wrap-input100 bg1" style="margin-top: 30px">
+                        <span class="label-input100"><b>Type Theme *</b></span>
+                        <input class="input100" type="text" name="" value="{{$theme->Theme_type}}" disabled>
+                        <input class="input100" type="text" name="Theme_type" value="{{$theme->Theme_type}}" hidden>
+                    </div>
 
-        <div class="input-group">
+                    <div class=" wrap-input100 bg1">
+                        <span class="label-input100"><b>Theme Intitule *</b></span>
+                        <input class="input100" type="text" name="Theme_intitule" value="{{$theme->Theme_intitule}}" placeholder="Saisissez l'intitule du theme">
+                    </div>
+
+                    <div class=" wrap-input100 bg1">
+                        <span class="label-input100"><b>Theme Image *</b></span>
+                        <div class="input-group">
                                           <span class="input-group-btn">
                                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
                                               <i class="fa fa-picture-o"></i> Choose
                                             </a>
                                           </span>
-            <input id="thumbnail" class="form-control" type="text" name="Theme_image" value="{{$theme->Theme_image}}">
+                            <input id="thumbnail" class="form-control input100" type="text" name="Theme_image" value="{{$theme->Theme_image}}">
+                        </div>
+                        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                    </div>
+
+
+                    <div class="wrap-input100  bg0">
+                        <span class="label-input100"><b>Theme Description *</b></span>
+                        <textarea class="input100" name="Theme_description"  placeholder="Votre description...">{{$theme->Theme_description}}</textarea>
+                    </div>
+                    <div class="container-contact100-form-btn">
+                        <button type="button" class="contact100-form-btn" onclick="document.getElementById('form').submit();">
+						<span>
+							Modifier
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+                        </button>
+                    </div>
+            </div>
+
         </div>
-        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
-        <br>
-        <input type="submit" value="update">
 
+        {!! Form::hidden('_method','PUT') !!}
+        {!! Form::close() !!}
+        <!-- Scripts -->
+        <script type="application/javascript">
+            (function( $ ){
 
-    </div>
-    {!! Form::hidden('_method','PUT') !!}
-    {!! Form::close() !!}
+                $.fn.filemanager = function(type, options) {
+                    type = type || 'file';
 
-</div>
-<!-- Scripts -->
-<script type="application/javascript">
-    (function( $ ){
+                    $("a#lfm").on('click', function(e) {
+                        var route_prefix = (options && options.prefix) ? options.prefix : '/filemanager';
+                        var target_input = $('#' + $(this).data('input'));
+                        var target_preview = $('#' + $(this).data('preview'));
+                        window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
+                        window.SetUrl = function (items) {
+                            var file_path = items.map(function (item) {
+                                return item.url;
+                            }).join(',');
 
-        $.fn.filemanager = function(type, options) {
-            type = type || 'file';
+                            // set the value of the desired input to image url
+                            target_input.val('').val(file_path).trigger('change');
 
-            $("a#lfm").on('click', function(e) {
-                var route_prefix = (options && options.prefix) ? options.prefix : '/filemanager';
-                var target_input = $('#' + $(this).data('input'));
-                var target_preview = $('#' + $(this).data('preview'));
-                window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
-                window.SetUrl = function (items) {
-                    var file_path = items.map(function (item) {
-                        return item.url;
-                    }).join(',');
+                            // clear previous preview
+                            target_preview.html('');
 
-                    // set the value of the desired input to image url
-                    target_input.val('').val(file_path).trigger('change');
+                            // set or change the preview image src
+                            items.forEach(function (item) {
+                                target_preview.append(
+                                    $('<img>').css('height', '5rem').attr('src', item.thumb_url)
+                                );
+                            });
 
-                    // clear previous preview
-                    target_preview.html('');
-
-                    // set or change the preview image src
-                    items.forEach(function (item) {
-                        target_preview.append(
-                            $('<img>').css('height', '5rem').attr('src', item.thumb_url)
-                        );
+                            // trigger change event
+                            target_preview.trigger('change');
+                        };
+                        return false;
                     });
+                }
 
-                    // trigger change event
-                    target_preview.trigger('change');
-                };
-                return false;
-            });
-        }
+            })(jQuery);
 
-    })(jQuery);
+        </script>
 
-</script>
+        <script type="application/javascript">
 
-<script type="application/javascript">
+            $('#lfm').filemanager('image');
+        </script>
 
-    $('#lfm').filemanager('image');
-</script>
+    @else
+        khrj fhalk
+    @endif
+@endsection
 
-@else
-    khrj fhalk
-@endif
+@section('script')
+
 @endsection

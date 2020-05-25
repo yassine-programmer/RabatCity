@@ -41,6 +41,7 @@ class ThemesController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request,[
            'Theme_type' => 'required',
             'Theme_intitule' => 'required',
@@ -108,7 +109,7 @@ class ThemesController extends Controller
         $theme->Theme_description = $request->input('Theme_description');
         $theme->Theme_image = $request->input('Theme_image');
         $theme->save();
-        return  view('Themes/'.$theme->Theme_type );
+        return  $this->afficher($theme->Theme_type);
         //return $theme;
 
 
