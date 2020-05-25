@@ -10,3 +10,8 @@
 }
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.05); }
+.slide-img{
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
+}
