@@ -55,7 +55,7 @@ class ThemesController extends Controller
         if ( $request->input('Theme_image'))
         $theme->Theme_image = $request->input('Theme_image');
         else
-            $theme->Theme_image = 'noimage.jpg';
+            $theme->Theme_image = '/storage/photos/shares/noimage.jpg';
         $theme->save();
         return $this->afficher($theme->Theme_type);
     }

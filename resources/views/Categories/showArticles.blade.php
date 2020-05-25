@@ -43,7 +43,7 @@
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
                                 <!-- Blog Thumbnail -->
                                 <a href="/Articles/{{$article->Article_id}}">
-                                    <img  src="{{$article->Article_image}}"  alt="" style="height: 200px;width:400px; "></a>
+                                    <img  src="{{$article->Article_image}}"  alt="" class="grow" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
                                 <div class="fplus-blog-content">
                                     <a class="text-center" href="/Articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>

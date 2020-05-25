@@ -43,7 +43,7 @@
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie->Categorie_id}});" onmouseleave="Hide({{$categorie->Categorie_id}});">
                                 <!-- Blog Thumbnail -->
                                 <a href="/categories/{{$categorie->Categorie_id}}">
-                                    <img  src="{{$categorie->Categorie_image}}"  alt="" style="height: 200px;width:400px; "></a>
+                                    <img  src="{{$categorie->Categorie_image}}"  alt="" class="grow" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
 
                                 <div class="fplus-blog-content">

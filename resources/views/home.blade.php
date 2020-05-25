@@ -29,5 +29,6 @@
     </div>
 </div>
 @endsection
-
+@section('script')
 <script src="js/ListAllUsers.js"></script>
+@endsection

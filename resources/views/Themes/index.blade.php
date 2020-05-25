@@ -42,7 +42,7 @@
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});">
                                 <!-- Blog Thumbnail -->
                                 <a href="/themes/{{$theme->Theme_id}}">
-                                    <img  src="{{$theme->Theme_image}}"  alt="" style="height: 200px;width:400px; "></a>
+                                    <img  src="{{$theme->Theme_image}}"  alt="" class="grow" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
 
                                 <div class="fplus-blog-content">
