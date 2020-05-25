@@ -9,13 +9,13 @@
 @section("content")
 
     <!-- ****** Welcome Area Start ****** -->
-    <section class="fplus-hero-area" style="background-image: url({{$categorie->Categorie_image}})" id="home">
+    <section class="fplus-hero-area" style="background-image: url({{$categorie[0]->Categorie_image}})" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
-                <h2>{{$categorie->Categorie_intitule}}</h2>
-                <h5>{{$categorie->Categorie_description}}</h5>
+                <h2>{{$categorie[0]->Categorie_intitule}}</h2>
+                <h5>{{$categorie[0]->Categorie_description}}</h5>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                    <a href="/articles/create/{{$categorie->Categorie_id}}" class="view-portfolio-btn" id="scrollDown">
+                    <a href="/articles/create/{{$categorie[0]->Categorie_id}}" class="view-portfolio-btn" id="scrollDown">
                         <i class="fa fa-plus" aria-hidden="true"></i>Creer un nouveau Article</a>
                 @endif
             </div>
@@ -23,8 +23,6 @@
     </section>
     <br>
     <!-- ****** About Us Area Start ****** -->
-    @if(count($articles)>0)
-        @foreach($articles as $article)
             <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
                 <div class="container">
                     <div class="row">
@@ -40,17 +38,17 @@
                     <div class="about-us-content wow fadeInLeftBig" data-wow-delay="0.5">
                         <div class="row no-gutters align-items-center">
                             <div class="col-12">
-                                <div class="about-us-text wow fadeIn" data-wow-delay="1.5s" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie->Categorie_id}});" onmouseleave="Hide({{$categorie->Categorie_id}});">
+                                <div class="about-us-text wow fadeIn" data-wow-delay="1.5s" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie[0]->Categorie_id}});" onmouseleave="Hide({{$categorie[0]->Categorie_id}});">
                                     {!! $article->Article_text !!}
                                     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                         <br>
-                                        <li class="list-group-item d-none" id="manager_btn_{{$categorie->Categorie_id}}">
-                                            {!! Form::open([ 'action'=>['ThemesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie->Categorie_id]) !!}
+                                        <li class="list-group-item d-none" id="manager_btn_{{$categorie[0]->Categorie_id}}">
+                                            {!! Form::open([ 'action'=>['ThemesController@destroy',$categorie[0]->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie[0]->Categorie_id]) !!}
                                             {{ Form::hidden('_method','DELETE') }}
-                                            <button class="btn btn-danger"  onclick="document.getElementById('form_{{$categorie->Categorie_id}}').submit();">
+                                            <button class="btn btn-danger"  onclick="document.getElementById('form_{{$categorie[0]->Categorie_id}}').submit();">
                                                 <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                             {!! Form::close() !!}
-                                            <a class="btn btn-default btn-sm" id="Edit_btn" href="/themes/{{$categorie->Categorie_id}}/edit">
+                                            <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
                                                 <i class="fa fa-cog"></i> Edit</a>
                                         </li>
                                     @endif
@@ -60,10 +58,7 @@
                     </div>
                 </div>
 
-            @endforeach
-            {{$articles->links()}}
-            @endif
-
+            </section>
             <!-- ****** About Us Area end ****** -->
 
                 

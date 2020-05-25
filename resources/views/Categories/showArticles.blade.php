@@ -40,27 +40,27 @@
 
                     @foreach($articles as $article)
                         <div class="col-12 col-md-6 col-lg-4 mt-5">
-                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme ?? ''->Theme_id ?? ''}});" onmouseleave="Hide({{$theme ?? ''->Theme_id ?? ''}});">
+                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
                                 <!-- Blog Thumbnail -->
-                                <a href="/articles/{{$article->Article_id}}">
+                                <a href="/Articles/{{$article->Article_id}}">
                                     <img  src="{{$article->Article_image}}"  alt="" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
 
                                 <div class="fplus-blog-content">
 
-                                    <a class="text-center" href="/articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>
+                                    <a class="text-center" href="/Articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>
 
 
 
                                     <ul class="list-group list-group-flush">
                                         @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                                            <li class="list-group-item d-none" id="manager_btn_">
-
+                                            <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
+                                                {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
-                                                <button class="btn btn-danger"  onclick="document.getElementById('form_').submit();">
+                                                <button class="btn btn-danger btn-sm"  onclick="document.getElementById('form_{{$article->Article_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
-
-                                                <a class="btn btn-default btn-sm" id="Edit_btn" href="/themes//edit">
+                                                {!! Form::close() !!}
+                                                <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
                                                     <i class="fa fa-cog"></i> Edit</a>
                                             </li>
                                         @endif

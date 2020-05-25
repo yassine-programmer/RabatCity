@@ -1,21 +1,22 @@
 @extends("layouts.app")
+
 @section("css")
     <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
-
 @endsection
+
 @section("content")
     <script type="application/javascript" src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-        {!! ['action' => ['ArticlesController@update',$article->Article_id], 'method' => 'post','id'=>'form']) !!}
+        {!! Form::open(['action' => ['ArticlesController@update',$article->Article_id], 'method' => 'post','id'=>'form']) !!}
         <div class="container-contact100">
             <div class="wrap-contact100">
 				<span class="contact100-form-title">
-					Ajouter un Article :
+					Modifier  Article :
 				</span>
                     <div class="wrap-input100 bg1" style="margin-top: 30px">
                         <span class="label-input100"><b>Categorie intitule : *</b></span>
-                        <input class="input100" type="text" name="" value="{{$categorie[0]->Categorie_intitule}}" disabled>
-                        <input class="input100" type="text" name="Categorie_id" value="{{$categorie[0]->Categorie_id}}" hidden>
+                        <input class="input100" type="text" name="" value="{{$categorie->Categorie_intitule}}" disabled>
+                        <input class="input100" type="text" name="Categorie_id" value="{{$categorie->Categorie_id}}" hidden>
                     </div>
 
                     <div class=" wrap-input100 bg1">
@@ -53,7 +54,6 @@
             </div>
         </div>
         {!! Form::hidden('_method','PUT') !!}
-        {!! Form::close() !!}
         {!! Form::close() !!}
         <!-- Scripts -->
         <script type="application/javascript">

@@ -13,16 +13,11 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function afficher($Categorie_id)
+    public function afficher($Article_id)
     {
-        $articles = Article::where('Categorie_id','=',$Categorie_id)->get();
-        $categorie = Categorie::find($Categorie_id);
-        if(count($articles)>0){
-            return $this->show($articles[0]->Categorie_id);
-        }
-        else{
-            return view('Articles.index')->with('categorie',$categorie);
-        }
+        $articles = Article::find($Article_id);
+        return $this->show($Article_id);
+
 
 
     }
@@ -72,10 +67,9 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-
-        $categorie = Categorie::find($id);
-        $articles = Article::where('Categorie_id',$id)->paginate(1);
-        return view('Articles.show')->with(['articles'=>$articles,'categorie'=>$categorie]);
+        $article = Article::find($id);
+        $categorie = Categorie::where('Categorie_id',$article->Categorie_id)->get();
+        return view('Articles.show')->with(['article'=>$article,'categorie'=>$categorie]);
     }
 
     /**
@@ -87,7 +81,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        $categorie = Categorie::where('Categorie_id','=',$article->Categorie_id)->get();
+        $categorie = Categorie::find($article->Categorie_id);
         return view('Articles.edit')->with(['article'=>$article,'categorie'=>$categorie]);
     }
 
@@ -108,8 +102,10 @@ class ArticlesController extends Controller
         $article =  Article::find($id);
         $article->Article_titre = $request->input('Article_titre');
         $article->Article_text = $request->input('Article_text');
+        $article->Article_image = $request->input('Article_image');
         $article->Categorie_id = $request->input('Categorie_id');
         $article->save();
+        return $this->show($id);
         return redirect('Articles/'.$article->Categorie_id);
     }
 

@@ -25,7 +25,7 @@ Route::get('categories/createCategorie/{id}','CategoriesController@createCategor
 Route::get('categories/{id}/create-sous-categorie','CategoriesController@createSousCategorie');
 
 Route::resource('articles','ArticlesController');
-Route::get('Articles/{Categorie_id}','ArticlesController@afficher');
+Route::get('Articles/{Article_id_id}','ArticlesController@afficher');
 Route::get('articles/create/{Categorie_id}','ArticlesController@create');
 
 Auth::routes();
