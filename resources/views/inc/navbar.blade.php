@@ -15,6 +15,7 @@
                 <li><a class="nav-item nav-link grow" href="#">Commune</a> </li>
                 <li><a class="nav-item nav-link grow" href="#">Arrondissements</a> </li>
                 <li><a class="nav-item nav-link grow" href="#">Partenaires</a> </li>
+                <li><a class="nav-item nav-link grow" href="/Themes/rabat">Rabat</a> </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

@@ -22,7 +22,7 @@ class CreateThemesTable extends Migration
             $table->string('Theme_description');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE themes ADD CONSTRAINT chk_theme_type check (Theme_type in ('services','activites','evenements'))");
+        DB::statement("ALTER TABLE themes ADD CONSTRAINT chk_theme_type check (Theme_type in ('services','activites','rabat'))");
 
     }
 
