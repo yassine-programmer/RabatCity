@@ -12,6 +12,9 @@
             <ul class="navbar-nav mr-auto">
                 <li><a class="nav-item nav-link" href="/Themes/services">Services<span class="sr-only">(current)</span></a> </li>
                 <li><a class="nav-item nav-link" href="/Themes/activites">Activites</a> </li>
+                <li><a class="nav-item nav-link" href="#">Commune</a> </li>
+                <li><a class="nav-item nav-link" href="#">Arrondissements</a> </li>
+                <li><a class="nav-item nav-link" href="#">Partenaires</a> </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

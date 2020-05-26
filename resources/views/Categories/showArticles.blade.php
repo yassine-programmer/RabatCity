@@ -50,9 +50,9 @@
                                     <ul class="list-group list-group-flush">
                                         @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                             <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
-                                                {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id,'onsubmit' => 'return confirm("Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table");']) !!}
+                                                {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
-                                                <button class="btn btn-danger btn-sm"  onclick="document.getElementById('form_{{$article->Article_id}}').submit();">
+                                                <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                 {!! Form::close() !!}
                                                 <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
