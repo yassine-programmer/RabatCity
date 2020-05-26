@@ -13,6 +13,7 @@
     <section class="fplus-hero-area" style="background-image: url({{$theme->Theme_image}})" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
+                <a href="/Themes/{{$theme->Theme_type}}">{{$theme->Theme_type}}</a> / <a href="/themes/{{$theme->Theme_id}}">{{$theme->Theme_intitule}}</a> /
                 <h2>{{$theme->Theme_intitule }}</h2>
                 <h5>{{$theme->Theme_description}}</h5>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
@@ -73,7 +74,7 @@
                                             <li class="btn-sm list-group-item d-none" id="manager_btn_{{$categorie->Categorie_id}}">
                                                 {!! Form::open([ 'action'=>['CategoriesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie->Categorie_id,'onsubmit' => 'return confirm("Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table");']) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
-                                                <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
+                                                <button type="button" class="btn btn-danger btn-sm"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                 {!! Form::close() !!}
                                                 <a class="btn btn-default btn-sm" id="Edit_btn" href="/categories/{{$categorie->Categorie_id}}/edit">

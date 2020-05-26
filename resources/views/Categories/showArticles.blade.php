@@ -13,6 +13,8 @@
     <section class="fplus-hero-area" style="background-image: url({{$categorie_parent->Categorie_image}})" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
+                @php($theme = App\Theme::find($categorie_parent->Theme_id))
+                <a href="/Themes/{{$theme->Theme_type}}">{{$theme->Theme_type}}</a> / <a href="/themes/{{$theme->Theme_id}}">{{$theme->Theme_intitule}}</a> / <a href="/categories/{{$categorie_parent->Categorie_id}}">{{$categorie_parent->Categorie_intitule}}</a> /
                 <h2>{{$categorie_parent->Categorie_intitule}}</h2>
                 <h5>{{$categorie_parent->Categorie_description}}</h5>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
@@ -37,7 +39,10 @@
 
             <div class="row">
                 <!-- Single Blog Post Area -->
-
+                @if(count($articles)==1)
+                    @php(header('Location: /Articles/'.$articles[0]->Article_id))
+                    @php(exit())
+                    @endif
                     @foreach($articles as $article)
                         <div class="col-12 col-md-6 col-lg-4 mt-5">
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">

@@ -12,6 +12,7 @@
     <section class="fplus-hero-area" style="background-image: url(/img/bg-img/hero-1.jpg)" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
+                <a href="/Themes/{{$Theme_type}}">{{$Theme_type}}</a> /
                 <h2>{{$Theme_type}}</h2>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                     <a href="/themes/create/{{$Theme_type}}" class="view-portfolio-btn" id="scrollDown">
@@ -38,7 +39,7 @@
 
                 @if(isset($themes) && count($themes)>0)
                     @foreach($themes as $theme)
-                        <div class="col-12 col-md-6 col-lg-4 mt-5">
+                            <div class="col-12 col-md-6 col-lg-4 mt-5">
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});">
                                 <!-- Blog Thumbnail -->
                                 <a href="/themes/{{$theme->Theme_id}}">
