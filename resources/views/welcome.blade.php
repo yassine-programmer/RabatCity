@@ -25,7 +25,7 @@
         </a>
     </div>
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md left-to-right">
 
                  @if(Session::get('role')=='admin')  {{Session::get('name')}}-admin @elseif(Session::get('name'))  {{Session::get('name')}} @else Sign-in @endif
 

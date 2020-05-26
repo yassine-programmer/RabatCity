@@ -11,7 +11,20 @@
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.05); }
 .slide-img{
-    height: 450px;
+    height: 550px;
     width: 100%;
     object-fit: cover;
+}
+.left-to-right{
+    animation: left_to_right 3s;
+}
+@keyframes left_to_right{
+    from{
+        opacity: 0;
+        margin-left: -200%;
+    }
+    to{
+        opacity: 1;
+        margin-left: 0%;
+    }
 }
