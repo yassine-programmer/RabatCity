@@ -52,7 +52,7 @@
                                             <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
                                                 {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
-                                                <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
+                                                <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$article->Article_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                 {!! Form::close() !!}
                                                 <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">

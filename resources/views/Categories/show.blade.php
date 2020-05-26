@@ -74,7 +74,7 @@
                                             <li class="list-group-item d-none" id="manager_btn_{{$categorie->Categorie_id}}">
                                                 {!! Form::open([ 'action'=>['CategoriesController@destroy',$categorie->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie->Categorie_id]) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
-                                                <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
+                                                <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$categorie->Categorie_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                 {!! Form::close() !!}
                                                 <a class="btn btn-default btn-sm" id="Edit_btn" href="/categories/{{$categorie->Categorie_id}}/edit">
