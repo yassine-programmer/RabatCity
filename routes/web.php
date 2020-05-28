@@ -61,3 +61,4 @@ Route::get('modal', function (){
 Route::get('navbar',function (){
     return view ('header/header');
 });
+

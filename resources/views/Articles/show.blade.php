@@ -65,7 +65,7 @@
                     <div class="container">
                         <div class="row">
                             <!-- Single Feature -->
-                            @php($newArticles = App\Article::where('Article_id','<>',$article->Article_id)->take(3)->get())
+                            @php($newArticles = App\Article::where('Article_id','<>',$article->Article_id)->take(3)->get()->sortByDesc('created_at', false))
                             @foreach($newArticles as $newArticle)
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="fplus-single-feature wow fadeInUp" data-wow-delay="1s">

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top" style="padding: 1rem 1rem;">
-    <div class="container">
+
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="https://i.imgur.com/RSC5U1b.png " style="width: 10pc;margin-top: -2rem;margin-bottom: -2rem;margin-right: 5rem;">
         </a>
@@ -53,5 +53,4 @@
             <!-- Authentication Links -->
             </ul>
         </div>
-    </div>
 </nav>
