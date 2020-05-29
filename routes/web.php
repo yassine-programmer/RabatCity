@@ -13,26 +13,26 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('verified');
 
-Route::resource('themes','ThemesController');
-Route::get('Themes/{Theme_type}','ThemesController@afficher');
-Route::get('themes/create/{theme_type}','ThemesController@create');
+Route::resource('themes','ThemesController')->middleware('verified');
+Route::get('Themes/{Theme_type}','ThemesController@afficher')->middleware('verified');
+Route::get('themes/create/{theme_type}','ThemesController@create')->middleware('verified');
 
-Route::resource('categories','CategoriesController');
-Route::get('categories/{id}','CategoriesController@show');
-Route::get('categories/createCategorie/{id}','CategoriesController@createCategorie');
-Route::get('categories/{id}/create-sous-categorie','CategoriesController@createSousCategorie');
+Route::resource('categories','CategoriesController')->middleware('verified');
+Route::get('categories/{id}','CategoriesController@show')->middleware('verified');
+Route::get('categories/createCategorie/{id}','CategoriesController@createCategorie')->middleware('verified');
+Route::get('categories/{id}/create-sous-categorie','CategoriesController@createSousCategorie')->middleware('verified');
 
-Route::resource('articles','ArticlesController');
-Route::get('Articles/{Article_id_id}','ArticlesController@afficher');
-Route::get('articles/create/{Categorie_id}','ArticlesController@create');
+Route::resource('articles','ArticlesController')->middleware('verified');
+Route::get('Articles/{Article_id_id}','ArticlesController@afficher')->middleware('verified');
+Route::get('articles/create/{Categorie_id}','ArticlesController@create')->middleware('verified');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('userupdate','HomeController@update');
-Route::resource('home','HomeController');
+Route::resource('home','HomeController')->middleware('verified');
 Route::get('/AjaxCat', function () {
     return view('Categories.AjaxCategorie');
 });
