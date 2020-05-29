@@ -95,5 +95,6 @@ animation: zoom-in 2s;
 .accordion-image{
     background-image: url("https://almassarstudy.com/wp-content/uploads/2020/01/why-choose-us_main.jpg");
     background-position-x: right;
+    background-repeat: no-repeat;
     border-radius: 10px;
 }
