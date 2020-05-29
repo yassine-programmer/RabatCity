@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('verified');
 
 Route::resource('themes','ThemesController');
 Route::get('Themes/{Theme_type}','ThemesController@afficher');
