@@ -38,14 +38,14 @@
                     <div class="about-us-content wow fadeInLeftBig" data-wow-delay="0.5">
                         <div class="row no-gutters align-items-center">
                             <div class="col-12">
-                                <div class="about-us-text wow fadeIn" data-wow-delay="1.5s" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie[0]->Categorie_id}});" onmouseleave="Hide({{$categorie[0]->Categorie_id}});">
+                                <div class="about-us-text wow fadeIn" data-wow-delay="1.5s" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
                                     {!! $article->Article_text !!}
                                     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                         <br>
-                                        <li class="list-group-item d-none" id="manager_btn_{{$categorie[0]->Categorie_id}}">
-                                            {!! Form::open([ 'action'=>['ArticlesController@destroy',$categorie[0]->Categorie_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$categorie[0]->Categorie_id]) !!}
+                                        <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
+                                            {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
                                             {{ Form::hidden('_method','DELETE') }}
-                                            <button class="btn btn-danger"  onclick="document.getElementById('form_{{$categorie[0]->Categorie_id}}').submit();">
+                                            <button class="btn btn-danger"  onclick="document.getElementById('form_{{$article->Article_id}}').submit();">
                                                 <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                             {!! Form::close() !!}
                                             <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">

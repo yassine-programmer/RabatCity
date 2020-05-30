@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Theme;
 use App\Categorie;
+use App\Journal;
+use Illuminate\Support\Facades\Session;
 
 class ThemesController extends Controller
 {
@@ -57,6 +59,13 @@ class ThemesController extends Controller
         else
             $theme->Theme_image = '/storage/photos/shares/noimage.jpg';
         $theme->save();
+        //Journal
+        $journal = new Journal;
+        $journal->Journal_action = 'Insertion';
+        $journal->Journal_table = 'themes';
+        $journal->Journal_id_row = $theme->Theme_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
         return $this->afficher($theme->Theme_type);
     }
 
@@ -109,8 +118,13 @@ class ThemesController extends Controller
         $theme->Theme_description = $request->input('Theme_description');
         $theme->Theme_image = $request->input('Theme_image');
         $theme->save();
+        $journal = new Journal;
+        $journal->Journal_action = 'Modification';
+        $journal->Journal_table = 'themes';
+        $journal->Journal_id_row = $theme->Theme_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
         return  $this->afficher($theme->Theme_type);
-        //return $theme;
 
 
     }
@@ -125,6 +139,12 @@ class ThemesController extends Controller
     {
         $theme = Theme::find($id);
         $theme->delete();
+        $journal = new Journal;
+        $journal->Journal_action = 'Suppression';
+        $journal->Journal_table = 'themes';
+        $journal->Journal_id_row = $theme->Theme_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
         return  redirect('Themes/'.$theme->Theme_type);
     }
 }

@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Categorie;
 use App\Theme;
+use App\Journal;
+use Illuminate\Support\Facades\Session;
 
 
 class CategoriesController extends Controller
@@ -62,6 +64,13 @@ class CategoriesController extends Controller
         };
         $categorie->Theme_id = $request->input('Theme_id');
         $categorie->save();
+        //journal
+        $journal = new Journal;
+        $journal->Journal_action = 'Insertion';
+        $journal->Journal_table = 'categories';
+        $journal->Journal_id_row = $categorie->Categorie_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
         if(empty($categorie->Cat_id)){
 
             return redirect()->action(
@@ -128,6 +137,13 @@ class CategoriesController extends Controller
         else
             $categorie->Categorie_image="noimage.jpg";
         $categorie->save();
+        //journal
+        $journal = new Journal;
+        $journal->Journal_action = 'Modification';
+        $journal->Journal_table = 'categories';
+        $journal->Journal_id_row = $categorie->Categorie_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
 
         if(empty($categorie->Cat_id)){
 
@@ -149,6 +165,13 @@ class CategoriesController extends Controller
     {
         $categorie = Categorie::find($id);
         $categorie->delete();
+        //journal
+        $journal = new Journal;
+        $journal->Journal_action = 'Suppression';
+        $journal->Journal_table = 'categories';
+        $journal->Journal_id_row = $categorie->Categorie_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
         return back()->withInput();
     }
 }

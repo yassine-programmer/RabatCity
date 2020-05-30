@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Categorie;
+use App\Journal;
+use Illuminate\Support\Facades\Session;
+
 class ArticlesController extends Controller
 {
     /**
@@ -56,6 +59,14 @@ class ArticlesController extends Controller
         $article->Article_image= "/storage/photos/shares/noimage.jpg";
         $article->Categorie_id = $request->input('Categorie_id');
         $article->save();
+        //journal
+        $journal = new Journal;
+        $journal->Journal_action = 'Insertion';
+        $journal->Journal_table = 'articles';
+        $journal->Journal_id_row = $article->Article_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
+        //end journal
         return $this->show($article->Article_id);
     }
 
@@ -105,6 +116,14 @@ class ArticlesController extends Controller
         $article->Article_image = $request->input('Article_image');
         $article->Categorie_id = $request->input('Categorie_id');
         $article->save();
+        //journal
+        $journal = new Journal;
+        $journal->Journal_action = 'Modification';
+        $journal->Journal_table = 'articles';
+        $journal->Journal_id_row = $article->Article_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
+        //end journal
         return $this->show($id);
         return redirect('Articles/'.$article->Categorie_id);
     }
@@ -120,6 +139,14 @@ class ArticlesController extends Controller
         $article = Article::find($id);
         $Categorie2 = $article->Categorie_id;
         $article->delete();
+        //journal
+        $journal = new Journal;
+        $journal->Journal_action = 'Suppression';
+        $journal->Journal_table = 'articles';
+        $journal->Journal_id_row = $article->Article_id;
+        $journal->Journal_user = Session::get('name');
+        $journal->save();
+        //end journal
         $categories_fils=Categorie::where("Categorie_id",$Categorie2)->get();
         $categorie_parent=Categorie::where("Categorie_id",$categories_fils[0]->Cat_id)->get();
         $articles = Article::where("Categorie_id",$categorie_parent[0]->Categorie_id)->get();
