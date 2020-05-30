@@ -32,7 +32,7 @@ Auth::routes(['verify' => true]);
 
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('userupdate','HomeController@update');
-Route::resource('home','HomeController')->middleware('verified');
+Route::resource('home','HomeController');
 Route::get('/AjaxCat', function () {
     return view('Categories.AjaxCategorie');
 });
@@ -40,6 +40,7 @@ Route::get('/AjaxCat', function () {
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+Route::resource('search','SearchController');
 
 
 

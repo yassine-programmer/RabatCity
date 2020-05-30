@@ -17,7 +17,6 @@
                 <li><a class="nav-item nav-link grow" href="#">Partenaires</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/rabat">Rabat</a> </li>
             </ul>
-
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
@@ -50,6 +49,7 @@
 
                     </li>
             @endguest
+
             <!-- Authentication Links -->
             </ul>
         </div>

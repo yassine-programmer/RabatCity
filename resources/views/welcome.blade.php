@@ -8,9 +8,6 @@
     @include("inc.accordion")
             <div class="content">
                 <div class="title m-b-md left-to-right">
-
-
-
                 </div>
             </div>
 
