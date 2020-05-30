@@ -9,7 +9,7 @@
 @section("content")
 
     <!-- ****** Welcome Area Start ****** -->
-    <section class="fplus-hero-area" style="background-image: url(/img/bg-img/hero-1.jpg)" id="home">
+    <section class="fplus-hero-area" style="background-image: url(/storage/photos/shares/Rabat_theme.jpg)" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
                 <a href="/Themes/{{$Theme_type}}">{{$Theme_type}}</a> /
