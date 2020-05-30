@@ -1,30 +1,20 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>News  HTML-5 Template </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-
+@extends("layouts.app")
+@section('css')
     <!-- CSS here -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/ticker-style.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/slicknav.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
+    <link href="/css/add.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/ticker-style.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/slicknav.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+@endsection
+@section("content")
 
-<body>
 <!-- Preloader Start
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -48,44 +38,20 @@
                         <!-- Trending Top -->
                         <div class="slider-active">
                             <!-- Single -->
+                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites'))order by created_at desc LIMIT 1"))
                             <div class="single-slider">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top2.jpg" alt="">
+                                        <img src="{{$newArticle[0]->Article_image}}" alt="" style="height: 500px">
                                         <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">News</span>
+                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$newArticle[0]->Article_titre}}</a></h2>
+                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">Posted - {{$newArticle[0]->created_at}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Single -->
-                            <div class="single-slider">
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top02.jpg" alt="">
-                                        <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single -->
-                            <div class="single-slider">
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top03.jpg" alt="">
-                                        <div class="trend-top-cap">
-                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">Business</span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">Anna Lora Stuns In White At Her Australian Premiere</a></h2>
-                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">by Alice cloe   -   Jun 19, 2020</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     <!-- Right content -->
@@ -95,12 +61,11 @@
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top3.jpg" alt="">
+                                        <img src="/storage/photos/shares/Rabat_theme.jpg" alt="">
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgb">FASHION</span>
-                                            <h2><a href="latest_news.html">Secretart for Economic Air
-                                                    plane that looks like</a></h2>
-                                            <p>by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgb">Rabat</span>
+                                            <h2><a href="/Themes/rabat">Decouvrir la capitale du Maroc , Rabat</a></h2>
+
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +99,7 @@
                         <div class="row justify-content-between align-items-end mb-15">
                             <div class="col-xl-4">
                                 <div class="section-tittle mb-30">
-                                    <h3>Whats New</h3>
+                                    <h3>Actualités</h3>
                                 </div>
                             </div>
                             <div class="col-xl-8 col-md-9">
@@ -142,11 +107,11 @@
                                     <!--Nav Button  -->
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Lifestyle</a>
-                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Travel</a>
-                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Fashion</a>
-                                            <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Sports</a>
-                                            <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Technology</a>
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Actualités</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Service</a>
+                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
+                                            <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
+                                            <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Commune</a>
                                         </div>
                                     </nav>
                                     <!--End Nav Button  -->
@@ -162,143 +127,92 @@
                                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites'))order by created_at desc LIMIT 5"))
+                                            @if(!empty($newArticle[0]))
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="whats-news-single mb-40 mb-40">
                                                     <div class="whates-img">
-                                                        <img src="assets/img/gallery/whats_news_details1.png" alt="">
+                                                        <a href="/Articles/{{$newArticle[0]->Article_id}}"><img src="{{$newArticle[0]->Article_image}}" alt=""></a>
                                                     </div>
                                                     <div class="whates-caption">
-                                                        <h4><a href="latest_news.html">Secretart for Economic Air plane that looks like</a></h4>
-                                                        <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                        <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
+                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                        <span>posted   -   {{$newArticle[0]->created_at}}</span>
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+
                                             <!-- Right single caption -->
-                                            <div class="col-xl-6 col-lg-12">
-                                                <div class="row">
-                                                    <!-- single -->
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img1.png" alt="">
+
+                                                    <div class="col-xl-6 col-lg-12">
+                                                        <div class="row">
+                                                            <!-- single -->
+                                                            @for($i=1;$i <= 4;$i++)
+                                                                @if(!empty($newArticle[$i]))
+                                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                <div class="whats-right-single mb-20">
+                                                                    <div class="whats-right-img">
+                                                                        <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                                        <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="whats-right-cap">
+                                                                        <span class="colorb">News</span>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <p>posted   -   {{$newArticle[$i]->created_at}}</p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
+                                                                @endif
+                                                            @endfor
                                                         </div>
                                                     </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img2.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img3.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorg">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img4.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorr">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                     <!-- Card two -->
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            <div class="col-xl-6">
-                                                <div class="whats-news-single mb-40">
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'services'))order by created_at desc LIMIT 5"))
+                                            @if(!empty($newArticle[0]))
+                                            <div class="col-xl-6 col-lg-12">
+                                                <div class="whats-news-single mb-40 mb-40">
                                                     <div class="whates-img">
-                                                        <img src="assets/img/gallery/whats_right_img2.png" alt="">
+                                                        <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                        <img src="{{$newArticle[0]->Article_image}}" alt="">
+                                                        </a>
                                                     </div>
                                                     <div class="whates-caption">
-                                                        <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                        <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                        <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
+                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                        <span>posted   -   {{$newArticle[0]->created_at}}</span>
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+
                                             <!-- Right single caption -->
+
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="row">
                                                     <!-- single -->
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img1.png" alt="">
+                                                    @for($i=1;$i <= 4;$i++)
+                                                        @if(!empty($newArticle[$i]))
+                                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                <div class="whats-right-single mb-20">
+                                                                    <div class="whats-right-img">
+                                                                        <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                                        <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="whats-right-cap">
+                                                                        <span class="colorb">service</span>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <p>{{$newArticle[$i]->created_at}}</p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img2.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img3.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorg">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img4.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorr">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        @endif
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>
@@ -307,71 +221,46 @@
                                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            <div class="col-xl-6">
-                                                <div class="whats-news-single mb-40">
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'activites'))order by created_at desc LIMIT 5"))
+                                            @if(!empty($newArticle[0]))
+                                            <div class="col-xl-6 col-lg-12">
+                                                <div class="whats-news-single mb-40 mb-40">
                                                     <div class="whates-img">
-                                                        <img src="assets/img/gallery/whats_right_img4.png" alt="">
+                                                        <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                            <img src="{{$newArticle[0]->Article_image}}" alt="">
+                                                        </a>
                                                     </div>
                                                     <div class="whates-caption">
-                                                        <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                        <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                        <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
+                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                        <span>posted   -   {{$newArticle[0]->created_at}}</span>
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
+
                                             <!-- Right single caption -->
+
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="row">
                                                     <!-- single -->
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img1.png" alt="">
+                                                    @for($i=1;$i <= 4;$i++)
+                                                        @if(!empty($newArticle[$i]))
+                                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                <div class="whats-right-single mb-20">
+                                                                    <div class="whats-right-img">
+                                                                        <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                                            <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="whats-right-cap">
+                                                                        <span class="colorb">activité</span>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <p>{{$newArticle[$i]->created_at}}</p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img2.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img3.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorg">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img4.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorr">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        @endif
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>
@@ -380,71 +269,46 @@
                                     <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            <div class="col-xl-6">
-                                                <div class="whats-news-single mb-40">
-                                                    <div class="whates-img">
-                                                        <img src="assets/img/gallery/whats_right_img2.png" alt="">
-                                                    </div>
-                                                    <div class="whates-caption">
-                                                        <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                        <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                        <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'evenement'))order by created_at desc LIMIT 5"))
+                                            @if(!empty($newArticle[0]))
+                                                <div class="col-xl-6 col-lg-12">
+                                                    <div class="whats-news-single mb-40 mb-40">
+                                                        <div class="whates-img">
+                                                            <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                                <img src="{{$newArticle[0]->Article_image}}" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="whates-caption">
+                                                            <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                            <span>posted   -   {{$newArticle[0]->created_at}}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- Right single caption -->
+                                        @endif
+
+                                        <!-- Right single caption -->
+
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="row">
                                                     <!-- single -->
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img1.png" alt="">
+                                                    @for($i=1;$i <= 4;$i++)
+                                                        @if(!empty($newArticle[$i]))
+                                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                <div class="whats-right-single mb-20">
+                                                                    <div class="whats-right-img">
+                                                                        <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                                            <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="whats-right-cap">
+                                                                        <span class="colorb">événement</span>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <p>{{$newArticle[$i]->created_at}}</p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img2.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img3.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorg">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img4.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorr">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        @endif
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>
@@ -453,71 +317,46 @@
                                     <div class="tab-pane fade" id="nav-nav-Sport" role="tabpanel" aria-labelledby="nav-Sports">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            <div class="col-xl-6">
-                                                <div class="whats-news-single mb-40">
-                                                    <div class="whates-img">
-                                                        <img src="assets/img/gallery/whats_news_details1.png" alt="">
-                                                    </div>
-                                                    <div class="whates-caption">
-                                                        <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                        <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                        <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'commune'))order by created_at desc LIMIT 5"))
+                                            @if(!empty($newArticle[0]))
+                                                <div class="col-xl-6 col-lg-12">
+                                                    <div class="whats-news-single mb-40 mb-40">
+                                                        <div class="whates-img">
+                                                            <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                                <img src="{{$newArticle[0]->Article_image}}" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="whates-caption">
+                                                            <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                            <span>posted   -   {{$newArticle[0]->created_at}}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- Right single caption -->
+                                        @endif
+
+                                        <!-- Right single caption -->
+
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="row">
                                                     <!-- single -->
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img1.png" alt="">
+                                                    @for($i=1;$i <= 4;$i++)
+                                                        @if(!empty($newArticle[$i]))
+                                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
+                                                                <div class="whats-right-single mb-20">
+                                                                    <div class="whats-right-img">
+                                                                        <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                                                            <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="whats-right-cap">
+                                                                        <span class="colorb">commune</span>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <p>{{$newArticle[$i]->created_at}}</p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img2.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorb">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img3.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorg">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
-                                                        <div class="whats-right-single mb-20">
-                                                            <div class="whats-right-img">
-                                                                <img src="assets/img/gallery/whats_right_img4.png" alt="">
-                                                            </div>
-                                                            <div class="whats-right-cap">
-                                                                <span class="colorr">FASHION</span>
-                                                                <h4><a href="latest_news.html">Portrait of group of friends ting eat. market in.</a></h4>
-                                                                <p>Jun 19, 2020</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        @endif
+                                                    @endfor
                                                 </div>
                                             </div>
                                         </div>
@@ -538,7 +377,7 @@
                         <div class="single-box">
                             <div class="follow-us d-flex align-items-center">
                                 <div class="follow-social">
-                                    <a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a>
+                                    <a href="https://www.facebook.com/Conseil.Arrondissement.Agdal.Ryad/"><img src="assets/img/news/icon-fb.png" alt=""></a>
                                 </div>
                                 <div class="follow-count">
                                     <span>8,045</span>
@@ -760,100 +599,7 @@
         </div>
     </div>
     <!--Recent Articles End -->
-    <!-- Start Video Area -->
-    <div class="youtube-area video-padding d-none d-sm-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="video-items-active">
-                        <div class="video-items text-center">
-                            <video controls>
-                                <source src="assets/video/news2.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="video-items text-center">
-                            <video controls>
-                                <source src="assets/video/news1.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="video-items text-center">
-                            <video controls>
-                                <source src="assets/video/news3.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="video-items text-center">
-                            <video controls>
-                                <source src="assets/video/news1.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                        <div class="video-items text-center">
-                            <video controls>
-                                <source src="assets/video/news3.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="video-info">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="testmonial-nav text-center">
-                            <div class="single-video">
-                                <video controls>
-                                    <source src="assets/video/news2.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-intro">
-                                    <h4>Old Spondon News - 2020 </h4>
-                                </div>
-                            </div>
-                            <div class="single-video">
-                                <video controls>
-                                    <source src="assets/video/news1.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-intro">
-                                    <h4>Banglades News Video </h4>
-                                </div>
-                            </div>
-                            <div class="single-video">
-                                <video controls>
-                                    <source src="assets/video/news3.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-intro">
-                                    <h4>Latest Video - 2020 </h4>
-                                </div>
-                            </div>
-                            <div class="single-video">
-                                <video controls>
-                                    <source src="assets/video/news1.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-intro">
-                                    <h4>Spondon News -2019 </h4>
-                                </div>
-                            </div>
-                            <div class="single-video">
-                                <video controls>
-                                    <source src="assets/video/news3.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-intro">
-                                    <h4>Latest Video - 2020</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- End Start Video area-->
     <!--   Weekly3-News start -->
     <div class="weekly3-news-area pt-80 pb-130">
@@ -935,36 +681,35 @@
     </div>
     <!-- banner-last End -->
 </main>
+    <script type="application/javascript">
 
+    </script>
+@endsection
 
+@section('script')
 <!-- JS here -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <!-- Jquery, Popper, Bootstrap -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <!-- Jquery Mobile Menu -->
-<script src="./assets/js/jquery.slicknav.min.js"></script>
+<script type="application/javascript" src="/assets/js/jquery.slicknav.min.js"></script>
 
 <!-- Jquery Slick , Owl-Carousel Plugins -->
-<script src="./assets/js/owl.carousel.min.js"></script>
-<script src="./assets/js/slick.min.js"></script>
+<script type="application/javascript" src="/assets/js/owl.carousel.min.js"></script>
 <!-- Date Picker -->
-<script src="./assets/js/gijgo.min.js"></script>
+<script type="application/javascript" src="/assets/js/gijgo.min.js"></script>
 <!-- One Page, Animated-HeadLin -->
-<script src="./assets/js/wow.min.js"></script>
-<script src="./assets/js/animated.headline.js"></script>
-<script src="./assets/js/jquery.magnific-popup.js"></script>
+<script type="application/javascript" src="/assets/js/wow.min.js"></script>
+<script type="application/javascript" src="/assets/js/animated.headline.js"></script>
+<script type="application/javascript" src="/assets/js/jquery.magnific-popup.js"></script>
 
 <!-- Scrollup, nice-select, sticky -->
-<script src="./assets/js/jquery.scrollUp.min.js"></script>
-<script src="./assets/js/jquery.nice-select.min.js"></script>
-<script src="./assets/js/jquery.sticky.js"></script>
+<script type="application/javascript" src="/assets/js/jquery.scrollUp.min.js"></script>
+<script type="application/javascript" src="/assets/js/jquery.nice-select.min.js"></script>
+<script type="application/javascript" src="/assets/js/jquery.sticky.js"></script>
 
 <!-- Jquery Plugins, main Jquery -->
-<script src="./assets/js/plugins.js"></script>
-<script src="./assets/js/main.js"></script>
-
-</body>
-</html>
+<script type="application/javascript" src="/assets/js/plugins.js"></script>
+<script type="application/javascript" src="/assets/js/main.js"></script>
+@endsection

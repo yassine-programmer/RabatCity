@@ -58,9 +58,7 @@
     });
 
     // :: 9.0 wow Active Code
-    if ($.fn.init) {
-        new WOW().init();
-    }
+
 
     // :: 10.0 matchHeight Active JS
     if ($.fn.matchHeight) {
@@ -69,11 +67,5 @@
 
     var $window = $(window);
 
-    // :: 11.0 Preloader active code
-    $window.on('load', function () {
-        $('#preloader').fadeOut('slow', function () {
-            $(this).remove();
-        });
-    });
 
 })(jQuery);

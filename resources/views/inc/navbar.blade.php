@@ -10,11 +10,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                <li><a class="nav-item nav-link grow" href="/Themes/actualites">Actualités</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/services">Services<span class="sr-only">(current)</span></a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/activites">Activites</a> </li>
-                <li><a class="nav-item nav-link grow" href="#">Commune</a> </li>
+                <li><a class="nav-item nav-link grow" href="/Themes/commune">Commune</a> </li>
                 <li><a class="nav-item nav-link grow" href="#">Arrondissements</a> </li>
-                <li><a class="nav-item nav-link grow" href="#">Partenaires</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/rabat">Rabat</a> </li>
             </ul>
             <!-- Right Side Of Navbar -->
