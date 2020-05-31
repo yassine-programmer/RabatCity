@@ -42,15 +42,11 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 });
 Route::resource('search','SearchController');
 
+Route::get('/ViderJournal','JournalsController@vider');
 
 
 
-Route::get('/Ajax', function () {
-    return view('AjaxTest');
-});
-Route::get('data', function () {
-    return view('data');
-});
+
 Route::get('modal', function (){
     return view('layouts.modal');
 });

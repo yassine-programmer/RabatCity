@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Journal;
 use Illuminate\Http\Request;
 
 class JournalsController extends Controller
@@ -12,6 +13,11 @@ class JournalsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function vider()
+    {
+        Journal::truncate();
+        return back()->withInput();
+    }
     public function index()
     {
         //

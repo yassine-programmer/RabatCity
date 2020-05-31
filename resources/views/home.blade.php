@@ -20,8 +20,13 @@
                                 <button  class="btn-lg" onclick="showdiv('users')">Afficher les utilisateurs</button>
                                     <br>
                                      @include('Dashboard.ListAllUsers')
+                                <br>
+                                <button  class="btn-lg" onclick="showdiv('journals')">Afficher le journal</button>
+                                <br>
+                                @include('Dashboard.Journal')
+                            </div>
                                 @endif
-                                </div>
+
                                 <br>
                                 You are logged in!
                         </div>

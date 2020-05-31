@@ -17,7 +17,7 @@ class CreateJournalsTable extends Migration
             $table->increments('Journal_id');
             $table->string("Journal_action");
             $table->string("Journal_table");
-            $table->integer("Journal_id_row");
+            $table->string("Journal_intitule");
             $table->string("Journal_user");
             $table->timestamps();
         });

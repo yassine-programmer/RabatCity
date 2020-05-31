@@ -63,7 +63,7 @@ class ThemesController extends Controller
         $journal = new Journal;
         $journal->Journal_action = 'Insertion';
         $journal->Journal_table = 'themes';
-        $journal->Journal_id_row = $theme->Theme_id;
+        $journal->Journal_intitule = $theme->Theme_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
         return $this->afficher($theme->Theme_type);
@@ -121,7 +121,7 @@ class ThemesController extends Controller
         $journal = new Journal;
         $journal->Journal_action = 'Modification';
         $journal->Journal_table = 'themes';
-        $journal->Journal_id_row = $theme->Theme_id;
+        $journal->Journal_intitule = $theme->Theme_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
         return  $this->afficher($theme->Theme_type);
@@ -142,7 +142,7 @@ class ThemesController extends Controller
         $journal = new Journal;
         $journal->Journal_action = 'Suppression';
         $journal->Journal_table = 'themes';
-        $journal->Journal_id_row = $theme->Theme_id;
+        $journal->Journal_intitule = $theme->Theme_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
         return  redirect('Themes/'.$theme->Theme_type);

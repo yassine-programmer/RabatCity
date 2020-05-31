@@ -64,7 +64,7 @@ class ArticlesController extends Controller
         $journal = new Journal;
         $journal->Journal_action = 'Insertion';
         $journal->Journal_table = 'articles';
-        $journal->Journal_id_row = $article->Article_id;
+        $journal->Journal_intitule = $article->Article_titre;
         $journal->Journal_user = Session::get('name');
         $journal->save();
         //end journal
@@ -121,7 +121,7 @@ class ArticlesController extends Controller
         $journal = new Journal;
         $journal->Journal_action = 'Modification';
         $journal->Journal_table = 'articles';
-        $journal->Journal_id_row = $article->Article_id;
+        $journal->Journal_intitule = $article->Article_titre;
         $journal->Journal_user = Session::get('name');
         $journal->save();
         //end journal
@@ -144,7 +144,7 @@ class ArticlesController extends Controller
         $journal = new Journal;
         $journal->Journal_action = 'Suppression';
         $journal->Journal_table = 'articles';
-        $journal->Journal_id_row = $article->Article_id;
+        $journal->Journal_intitule = $article->Article_titre;
         $journal->Journal_user = Session::get('name');
         $journal->save();
         //end journal
