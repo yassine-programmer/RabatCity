@@ -39,7 +39,7 @@
                         <div class="slider-active">
                             <!-- Single -->
                             @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites'))order by created_at desc LIMIT 1"))
-                            @if(count($newArticle==1))
+                            @if(count($newArticle)==1)
                             <div class="single-slider">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
