@@ -18,3 +18,4 @@ posts=''
 for i in range(len(texts)):
   posts += ''+texts[i].replace('\n',' . ')+' || '+str(images[i])+' || '+str(dates[i])+' || '+str(ids[i])+' }||{ '
 print(sendTextToPhp(str(posts)))
+a
