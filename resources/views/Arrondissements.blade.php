@@ -3,10 +3,16 @@
     <link href="/css/add.css" rel="stylesheet">
 @endsection
 @section("content")
-
+    <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
     <div class="container-fluid" id="999">
-
-
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center mt-3">
+                    <h4>Arrondissement</h4>
+                    <div class="section-heading-line"></div>
+                </div>
+            </div>
+        </div>
         <div class="row pt-5 pb-5">
             <div class="col-md-6 mx-auto accordion-image" >
             </div>
@@ -78,6 +84,7 @@
             </div>
         </div>
     </div>
+    </section>
 
 
 @endsection

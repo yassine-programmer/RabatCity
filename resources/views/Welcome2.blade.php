@@ -42,10 +42,12 @@
                             <div class="single-slider">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="{{$newArticle[0]->Article_image}}" alt="" style="height: 500px">
+                                        <a href="/Articles/{{$newArticle[0]->Article_id}}">
+                                        <img src="{{$newArticle[0]->Article_image}}" alt="" style="height: 680px">
+                                        </a>
                                         <div class="trend-top-cap">
                                             <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">News</span>
-                                            <h2><a href="latest_news.html" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$newArticle[0]->Article_titre}}</a></h2>
+                                            <h2><a href="/Articles/{{$newArticle[0]->Article_id}}" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$newArticle[0]->Article_titre}}</a></h2>
                                             <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">Posted - {{$newArticle[0]->created_at}}</p>
                                         </div>
                                     </div>
@@ -61,7 +63,9 @@
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
+                                        <a href="/Themes/rabat">
                                         <img src="/storage/photos/shares/Rabat_theme.jpg" alt="">
+                                        </a>
                                         <div class="trend-top-cap trend-top-cap2">
                                             <span class="bgb">Rabat</span>
                                             <h2><a href="/Themes/rabat">Decouvrir la capitale du Maroc , Rabat</a></h2>
@@ -70,18 +74,23 @@
                                     </div>
                                 </div>
                             </div>
+                            @php($Presidant = \Illuminate\Support\Facades\DB::select("select * from articles where Article_titre = 'Mot du président'"))
+                            @if(count($Presidant) == 1)
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img">
-                                        <img src="assets/img/trending/trending_top4.jpg" alt="">
+                                        <a href="/Articles/{{$Presidant[0]->Article_id}}">
+                                        <img src="{{$Presidant[0]->Article_image}}" alt="">
+                                        </a>
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgg">TECH </span>
-                                            <h2><a href="latest_news.html">Secretart for Economic Air plane that looks like</a></h2>
-                                            <p>by Alice cloe   -   Jun 19, 2020</p>
+                                            <span class="bgg">Mot </span>
+                                            <h2><a href="/Articles/{{$Presidant[0]->Article_id}}">{{$Presidant[0]->Article_titre}}</a></h2>
+                                            <p>{{$Presidant[0]->created_at}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                             @endif
                         </div>
                     </div>
                 </div>

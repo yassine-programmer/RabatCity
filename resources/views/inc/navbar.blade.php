@@ -13,6 +13,7 @@
                 <li><a class="nav-item nav-link grow" href="/Themes/actualites">Actualités</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/services">Services<span class="sr-only">(current)</span></a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/activites">Activites</a> </li>
+                <li><a class="nav-item nav-link grow" href="/Themes/evenement">Evénements</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/commune">Commune</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Arrondissements">Arrondissements</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/rabat">Rabat</a> </li>

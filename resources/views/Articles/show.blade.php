@@ -66,6 +66,7 @@
                         <div class="row">
                             <!-- Single Feature -->
                             @php($newArticles = App\Article::where('Article_id','<>',$article->Article_id)->take(3)->get()->sortByDesc('created_at', false))
+                            @php($newArticles = \Illuminate\Support\Facades\DB::select("select * from articles where Article_id <> ".$article->Article_id." order by created_at desc LIMIT 3"))
                             @foreach($newArticles as $newArticle)
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="fplus-single-feature wow fadeInUp" data-wow-delay="1s">
