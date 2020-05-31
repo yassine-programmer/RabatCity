@@ -44,6 +44,9 @@ Route::resource('search','SearchController');
 
 Route::get('/ViderJournal','JournalsController@vider');
 
+Route::get('/Arrondissements',function (){
+    return view('Arrondissements');
+});
 
 
 
