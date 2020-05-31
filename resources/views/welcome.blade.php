@@ -3,7 +3,7 @@
     <link href="/css/add.css" rel="stylesheet">
     @endsection
 @section("content")
-
+    @include('py.fbscrap')
     @include('inc.carousel')
     @include("inc.accordion")
             <div class="content">

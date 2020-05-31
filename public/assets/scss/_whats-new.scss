@@ -15,11 +15,11 @@
             img{
                 width: 100%;
                 @include transition(.4s);
-                transform: scale(1);              
+                transform: scale(1);
             }
         }
         .whates-caption{
-            h4{                   
+            h4{
                 a{
                     font-size: 24px;
                     line-height: 1.2;
@@ -49,7 +49,7 @@
                 }
             }
             &.whates-caption2{
-                h4{                   
+                h4{
                     a{
                         @media #{$lg}{
                             font-size: 20px;
@@ -66,7 +66,7 @@
                 }
             }
         }
-        // Hover 
+        // Hover
         &:hover{
             .whates-img{
                 img{
@@ -105,7 +105,7 @@
                 margin-bottom: 15px;
                 display: inline-block;
             }
-            h4{     
+            h4{
                 font-size: 16px;
                 font-weight: 700;
                 @media #{$lg}{
@@ -200,7 +200,7 @@
                 img{
                     width: 100%;
                     border-radius: 7px;
-    
+
                     // Hover Effect
                     // transition: .4s;
                     // transform: scale(1);
@@ -231,14 +231,14 @@
                         }
                        a{
                             color: #fff;
-                            
+
                             font-weight: 700;
                             line-height:1.3;
                             &:hover{
                                 //color: $theme-color;
                             }
-                            
-    
+
+
                        }
                     }
                     p{
@@ -260,8 +260,8 @@
             }
             .most-recent-capt{
                 padding-left: 18px;
-                h4{     
-                    font-size: 18px; 
+                h4{
+                    font-size: 18px;
                     display: block;
                     margin-bottom: 5px;
                     @media #{$lg}{
@@ -289,7 +289,7 @@
                 }
             }
         }
-    
+
     }
     .banner-one img {
         width: 100%;
