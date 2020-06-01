@@ -60,6 +60,10 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+                <div class="col-12 col-md-6 col-lg-4 mt-5">
+                     {{$articles->links()}}
+                </div>
             <!-- ****** new article ****** -->
                 <div class="section-heading text-center" style="margin-top: 70px">
                     <h4>Articles Recent</h4>
@@ -67,7 +71,7 @@
                     <div class="container">
                         <div class="row">
                             <!-- Single Feature -->
-                            @php($newArticles = App\Article::where('Article_id','<>',$article->Article_id)->take(3)->get()->sortByDesc('created_at', false))
+                            @php($newArticles = \Illuminate\Support\Facades\DB::select("select * from articles  order by created_at desc LIMIT 3"))
                             @foreach($newArticles as $newArticle)
                                 <div class="col-12 col-md-6 col-lg-4">
                                     <div class="fplus-single-feature wow fadeInUp" data-wow-delay="1s">
@@ -84,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
         </div>
         <br>
     </section>

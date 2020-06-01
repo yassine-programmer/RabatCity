@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 class SearchController extends Controller
 {
     /**
@@ -12,19 +14,22 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        $search = Str::lower(session()->get('req'));
+
+        //$titles = DB::select("select * from articles where Article_titre like '%".$request->input('haha')."%' or Article_text like '%".$request->input('haha')."%'");
+        $titles= DB::table('articles')->select('*')
+            ->where('Article_titre', 'like', '%'.$search.'%' )
+            ->orWhere('Article_text', 'like', '%'.$search.'%')
+            ->orderby('created_at','desc')
+            ->paginate(6);
+        return view("searchbar.show")->with('articles',$titles);
+    }
     public function store(Request $request)
     {
-        $ids=[];
-        $titles= DB::table('articles')->select('Article_id')
-            ->where('Article_titre', 'like', '%'.$request->input('haha').'%')
-            ->get();
-        foreach ($titles as $title){
-            array_push($ids,$title->Article_id);
-        }
-        $articles=[];
-        foreach ($ids as $id)
-              {array_push($articles,Article::find($id));}
-        return view("searchbar.show")->with('articles',$articles);
+        $request->session()->put('req',request()->input('haha'));
+       return $this->index();
     }
 
     /**
