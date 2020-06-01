@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
-require '/home/yassine/PhpstormProjects/RabatCity/vendor/autoload.php';
+require '../vendor/autoload.php';
 
 class EmailController extends Controller
 {
