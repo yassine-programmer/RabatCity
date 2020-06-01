@@ -60,3 +60,7 @@ Route::get('navbar',function (){
     return view ('header/header');
 });
 
+Route::get('contact', function () {
+    return view("Contact.index");
+});
+Route::resource('email','EmailController');

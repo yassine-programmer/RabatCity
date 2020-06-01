@@ -1,7 +1,7 @@
 <?php
 
-//exec("python -m pip install -r ..\\resources\\views\\py\\requirements.txt");
-$var = exec("python  C:\\Users\\Ahmed\\PhpstormProjects\\RabatCity\\resources\\views\\py\\facebookScrap.py 2>&1");
+//exec("python -m pip install -r ../resources/views/py/requirements.txt");
+$var = exec("python  ../resources/views/py/facebookScrap.py");
 $text=base64_decode($var);
 $text=strval($text);
 //$a=explode(":",$text);

@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/nice-select.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/form/util.css">
+    <link rel="stylesheet" type="text/css" href="/css/form/main.css">
+    <!--===============================================================================================-->
+    </head>
 @endsection
 @section("content")
 <!-- Preloader Start
@@ -616,6 +620,7 @@
         </div>
     </div>
     <!-- banner-last End -->
+    @include('Contact.index')
 </main>
     <script type="application/javascript">
 
