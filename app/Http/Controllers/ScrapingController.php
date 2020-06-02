@@ -14,31 +14,38 @@ class ScrapingController extends Controller
     {
             $client = new Client(HttpClient::create(['timeout' => 60]));
             $crawler = $client->request('GET', 'https://www.facebook.com/pg/Conseil.Arrondissement.Agdal.Ryad/posts/?ref=page_internal');
+            if($crawler->filter('._1xnd > div')->count()>0){
+                $posts = $crawler->filter('._1xnd > div')->each(function (Crawler $post, $i) {
+                    print 'Post : ' . $i . ' <br>';
+                    //filtre text start
+                    print 'Text : ' . $i . '<br>';
 
-            $posts = $crawler->filter('._1xnd > div')->each(function (Crawler $post, $i) {
-                print 'Post : ' . $i . ' <br>';
-                //filtre text start
-                print 'Text : ' . $i . '<br>';
-                $post->filter('.text_exposed_root > p')->each(function (Crawler $text, $i) {
+                    if($post->filter('.text_exposed_root > p')->count()>0){
+                        $post->filter('.text_exposed_root > p')->each(function (Crawler $text, $i) {
+                            print $text->text();
+                            print '<br>';
 
-                    print $text->text();
-                    print '<br>';
+                        });
+                    }
+                    //filtre text end
+                    //filtre image begin
+                    if($post->filter('.mtm > div')->count()>0){
+                        $post->filter('.mtm > div')->each(function (Crawler $test, $i) {
+                            if($test->filter('a')->count()>0){
+                                $test->filter('a')->each(function (Crawler $image, $i) {
+                                    print 'Image : ' . $i . '<br>';
+                                    if($image->filter('img')->count()>0)
+                                    print $image->filter('img')->attr('src');
+                                    print '<br>';
+                                });
+                            }
+                        });
+                    }
+                    //filtre image end
+                    $MyPost = [];
 
                 });
-                //filtre text end
-                //filtre image begin
-                $post->filter('.mtm > div')->each(function (Crawler $test, $i) {
-                    $test->filter('a')->each(function (Crawler $image, $i) {
-                        print 'Image : ' . $i . '<br>';
-                        if($image->filter('img')->count()>0)
-                        print $image->filter('img')->attr('src');
-                        print '<br>';
-                    });
-                });
-                //filtre image end
-                $MyPost = [];
-
-            });
+            }
 
 
 
