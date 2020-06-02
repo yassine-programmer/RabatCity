@@ -17,13 +17,15 @@
                             @endif
                             @if(Session::get('role')=='admin')
                             <div class="container text-center" >
-                                <button  class="btn-lg" onclick="showdiv('users')">Afficher les utilisateurs</button>
-                                    <br>
-                                     @include('Dashboard.ListAllUsers')
+                                <button  class="btn btn-outline-secondary" onclick="showdiv('users')" style="width: 300px">Afficher les utilisateurs</button>
                                 <br>
-                                <button  class="btn-lg" onclick="showdiv('journals')">Afficher le journal</button>
+                                @include('Dashboard.ListAllUsers')
+                                <br>
+                                <button  class="btn btn-outline-secondary" onclick="showdiv('journals')" style="width: 300px">Afficher le journal</button>
                                 <br>
                                 @include('Dashboard.Journal')
+                                <br>
+                                <a href="/scraping" class="btn btn-outline-secondary" style="width: 300px">Update Post Facebook</a>
                             </div>
                                 @endif
 

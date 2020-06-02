@@ -390,7 +390,7 @@
 
                     <!-- Most Recent Area -->
                     <div class="most-recent-area">
-                       @include('py.fbscrap')
+                       @include('Scrap.post')
                     </div>
                 </div>
             </div>

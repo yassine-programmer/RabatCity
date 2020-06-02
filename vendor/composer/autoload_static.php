@@ -504,6 +504,7 @@ class ComposerStaticInit30a976155905b63b2184f411fa20b72a
         'App\\Console\\Commands\\ScrapeCommand' => __DIR__ . '/../..' . '/app/Console/Commands/ScrapeCommand.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Facebook' => __DIR__ . '/../..' . '/app/Facebook.php',
         'App\\Http\\Controllers\\ArticlesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ArticlesController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',

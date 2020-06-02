@@ -11,6 +11,7 @@ return array(
     'App\\Console\\Commands\\ScrapeCommand' => $baseDir . '/app/Console/Commands/ScrapeCommand.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Facebook' => $baseDir . '/app/Facebook.php',
     'App\\Http\\Controllers\\ArticlesController' => $baseDir . '/app/Http/Controllers/ArticlesController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
