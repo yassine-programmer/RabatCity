@@ -19,7 +19,7 @@
 
                     <div class=" wrap-input100 bg1">
                         <span class="label-input100"><b>Theme Intitule *</b></span>
-                        <input class="input100" type="text" name="Theme_intitule" placeholder="Saisissez l'intitule du theme">
+                        <input class="input100" type="text" name="Theme_intitule" placeholder="Saisissez l'intitule du theme" required>
                     </div>
 
                     <div class=" wrap-input100 bg1">

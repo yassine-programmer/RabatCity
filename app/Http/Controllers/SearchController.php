@@ -20,15 +20,15 @@ class SearchController extends Controller
 
         //$titles = DB::select("select * from articles where Article_titre like '%".$request->input('haha')."%' or Article_text like '%".$request->input('haha')."%'");
         $titles= DB::table('articles')->select('*')
-            ->where('Article_titre', 'like', '%'.$search.'%' )
-            ->orWhere('Article_text', 'like', '%'.$search.'%')
+            ->whereRaw('LOWER(`Article_titre`) like (?)', '%'.$search.'%' )
+            ->orWhereRaw('LOWER(`Article_text`) like (?)', '%'.$search.'%')
             ->orderby('created_at','desc')
             ->paginate(6);
         return view("searchbar.show")->with('articles',$titles);
     }
     public function store(Request $request)
     {
-        $request->session()->put('req',request()->input('haha'));
+        $request->session()->put('req',request()->input('search'));
        return $this->index();
     }
 

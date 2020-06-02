@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "fabpot/goutte": "^4.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
@@ -16,6 +17,7 @@
         "league/oauth2-google": "^3.0",
         "paragonie/random_compat": "~2.0",
         "phpmailer/phpmailer": "^6.1",
+        "symfony/css-selector": "^5.1",
         "unisharp/laravel-filemanager": "^2.1"
     },
     "require-dev": {

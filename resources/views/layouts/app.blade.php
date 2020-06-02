@@ -33,6 +33,13 @@
 <div id="app">
    @include("inc.navbar")
     <main class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-10">
+                    @include("inc.messages")
+                </div>
+            </div>
+        </div>
         @yield('content')
 
     </main>

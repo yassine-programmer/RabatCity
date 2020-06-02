@@ -46,15 +46,10 @@ Route::get('/Arrondissements',function (){
     return view('Arrondissements');
 });
 
-
-
 Route::get('modal', function (){
     return view('layouts.modal');
 });
-//
-//Route::get('media-manager', function (){
-//    return view('MediaManager');
-//});
+
 
 Route::get('navbar',function (){
     return view ('header/header');
@@ -64,3 +59,5 @@ Route::get('contact', function () {
     return view("Contact.index");
 });
 Route::resource('email','EmailController');
+
+Route::get('/scraping','ScrapingController@test');
