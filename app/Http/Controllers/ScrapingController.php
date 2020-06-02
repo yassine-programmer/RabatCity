@@ -12,45 +12,39 @@ class ScrapingController extends Controller
 {
     public function test(Client $client)
     {
-        $client = new Client(HttpClient::create(['timeout' => 60]));
-        $crawler = $client->request('GET', 'https://www.facebook.com/pg/Conseil.Arrondissement.Agdal.Ryad/posts/?ref=page_internal');
+            $client = new Client(HttpClient::create(['timeout' => 60]));
+            $crawler = $client->request('GET', 'https://www.facebook.com/pg/Conseil.Arrondissement.Agdal.Ryad/posts/?ref=page_internal');
 
-        $posts = $crawler->filter('._1xnd > div')->each(function (Crawler $post, $i) {
-
-            if($post->filter('.text_exposed_root > p')->count()> 0) {
+            $posts = $crawler->filter('._1xnd > div')->each(function (Crawler $post, $i) {
+                print 'Post : ' . $i . ' <br>';
+                //filtre text start
+                print 'Text : ' . $i . '<br>';
                 $post->filter('.text_exposed_root > p')->each(function (Crawler $text, $i) {
 
-                    if ($text->count() > 0)
-                        $Mytext = $text->text();
-                    else
-                        $Mytext = '';
-                    $tab = array('text'=>$Mytext);
-                    // print $tab;
+                    print $text->text();
+                    print '<br>';
+
                 });
-            }
-            //filtre text end
-            //filtre image begin
-            if($post->filter('.mtm > div')->count()>0) {
+                //filtre text end
+                //filtre image begin
                 $post->filter('.mtm > div')->each(function (Crawler $test, $i) {
                     $test->filter('a')->each(function (Crawler $image, $i) {
-                        if ($image->filter('img')->count() > 0)
-                            $Myimage = $image->filter('img')->attr('src');
-                        else
-                            $Myimage = 0;
-                        //print $Myimage;
+                        print 'Image : ' . $i . '<br>';
+                        if($image->filter('img')->count()>0)
+                        print $image->filter('img')->attr('src');
+                        print '<br>';
                     });
                 });
-            }
-            //filtre image end
+                //filtre image end
+                $MyPost = [];
 
-
-        });
-
-
+            });
 
 
 
 
-        return $crawler->filter('._1xnd > div')->count();
+
+
+        return 1;
     }
 }
