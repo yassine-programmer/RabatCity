@@ -15,6 +15,7 @@ class CreateThemesTable extends Migration
     public function up()
     {
         Schema::create('themes', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('Theme_id');
             $table->string('Theme_type');
             $table->string('Theme_intitule')->unique();

@@ -86,7 +86,7 @@ class EmailController extends Controller
         } catch (Exception $e) {
             $result = "N";
         }
-        return view('Welcome2')->with('result',$result);
+        return redirect()->back()->with('result',$result);
 
     }
 

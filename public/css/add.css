@@ -8,6 +8,17 @@
     filter: alpha(opacity=100);
 
 }
+.add2 {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    min-width: 100px;
+}
+
+.add2:hover {
+    opacity: 1.0;
+    filter: grayscale(0);
+
+}
 .grow { transition: all .1s ease-in-out; }
 .grow:hover { transform: scale(1.05); }
 .slide-img{

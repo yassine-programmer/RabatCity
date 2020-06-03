@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/nice-select.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/css/form/util.css">
     <link rel="stylesheet" type="text/css" href="/css/form/main.css">
-    <!--===============================================================================================-->
-    </head>
+
+
 @endsection
 @section("content")
 <!-- Preloader Start
@@ -609,17 +610,10 @@
     <!-- End Weekly-News -->
     <!-- banner-last Start -->
     <div class="banner-area gray-bg pt-90 pb-90">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-md-10">
-                    <div class="banner-one">
-                        <img src="assets/img/gallery/body_card3.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('inc.carousel')
     </div>
     <!-- banner-last End -->
+
     @include('Contact.index')
 </main>
     <script type="application/javascript">

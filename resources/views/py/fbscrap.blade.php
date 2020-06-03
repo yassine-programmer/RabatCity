@@ -1,7 +1,8 @@
 <?php
 
-//exec("python -m pip install -r ../resources/views/py/requirements.txt");
-$var = exec("python  ../resources/views/py/facebookScrap.py");
+//exec("ail
+// -r ../resources/views/py/requirements.txt");
+$var = 'exec("python  ../resources/views/py/facebookScrap.py");';
 $text=base64_decode($var);
 $text=strval($text);
 //$a=explode(":",$text);
@@ -29,18 +30,18 @@ $ids[$i]=$post[$i][3];}
     <!-- Details -->
     <div class="most-recent mb-40">
         <div class="most-recent-img">
-            <img src="{{$images[0] ?? ''}}" alt="">
+            <img src="{{$images[1] ?? ''}}" alt="">
             <div class="most-recent-cap">
                 <span class="bgbeg">Facebook</span>
-                <h4><a href="https://www.facebook.com/Conseil.Arrondissement.Agdal.Ryad/posts/{{$ids[0] ?? '' }}"><?php
-                        echo substr($texts[0] ?? '', 0, 100);
+                <h4><a href="https://www.facebook.com/Conseil.Arrondissement.Agdal.Ryad/posts/{{$ids[1] ?? '' }}"><?php
+                        echo substr($texts[1] ?? '', 0, 100);
                         ?>...</a></h4>
-                <p>{{$dates[0] ?? ''}}</p>
+                <p>{{$dates[1] ?? ''}}</p>
             </div>
         </div>
     </div>
     <!-- Single -->
-    @for($i=1;$i<4;$i++)
+    @for($i=2;$i<5;$i++)
     <div class="most-recent-single">
         <div class="most-recent-images">
             <a href="https://www.facebook.com/Conseil.Arrondissement.Agdal.Ryad/posts/{{$ids[$i] ?? ''}}">

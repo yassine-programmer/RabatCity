@@ -2,7 +2,7 @@
 
 @if(!empty($result))
     @if($result == 'Y')
-        <script>alert('Votre a ete envoye avec succes')</script>
+        <script>alert('Votre message ete envoye avec succes')</script>
         @else
         <script>alert('Votre n est pas bie envoye. Resssayez plus tard')</script>
         @endif

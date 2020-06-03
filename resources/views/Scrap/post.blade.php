@@ -7,13 +7,13 @@
 @php($post = App\Facebook::all())
     <div class="most-recent mb-40">
         <div class="most-recent-img">
-            <img src="{{$post[1]->Facebook_image}}" alt="">
+            <img src="{{$post[1]->Facebook_image ?? ''}}" alt="">
             <div class="most-recent-cap">
                 <span class="bgbeg">Facebook</span>
-                <h4><a href="https://www.facebook.com{{$post[1]->Facebook_url}}"><?php
-                        echo substr($post[1]->Facebook_text, 0, 100);
+                <h4><a href="https://www.facebook.com{{$post[1]->Facebook_url ?? ''}}"><?php
+                        echo substr($post[1]->Facebook_text ?? '', 0, 100);
                         ?>...</a></h4>
-                <p>Publier - {{$post[1]->Facebook_time}}</p>
+                <p>Publier - {{$post[1]->Facebook_time ?? ''}}</p>
             </div>
         </div>
     </div>
@@ -21,18 +21,18 @@
 @for($i=2;$i<5;$i++)
     <div class="most-recent-single">
         <div class="most-recent-images">
-            <a href="https://www.facebook.com{{$post[$i]->Facebook_url}}">
-                <img style="max-width: 6em;" src="{{$post[$i]->Facebook_image}}" alt=""></a>
+            <a href="https://www.facebook.com{{$post[$i]->Facebook_url ?? ''}}">
+                <img style="max-width: 6em;" src="{{$post[$i]->Facebook_image ?? ''}}" alt=""></a>
         </div>
         <div class="most-recent-capt">
-            <h4><a href="https://www.facebook.com{{$post[$i]->Facebook_url}}">
+            <h4><a href="https://www.facebook.com{{$post[$i]->Facebook_url ?? ''}}">
 
                         <?php
-                        echo substr($post[$i]->Facebook_text, 0, 100).'...';
+                        echo substr($post[$i]->Facebook_text ?? '', 0, 100).'...';
                         ?>
                     </a></h4>
             <br>
-            <p>Publier - {{$post[$i]->Facebook_time}}</p>
+            <p>Publier - {{$post[$i]->Facebook_time ?? ''}}</p>
         </div>
     </div>
 @endfor

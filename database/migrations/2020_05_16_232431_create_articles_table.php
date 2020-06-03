@@ -14,6 +14,7 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigIncrements('Article_id');
             $table->string('Article_titre');
             $table->string('Article_image');

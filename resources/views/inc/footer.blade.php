@@ -32,9 +32,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
-                    <div class="about-us-widget" style="width: 150%;height: 69%;margin-left: -69%;margin-bottom: -7%;margin-top: -26%;">
-                        <img src="https://i.imgur.com/dIOKKEh.png" alt="" >
-                    </div>
+                        <img src="https://i.imgur.com/dIOKKEh.png" style="size">
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="subscribe-widget">
