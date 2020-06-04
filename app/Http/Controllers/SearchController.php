@@ -17,14 +17,21 @@ class SearchController extends Controller
     public function index()
     {
         $search = Str::lower(session()->get('req'));
-
+        $words = explode(' ' ,$search);
         //$titles = DB::select("select * from articles where Article_titre like '%".$request->input('haha')."%' or Article_text like '%".$request->input('haha')."%'");
+        foreach ($words as $word){
         $titles= DB::table('articles')->select('*')
-            ->whereRaw('LOWER(`Article_titre`) like (?)', '%'.$search.'%' )
-            ->orWhereRaw('LOWER(`Article_text`) like (?)', '%'.$search.'%')
+            ->whereRaw('LOWER(`Article_titre`) like (?)', '%'.$word.'%' )
+            ->orWhereRaw('LOWER(`Article_text`) like (?)', '%'.$word.'%')
             ->orderby('created_at','desc')
             ->paginate(6);
-        return view("searchbar.show")->with('articles',$titles);
+        $tabs[]=$titles;
+        }
+
+        $articles=$tabs[0];
+
+
+        return view("searchbar.show")->with('articles',$tabs);
     }
     public function store(Request $request)
     {
