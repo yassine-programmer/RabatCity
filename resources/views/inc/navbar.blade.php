@@ -1,14 +1,16 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top" style="padding: 1rem 1rem;">
-
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="https://i.imgur.com/RSC5U1b.png " style="width: 10pc;margin-top: -2rem;margin-bottom: -2rem;margin-right: 5rem;">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg fixed-top" style="padding: 1rem 1rem;">
+    <div class="pl-35">
+        <a class="navbar-brand  " href="{{ url('/') }}" style="max-width: 170px">
+            <img src="https://i.imgur.com/RSC5U1b.png " >
         </a>
+    </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse nav-text" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
+            <div class="d-md-flex d-block flex-row mx-md-auto mx-0">
             <ul class="navbar-nav mr-auto">
                 <li><a class="nav-item nav-link grow" href="/Themes/actualites">Actualités</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/services">Services<span class="sr-only">(current)</span></a> </li>
@@ -18,6 +20,7 @@
                 <li><a class="nav-item nav-link grow" href="/Arrondissements">Arrondissements</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/rabat">Rabat</a> </li>
             </ul>
+            </div>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->

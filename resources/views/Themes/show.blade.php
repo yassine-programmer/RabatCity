@@ -90,14 +90,14 @@
                     @endforeach
                 @endif
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-
-                    <div class="col-12 col-md-6 col-lg-4" style="padding-top: 4%;">
+                    <div class="col-12 col-md-6 col-lg-3 mt-5 add justify-content-center" style=" border: 3px dashed">
                         <a href="/categories/createCategorie/{{$theme->Theme_id}}">
-                            <div class="fplus-single-blog-area wow fadeInUp add " data-wow-delay="0.5s" style=" border: 3px dashed" >
-                                <img src="https://i.imgur.com/7yPHMCB.png" style="width: 120px; margin-top: 50%; margin-bottom: 50%; margin-left: 29%;">
-                            </div>
-                        </a>
+                        <div class="w-50 mx-auto " style="padding-top: 50%; padding-bottom: 50%">
+                                <img src="https://i.imgur.com/7yPHMCB.png">
+                        </div>
                     </div>
+
+                    </a>
                 @endif
             </div>
         </div>

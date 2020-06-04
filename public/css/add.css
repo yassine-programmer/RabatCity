@@ -153,3 +153,6 @@ animation: zoom-in 2s;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.nav-text{
+    font-weight: 400;
+}

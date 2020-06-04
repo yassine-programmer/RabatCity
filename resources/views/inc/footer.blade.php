@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
-                        <img src="https://i.imgur.com/dIOKKEh.png" style="size">
+                        <img src="https://i.imgur.com/wRtCpzt.png?1">
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="subscribe-widget">
