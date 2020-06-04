@@ -94,7 +94,8 @@
                         <a href="/categories/createCategorie/{{$theme->Theme_id}}">
                         <div class="w-50 mx-auto " style="padding-top: 50%; padding-bottom: 50%">
                                 <img src="https://i.imgur.com/7yPHMCB.png">
-                        </div>
+                        </div></a>
+
                     </div>
 
                     </a>
