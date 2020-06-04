@@ -7,6 +7,7 @@ use App\Theme;
 use App\Categorie;
 use App\Journal;
 use Illuminate\Support\Facades\Session;
+use Auth;
 
 class ThemesController extends Controller
 {
@@ -137,14 +138,20 @@ class ThemesController extends Controller
      */
     public function destroy($id)
     {
+
         $theme = Theme::find($id);
         $theme->delete();
+        //journal
         $journal = new Journal;
         $journal->Journal_action = 'Suppression';
         $journal->Journal_table = 'themes';
         $journal->Journal_intitule = $theme->Theme_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
+        //end journal
+        //send alert to all admins if the user is a moderator
+        $user_id=Auth::id();
+        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
         return  redirect('Themes/'.$theme->Theme_type);
     }
 }

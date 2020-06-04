@@ -148,6 +148,10 @@ class ArticlesController extends Controller
         $journal->Journal_user = Session::get('name');
         $journal->save();
         //end journal
+        //send alert to all admins if the user is a moderator
+        $user_id=Auth::id();
+        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
+
         $categories_fils=Categorie::where("Categorie_id",$Categorie2)->get();
         $categorie_parent=Categorie::where("Categorie_id",$categories_fils[0]->Cat_id)->get();
         $articles = Article::where("Categorie_id",$categorie_parent[0]->Categorie_id)->get();

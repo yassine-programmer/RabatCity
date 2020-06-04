@@ -71,6 +71,7 @@ class CategoriesController extends Controller
         $journal->Journal_intitule = $categorie->Categorie_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
+
         if(empty($categorie->Cat_id)){
 
             return redirect()->action(

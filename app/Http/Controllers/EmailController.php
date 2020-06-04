@@ -7,12 +7,70 @@ use Illuminate\Support\Str;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
+use App\User;
+use DB;
 // Load Composer's autoloader
 require '../vendor/autoload.php';
 
 class EmailController extends Controller
 {
+    public function AlertDelete($journal,$user_id){
+        $user =  User::find($user_id);
+        $subject='Alerte de SUPPRESSION';
+        $message='Le moderateur '.$user->name.' a effectue une <b>'. $journal->Journal_action.' d un/une </b>'.$journal->Journal_table.' sous le titre de : '.$journal->Journal_intitule
+        .'<br>Veuillez consulter le journal dans votre espace admin : <a href="https://emsipfa.tk/home">www.emsipfa.tk/home</a>';
+
+        if($user->role == 'moderator'){
+            $admins = DB::table('users')->where('role', '=', 'admin')->get();
+
+            foreach ($admins as $admin){
+                $this->SendAlertEmail($admin->email,$subject,$message);
+            }
+        }
+
+
+    }
+    public function SendAlertEmail($recepient,$subject,$message){
+        {
+
+            // mail config
+            $mail = new PHPMailer(true);
+            try {
+                //Server settings
+//            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+                $mail->isSMTP();                                            // Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+                $mail->SMTPAuth   =  true;                                   // Enable SMTP authentication
+                $mail->Username   = 'rabat.no.reply1@gmail.com';                     // SMTP username
+                $mail->Password   = 'rabat123456';                               // SMTP password
+//            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+                //Recipients
+                $mail->setFrom('rabat.no.reply1@gmail.com', 'Rabat');
+                $mail->addAddress($recepient);     // Add a recipient
+                ////    $mail->addAddressB('ellen@example.com');               // Name is optional
+                //    $mail->addReplyTo('info@example.com', 'Information');
+                //    $mail->addCC('cc@example.com');
+                //    $mail->addBCC('bcc@example.com');
+
+                // Attachments
+                //    $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+                //    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+                // Content
+                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->Subject = $subject;
+                $mail->Body    = $message;
+                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                $mail->send();
+                $result = 'Y';
+            } catch (Exception $e) {
+                $result = "N";
+            }
+        }
+    }
     /**
      * Display a listing of the resource.
      *
