@@ -34,28 +34,19 @@
                 <!-- Single Blog Post Area -->
 
                 @foreach($articles as $article)
-                    <div class="col-12 col-md-6 col-lg-4 mt-5">
-                        <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
-                            <!-- Blog Thumbnail -->
-                            <a href="/Articles/{{$article->Article_id}}">
-                                <img  src="{{$article->Article_image}}"  alt="" class="grow" style="height: 200px;width:400px; "></a>
-                            <!-- Blog Content -->
-                            <div class="fplus-blog-content">
-                                <a class="text-center" href="/Articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>
-                                <ul class="list-group list-group-flush">
-                                    @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                                        <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
-                                            {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
-                                            {{ Form::hidden('_method','DELETE') }}
-                                            <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$article->Article_id}}').submit();">
-                                                <i class="fa fa-trash-o fa-lg"></i> Delete</button>
-                                            {!! Form::close() !!}
-                                            <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
-                                                <i class="fa fa-cog"></i> Edit</a>
-                                        </li>
-                                    @endif
-                                </ul>
-
+                    <div class="col-12  mt-5 grow">
+                        <div class="row" style="border: 1px solid #ccc!important;
+                                                box-shadow: 1px 1px 12px #b8b894;
+                                                margin-top: -30px;">
+                            <div class="col-3 " >
+                                <a href="/Articles/{{$article->Article_id}}">
+                                    <img  src="{{$article->Article_image}}"  alt="" style="height: 100px;width:200px;
+                                            border-right:1px solid #ccc!important;
+                                            border-left:1px solid #ccc!important;
+                                          box-shadow: 1px 1px 5px #b8b894;" ></a>
+                            </div>
+                            <div class="col-9 d-flex align-items-center justify-content-start" >
+                                <a class="text-left" href="/Articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>
                             </div>
 
                         </div>
@@ -64,7 +55,7 @@
 
 
             </div>
-                <div class="col-12 col-md-6 col-lg-4 mt-5">
+                <div class="col-12 col-md-6 col-lg-4 mt-5 text-center">
                      {{$articles->links()}}
 
                 </div>
@@ -78,7 +69,7 @@
                             <!-- Single Feature -->
                             @php($newArticles = \Illuminate\Support\Facades\DB::select("select * from articles  order by created_at desc LIMIT 3"))
                             @foreach($newArticles as $newArticle)
-                                <div class="col-12 col-md-6 col-lg-4">
+                                <div class="col-12 col-md-6 col-lg-4 grow">
                                     <div class="fplus-single-feature wow fadeInUp" data-wow-delay="1s">
                                         <a href="#">
                                             <img  src="{{$newArticle->Article_image}}"  alt="" style="height: 200px;width:400px; ">
