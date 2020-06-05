@@ -32,8 +32,8 @@
 
             <div class="row">
                 <!-- Single Blog Post Area -->
-                @for($i = 0; $i < count($articles);$i++)
-                @foreach($articles[$i] as $article)
+
+                @foreach($articles as $article)
                     <div class="col-12 col-md-6 col-lg-4 mt-5">
                         <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
                             <!-- Blog Thumbnail -->
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 @endforeach
-                @endfor
+
 
             </div>
                 <div class="col-12 col-md-6 col-lg-4 mt-5">
