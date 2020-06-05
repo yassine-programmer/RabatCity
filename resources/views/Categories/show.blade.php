@@ -11,7 +11,7 @@
 
     <!-- ****** Welcome Area Start ****** -->
     <section class="fplus-hero-area" style="background-image: url({{$categorie_parent->Categorie_image}})" id="home">
-        <div class="hero-content-area d-flex justify-content-end">
+        <div class="hero-content-area d-flex justify-content-center">
             <div class="hero-text">
                 @php($theme = App\Theme::find($categorie_parent->Theme_id))
                 <a href="/Themes/{{$theme->Theme_type}}">{{$theme->Theme_type}}</a> / <a href="/themes/{{$theme->Theme_id}}">{{$theme->Theme_intitule}}</a> / <a href="/categories/{{$categorie_parent->Categorie_id}}">{{$categorie_parent->Categorie_intitule}}</a> /

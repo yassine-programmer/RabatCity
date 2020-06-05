@@ -17,6 +17,7 @@
             </div>
         </div>
     </div>
+
 <!-- Single -->
 @for($i=2;$i<5;$i++)
     <div class="most-recent-single">

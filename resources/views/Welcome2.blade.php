@@ -34,9 +34,9 @@
 
 <main>
     <!-- Trending Area Start -->
-    <div class="trending-area fix pt-25 ">
-        <div class="container">
-            <div class="trending-main">
+    <div class="trending-area fix pt-25" style="background-color: #f9f9f9">
+        <div class="container" style="background-color: #f9f9f9">
+            <div class="trending-main" style="background-color: #f9f9f9">
                 <div class="row">
                     <div class="col-lg-8">
                         <!-- Trending Top -->
@@ -45,8 +45,10 @@
                             @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites'))order by created_at desc LIMIT 1"))
                             @if(count($newArticle)==1)
                             <div class="single-slider">
-                                <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
+                                <div class="trending-top mb-30" >
+                                    <div class="trend-top-img"   style="border:1px solid #ccc!important;
+                                                              border-bottom: 0;
+                                                              box-shadow: 5px 6px 12px #b8b894;">
                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
                                         <img src="{{$newArticle[0]->Article_image}}" alt="" style="height: 680px">
                                         </a>
@@ -66,9 +68,10 @@
                     <div class="col-lg-4">
                         <!-- Trending Top -->
                         <div class="row">
-                            <div class="col-lg-12 col-md-6 col-sm-6">
+                            <div class="col-lg-12 col-md-6 col-sm-6" >
                                 <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
+                                    <div class="trend-top-img" style="border:1px solid #ccc!important;
+                                                                            box-shadow: 4px 4px 12px #b8b894;">
                                         <a href="/Themes/rabat">
                                         <img src="/storage/photos/shares/Rabat_theme.jpg" alt="">
                                         </a>
@@ -84,7 +87,8 @@
                             @if(count($Presidant) == 1)
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
-                                    <div class="trend-top-img">
+                                    <div class="trend-top-img" style="border:1px solid #ccc!important;
+                                                                            box-shadow: 4px 4px 12px #b8b894;">
                                         <a href="/Articles/{{$Presidant[0]->Article_id}}">
                                         <img src="{{$Presidant[0]->Article_image}}" alt="">
                                         </a>
@@ -109,7 +113,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="whats-news-wrapper">
+                    <div class="whats-news-wrapper"  style="border:1px solid #ccc!important;
+                                             box-shadow: 4px 4px 12px #b8b894;">
                         <!-- Heading & Nav Button -->
                         <div class="row justify-content-between align-items-end mb-15">
                             <div class="col-xl-4">
@@ -155,6 +160,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             @endif
 
                                             <!-- Right single caption -->
@@ -203,6 +209,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             @endif
 
                                             <!-- Right single caption -->
@@ -381,16 +388,27 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Banner -->
                 </div>
                 <div class="col-lg-4">
                     <!-- Flow Socail -->
 
                     <!-- Most Recent Area -->
-                    <div class="most-recent-area">
+                    <div class="most-recent-area"   style="border:1px solid #ccc!important;
+                                                              border-bottom: 0;
+                                                              box-shadow: 1px 1px 12px #b8b894;">
                        @include('Scrap.post')
                     </div>
                 </div>
+
+                <div class="col-lg-8 rounded pr-3" style="margin-top: -27%;
+                background-image: url('https://i.imgur.com/3j0wWHu.png');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: auto;
+                background-position: bottom;
+                background-color:rgba(0, 0, 0, 0.5);
+                background-position-y: -541px;
+                background-position-x: -423px;">
             </div>
         </div>
     </section>

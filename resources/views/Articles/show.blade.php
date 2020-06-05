@@ -10,7 +10,7 @@
 
     <!-- ****** Welcome Area Start ****** -->
     <section class="fplus-hero-area" style="background-image: url({{$categorie[0]->Categorie_image}})" id="home">
-        <div class="hero-content-area d-flex justify-content-end">
+        <div class="hero-content-area d-flex justify-content-center">
             <div class="hero-text">
                 <h2>{{$categorie[0]->Categorie_intitule}}</h2>
                 <h5>{{$categorie[0]->Categorie_description}}</h5>
@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div class="section-heading text-center">
+                            <div class="section-heading text-center grow">
                                 <h4>{{$article->Article_titre}}</h4>
                                 <div class="section-heading-line"></div>
                             </div>
@@ -36,7 +36,8 @@
                 </div>
                 <div class="container">
                     <div class="about-us-content wow fadeInLeftBig" data-wow-delay="0.5">
-                        <div class="row no-gutters align-items-center">
+                        <div class="row no-gutters align-items-center" style="border-bottom:1px solid #ccc!important;
+                                                                                box-shadow: 1px 1px 50px #b8b894;">
                             <div class="col-12">
                                 <div class="about-us-text wow fadeIn" data-wow-delay="1.5s" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
                                     {!! $article->Article_text !!}
@@ -58,21 +59,41 @@
                     </div>
                 </div>
             <!-- ****** About Us Area end ****** -->
+            <!-- Banner-->
+                <div class="weekly3-news-area pt-80 pb-130 fixed-bg-img1" style="margin-top: 70px">
+                    <div class="container" >
+                        <div class="weekly3-wrapper">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="slider-wrapper" style="height: 200px">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- Banner-->
             <!-- ****** new article ****** -->
                 <div class="section-heading text-center" style="margin-top: 70px">
-                    <h4>Articles Recent</h4>
-                    <div class="section-heading-line"></div>
+                    <div class="grow">
+                        <h4>Articles Recent</h4>
+                        <div class="section-heading-line"></div>
+                    </div>
+
                     <div class="container">
                         <div class="row">
                             <!-- Single Feature -->
                             @php($newArticles = \Illuminate\Support\Facades\DB::select("select * from articles where Article_id <> ".$article->Article_id." order by created_at desc LIMIT 3"))
                             @foreach($newArticles as $newArticle)
                             <div class="col-12 col-md-6 col-lg-4">
-                                <div class="fplus-single-feature wow fadeInUp" data-wow-delay="1s">
+                                <div class="fplus-single-feature wow fadeInUp grow" data-wow-delay="1s"
+                                     style="border-bottom:1px solid #ccc!important;
+                                            box-shadow: 1px 1px 12px #b8b894;">
                                     <a href="#">
                                         <img  src="{{$newArticle->Article_image}}"  alt="" style="height: 200px;width:400px; ">
                                     </a>
-                                    <div class="feature-title d-flex align-items-center" style="margin-top: 20px">
+                                    <div class="feature-title d-flex align-items-center text-center" style="margin-top: 20px">
                                         <h5>{{$newArticle->Article_titre}}</h5>
                                     </div>
                                 </div>

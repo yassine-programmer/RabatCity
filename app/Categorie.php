@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorie extends Model
 {
-    protected $primaryKey='Tag_id';
+    protected $primaryKey='Categorie_id';
 }
