@@ -156,3 +156,13 @@ animation: zoom-in 2s;
 .nav-text{
     font-weight: 400;
 }
+
+/*Divs With Fixed Backgrounds*/
+div.fixed-bg-img1{
+    background-image: url("https://i.imgur.com/3j0wWHu.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+img.fixed-bg-img1{}

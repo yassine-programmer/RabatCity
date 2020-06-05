@@ -34,7 +34,7 @@
 
 <main>
     <!-- Trending Area Start -->
-    <div class="trending-area fix pt-25 gray-bg">
+    <div class="trending-area fix pt-25 ">
         <div class="container">
             <div class="trending-main">
                 <div class="row">
@@ -382,9 +382,6 @@
                         </div>
                     </div>
                     <!-- Banner -->
-                    <div class="banner-one mt-20 mb-30">
-                        <img src="assets/img/gallery/body_card1.png" alt="">
-                    </div>
                 </div>
                 <div class="col-lg-4">
                     <!-- Flow Socail -->
@@ -406,7 +403,7 @@
                     <!-- Banner -->
                     <div class="col-lg-3">
                         <div class="home-banner2 d-none d-lg-block">
-                            <img src="assets/img/gallery/body_card2.png" alt="">
+                            <img src="https://i.pinimg.com/originals/53/3e/6c/533e6caa7edf704e26e0e9f230af6d8b.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -479,7 +476,7 @@
 
     <!-- End Start Video area-->
     <!--   Weekly3-News start -->
-    <div class="weekly3-news-area pt-80 pb-130">
+    <div class="weekly3-news-area pt-80 pb-130 fixed-bg-img1">
         <div class="container">
             <div class="weekly3-wrapper">
                 <div class="row">

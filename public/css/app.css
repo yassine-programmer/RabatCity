@@ -10944,10 +10944,12 @@ a.text-dark:focus {
 
 }
  html, body {
-     background-image: url("https://i.imgur.com/tsk7P2d.png");
+     background-image: url("https://www.paris.fr/packs/images/nef-blackpearl-12b885a16f7d54a73bd9d582dd3f3bed.svg");
      background-repeat: no-repeat;
-     background-size: 1776px;
-     background-position: -163.9px -188px;
+     background-size: 776px;
+     background-position: 248.1px -188px ;
+     background-attachment: unset;
+
 
 
      margin: 0;
@@ -11052,4 +11054,7 @@ body {
 
 .owl-carousel {
     margin-bottom: 15px
+}
+img{
+    opacity: 0.75;
 }

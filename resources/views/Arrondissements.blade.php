@@ -3,7 +3,7 @@
     <link href="/css/add.css" rel="stylesheet">
 @endsection
 @section("content")
-    <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
+    <section class="fplus-about-us-area section-padding-120" id="about">
     <div class="container-fluid" id="999">
         <div class="row">
             <div class="col-12">
