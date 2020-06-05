@@ -53,11 +53,12 @@
             </div>
             <div class="row pt-5">
                 <div class="col-md-12 text-center text-white"><small><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Razaq & Touhama
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Razaq & Touhama</small>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </div>
         </div>
-        @include('searchbar.searchbar')
+        </div>
+
     </footer>
 
 <!-- Popper js -->

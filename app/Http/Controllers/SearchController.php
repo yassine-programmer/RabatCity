@@ -43,9 +43,11 @@ class SearchController extends Controller
     }
     public function store(Request $request)
     {
-        $request->session()->put('req',request()->input('search'));
-       return $this->index();
-    }
+            $request->session()->put('req',request()->input('mySearch'));
+            return $this->index();
+        }
+
+
 
     /**
      * Show the form for creating a new resource.

@@ -1,12 +1,11 @@
-<div>
-    <div class="search">
-        {!! Form::open(['action' => 'SearchController@store', 'method' => 'post','id'=>'search']) !!}
+
+       
+        {!! Form::open(['action' => 'SearchController@store', 'method' => 'post','id'=>'Textsearch']) !!}
+
+        <div class="Searchcontainer">
+            <input name="mySearch" type="text" placeholder="Search..." required>
+            <div class="search"></div>
         </div>
-        <input type="text" name="search" class="searchTerm" placeholder="What are you looking for?">
-        <button type="submit" class="searchButton" onclick="document.getElementById('search').submit()">
-            <i class="fa fa-search"></i>
-        </button>
-    {{Form::submit('Ajouter',['class' =>'btn btn-primary'])}}
+
+
         {!! Form::close() !!}
-    </div>
-</div>
