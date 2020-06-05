@@ -15,7 +15,7 @@
             <div class="hero-text">
                 <a href="/Themes/{{$theme->Theme_type}}">{{$theme->Theme_type}}</a> / <a href="/themes/{{$theme->Theme_id}}">{{$theme->Theme_intitule}}</a> /
                 <h2>{{$theme->Theme_intitule }}</h2>
-                <h5>{{$theme->Theme_description}}</h5>
+                <h5 style="margin-top: -30px">{{$theme->Theme_description}}</h5>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                     <a href="/categories/createCategorie/{{$theme->Theme_id}}" class="view-portfolio-btn" id="scrollDown">
                         <i class="fa fa-plus" aria-hidden="true"></i>Creer une categorie</a>
@@ -29,7 +29,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-heading text-center">
+                    <div class="section-heading text-center grow">
                         <h4>Categories</h4>
                         <div class="section-heading-line"></div>
                     </div>
@@ -50,7 +50,8 @@
                                 <div class="fplus-blog-content">
 
                                     <a href="/categories/{{$categorie->Categorie_id}}">
-                                        <h4 class="text-center">{{$categorie->Categorie_intitule}}</h4></a>
+                                        <h4 class="text-center grow">{{$categorie->Categorie_intitule}}</h4></a>
+                                    <hr>
                                     @php($categories = App\Categorie::where('Cat_id',$categorie->Categorie_id)->take(3)->get())
                                     @php($articles = App\Article::where('Categorie_id',$categorie->Categorie_id)->take(3)->get())
                                     <ul class="list-group list-group-flush">
@@ -61,7 +62,7 @@
                                                     </a></li>
                                             @elseif(isset($articles[$i]))
                                                 <li class="list-group-item">
-                                                    <a href="#" >
+                                                    <a href="/articles/{{$articles[$i]->Article_id}}" >
                                                           #{{$articles[$i]->Article_titre}}
                                                     </a></li>
                                             @else
@@ -105,7 +106,7 @@
         <br>
     </section>
     <!-- ****** Blog Area End ****** -->
-
+@endsection
 
 
 

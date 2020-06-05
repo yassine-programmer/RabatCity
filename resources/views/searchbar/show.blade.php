@@ -46,7 +46,7 @@
                                             border-left:1px solid #ccc!important;
                                           box-shadow: 1px 1px 5px #b8b894;" ></a>
                             </div>
-                            <div class="col-9 d-flex align-items-center justify-content-start" >
+                            <div class="col-9 d-flex align-items-center justify-content-start " >
                                 <a class="text-left" href="/Articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>
                             </div>
 

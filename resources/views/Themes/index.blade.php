@@ -9,7 +9,9 @@
 @section("content")
 
     <!-- ****** Welcome Area Start ****** -->
-    <section class="fplus-hero-area" style="background-image: url(/storage/photos/shares/Rabat_theme.jpg)" id="home">
+    <section class="fplus-hero-area"  id="home"
+             style="background-image: url(/storage/photos/shares/Rabatbg.jpg);">
+        <div class="cube">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
                 <a href="/Themes/{{$Theme_type}}">{{$Theme_type}}</a> /
@@ -20,6 +22,7 @@
                     @endif
             </div>
         </div>
+        </div>
     </section>
     <br>
     <!-- ****** Blog Area Start ****** -->
@@ -27,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-heading text-center mt-3">
+                    <div class="section-heading text-center mt-3 grow" >
                         <h4>Themes</h4>
                         <div class="section-heading-line"></div>
                     </div>
@@ -40,7 +43,9 @@
                 @if(isset($themes) && count($themes)>0)
                     @foreach($themes as $theme)
                             <div class="col-12 col-md-6 col-lg-4 mt-5">
-                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});">
+                            <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});"
+                                 style="border:1px solid #ccc!important;
+                                        box-shadow: 1px 1px 9px #b8b894;">
                                 <!-- Blog Thumbnail -->
                                 <a href="/themes/{{$theme->Theme_id}}">
                                     <img  src="{{$theme->Theme_image}}"  alt="" class="grow" style="height: 200px;width:400px; "></a>
@@ -48,7 +53,8 @@
 
                                 <div class="fplus-blog-content">
 
-                                    <a class="text-center" href="/themes/{{$theme->Theme_id}}"><h4>{{$theme->Theme_intitule}}</h4></a>
+                                    <a class="text-center" href="/themes/{{$theme->Theme_id}}"><h4 class="grow">{{$theme->Theme_intitule}}</h4></a>
+                                    <hr>
                                     <h6><?php
                                         echo substr($theme->Theme_description, 0, 28);
                                         ?>...</h6>
