@@ -1,11 +1,11 @@
 <!--  -->
 <!-- Section Tittle -->
 <div class="small-tittle mb-20">
-    <h4>Most Recent</h4>
+    <h4><a href="/Moreposts">Publications Recentes</a></h4>
 </div>
 <!-- Details -->
 @php($post = App\Facebook::all())
-    <div class="most-recent mb-40">
+    <div class="most-recent mb-40 grow">
         <div class="most-recent-img">
             <img src="{{$post[1]->Facebook_image ?? ''}}" alt="">
             <div class="most-recent-cap">
@@ -20,7 +20,8 @@
 
 <!-- Single -->
 @for($i=2;$i<5;$i++)
-    <div class="most-recent-single">
+    <div class="rounded most-recent-single grow" style="border-top:1px solid #ccc!important;border-bottom:1px solid #ccc!important;
+    box-shadow: 1px 1px 12px #b8b894;">
         <div class="most-recent-images">
             <a href="https://www.facebook.com{{$post[$i]->Facebook_url ?? ''}}">
                 <img style="max-width: 6em;" src="{{$post[$i]->Facebook_image ?? ''}}" alt=""></a>

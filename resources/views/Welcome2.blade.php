@@ -119,7 +119,7 @@
                         <div class="row justify-content-between align-items-end mb-15">
                             <div class="col-xl-4">
                                 <div class="section-tittle mb-30">
-                                    <h3>Actualités</h3>
+                                    <h3 id="result">Actualités</h3>
                                 </div>
                             </div>
                             <div class="col-xl-8 col-md-9">
@@ -127,17 +127,23 @@
                                     <!--Nav Button  -->
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Actualités</a>
-                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Service</a>
-                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
-                                            <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
-                                            <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Commune</a>
+                                            <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher('nav-home-tab')" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Actualités</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab"  onclick="afficher('nav-profile-tab')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Service</a>
+                                            <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher('nav-contact-tab')" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
+                                            <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher('nav-last-tab')" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
+                                            <a class="nav-item nav-link" id="nav-Sports"  onclick="afficher('nav-Sports')" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Commune</a>
                                         </div>
                                     </nav>
                                     <!--End Nav Button  -->
                                 </div>
                             </div>
                         </div>
+                        <script type="application/javascript">
+                            function afficher($id) {
+                               var val = document.getElementById($id).innerText;
+                                document.getElementById("result").innerHTML= val ;
+                            }
+                        </script>
                         <!-- Tab content -->
                         <div class="row">
                             <div class="col-12">
