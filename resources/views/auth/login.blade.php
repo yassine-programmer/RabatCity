@@ -14,7 +14,6 @@
 </header>
 <body>
 @include("inc.navbar")
-<section class="fplus-about-us-area bg-gray section-padding-120" id="about">
     <div class="container">
         <div class="wrapper fadeInDown">
             <div id="formContent">
@@ -61,7 +60,6 @@
         </div>
     </div>
 
-</section>
 </body>
 </html>
 
