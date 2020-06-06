@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('Welcome2');
+    return view('Welcome2')->with('place','home');
 });
 
 Route::resource('themes','ThemesController');

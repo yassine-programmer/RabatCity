@@ -27,13 +27,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/77c9077a65.js"></script>
     @yield('css')
 </head>
 <body>
 <div id="app">
    @include("inc.navbar")
     @include('searchbar.searchbar')
-    @include('inc.Totop')
+
     <main class="py-4">
         <div class="container">
             <div class="row justify-content-center">
@@ -46,6 +47,11 @@
 
     </main>
 </div>
+
+   @if(!isset($place))
+       @include('Contact.BannerContact')
+   @endif
+
    @include('inc.footer')
 @yield('script')
 

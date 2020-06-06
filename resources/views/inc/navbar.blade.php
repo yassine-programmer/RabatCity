@@ -19,6 +19,7 @@
                 <li><a class="nav-item nav-link grow" href="/Themes/commune">Commune</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Arrondissements">Arrondissements</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/rabat">Rabat</a> </li>
+                <li><a class="nav-item nav-link grow" href="/#contact" id="button">Contactez-Nous</a> </li>
             </ul>
             </div>
             <!-- Right Side Of Navbar -->
@@ -58,3 +59,13 @@
             </ul>
         </div>
 </nav>
+<script type="application/javascript">
+    $(document).ready(function(){
+        $("#button").click(function(e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 2000);
+        });
+    });
+</script>

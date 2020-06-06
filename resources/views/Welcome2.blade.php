@@ -417,6 +417,7 @@
                 background-position-x: -423px;">
             </div>
         </div>
+        </div>
     </section>
     <!-- Whats New End -->
     <!--   Weekly2-News start -->
@@ -562,8 +563,10 @@
         @include('inc.carousel')
     </div>
     <!-- banner-last End -->
+    <div id="contact">
+        @include('Contact.index')
+    </div>
 
-    @include('Contact.index')
 </main>
     <script type="application/javascript">
 

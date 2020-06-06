@@ -36,7 +36,7 @@
 
 
 				<div class="container-contact100-form-btn">
-                    {{Form::submit('Ajouter',['class' =>'contact100-form-btn'])}}
+                    {{Form::submit('Envoyer',['class' =>'contact100-form-btn'])}}
 				</div>
                 {!! Form::close() !!}
 			</div>
