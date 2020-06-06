@@ -35,7 +35,7 @@
                     <div class="col-5 col-lg-3  pb-4 mr-5 fixed-bg-img2">
                     </div>
                 <div class="col-7 col-lg-8 d-lg-inline-block ">
-                 @foreach($articles as $article)
+             ex    @foreach($articles as $article)
                      <div class="pb-4">
                          <div class="container row  grow" style="border: 1px solid #ccc!important;
                                                 box-shadow: 1px 1px 12px #b8b894;">
