@@ -46,7 +46,7 @@
                             @if(count($newArticle)==1)
                             <div class="single-slider">
                                 <div class="trending-top mb-30" >
-                                    <div class="trend-top-img"   style="border:1px solid #ccc!important;
+                                    <div class="trend-top-img "  style="border:1px solid #ccc!important;
                                                               border-bottom: 0;
                                                               box-shadow: 5px 6px 12px #b8b894;">
                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
@@ -394,6 +394,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="pt-lg-2" style="width: 100%">
+
+                    </div>
                 </div>
                 <div class="col-lg-4">
                     <!-- Flow Socail -->
@@ -406,16 +409,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8 rounded pr-3" style="margin-top: -27%;
-                background-image: url('https://i.imgur.com/3j0wWHu.png');
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: auto;
-                background-position: bottom;
-                background-color:rgba(0, 0, 0, 0.5);
-                background-position-y: -541px;
-                background-position-x: -423px;">
-            </div>
+
         </div>
         </div>
     </section>

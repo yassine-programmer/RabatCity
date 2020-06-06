@@ -15,12 +15,12 @@
 <body>
 @include("inc.navbar")
     <div class="container">
-        <div class="wrapper fadeInDown">
-            <div id="formContent">
+        <div class="wrapper fadeInDown" >
+            <div id="formContent" >
                 <!-- Tabs Titles -->
 
                 <!-- Icon -->
-                <div class="fadeIn first" style="margin-top: 20px;">
+                <div class="fadeIn first fadeInDown no-flick" style="margin-top: 20px;">
                     <i class="fa fa-users fa-4x" aria-hidden="true"></i>
                 </div>
 
