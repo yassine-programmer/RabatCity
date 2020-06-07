@@ -137,15 +137,14 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        $article =  Article::where('Article_id',$id)->get();
-        $titre = $article[0]->Article_titre;
-        $Categorie2 = $article[0]->Categorie_id;
-        $article[0]->delete();
+        $article = Article::find($id);
+        $Categorie2 = $article->Categorie_id;
+        $article->delete();
         //journal
         $journal = new Journal;
         $journal->Journal_action = 'Suppression';
         $journal->Journal_table = 'articles';
-        $journal->Journal_intitule = $titre;
+        $journal->Journal_intitule = $article->Article_titre;
         $journal->Journal_user = Session::get('name');
         $journal->save();
         //end journal
@@ -159,10 +158,10 @@ class ArticlesController extends Controller
         if(count($articles)>0)
             return view('Categories.showArticles')->with(['articles'=>$articles,'categorie_parent'=>$categorie_parent]);
         else {
-            if (empty($categories_fils->Cat_id))
-                return redirect('/categories/' . $categories_fils[0]->Categorie_id);
+            if (empty($categories_fils->Cat_id) || $categories_fils->Cat_id == null)
+            {return redirect('/categories/' . $categories_fils[0]->Categorie_id);}
             else
-                return view('Categories.show')->with(['categories_fils' => $categories_fils, 'categorie_parent' => $categorie_parent]);
+            {return view('Categories.show')->with(['categories_fils' => $categories_fils, 'categorie_parent' => $categorie_parent]);}
         }
     }
 }

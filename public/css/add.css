@@ -437,10 +437,10 @@ div.fixed-bg-img1{
     color: #0056b3 !important;
 }
 /*Totop*/
-/*TOTop*/
-#button {
+
+#Topbutton {
     display: inline-block;
-    background-color: #c2d4f0;
+    background-color: #333;
     width: 60px;
     height: 60px;
     text-align: center;
@@ -454,24 +454,25 @@ div.fixed-bg-img1{
     visibility: hidden;
     z-index: 1000;
 }
-#button::after {
+#Topbutton::after {
     content: "\f077";
     font-family: FontAwesome, serif;
     font-weight: normal;
     font-style: normal;
     font-size: 2em;
     line-height: 55px;
-    color: #fff;
+    color: white;
 }
-#button:hover {
+#Topbutton:hover {
     cursor: pointer;
-    background-color: #333;
+    background-color: #0056b3;
 }
-#button:active {
-    background-color: #555;
+#Topbutton:active {
+    background-color: #0056b3;
 }
-#button.show {
+#Topbutton.show {
     opacity: 1;
     visibility: visible;
 }
 
+/*TOTop*/

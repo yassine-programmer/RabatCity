@@ -11,9 +11,10 @@
 
     <title>RabatCity</title>
     <!-- Scripts -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/Totop.js') }}" defer></script>
 
 
     <!-- Fonts -->
@@ -28,13 +29,16 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/77c9077a65.js"></script>
+
+
     @yield('css')
 </head>
 <body>
+<a id="Topbutton"></a>
 <div id="app">
    @include("inc.navbar")
     @include('searchbar.searchbar')
-    @include('inc.Totop')
+
     <main class="py-4">
         <div class="container">
             <div class="row justify-content-center">
@@ -60,7 +64,6 @@
     <!-- Scripts -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
-
 
 </body>
 </html>
