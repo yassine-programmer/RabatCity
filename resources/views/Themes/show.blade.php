@@ -91,15 +91,13 @@
                     @endforeach
                 @endif
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-                    <div class="col-12 col-md-6 col-lg-3 mt-5 add justify-content-center d-flex align-items-center justify-content-center" style=" border: 3px dashed">
+                    <div class="col-12 col-md-6 col-lg-3 mt-5 add justify-content-center d-flex align-items-center justify-content-center" style=" border: 3px dashed; min-height: 350px; ">
                         <a href="/categories/createCategorie/{{$theme->Theme_id}}">
                         <div class="d-flex align-items-center justify-content-center" >
                                 <img src="https://i.imgur.com/7yPHMCB.png" style="width: 70%">
-                        </div></a>
-
+                        </div>
+                        </a>
                     </div>
-
-                    </a>
                 @endif
             </div>
         </div>

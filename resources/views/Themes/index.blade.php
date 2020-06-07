@@ -94,10 +94,10 @@
 
                 @endif
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
-            <div class="col-12 col-md-6 col-lg-4" style="padding-top: 4%;">
+            <div class="col-12 col-md-6 col-lg-4 mt-5 add justify-content-center d-flex align-items-center justify-content-center" style=" border: 3px dashed">
                 <a href="/themes/create/{{$Theme_type}}">
-                    <div class="fplus-single-blog-area wow fadeInUp add d-flex align-items-center justify-content-center" data-wow-delay="0.5s" style=" border: 3px dashed" >
-                        <img src="https://i.imgur.com/7yPHMCB.png" style="width:70%;">
+                    <div class="d-flex align-items-center justify-content-center" >
+                        <img src="https://i.imgur.com/7yPHMCB.png" style="width: 70%">
                     </div>
                 </a>
             </div>
