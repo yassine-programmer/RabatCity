@@ -403,3 +403,30 @@ div.fixed-bg-img1{
     font-weight: 400;
     color: white;
 }
+.DivChiffre:hover{
+    background: rgba(0,0,0,0.5);
+    text-decoration-color: white;
+}
+.DivChif{
+    background-color: rgb(255, 84, 118);
+}
+.DivChif:hover{
+    background: rgba(0,0,0,0.5);
+    color:white;
+}
+.DivChif1{
+    background-color: #eae7dc;
+}
+.DivChif1:hover{
+    background: rgba(0,0,0,0.5);
+    color:white;
+}
+.textColor:hover{
+    color:white;
+}
+.textColor1{
+    color:rgb(142,94,183);
+}
+.textColor1:hover{
+    color:white;
+}

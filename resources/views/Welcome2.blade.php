@@ -490,9 +490,6 @@
         </div>
     </div>
     <!-- End Weekly-News -->
-    <!--  Recent Articles start -->
-
-    <!--Recent Articles End -->
 
     <!-- End Start Video area-->
     <!--   Weekly3-News start -->
@@ -504,10 +501,10 @@
                         <div class="slider-wrapper">
                             <!-- Slider -->
                             <div class="row">
-                                <div class="col-12 col-lg-4 pb-4 text-center  " style="overflow: hidden">
-                                        <div class="stat-cart ">
-                                            <div class="stat-number1">1,8M</div>
-                                            <div class="text-center stat-text1">Habitants A Rabat</div>
+                                <div class="col-12 col-lg-4 pb-4 text-center" style="overflow: hidden">
+                                        <div class="stat-cart DivChiffre">
+                                            <div class="stat-number1 ">1,8M</div>
+                                            <div class="text-center stat-text1 textColor">Habitants A Rabat</div>
                                         </div>
 
 
@@ -515,45 +512,45 @@
                                 <div class="col-12 col-lg-8 d-lg-inline-block">
                                     <div class="row mb-4">
                                         <div class="col-md-3">
-                                            <div class="stat-cart2 d-flex align-items-center justify-content-center ">
+                                            <div class="stat-cart2 d-flex align-items-center justify-content-center DivChiffre ">
 
                                                 <div class="row d-flex justify-content-start w-75 align-items-center">
                                                     <div class=" mb-2 ml-4 stat-number2 ">40%</div>
-                                                    <div class=" heading text-center line-1 font-4">Mains d'oeuvre</div>
+                                                    <div class=" heading text-center line-1 font-4 textColor">Mains d'oeuvre</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <div class="stat-cart3 d-flex align-items-center justify-content-center" style="background-color: rgb(255, 84, 118)">
+                                            <div class="stat-cart3 d-flex align-items-center justify-content-center DivChiffre DivChif" >
                                                 <div class="d-flex justify-content-start w-75 align-items-center">
                                                  <div class="stat-number3">2.000.000</div>
-                                                 <div class="heading2 text-left">VOITURES EN CIRCULATION / JOUR</div>
+                                                 <div class="heading2 text-left textColor">VOITURES EN CIRCULATION / JOUR</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-md-6">
-                                            <div class="stat-cart3 d-flex align-items-center justify-content-center " style="background-color: #eae7dc">
-                                                <div class="stat-number3" style="color:rgb(142,94,183)">117 </div>
-                                                <div class="heading2 text-left stat-text2 " style="color:rgb(142,94,183)">Superficie de la ville en km²</div>
+                                            <div class="stat-cart3 d-flex align-items-center justify-content-center DivChiffre DivChif1">
+                                                <div class="stat-number3 textColor1" >117 </div>
+                                                <div class="heading2 text-left stat-text2 textColor1">Superficie de la ville en km²</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">
                                              <div class="col-md-6">
-                                                 <div class=" stat-cart2 d-flex flex-column align-items-center justify-content-center px-3 ">
-                                                     <div class="row d-flex justify-content-start w-75 align-items-center">
+                                                 <div class=" stat-cart2 d-flex flex-column align-items-center justify-content-center px-3 DivChiffre">
+                                                     <div class="row d-flex justify-content-start w-75 align-items-center ">
                                                     <div class="mr-4 mb-2 text-left stat-number2">22%</div>
-                                                    <div class=" heading text-left line-1 font-3">Populations -10 ans</div>
+                                                    <div class=" heading text-left line-1 font-3 textColor">Populations -10 ans</div>
                                                      </div>
                                                 </div>
                                              </div>
                                             <div class="col-md-6 overflow-hidden">
-                                                <div class="stat-cart2 d-flex flex-column align-items-center justify-content-center px-3  ">
+                                                <div class="stat-cart2 d-flex flex-column align-items-center justify-content-center px-3  DivChiffre">
                                                     <div class="row d-flex justify-content-start w-75 align-items-center">
                                                       <div class=" mr-4 mb-2 text-left stat-number2">17,2%</div>
-                                                      <div class=" heading text-left line-1 font-4">PIB NATIONAL</div>
+                                                      <div class=" heading text-left line-1 font-4 textColor">PIB NATIONAL</div>
                                                     </div>
                                                 </div>
                                             </div>
