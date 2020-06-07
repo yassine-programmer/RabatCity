@@ -79,6 +79,8 @@ class SearchController extends Controller
         $articles=array();
         $search = strtolower($search);
         $search = str_replace('/',' ',$search);
+        while (strval($search[0])== ' ')
+            $search = substr($search,1);
         $words = explode(' ' ,$search);
         //$titles = DB::select("select * from articles where Article_titre like '%".$request->input('haha')."%' or Article_text like '%".$request->input('haha')."%'");
         foreach ($words as $word){
