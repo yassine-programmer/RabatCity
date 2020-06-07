@@ -1,4 +1,8 @@
-<div id="journals" style=" margin-top: 50px;" class="container text-center d-none">
+<div id="journals"  class="container text-center mt-5 " >
+    @php($journals = App\Journal::orderby('created_at','desc')->get())
+    @if(count($journals)==0)
+        <div class="text-center bold">Le journal est vide</div>
+    @else
     <table class="table table-striped" >
         <thead class="thead-dark">
         <tr>
@@ -11,9 +15,8 @@
         </tr>
         </thead>
         <tbody>
-        @php($journals = App\Journal::orderby('created_at','desc')->get())
-
         @if(isset($journals))
+
             @foreach($journals as $journal)
 
                 <tr>
@@ -26,10 +29,12 @@
 
                 </tr>
             @endforeach
+
         @endif
 
         </tbody>
     </table>
-    <a href="/ViderJournal" class="btn btn-lg btn-danger"> Vider Le Journal</a>
+    <a href="/ViderJournal" class="btn btn-lg btn-danger mb-5 " onclick="return confirm('Est-ce que vous voulez vider le journal ?')"> Vider Le Journal</a>
+    @endif
 </div>
 

@@ -39,13 +39,12 @@
                         <input type="submit" value="Valider" onclick="AddNameAttribute({{$user->id}})" class="btn-success d-none" id="valider_user_{{$user->id}}">
                         {!! Form::hidden('_method','PUT') !!}
                         {!! Form::close() !!}
-                        {!! Form::open([ 'action'=>['HomeController@destroy',$user->id],'method' => 'post','class'=>'d-inline','onsubmit' => 'return confirm("Est-ce que vous voulez supprimer?");']) !!}
+                        {!! Form::open([ 'action'=>['HomeController@destroy',$user->id],'method' => 'post','class'=>'d-inline','onsubmit' => 'return confirm("Est-ce que vous voulez supprimer cette utilisateur ?");']) !!}
                         {{ Form::hidden('_method','DELETE') }}
                         {{ Form::submit('X',['class'=>'btn-danger ']) }}
+                        {!! Form::close() !!}
                     </td>
-
                 </tr>
-
             @endforeach
         @endif
 

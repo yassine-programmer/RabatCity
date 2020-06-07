@@ -38,7 +38,7 @@
                             <br>
                             @include('Dashboard.Journal')
                             <br>
-                            <a href="/scraping" class="btn btn-outline-secondary" style="width: 300px">Update Post Facebook</a>
+                            <a href="/scraping" class="btn btn-outline-secondary" onclick="return confirm('Est-ce que vous voulez mettre a jour les posts facebook ?')" style="width: 300px;">Update Post Facebook</a>
                         </div>
                     @endif
 

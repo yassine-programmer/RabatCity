@@ -13,24 +13,24 @@
             {!! Form::open(['action' => 'EmailController@store', 'method' => 'post']) !!}
 			<div class="contact100-form validate-form">
 				<span class="contact100-form-title">
-					Contact Nous
+					Contactez Nous
 				</span>
 
 				<div class="wrap-input100 rs1-wrap-input100 " data-validate="Name is required">
                     <b><span class="label-input100">Nom</span></b>
-					<input class="input100" type="text" name="name" placeholder="Enter your name" required>
+					<input class="input100" type="text" name="name" placeholder="Entrez votre nom" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                     <b><span class="label-input100">Email</span></b>
-					<input class="input100" type="text" name="email" placeholder="Enter your email addess" required>
+					<input class="input100" type="text" name="email" placeholder="Entrez votre adresse mail" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate = "Message is required">
                     <b><span class="label-input100">Message</span></b>
-					<textarea class="input100" name="message" placeholder="Your message here..." required></textarea>
+					<textarea class="input100" name="message" placeholder="Votre message ici..." required></textarea>
 					<span class="focus-input100"></span>
 				</div>
 

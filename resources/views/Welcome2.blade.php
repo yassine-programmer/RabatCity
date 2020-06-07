@@ -611,4 +611,5 @@
 <!-- Jquery Plugins, main Jquery -->
 <script type="application/javascript" src="/assets/js/plugins.js"></script>
 <script type="application/javascript" src="/assets/js/main.js"></script>
+
 @endsection
