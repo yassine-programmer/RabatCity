@@ -64,7 +64,8 @@
                                             @elseif(isset($articles[$i]))
                                                 <li class="list-group-item">
                                                     <a href="/articles/{{$articles[$i]->Article_id}}" >
-                                                        #{{$articles[$i]->Article_titre}}
+                                                        <i class="fa fa-file" aria-hidden="true"></i>
+                                                        {{$articles[$i]->Article_titre}}
                                                     </a></li>
                                             @else
                                                 <li class="list-group-item"><a href="#">

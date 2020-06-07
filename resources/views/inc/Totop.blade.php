@@ -1,80 +1,34 @@
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-
-    .Topcontainer {
-        position: fixed;
-        margin: auto;
-        bottom: 0;
-        right: -100px;
-        width: 300px;
-        height: 100px;
-        z-index: 201;
-    }
-    .Topcontainer .top {
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        background: crimson;
-        border-radius: 50%;
-        transition: all 1s;
-        z-index: 4;
-        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
-    }
-    .Topcontainer .top:hover {
-        cursor: pointer;
-    }
-    .Topcontainer .top::before {
-        content: "";
-        position: absolute;
-        margin: auto;
-        top: 22px;
-        right: 0;
-        bottom: 0;
-        left: 22px;
-        width: 12px;
-        height: 2px;
-        background: white;
-        transform: rotate(45deg);
-        transition: all 0.5s;
-    }
-    .Topcontainer .top::after {
-        content: "";
-        position: absolute;
-        margin: auto;
-        top: -5px;
-        right: 0;
-        bottom: 0;
-        left: -5px;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        border: 2px solid white;
-        transition: all 0.5s;
-    }
-</style>
-
-    <div class="Topcontainer">
-        <a href="#app" onclick="totop()">go</a>
-        <div class="top"></div>
-    </div>
+<a id="button"></a>
 
 
 <script type="application/javascript">
-    function totop() {
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        });
-    }
+    //Get the button:
+    var btn = $('#button');
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        scrollToTop();
+    });
+    const scrollToTop = () => {
+        // Let's set a variable for the number of pixels we are from the top of the document.
+        const c = document.documentElement.scrollTop || document.body.scrollTop;
+        // If that number is greater than 0, we'll scroll back to 0, or the top of the document.
+        // We'll also animate that scroll with requestAnimationFrame:
+        // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+        if (c > 0) {
+            window.requestAnimationFrame(scrollToTop);
+            // ScrollTo takes an x and a y coordinate.
+            // Increase the '10' value to get a smoother/slower scroll!
+            window.scrollTo(0, c - c / 15);
+        }
+    };
 </script>
