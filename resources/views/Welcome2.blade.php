@@ -504,7 +504,6 @@
                                 <div class="col-12 col-lg-4 pb-4 text-center" style="overflow: hidden">
                                         <div class="stat-cart DivChiffre">
                                             <div class="stat-number1">1,8M</div>
-                                            <div id="value3">100</div>
                                             <div class="text-center stat-text1 textColor">Habitants A Rabat</div>
                                         </div>
 
@@ -533,7 +532,7 @@
                                     <div class="row ">
                                         <div class="col-md-6">
                                             <div class="stat-cart3 d-flex align-items-center justify-content-center DivChiffre DivChif1">
-                                                <div class="stat-number3 textColor1" >117 </div>
+                                                <div class="stat-number3 textColor1"  >117 </div>
                                                 <div class="heading2 text-left stat-text2 textColor1">Superficie de la ville en km²</div>
                                             </div>
                                         </div>
@@ -608,52 +607,4 @@
 <!-- Jquery Plugins, main Jquery -->
 <script type="application/javascript" src="/assets/js/plugins.js"></script>
 <script type="application/javascript" src="/assets/js/main.js"></script>
-<script>
-    //No easing
-    function constant (duration, range, current) {
-        return duration / range;
-    }
-
-    //Linear easing
-    function linear (duration, range, current) {
-        return ((duration * 2) / Math.pow(range, 2)) * current;
-    }
-
-    //Quadratic easing
-    function quadratic (duration, range, current) {
-        return ((duration * 3) / Math.pow(range, 3)) * Math.pow(current, 2);
-    }
-
-    function animateValue(id, start, duration, easing) {
-        var end = parseInt(document.getElementById(id).textContent, 10);
-        alert(end)
-        var range = end - start;
-        var current = start;
-        var increment = end > start? 1 : -1;
-        var obj = document.getElementById(id);
-        var startTime = new Date();
-        var offset = 1;
-        var remainderTime = 0;
-
-        var step = function() {
-            current += increment;
-            obj.innerHTML = current;
-
-            if (current != end) {
-                setTimeout(step, easing(duration, range, current));
-            }
-            else {
-                console.log('Easing: ', easing);
-                console.log('Elapsed time: ', new Date() - startTime)
-                console.log('');
-            }
-        };
-
-        setTimeout(step, easing(duration, range, start));
-    }
-
-    animateValue("value", 0, 30000, constant);
-    animateValue("value2", 0, 30000, linear);
-    animateValue("value3", 0, 3000, quadratic);
-</script>
 @endsection
