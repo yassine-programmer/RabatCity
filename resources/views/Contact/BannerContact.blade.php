@@ -57,6 +57,7 @@
     }
     .MyBanner{
         height: 190px;
+        max-width: 100%;
         margin-bottom: 25px;
         border:1px solid #dc3545 !important;
         box-shadow: 1px 1px 20px #dc3545;

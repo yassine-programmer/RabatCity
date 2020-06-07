@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg fixed-top" style="padding: 1rem 1rem;">
     <div class="pl-35">
-        <a class="navbar-brand  " href="{{ url('/') }}" style="max-width: 170px">
+        <a class="navbar-brand grow " href="{{ url('/') }}" style="max-width: 170px">
             <img src="https://i.imgur.com/RSC5U1b.png " >
         </a>
     </div>
