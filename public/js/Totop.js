@@ -1,16 +1,16 @@
 
 //Get the button:
-var btn = $('#Topbutton');
+var Topbtn = $('#ToTopbutton');
 
 $(window).scroll(function() {
     if ($(window).scrollTop() > 300) {
-        btn.addClass('show');
+        Topbtn.addClass('showbutton');
     } else {
-        btn.removeClass('show');
+        Topbtn.removeClass('showbutton');
     }
 });
 
-btn.on('click', function(e) {
+Topbtn.on('click', function(e) {
     e.preventDefault();
     scrollToTop();
 });

@@ -438,11 +438,11 @@ div.fixed-bg-img1{
 }
 /*Totop*/
 
-#Topbutton {
+#ToTopbutton {
     display: inline-block;
     background-color: #333;
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     text-align: center;
     border-radius: 50px;
     position: fixed;
@@ -454,23 +454,23 @@ div.fixed-bg-img1{
     visibility: hidden;
     z-index: 1000;
 }
-#Topbutton::after {
+#ToTopbutton::after {
     content: "\f077";
     font-family: FontAwesome, serif;
     font-weight: normal;
     font-style: normal;
     font-size: 2em;
-    line-height: 55px;
+    line-height: 38px;
     color: white;
 }
-#Topbutton:hover {
+#ToTopbutton:hover {
     cursor: pointer;
     background-color: #0056b3;
 }
-#Topbutton:active {
+#ToTopbutton:active {
     background-color: #0056b3;
 }
-#Topbutton.show {
+#ToTopbutton.showbutton {
     opacity: 1;
     visibility: visible;
 }

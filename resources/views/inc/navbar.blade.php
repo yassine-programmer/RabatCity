@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg fixed-top" style="padding: 1rem 1rem;">
     <div class="pl-35">
-        <a class="navbar-brand grow " href="{{ url('/') }}" style="max-width: 170px">
+        <a class="navbar-brand  " href="{{ url('/') }}" style="max-width: 170px">
             <img src="https://i.imgur.com/RSC5U1b.png " >
         </a>
     </div>
@@ -19,7 +19,7 @@
                 <li><a class="nav-item nav-link grow" href="/Themes/commune">Commune</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Arrondissements">Arrondissements</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/rabat">Rabat</a> </li>
-                <li><a class="nav-item nav-link grow" href="/#contact">Contactez-Nous</a> </li>
+                <li><a class="nav-item nav-link grow" href="/#contact" id="button">Contactez-Nous</a> </li>
             </ul>
             </div>
             <!-- Right Side Of Navbar -->

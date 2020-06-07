@@ -64,9 +64,8 @@ Route::get('/scraping','ScrapingController@test');
 Route::get('/Moreposts',function (){
     return view('Scrap.Allpost');
 });
-Route::get('/test',function (){
-    return view('test');
-});
 Route::get('/errors',function (){
     return view('errors.errors');
 });
+
+
