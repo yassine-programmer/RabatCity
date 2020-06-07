@@ -31,8 +31,8 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-12 col-md-3">
-                        <img src="https://i.imgur.com/wRtCpzt.png?1">
+                <div class="col-12 col-md-3 grow">
+                       <a href="/Arrondissements"><img src="https://i.imgur.com/wRtCpzt.png?1"></a>
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="subscribe-widget">

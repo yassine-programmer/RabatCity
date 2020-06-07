@@ -40,17 +40,6 @@
 
 
 
-    // :: 7.0 Video Active Code
-    if ($.fn.magnificPopup) {
-        $('.video--play--btn').magnificPopup({
-            disableOn: 0,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: true,
-            fixedContentPos: false
-        });
-    }
 
     // :: 6.0 PreventDefault a Click
     $("a[href='#']").on('click', function ($) {

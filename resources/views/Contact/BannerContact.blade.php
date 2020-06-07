@@ -58,23 +58,26 @@
     .MyBanner{
         height: 190px;
         max-width: 100%;
-        margin-bottom: 25px;
-        border:1px solid #dc3545 !important;
-        box-shadow: 1px 1px 20px #dc3545;
-
+        border:1px solid #0056b3 !important;
+        box-shadow: 1px 1px 20px #0056b3;
+        background-color: #0056b3;
+    }
+    .row{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
     }
 </style>
 
 
-    <div class="row bg-danger MyBanner">
+    <div class="row d-flex align-items-center justify-content-center MyBanner">
         <div class="col-8">
-            <div class="container mt-4">
+            <div class="container">
                 <h3 class="text-center text-white">Voulez-vous nous Contacter ? Vous avez des questions ?</h3>
                 <h6 class="text-center text-white">Le support Rabat City est disponible pour vous repondre , et lever toute ambiguïté .   </h6>
             </div>
         </div>
         <div class="col-4">
-            <div class="container mt-5 ml-4">
+            <div class="container">
                 <a href="/#contact" class="text-white cta">
                     <span>Contactez-Nous</span>
                     <svg width="13px" height="10px" viewBox="0 0 13 10">
