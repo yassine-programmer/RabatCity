@@ -67,3 +67,6 @@ Route::get('/Moreposts',function (){
 Route::get('/test',function (){
     return view('test');
 });
+Route::get('/errors',function (){
+    return view('errors.errors');
+});

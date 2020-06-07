@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\Categorie;
 use App\Journal;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class ArticlesController extends Controller
@@ -149,19 +150,9 @@ class ArticlesController extends Controller
         $journal->save();
         //end journal
         //send alert to all admins if the user is a moderator
-        /*$user_id=Auth::id();
-        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);*/
+        $user_id=Auth::id();
+        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
 
-        $categories_fils=Categorie::where("Categorie_id",$Categorie2)->get();
-        $categorie_parent=Categorie::where("Categorie_id",$categories_fils[0]->Cat_id)->get();
-        $articles = Article::where("Categorie_id",$categorie_parent[0]->Categorie_id)->get();
-        if(count($articles)>0)
-            return view('Categories.showArticles')->with(['articles'=>$articles,'categorie_parent'=>$categorie_parent]);
-        else {
-            if (empty($categories_fils->Cat_id) || $categories_fils->Cat_id == null)
-            {return redirect('/categories/' . $categories_fils[0]->Categorie_id);}
-            else
-            {return view('Categories.show')->with(['categories_fils' => $categories_fils, 'categorie_parent' => $categorie_parent]);}
-        }
+        return back()->withInput();
     }
 }

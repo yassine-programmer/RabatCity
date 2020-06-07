@@ -11055,6 +11055,6 @@ body {
 .owl-carousel {
     margin-bottom: 15px
 }
-
+.img{object-fit: cover;}
 
 
