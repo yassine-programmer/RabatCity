@@ -9,7 +9,7 @@
             <div class="wrap-contact100">
                 <form class="contact100-form">
 				<span class="contact100-form-title">
-					Ajouter un Theme :
+					<i class="fa fa-plus fa-1x" aria-hidden="true"></i>  Ajouter un Theme :
 				</span>
                     <div class="wrap-input100 bg1" style="margin-top: 30px">
                         <span class="label-input100"><b>Type Theme *</b></span>
