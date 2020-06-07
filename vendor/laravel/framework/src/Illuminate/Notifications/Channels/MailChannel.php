@@ -33,11 +33,11 @@ class MailChannel
      * @param  \Illuminate\Mail\Markdown  $markdown
      * @return void
      */
-    public function __construct(Mailer $mailer, Markdown $markdown)
-    {
-        $this->mailer = $mailer;
-        $this->markdown = $markdown;
-    }
+//    public function __construct(Mailer $mailer, Markdown $markdown)
+//    {
+////        $this->mailer = $mailer;
+////        $this->markdown = $markdown;
+//    }
 
     /**
      * Send the given notification.
@@ -59,11 +59,11 @@ class MailChannel
             return $message->send($this->mailer);
         }
 
-        $this->mailer->send(
-            $this->buildView($message),
-            array_merge($message->data(), $this->additionalMessageData($notification)),
-            $this->messageBuilder($notifiable, $notification, $message)
-        );
+//        $this->mailer->send(
+//            $this->buildView($message),
+//            array_merge($message->data(), $this->additionalMessageData($notification)),
+//            $this->messageBuilder($notifiable, $notification, $message)
+//        );
     }
 
     /**
