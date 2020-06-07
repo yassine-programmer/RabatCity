@@ -1,7 +1,7 @@
 @extends("layouts.app")
 @section("css")
     <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
-
+    <link rel="stylesheet" type="text/css" href="/css/crud.css">
 @endsection
 @section("content")
     <script type="application/javascript" src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
@@ -10,21 +10,21 @@
         <div class="container-contact100">
             <div class="wrap-contact100">
                 <form class="contact100-form">
-				<span class="contact100-form-title">
-					Ajouter un Article :
+				<span class="contact100-form-title Mytitle">
+					  <i class="fa fa-plus fa-1x" aria-hidden="true"></i> Article :
 				</span>
-                        <div class="wrap-input100 bg1" style="margin-top: 30px">
+                        <div class="wrap-input100 bg1 DivT grow" style="margin-top: 30px">
                             <span class="label-input100"><b>Categorie intitule : *</b></span>
                             <input class="input100" type="text" name="" value="{{$categorie->Categorie_intitule}}" disabled>
                             <input class="input100" type="text" name="Categorie_id" value="{{$categorie->Categorie_id}}" hidden>
                         </div>
 
-                    <div class=" wrap-input100 bg1">
+                    <div class=" wrap-input100 bg1 DivT grow">
                         <span class="label-input100"><b>Article titre : </b></span>
                         <input class="input100" type="text" name="Article_titre" placeholder="Saisissez l'intitule d'article">
                     </div>
 
-                    <div class=" wrap-input100 bg1">
+                    <div class=" wrap-input100 bg1 DivT grow">
                         <span class="label-input100"><b>Article Image *</b></span>
                         <div class="input-group">
                                           <span class="input-group-btn">
@@ -32,24 +32,19 @@
                                               <i class="fa fa-picture-o"></i> Choose
                                             </a>
                                           </span>
-                            <input id="thumbnail" class="form-control input100" type="text" name="Article_image">
+                            <input id="thumbnail" class="form-control input100" type="text" name="Article_image" style="border: none !important;">
                         </div>
                         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     </div>
 
 
-                    <div class="wrap-input100  bg0">
+                    <div class="wrap-input100  bg0 DivT grow">
                         <span class="label-input100"><b>Article text *</b></span>
                         <textarea id="my-editor" name="Article_text" class="form-control">{!! old('content', 'Votre Article ...') !!} </textarea>
                         <CKEditor onBeforeLoad={ ( CKEDITOR ) = ( CKEDITOR.disableAutoInline = true ) } />
                     </div>
                     <div class="container-contact100-form-btn">
-                        <button type="button" class="contact100-form-btn" onclick="document.getElementById('form').submit();">
-						<span>
-							Valider
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-                        </button>
+                        <button type="button" class="grow button1" onclick="document.getElementById('form').submit();">Valider</button>
                     </div>
                 </form>
             </div>

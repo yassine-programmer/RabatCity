@@ -1,40 +1,7 @@
 @extends("layouts.app")
 @section("css")
     <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
-    <style>
-        .DivT{
-            margin-top: 30px; border:1px solid #ccc!important;
-            box-shadow: 2px 2px 12px #b8b894;
-        }
-        .Mytitle{
-            text-decoration: underline;
-        }
-        .Mytitle:hover{
-            color: #2f3e7d;
-            cursor: pointer;
-        }
-        .wrap-contact100{
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
-        .button1{
-            background-color: #808080;
-            border: none;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 2em;
-            margin: 4px 2px;
-            cursor: pointer;
-            width: 270px;
-            border-radius: 30px;
-        }
-        .button1:hover{
-            background-color: #071f32;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/crud.css">
     @endsection
 @section("content")
     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
