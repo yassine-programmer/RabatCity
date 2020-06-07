@@ -476,3 +476,11 @@ div.fixed-bg-img1{
 }
 
 /*TOTop*/
+
+/*img home */
+.imgHome{
+    height: 70px !important;
+    max-height: 70px !important;
+    width: 80px !important;
+    max-width: 80px !important;
+}

@@ -114,9 +114,9 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="whats-news-wrapper"  style="border:1px solid #ccc!important;
-                                             box-shadow: 4px 4px 12px #b8b894;">
+                                                        box-shadow: 4px 4px 12px #b8b894;">
                         <!-- Heading & Nav Button -->
-                        <div class="row justify-content-between align-items-end mb-15">
+                        <div class="row justify-content-between align-items-end mb-15 ">
                             <div class="col-xl-4">
                                 <div class="section-tittle mb-30">
                                     <h3 class="grow" id="result">Actualités</h3>
@@ -180,7 +180,7 @@
                                                                 <div class="whats-right-single mb-20">
                                                                     <div class="whats-right-img">
                                                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
-                                                                        <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                        <img class="imgHome" src="{{$newArticle[$i]->Article_image}}" alt="">
                                                                         </a>
                                                                     </div>
                                                                     <div class="whats-right-cap">
@@ -229,7 +229,7 @@
                                                                 <div class="whats-right-single mb-20">
                                                                     <div class="whats-right-img">
                                                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
-                                                                        <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                        <img class="imgHome" src="{{$newArticle[$i]->Article_image}}" alt="" >
                                                                         </a>
                                                                     </div>
                                                                     <div class="whats-right-cap">
@@ -277,7 +277,7 @@
                                                                 <div class="whats-right-single mb-20">
                                                                     <div class="whats-right-img">
                                                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
-                                                                            <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                            <img class="imgHome" src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
                                                                         </a>
                                                                     </div>
                                                                     <div class="whats-right-cap">
@@ -325,7 +325,7 @@
                                                                 <div class="whats-right-single mb-20">
                                                                     <div class="whats-right-img">
                                                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
-                                                                            <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                            <img class="imgHome" src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
                                                                         </a>
                                                                     </div>
                                                                     <div class="whats-right-cap">
@@ -373,7 +373,7 @@
                                                                 <div class="whats-right-single mb-20">
                                                                     <div class="whats-right-img">
                                                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
-                                                                            <img src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
+                                                                            <img class="imgHome" src="{{$newArticle[$i]->Article_image}}" alt="" style="height: 70px ; @if($i==1) width: 120px @else width: 80px @endif">
                                                                         </a>
                                                                     </div>
                                                                     <div class="whats-right-cap">

@@ -19,7 +19,7 @@
                 <li><a class="nav-item nav-link grow" href="/Themes/commune">Commune</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Arrondissements">Arrondissements</a> </li>
                 <li><a class="nav-item nav-link grow" href="/Themes/rabat">Rabat</a> </li>
-                <li><a class="nav-item nav-link grow" href="/#contact" id="button">Contactez-Nous</a> </li>
+                <li><a class="nav-item nav-link grow" href="/#contact">Contactez-Nous</a> </li>
             </ul>
             </div>
             <!-- Right Side Of Navbar -->
