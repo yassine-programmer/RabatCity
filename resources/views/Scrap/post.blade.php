@@ -1,19 +1,22 @@
 <!--  -->
 <!-- Section Tittle -->
-<div class="small-tittle mb-20">
-    <h4><a href="/Moreposts">Publications Recentes</a></h4>
+<div class="small-tittle mb-20 grow">
+    <h4 class="text-center"><a href="/Moreposts">Publications Recentes</a></h4>
 </div>
 <!-- Details -->
 @php($post = App\Facebook::all())
     <div class="most-recent mb-40 grow">
         <div class="most-recent-img">
-            <img src="{{$post[1]->Facebook_image ?? ''}}" alt="">
+            <a href="https://www.facebook.com{{$post[1]->Facebook_url ?? ''}}">
+                <img src="{{$post[1]->Facebook_image ?? ''}}" alt="">
+            </a>
             <div class="most-recent-cap">
                 <span class="bgbeg">Facebook</span>
-                <h4><a href="https://www.facebook.com{{$post[1]->Facebook_url ?? ''}}"><?php
+                <h4 class="text-right pr-4"><a href="https://www.facebook.com{{$post[1]->Facebook_url ?? ''}}"><?php
                         echo substr($post[1]->Facebook_text ?? '', 0, 100);
                         ?>...</a></h4>
-                <p>Publier - {{$post[1]->Facebook_time ?? ''}}</p>
+
+                <p class="text-center">Publier - {{$post[1]->Facebook_time ?? ''}}</p>
             </div>
         </div>
     </div>
@@ -27,14 +30,14 @@
                 <img style="max-width: 6em;" src="{{$post[$i]->Facebook_image ?? ''}}" alt=""></a>
         </div>
         <div class="most-recent-capt">
-            <h4><a href="https://www.facebook.com{{$post[$i]->Facebook_url ?? ''}}">
+            <h4 class="text-right pr-4" ><a href="https://www.facebook.com{{$post[$i]->Facebook_url ?? ''}}">
 
                         <?php
                         echo substr($post[$i]->Facebook_text ?? '', 0, 100).'...';
                         ?>
                     </a></h4>
-            <br>
-            <p>Publier - {{$post[$i]->Facebook_time ?? ''}}</p>
+            <hr>
+            <p class="text-center" style="padding-bottom: 8px">Publier - {{$post[$i]->Facebook_time ?? ''}}</p>
         </div>
     </div>
 @endfor
