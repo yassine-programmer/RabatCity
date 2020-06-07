@@ -11,7 +11,9 @@
 		<div class="wrap-contact100">
 
             {!! Form::open(['action' => 'EmailController@store', 'method' => 'post']) !!}
-			<div class="contact100-form validate-form">
+			<div class="contact100-form validate-form"  style="border:1px solid #ccc!important;
+    													box-shadow: 2px 4px 6px #b8b894;
+    													padding-left: 20px;padding-top: 20px;border-radius: 12px">
 				<span class="contact100-form-title">
 					Contactez Nous
 				</span>
@@ -38,12 +40,15 @@
 				<div class="container-contact100-form-btn">
                     {{Form::submit('Envoyer',['class' =>'contact100-form-btn'])}}
 				</div>
+				<span class="contact100-more text-end" style="padding-top: 40px">
+				Pour plus d'information 24/7 apeler le centre: <span class="contact100-more-highlight">+212 537 45 44 40</span>
+				</span>
                 {!! Form::close() !!}
+
+
 			</div>
 
-			<span class="contact100-more">
-				Pour plus d'information 24/7 apeler le centre: <span class="contact100-more-highlight">+212 537 45 44 40</span>
-			</span>
+
 		</div>
 	</div>
 
