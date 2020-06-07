@@ -34,7 +34,7 @@
 <div id="app">
    @include("inc.navbar")
     @include('searchbar.searchbar')
-
+    @include('inc.Totop')
     <main class="py-4">
         <div class="container">
             <div class="row justify-content-center">
