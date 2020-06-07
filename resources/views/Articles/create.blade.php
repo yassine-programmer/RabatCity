@@ -1,3 +1,4 @@
+@if(Session::get('role')=='admin' || Session::get('role')=='moderator')
 @extends("layouts.app")
 @section("css")
     <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
@@ -5,7 +6,7 @@
 @endsection
 @section("content")
     <script type="application/javascript" src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
-    @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+
         {!! Form::open(['action' => 'ArticlesController@store', 'method' => 'post','id'=>'form']) !!}
         <div class="container-contact100">
             <div class="wrap-contact100">
@@ -107,12 +108,11 @@
 
             $('#lfm').filemanager('image');
         </script>
-
-    @else
-        khrj fhalk
-    @endif
 @endsection
 
 @section('script')
 
 @endsection
+@else
+    @include('errors.404')
+@endif

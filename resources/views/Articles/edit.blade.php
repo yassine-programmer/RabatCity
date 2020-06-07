@@ -1,3 +1,4 @@
+@if(Session::get('role')=='admin' || Session::get('role')=='moderator')
 @extends("layouts.app")
 
 @section("css")
@@ -108,12 +109,11 @@
 
             $('#lfm').filemanager('image');
         </script>
-
-    @else
-        khrj fhalk
-    @endif
 @endsection
 
 @section('script')
 
 @endsection
+@else
+    @include('errors.404')
+@endif
