@@ -239,7 +239,7 @@
         asNavFor: '.video-items-active',
         dots: false,
         arrows:false,
-        prevArrow: '<button type="button" class="slick-prev"><span class="ti-arrow-left"></<span></button>',
+        prevArrow: '<button type="button" class="slick-prev"><span class="ti-arrow-left"></span></button>',
         nextArrow: '<button type="button" class="slick-next"><span class="ti-arrow-right"></span></button>',
         centerMode: true,
         focusOnSelect: true,

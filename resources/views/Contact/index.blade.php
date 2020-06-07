@@ -14,7 +14,7 @@
 			<div class="contact100-form validate-form"  style="border:1px solid #ccc!important;
     													box-shadow: 2px 4px 6px #b8b894;
     													padding-left: 20px;padding-top: 20px;border-radius: 12px">
-				<span class="contact100-form-title">
+				<span class="pl-3 contact100-form-title grow homeTitle">
 					Contactez Nous
 				</span>
 

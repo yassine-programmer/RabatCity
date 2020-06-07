@@ -20,7 +20,7 @@
         <div class="wrapper fadeInDown">
             <div id="formContent">
                 <!-- Tabs Titles -->
-                <div class="card-header  justify-content-center"><i class="fa fa-home fa-4x" aria-hidden="true"></i> <div class="small "><b>{{Session::get('role')}}</b></div></div>
+                <div class="card-header  justify-content-center"><i class="fa fa-home fa-4x grow Myicone" aria-hidden="true"></i> <div class="small "><b>{{Session::get('role')}}</b></div></div>
 
                 <div class="card-body">
                     @if (session('status'))

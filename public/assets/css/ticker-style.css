@@ -17,11 +17,10 @@
     display: block;
     position: relative;
     overflow: hidden;
-    background-color: #fff;
-    @media #{$xs}{
-        width: 200px;
-    }
-}
+    background-color: #fff;}
+
+
+
 .ticker-title {
 padding-top: 9px;
 color: #990000;
@@ -41,9 +40,7 @@ text-transform: capitalize;
     font-family: "Roboto",sans-serif;
     font-size: 16px;
 }
-.ticker-content:focus {
- none;
-}
+
 .ticker-content a {
 text-decoration: none;
 color: #1F527B;
@@ -85,7 +82,6 @@ display: block;
 }
 
 .ticker-controls li.jnt-play-pause {
-background-image: url('../images/controls.png');
 background-position: 32px 16px;
 }
 .ticker-controls li.jnt-play-pause.over {
@@ -95,7 +91,6 @@ background-position: 32px 32px;
 background-position: 32px 0px;
 }
 .ticker-controls li.jnt-play-pause.paused {
-background-image: url('../images/controls.png');
 background-position: 48px 16px;
 }
 .ticker-controls li.jnt-play-pause.paused.over {
@@ -105,7 +100,6 @@ background-position: 48px 32px;
 background-position: 48px 0px;
 }
 .ticker-controls li.jnt-prev {
-background-image: url('../images/controls.png');
 background-position: 0px 16px;
 }
 .ticker-controls li.jnt-prev.over {
@@ -115,7 +109,6 @@ background-position: 0px 32px;
 background-position: 0px 0px;
 }
 .ticker-controls li.jnt-next {
-background-image: url('../images/controls.png');
 background-position: 16px 16px;
 }
 .ticker-controls li.jnt-next.over {

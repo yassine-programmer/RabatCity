@@ -54,7 +54,7 @@
                                         </a>
                                         <div class="trend-top-cap">
                                             <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">News</span>
-                                            <h2><a href="/Articles/{{$newArticle[0]->Article_id}}" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$newArticle[0]->Article_titre}}</a></h2>
+                                            <h2><a class="homeTitle" href="/Articles/{{$newArticle[0]->Article_id}}" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">{{$newArticle[0]->Article_titre}}</a></h2>
                                             <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">Posted - {{$newArticle[0]->created_at}}</p>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@
                                         </a>
                                         <div class="trend-top-cap trend-top-cap2">
                                             <span class="bgb">Rabat</span>
-                                            <h2><a href="/Themes/rabat">Decouvrir la capitale du Maroc , Rabat</a></h2>
+                                            <h2><a class="homeTitle" href="/Themes/rabat">Decouvrir la capitale du Maroc , Rabat</a></h2>
 
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
                                         </a>
                                         <div class="trend-top-cap trend-top-cap2">
                                             <span class="bgg">Mot </span>
-                                            <h2><a href="/Articles/{{$Presidant[0]->Article_id}}">{{$Presidant[0]->Article_titre}}</a></h2>
+                                            <h2><a class="homeTitle" href="/Articles/{{$Presidant[0]->Article_id}}">{{$Presidant[0]->Article_titre}}</a></h2>
                                             <p>{{$Presidant[0]->created_at}}</p>
                                         </div>
                                     </div>

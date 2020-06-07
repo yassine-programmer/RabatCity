@@ -23,7 +23,7 @@
 
                 <!-- Icon -->
                 <div class="fadeIn first" style="margin-top: 20px;">
-                    <i class="fa fa-address-card fa-4x" aria-hidden="true"></i>
+                    <i class="fa fa-address-card fa-4x grow Myicone" aria-hidden="true"></i>
                 </div>
 
                 <!-- Login Form -->
