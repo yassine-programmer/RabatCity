@@ -1,4 +1,4 @@
-<div id="journals"  class="container text-center mt-5 " >
+<div id="journals"  class="container text-center mt-5 d-none" >
     @php($journals = App\Journal::orderby('created_at','desc')->get())
     @if(count($journals)==0)
         <div class="text-center bold">Le journal est vide</div>
