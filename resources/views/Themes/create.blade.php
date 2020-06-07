@@ -10,7 +10,7 @@
             <div class="wrap-contact100">
                 <form class="contact100-form">
 				<span class="contact100-form-title Mytitle">
-					   Theme <i class="fa fa-plus fa-1x" aria-hidden="true" style="text-decoration: underline"></i> :
+					  <i class="fa fa-plus fa-1x" aria-hidden="true"></i> Theme  :
 				</span>
                     <div class="wrap-input100 bg1 DivT grow">
                         <span class="label-input100"><b>Type Theme *</b></span>

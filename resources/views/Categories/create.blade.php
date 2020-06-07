@@ -10,7 +10,7 @@
             <div class="wrap-contact100 ">
                 <form class="contact100-form">
 				<span class="contact100-form-title Mytitle">
-					   Catégorie <i class="fa fa-plus fa-1x" aria-hidden="true" style="text-decoration: underline"></i> :
+					   <i class="fa fa-plus fa-1x" aria-hidden="true"></i> Catégorie :
 				</span>
                     @if(isset($categorie_parent))
                         <div class="wrap-input100 bg1 DivT grow" style="margin-top: 30px">
