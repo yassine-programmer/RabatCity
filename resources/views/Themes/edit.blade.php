@@ -1,10 +1,11 @@
+@if(Session::get('role')=='admin' || Session::get('role')=='moderator')
 @extends("layouts.app")
 @section("css")
     <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
     <link rel="stylesheet" type="text/css" href="/css/crud.css">
 @endsection
 @section("content")
-    @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
+
         {!! Form::open(['action' => ['ThemesController@update',$theme->Theme_id], 'method' => 'post','id'=>'form']) !!}
         <div class="container-contact100">
             <div class="wrap-contact100">
@@ -94,12 +95,11 @@
 
             $('#lfm').filemanager('image');
         </script>
-
-    @else
-        khrj fhalk
-    @endif
 @endsection
 
 @section('script')
 
 @endsection
+@else
+    @include('errors.404')
+@endif
