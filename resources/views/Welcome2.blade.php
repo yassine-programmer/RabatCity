@@ -45,8 +45,8 @@
                             @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites'))order by created_at desc LIMIT 1"))
                             @if(count($newArticle)==1)
                             <div class="single-slider">
-                                <div class="trending-top mb-30" >
-                                    <div class="trend-top-img"  style="border:1px solid #ccc!important;
+                                <div class="trending-top mb-30 " >
+                                    <div class="trend-top-img imgHome1"  style="border:1px solid #ccc!important;
                                                               border-bottom: 0;
                                                               box-shadow: 5px 6px 12px #b8b894;">
                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
@@ -70,7 +70,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-6 col-sm-6" >
                                 <div class="trending-top mb-30">
-                                    <div class="trend-top-img" style="border:1px solid #ccc!important;
+                                    <div class="trend-top-img imgHome1" style="border:1px solid #ccc!important;
                                                                             box-shadow: 4px 4px 12px #b8b894;">
                                         <a href="/Themes/rabat">
                                         <img src="/storage/photos/shares/Rabat_theme.jpg" alt="">
@@ -87,7 +87,7 @@
                             @if(count($Presidant) == 1)
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
-                                    <div class="trend-top-img" style="border:1px solid #ccc!important;
+                                    <div class="trend-top-img imgHome1" style="border:1px solid #ccc!important;
                                                                             box-shadow: 4px 4px 12px #b8b894;">
                                         <a href="/Articles/{{$Presidant[0]->Article_id}}">
                                         <img src="{{$Presidant[0]->Article_image}}" alt="">

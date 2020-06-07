@@ -484,3 +484,4 @@ div.fixed-bg-img1{
     width: 80px !important;
     max-width: 80px !important;
 }
+.imgHome1:hover{transform:scale(1.05);}
