@@ -39,5 +39,5 @@
     </div>
 @endfor
 <div class="container-contact100-form-btn" style="margin-top: 0px ; margin-left: 30% !important;">
-    <button class="contact100-form-btn" style="min-width: 78px;height: 31px !important;"><a class="text-white" href="/Moreposts">Plus +</a></button>
+    <button class="contact100-form-btn" style="min-width: 78px;height: 31px !important;margin-top: 20%;"><a class="text-white" href="/Moreposts">Plus +</a></button>
 </div>

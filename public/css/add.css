@@ -370,3 +370,36 @@ div.fixed-bg-img1{
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
 }
+.stat-number1{
+    color: #3fb994;
+    font-weight: 300;
+    font-size: 8em;
+    line-height: 1em;
+    margin-bottom: 20px;
+}
+.stat-number2{
+    color: #bcc6dd;
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1em;
+}
+.stat-number3{
+    padding: 12px;
+    font-size: 3em;
+    font-weight: 300;
+    line-height: 1em;
+    margin-bottom: .1em;
+    color: white;
+
+}
+.stat-text1{
+    font-size: 1.6em;
+    line-height: 1em;
+    font-weight: 400;
+}
+.stat-text2{
+    font-size: 2em;
+    line-height: 1em;
+    font-weight: 400;
+    color: white;
+}

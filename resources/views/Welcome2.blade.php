@@ -46,7 +46,7 @@
                             @if(count($newArticle)==1)
                             <div class="single-slider">
                                 <div class="trending-top mb-30" >
-                                    <div class="trend-top-img "  style="border:1px solid #ccc!important;
+                                    <div class="trend-top-img"  style="border:1px solid #ccc!important;
                                                               border-bottom: 0;
                                                               box-shadow: 5px 6px 12px #b8b894;">
                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
@@ -394,8 +394,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pt-lg-2" style="width: 100%">
 
+                    <div class="row pt-lg-2 pl-4" style="width: 100%">
+                        <img  src="https://img.medi1tv.com/TRAM_RABAT_310516.jpg" style="object-fit: cover; width: inherit; border-radius: 12px;">
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -404,7 +405,7 @@
                     <!-- Most Recent Area -->
                     <div class="most-recent-area"   style="border:1px solid #ccc!important;
                                                               border-bottom: 0;
-                                                              box-shadow: 1px 1px 12px #b8b894;">
+                                                              box-shadow: 1px 1px 12px #b8b894;height: 100%">
                        @include('Scrap.post')
                     </div>
                 </div>
@@ -503,40 +504,57 @@
                         <div class="slider-wrapper">
                             <!-- Slider -->
                             <div class="row">
-                                <div class="col-12 col-lg-4 pb-4 text-center" style="overflow: hidden">
-                                        <div class="stat-cart">
-                                        <h1>1</h1>
+                                <div class="col-12 col-lg-4 pb-4 text-center  " style="overflow: hidden">
+                                        <div class="stat-cart ">
+                                            <div class="stat-number1">1,8M</div>
+                                            <div class="text-center stat-text1">Habitants A Rabat</div>
                                         </div>
+
+
                                 </div>
                                 <div class="col-12 col-lg-8 d-lg-inline-block">
                                     <div class="row mb-4">
                                         <div class="col-md-3">
                                             <div class="stat-cart2 d-flex align-items-center justify-content-center ">
-                                                <h1>6</h1>
+
+                                                <div class="row d-flex justify-content-start w-75 align-items-center">
+                                                    <div class=" mb-2 ml-4 stat-number2 ">40%</div>
+                                                    <div class=" heading text-center line-1 font-4">Mains d'oeuvre</div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
                                             <div class="stat-cart3 d-flex align-items-center justify-content-center" style="background-color: rgb(255, 84, 118)">
-                                                <h1>2</h1>
+                                                <div class="d-flex justify-content-start w-75 align-items-center">
+                                                 <div class="stat-number3">2.000.000</div>
+                                                 <div class="heading2 text-left">VOITURES EN CIRCULATION / JOUR</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-md-6">
                                             <div class="stat-cart3 d-flex align-items-center justify-content-center " style="background-color: #eae7dc">
-                                                <h1>3</h1>
+                                                <div class="stat-number3" style="color:rgb(142,94,183)">117 </div>
+                                                <div class="heading2 text-left stat-text2 " style="color:rgb(142,94,183)">Superficie de la ville en km²</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="stat-cart2 d-flex align-items-center justify-content-center ">
-                                                    <h1>4</h1>
+                                             <div class="col-md-6">
+                                                 <div class=" stat-cart2 d-flex flex-column align-items-center justify-content-center px-3 ">
+                                                     <div class="row d-flex justify-content-start w-75 align-items-center">
+                                                    <div class="mr-4 mb-2 text-left stat-number2">22%</div>
+                                                    <div class=" heading text-left line-1 font-3">Populations -10 ans</div>
+                                                     </div>
                                                 </div>
-                                            </div>
+                                             </div>
                                             <div class="col-md-6 overflow-hidden">
-                                                <div class="stat-cart2 d-flex align-items-center justify-content-center ">
-                                                    <h1>5</h1>
+                                                <div class="stat-cart2 d-flex flex-column align-items-center justify-content-center px-3  ">
+                                                    <div class="row d-flex justify-content-start w-75 align-items-center">
+                                                      <div class=" mr-4 mb-2 text-left stat-number2">17,2%</div>
+                                                      <div class=" heading text-left line-1 font-4">PIB NATIONAL</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             </div>
