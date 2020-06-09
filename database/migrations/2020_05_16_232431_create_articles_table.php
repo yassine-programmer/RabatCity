@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('Article_titre');
             $table->string('Article_image');
             $table->longText('Article_text');
+            $table->integer('Article_vue')->default(0);
             $table->integer('Categorie_id')->unsigned();
             $table->timestamps();
         });

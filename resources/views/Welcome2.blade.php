@@ -432,7 +432,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="small-tittle mb-30">
-                                        <h4>Most Popular</h4>
+                                        <h4 class="grow titrePopular"> Articles Populaire :</h4>
                                     </div>
                                 </div>
                             </div>
@@ -441,45 +441,22 @@
                                 <div class="col-lg-12">
                                     <div class="weekly2-news-active d-flex">
                                         <!-- Single -->
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="assets/img/gallery/weeklyNews1.png" alt="">
-                                            </div>
-                                            <div class="weekly2-caption">
-                                                <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
-                                                <p>Jhon  |  2 hours ago</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single -->
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                            </div>
-                                            <div class="weekly2-caption">
-                                                <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
-                                                <p>Jhon  |  2 hours ago</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single -->
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="assets/img/gallery/weeklyNews3.png" alt="">
-                                            </div>
-                                            <div class="weekly2-caption">
-                                                <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
-                                                <p>Jhon  |  2 hours ago</p>
-                                            </div>
-                                        </div>
-                                        <!-- Single -->
-                                        <div class="weekly2-single">
-                                            <div class="weekly2-img">
-                                                <img src="assets/img/gallery/weeklyNews2.png" alt="">
-                                            </div>
-                                            <div class="weekly2-caption">
-                                                <h4><a href="#">Scarlett’s disappointment at latest accolade</a></h4>
-                                                <p>Jhon  |  2 hours ago</p>
-                                            </div>
-                                        </div>
+                                        @php($PopularArticles = App\Article::orderby('Article_vue','desc')->take(4)->get() )
+                                        @if(count($PopularArticles)>0)
+                                                @foreach($PopularArticles as $PopularArticle)
+                                                        <div class="weekly2-single">
+                                                            <div class="weekly2-img">
+                                                                <a href="/Articles/{{$PopularArticle->Article_id}}"><img class="imgHome1" src="{{$PopularArticle->Article_image}}" alt=""></a>
+                                                            </div>
+                                                            <div class="weekly2-caption">
+
+                                                                <h4><a href="/Articles/{{$PopularArticle->Article_id}}">@php($titre = substr($PopularArticle->Article_titre,0,17)){{$titre}}...</a></h4>
+                                                                <p>Nombre de Visite - {{$PopularArticle->Article_vue}}</p>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                            @endif
+
                                     </div>
                                 </div>
                             </div>

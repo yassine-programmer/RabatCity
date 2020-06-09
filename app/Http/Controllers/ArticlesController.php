@@ -81,6 +81,7 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
+        $article->increment('Article_vue',1);
         $categorie = Categorie::where('Categorie_id',$article->Categorie_id)->get();
         return view('Articles.show')->with(['article'=>$article,'categorie'=>$categorie]);
     }
@@ -139,6 +140,7 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         $article = Article::find($id);
+        $cat = $article->Categorie_id;
         $Categorie2 = $article->Categorie_id;
         $article->delete();
         //journal
@@ -153,6 +155,6 @@ class ArticlesController extends Controller
         $user_id=Auth::id();
         app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
 
-        return back()->withInput();
+        return redirect('categories/'.$cat);
     }
 }

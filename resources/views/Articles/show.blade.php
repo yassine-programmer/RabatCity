@@ -1,4 +1,4 @@
-@extends("layouts.app")
+    @extends("layouts.app")
 
 @section('css')
     <link  href="/css/styleTheme.css" rel="stylesheet">
@@ -12,8 +12,31 @@
     <section class="fplus-hero-area" style="background-image: url({{$categorie[0]->Categorie_image}})" id="home">
         <div class="hero-content-area d-flex justify-content-center">
             <div class="hero-text">
-                <h2>{{$categorie[0]->Categorie_intitule}}</h2>
-                <h5>{{$categorie[0]->Categorie_description}}</h5>
+                @php($testArticles = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id = ".$categorie[0]->Categorie_id.""))
+                @if(count($testArticles) > 1)
+                    <h2>
+                        <a href="/categories/{{$categorie[0]->Categorie_id}}">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i>{{$categorie[0]->Categorie_intitule}}
+                        </a>
+                    </h2>
+                @else
+                    @if(empty($categorie[0]->Cat_id))
+                        <h2>
+                            <a href="/themes/{{$categorie[0]->Theme_id}}">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>{{$categorie[0]->Categorie_intitule}}
+                            </a>
+                        </h2>
+                    @else
+                        <h2>
+                            <a href="/categories/{{$categorie[0]->Cat_id}}">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>{{$categorie[0]->Categorie_intitule}}
+                            </a>
+                        </h2>
+                        @endif
+                @endif
+
+
+                    <h5>{{$categorie[0]->Categorie_description}}</h5>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                     <a href="/articles/create/{{$categorie[0]->Categorie_id}}" class="view-portfolio-btn" id="scrollDown">
                         <i class="fa fa-plus" aria-hidden="true"></i>Creer un nouveau Article</a>
@@ -41,6 +64,10 @@
                             <div class="col-12">
                                 <div class="about-us-text wow fadeIn" data-wow-delay="1.5s" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
                                     {!! $article->Article_text !!}
+                                    <hr>
+                                    <p class="text-right">Publier le -  {{$article->created_at}}</p>
+                                    <br>
+                                    <p class="text-right">Nombre de Visite : {{$article->Article_vue}}</p>
                                     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                         <br>
                                         <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">

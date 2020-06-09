@@ -485,3 +485,7 @@ div.fixed-bg-img1{
     max-width: 80px !important;
 }
 .imgHome1:hover{transform:scale(1.05);}
+.titrePopular:hover{
+    cursor: pointer;
+    color: #0056b3;
+}
