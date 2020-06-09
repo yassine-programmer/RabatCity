@@ -93,12 +93,26 @@ class CategoriesController extends Controller
         $categorie_parent=Categorie::find($id);
         $categories_fils=Categorie::where("Cat_id",$id)->get();
         $articles = Article::where("Categorie_id",$id)->get();
+
+        //Getting vars for link
+        $l_categories = array();
+        $l_categories[0] = $categorie_parent;
+        $i = 0;
+
+        while ($l_categories[$i]->Cat_id != null ){
+            $x= Categorie::find($l_categories[$i]->Cat_id);
+            array_push($l_categories,$x);
+            $i++;
+        }
+        $l_categories=array_reverse($l_categories);
+        // return
+        
         if (count($categories_fils)>0)
-         return view('Categories.show')->with(['categories_fils'=>$categories_fils,'categorie_parent'=>$categorie_parent]);
+         return view('Categories.show')->with(['categories_fils'=>$categories_fils,'categorie_parent'=>$categorie_parent,'l_categories'=>$l_categories]);
         elseif (count($articles)>0)
-            return view('Categories.showArticles')->with(['articles'=>$articles,'categorie_parent'=>$categorie_parent]);
+            return view('Categories.showArticles')->with(['articles'=>$articles,'categorie_parent'=>$categorie_parent,'l_categories'=>$l_categories]);
         else
-            return view('Categories.showEmpty')->with('categorie_parent',$categorie_parent);
+            return view('Categories.showEmpty')->with(['categorie_parent'=>$categorie_parent,'l_categories'=>$l_categories]);
     }
 
     /**

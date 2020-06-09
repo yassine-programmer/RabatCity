@@ -83,7 +83,22 @@ class ArticlesController extends Controller
         $article = Article::find($id);
         $article->increment('Article_vue',1);
         $categorie = Categorie::where('Categorie_id',$article->Categorie_id)->get();
-        return view('Articles.show')->with(['article'=>$article,'categorie'=>$categorie]);
+
+        //Getting vars for link
+        $l_categories = array();
+        $l_categories[0] = $categorie[0];
+        $i = 0;
+
+        while ($l_categories[$i]->Cat_id != null ){
+            $x= Categorie::find($l_categories[$i]->Cat_id);
+            array_push($l_categories,$x);
+            $i++;
+        }
+        $l_categories=array_reverse($l_categories);
+        // return
+
+
+        return view('Articles.show')->with(['article'=>$article,'categorie'=>$categorie,'l_categories'=>$l_categories]);
     }
 
     /**

@@ -13,6 +13,14 @@
     <section class="fplus-hero-area" style="background-image: url({{$categorie_parent->Categorie_image}})" id="home">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
+            @php($theme = App\Theme::find($categorie_parent->Theme_id))
+            <!-- link display -->
+                <a href="/Themes/{{$theme->Theme_type}}">{{$theme->Theme_type}}</a> / <a href="/themes/{{$theme->Theme_id}}">{{$theme->Theme_intitule}}</a>
+                <!-- showing all categories-->
+                @foreach($l_categories as $l_categorie)
+
+                    <a href="/categories/{{$l_categorie->Categorie_id}}">{{$l_categorie->Categorie_intitule}}</a> /
+                @endforeach
                 <h2>{{$categorie_parent->Categorie_intitule}}</h2>
                 <h5>{{$categorie_parent->Categorie_description}}</h5>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')

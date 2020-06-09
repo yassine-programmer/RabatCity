@@ -50,7 +50,7 @@
                                                               border-bottom: 0;
                                                               box-shadow: 5px 6px 12px #b8b894;">
                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
-                                        <img src="{{$newArticle[0]->Article_image}}" alt="" style="height: 680px">
+                                        <img src="{{$newArticle[0]->Article_image}}" alt="" style="height: 680px; object-fit: ">
                                         </a>
                                         <div class="trend-top-cap">
                                             <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">News</span>
