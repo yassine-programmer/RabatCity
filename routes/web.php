@@ -58,7 +58,6 @@ Route::get('navbar',function (){
 Route::get('contact', function () {
     return view("Contact.index");
 });
-Route::resource('email','EmailController');
 
 Route::get('/scraping','ScrapingController@test');
 Route::get('/Moreposts',function (){
@@ -67,5 +66,7 @@ Route::get('/Moreposts',function (){
 Route::get('/errors',function (){
     return view('errors.errors');
 });
-
+Route::resource('email','EmailController');
+Route::get('sendVerificationCode/{user_id}','EmailController@sendVerificationCode');
+Route::get('verify/{user_id}/{code}','EmailController@verify');
 
