@@ -30,7 +30,7 @@
                 @if($user->confirmed == false)
                     Veuillez verifier votre compte pour utiliser ce site en toute ces fonctionalites
                     <a href="/sendVerificationCode/{{$user->id}}"><button class="btn btn-success">Verify</button></a>
-                    @endif
+                 @else
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -53,8 +53,10 @@
                     <br>
                     You are logged in!
                 </div>
+                    @endif
             </div>
         </div>
+    </div>
     </div>
     <script src="js/ListAllUsers.js"></script>
 </section>

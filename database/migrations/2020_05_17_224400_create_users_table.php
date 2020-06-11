@@ -19,6 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role')->default('user');
+            $table->string('image')->default('/storage/photos/shares/noimage.jpg');
+            $table->string('Nom')->nullable();
+            $table->string('Prenom')->nullable();
+            $table->date('Date_naissance')->nullable();
+            $table->boolean('sexe')->nullable();
+            $table->string('CIN')->nullable()->nullable();
+            $table->string('Adresse')->nullable();
+            $table->integer('Tel')->nullable();
             $table->boolean('confirmed')->default(false);
             $table->integer('confirmation_code')->nullable();
             $table->rememberToken();

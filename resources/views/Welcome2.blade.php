@@ -150,7 +150,7 @@
                                 <!-- Nav Card -->
                                 <div class="tab-content" id="nav-tabContent">
                                     <!-- card one -->
-                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                    <div class="tab-pane fade show active DivHome" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
                                             @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites'))order by created_at desc LIMIT 5"))

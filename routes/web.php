@@ -70,3 +70,6 @@ Route::resource('email','EmailController');
 Route::get('sendVerificationCode/{user_id}','EmailController@sendVerificationCode');
 Route::get('verify/{user_id}/{code}','EmailController@verify');
 
+Route::get('/test',function (){
+    return view('test');
+});
