@@ -49,7 +49,7 @@
                                 <nav>
                                     <div class="nav flex-column nav-pills" id="nav-tab" role="tablist" aria-orientation="vertical">
                                         <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher('nav-home-tab')" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
-                                        <a class="nav-item nav-link" id="nav-profile-tab"  onclick="afficher('nav-profile-tab')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
+                                        <a class="nav-item nav-link  " id="nav-profile-tab"  onclick="afficher('nav-profile-tab')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
                                         <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher('nav-contact-tab')" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
                                         <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher('nav-last-tab')" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
                                         @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher('nav-Sports')" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Admin Area</a>@endif

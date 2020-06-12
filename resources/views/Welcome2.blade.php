@@ -15,6 +15,9 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/css/form/util.css">
     <link rel="stylesheet" type="text/css" href="/css/form/main.css">
+    <!-- RECAPTCHA-->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
 
 
 @endsection
@@ -584,4 +587,5 @@
 <!-- Jquery Plugins, main Jquery -->
 <script type="application/javascript" src="/assets/js/plugins.js"></script>
 <script type="application/javascript" src="/assets/js/main.js"></script>
+<!-- rECAPTCHA -->
 @endsection
