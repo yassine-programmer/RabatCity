@@ -26,6 +26,7 @@
     alert("Nouveau mot de passe doit etre different d'ancien mot de passe  !!");
     @endif
 </script>
+
 <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
 
     <div class="container">
@@ -95,8 +96,14 @@
                 </div>
             </div>
         </div>
-
     @endif
+
+
+    @if(session()->has('email_sent'))
+        @include("email.EmailSent")
+    @endif
+
+
     <script src="js/ListAllUsers.js"></script>
     <!-- Scripts -->
     <script>

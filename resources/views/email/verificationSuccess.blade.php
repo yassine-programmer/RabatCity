@@ -45,6 +45,8 @@
         <h1 class="success">Merci </h1>
         <p>Merci de confirmer votre compte.<br/> Vous pouvez utiliser le site avec toute ces fonctionalites</p><br>
         <a href="/"><button class="btn btn-success w-50">Revenir vers la page d'accueil</button></a>
+        <br><br>
+
     </div>
 </div>
 @endsection

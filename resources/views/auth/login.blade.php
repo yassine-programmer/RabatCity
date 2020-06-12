@@ -27,26 +27,32 @@
                 <!-- Login Form -->
                 <form method="POST" action="{{ route('login') }}" style="margin-top: 20px;">
                     @csrf
-                    <input id="email" type="email" placeholder="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    @error('email')
+
+                    <div class="form-group">
+                        <i class="fa fa-user"></i>
+                    <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus style=" margin-bottom: 14px;">
+                    </div>
+                        @error('email')
                     <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                     @enderror
-                    <input id="password" type="password" placeholder="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                    <div class="form-group">
+                    <i class="fa fa-lock"></i>
+                    <input id="password" type="password" placeholder="Mot de passe" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" style="margin-bottom: 14px;">
+                    </div>
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                     @enderror
+                    <button type="submit" class="btn btn-primary" style="width: 85%;">
+                        S'identifier
+                    </button>
                     <div id="formFooter" style="margin-top: 20px;">
-                        <button type="submit" class="btn btn-primary">
-                            {{ __('Login') }}
-                        </button>
 
                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
+                            Mot de passe oublié ?
                         </a>
 
 

@@ -12,6 +12,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use App\User;
 use DB;
+use Illuminate\Support\Facades\Redirect;
 // Load Composer's autoloader
 require '../vendor/autoload.php';
 
@@ -88,7 +89,6 @@ class EmailController extends Controller
         //
     }
 
-
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -162,7 +162,8 @@ class EmailController extends Controller
             $subject = 'Email de confirmation';
             $message ='<a href="'.$link.'" >'.$link.'</a>';
             $this->SendEmail($recepient, $subject, $message);
-            return 'Email sent succesfully';
+
+            return back()->with('email_sent', 'true');
         }
       }
     }
