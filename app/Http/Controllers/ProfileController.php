@@ -78,6 +78,7 @@ class ProfileController extends Controller
         {
             $img =$request->input('image');
             if($img <> null){$user->image = $request->input('image');}
+            $user->name = $request->input('pseudo');
             $user->Nom = $request->input('nom');
             $user->Prenom = $request->input('prenom');
             $user->Date_naissance = $request->input('date_naissance');

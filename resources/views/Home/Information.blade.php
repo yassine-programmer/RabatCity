@@ -16,12 +16,22 @@
                         </a>
 
                         <input id="thumbnail" class="form-control input100" type="text" name="image" hidden="">
+                        <script>
+                           var img = document.getElementById('thumbnail');
+
+                        </script>
                     </div>
                     <div class="col-1">
 
                     </div>
                     <div class="col-11 pt-5">
                         <div class="row d-flex align-items-center ">
+                            <div class="col-3">
+                                <b style="font-size: 20px">Pseudo :</b>
+                            </div>
+                            <div class="col-9 justify-content-start">
+                                <input type="text" name="pseudo" placeholder="Pseudo" value="{{$user->name}}">
+                            </div>
 
                             <div class="col-3">
                                 <b style="font-size: 20px">Nom :</b>

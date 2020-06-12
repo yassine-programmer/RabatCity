@@ -23,7 +23,7 @@
                         <b style="font-size: 20px">Mot de passe actuel :</b>
                     </div>
                     <div class="col-8 justify-content-start">
-                        <input type="password" name="pwActuel" placeholder="ACTUEL" required>
+                        <input type="password" class="form-control" name="pwActuel" placeholder="Actuel" required>
                     </div>
 
                     <div class="col-4">
@@ -44,7 +44,7 @@
                         <b style="font-size: 20px">Confirmer mot de passe :</b>
                     </div>
                     <div class="col-8 justify-content-start">
-                        <input type="password" id="confirm_password" name="confirm_password" placeholder="CONFIRMER">
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmer">
 
                     </div>
 
