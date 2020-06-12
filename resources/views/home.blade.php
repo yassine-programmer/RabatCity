@@ -29,8 +29,9 @@
 
 <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
 
-    <div class="container">
-        <div class="wrapper fadeInDown" style="padding-top: 120px !important;">
+    <div class="container align-items-center " style="margin-left: 25%; ">
+        <div class="row d-flex align-items-center vertical-align-center ">
+        <div class="wrapper fadeInDown col-md-8 " style="padding-top: 120px !important;">
             <div id="formContent">
             @php($user = Auth::user())
             <!-- Tabs Titles -->
@@ -42,36 +43,12 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
     @if($user->confirmed == false)
         @include('Home.Verify')
     @else
-        <div class="row">
-            <!--Menu home  -->
-            <div class="wrapper fadeInDown col-3" style="padding-top: 80px !important;">
-                <div id="formContent" style="text-align: left">
-                    <div class="card-header  justify-content-start " >
-                        <div class="properties__button">
-                            <!--Nav Button  -->
-                            <h3>Parametres :</h3>
-                            <nav>
-                                <div class="nav flex-column nav-pills" id="nav-tab" role="tablist" aria-orientation="vertical">
-                                    <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher('nav-home-tab')" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
-                                    <a class="nav-item nav-link" id="nav-profile-tab"  onclick="afficher('nav-profile-tab')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
-                                    <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher('nav-contact-tab')" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
-                                    <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher('nav-last-tab')" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
-                                    @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher('nav-Sports')" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Admin Area</a>@endif
-                                </div>
-                            </nav>
-                            <!--End Nav Button  -->
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--Menu home  -->
-            <div class="wrapper fadeInDown col-8" style="padding-top: 80px !important;">
+            <div class="wrapper fadeInDown col-8" style="padding-top: 80px !important; margin-left: 3%;">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         @include('Home.Information')
@@ -97,7 +74,29 @@
             </div>
         </div>
     @endif
+    </div>
+    <!--Menu home  -->
+    <div class="wrapper fadeInDown mx-auto " style="padding-top: 80px !important;">
+        <div id="formContent" style="text-align: left">
+            <div class="card-header  justify-content-start " >
+                <div class="properties__button">
+                    <!--Nav Button  -->
+                    <h3>Parametres :</h3>
+                    <nav>
+                        <div class="nav flex-column nav-pills" id="nav-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher('nav-home-tab')" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab"  onclick="afficher('nav-profile-tab')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher('nav-contact-tab')" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
+                            <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher('nav-last-tab')" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
+                            @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher('nav-Sports')" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Admin Area</a>@endif
+                        </div>
+                    </nav>
+                    <!--End Nav Button  -->
+                </div>
 
+            </div>
+        </div>
+    </div>
 
     @if(session()->has('email_sent'))
         @include("email.EmailSent")
