@@ -1,7 +1,9 @@
 
 <html>
 <header>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/add.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -14,8 +16,16 @@
 
 
 </header>
-<body>
+<body @if(isset($test) && $test == 'pw' || isset($match) && $match == 'pw') onload="document.getElementById('nav-profile-tab').click()"@endif>
 @include("inc.navbar")
+<script>
+    @if(isset($test))
+            alert('Mot de passe invalide !!');
+    @endif
+    @if(isset($match))
+    alert("Nouveau mot de passe doit etre different d'ancien mot de passe  !!");
+    @endif
+</script>
 <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
 
     <div class="container">
@@ -62,7 +72,7 @@
             <!--Menu home  -->
             <div class="wrapper fadeInDown col-8" style="padding-top: 80px !important;">
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="tab-pane fade show active " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         @include('Home.Information')
                     </div>
 
@@ -87,10 +97,97 @@
         </div>
 
     @endif
-
     <script src="js/ListAllUsers.js"></script>
     <!-- Scripts -->
+    <script>
+        var myInput = document.getElementById("password");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
 
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+            document.getElementById("message").style.display = "none";
+        }
+
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
+
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if(myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+
+            // Validate length
+            if(myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+        }
+    </script>
+   <script type="application/javascript">
+        var password = document.getElementById("password")
+            , confirm_password = document.getElementById("confirm_password")
+            , btn_pw = document.getElementById("btn_pw");
+
+        function validatePassword(){
+            if(password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+                password.style.borderColor = "red";
+                confirm_password.style.borderColor = "red";
+            } else {
+                confirm_password.setCustomValidity('');
+                password.style.borderColor = "green";
+                confirm_password.style.borderColor = "green";
+            }
+        }
+        function validatePassword2(){
+            if(password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+                password.style.borderColor = "red";
+                confirm_password.style.borderColor = "red";
+            } else {
+                confirm_password.setCustomValidity('');
+                document.getElementById('form').submit();
+            }
+        }
+        confirm_password.onkeyup = validatePassword;
+        btn_pw.onclick = validatePassword2;
+
+    </script>
     <script type="application/javascript">
         function afficher($id) {
             var val = document.getElementById($id).innerText;

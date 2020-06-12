@@ -94,7 +94,7 @@
     </div>
     <script src="js/ListAllUsers.js"></script>
     <!-- Scripts -->
-
+    <script></script>
     <script type="application/javascript">
         function afficher($id) {
             var val = document.getElementById($id).innerText;

@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div id="formFooter" style="margin-top: 20px;">
-                    <button type="submit" class="btn btn-primary" onclick="document.getElementById('form').submit();">Modifier
+                    <button type="submit" name="modify" value="profil" class="btn btn-primary" onclick="document.getElementById('form').submit();">Modifier
                     </button>
 
                 </div>
