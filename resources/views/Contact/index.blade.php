@@ -45,8 +45,13 @@
 				</span>
                 {!! Form::close() !!}
 
+                <!--reCAPTCHA -->
+                <button class="g-recaptcha"
+                        data-sitekey="reCAPTCHA_site_key"
+                        data-callback='onSubmit'
+                        data-action='submit'>Submit</button>
 
-			</div>
+            </div>
 
 
 		</div>

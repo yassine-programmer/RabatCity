@@ -28,7 +28,7 @@
     <div class="notfound">
         <div class="notfound-404"></div>
         <h1>404</h1>
-        <h2>Oops!La page demandée n'existe pas ou n'est plus en ligne.</h2>
+        <h2>Oops! La page demandée n'existe pas ou n'est plus en ligne.</h2>
         <p>Mais nous allons vous aider à retrouver votre chemin.</p>
         <?php $actual_link = "$_SERVER[REQUEST_URI]";
         $words = str_replace('/',' ',$actual_link);

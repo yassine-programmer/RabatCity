@@ -36,58 +36,62 @@
     @if($user->confirmed == false)
         @include('Home.Verify')
     @else
+
+        @endif
         <div class="row">
             <!--Menu home  -->
             <div class="wrapper fadeInDown col-3" style="padding-top: 80px !important;">
                 <div id="formContent" style="text-align: left">
                     <div class="card-header  justify-content-start " >
-                        <div class="properties__button">
-                            <!--Nav Button  -->
-                            <h3>Parametres :</h3>
-                            <nav>
-                                <div class="nav flex-column nav-pills" id="nav-tab" role="tablist" aria-orientation="vertical">
-                                    <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher('nav-home-tab')" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
-                                    <a class="nav-item nav-link" id="nav-profile-tab"  onclick="afficher('nav-profile-tab')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
-                                    <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher('nav-contact-tab')" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
-                                    <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher('nav-last-tab')" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
-                                    @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher('nav-Sports')" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Admin Area</a>@endif
-                                </div>
-                            </nav>
-                            <!--End Nav Button  -->
-                        </div>
+                            <div class="properties__button">
+                                <!--Nav Button  -->
+                                <h3>Parametres :</h3>
+                                <nav>
+                                    <div class="nav flex-column nav-pills" id="nav-tab" role="tablist" aria-orientation="vertical">
+                                        <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher('nav-home-tab')" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
+                                        <a class="nav-item nav-link  " id="nav-profile-tab"  onclick="afficher('nav-profile-tab')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
+                                        <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher('nav-contact-tab')" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
+                                        <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher('nav-last-tab')" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
+                                        @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher('nav-Sports')" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Admin Area</a>@endif
+                                    </div>
+                                </nav>
+                                <!--End Nav Button  -->
+                            </div>
 
                     </div>
                 </div>
             </div>
             <!--Menu home  -->
-            <div class="wrapper fadeInDown col-8" style="padding-top: 80px !important;">
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        @include('Home.Information')
-                    </div>
-
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        @include('Home.Passwordchange')
-                    </div>
-
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        c
-                    </div>
-
-                    <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
-                        d
-                    </div>
-                    @if(Session::get('role')=='admin')
-                        <div class="tab-pane fade" id="nav-nav-Sport" role="tabpanel" aria-labelledby="nav-Sports">
-                            @include('Home.AdminArea')
+                <div class="wrapper fadeInDown col-8" style="padding-top: 80px !important;">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            @include('Home.Information')
                         </div>
-                    @endif
+
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            @include('Home.Passwordchange')
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            c
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
+                            d
+                        </div>
+                        @if(Session::get('role')=='admin')
+                            <div class="tab-pane fade" id="nav-nav-Sport" role="tabpanel" aria-labelledby="nav-Sports">
+                                @include('Home.AdminArea')
+                            </div>
+                        @endif
+                    </div>
                 </div>
-            </div>
-        </div>
 
-    @endif
 
+
+
+
+    </div>
     <script src="js/ListAllUsers.js"></script>
     <!-- Scripts -->
 

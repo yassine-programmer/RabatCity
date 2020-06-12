@@ -75,3 +75,18 @@ Route::resource('Profile','ProfileController');
 Route::get('/test',function (){
     return view('test');
 });
+Route::get('/test2',function (){
+    return view('test2');
+});
+Route::get('/emailsent',function (){
+    return view('email.verificationSuccess');
+});
+Route::get('/verificationfailed',function (){
+    return view('email.verificationFail');
+});
+Route::get('/codeExpire',function (){
+    return view('email.codeExpire');
+});
+Route::get('/alreadyVerified',function (){
+    return view('email.alreadyVerified');
+});

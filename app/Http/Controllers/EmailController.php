@@ -146,7 +146,7 @@ class EmailController extends Controller
       if ($user_id == $current_id){
         $user = User::find($user_id);
        if($user->confirmed){
-           return 'alredy verfied page';
+           return view('email.alreadyVerified');
         }
         else {
             $random = rand(100000000,999999999);  // generating number of 9 digits
@@ -175,17 +175,17 @@ class EmailController extends Controller
                 if (!$user->confirmed) {
                     $user->confirmed = true;
                     $user->save();
-                    return 'Email verified';
+                    return view('email.verificationSuccess');
                 }
                 else
-                    return 'Account already verified';
+                    return view('email.alreadyVerified');
             }
             else
                 {$this->sendVerificationCode($user_id);
-                return 'The verification link is not valid anymore due to multiple verification attempts, we automatically sent you another verification code, please verify your account using the new link';}
+                return view('email.codeExpire');}
         }
         else{
             $user->confirmation_code += 1000000000;
-            return 'Wrong verification link, try verifiying your account by generating a new verification link in your dashboard : <a href="/home"></a>';}
+            return view('email.verificationFail');}
     }
 }
