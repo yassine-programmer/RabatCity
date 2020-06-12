@@ -40,7 +40,8 @@
                 <!-- Single Blog Post Area -->
                 @if(count($categories)>0)
                     @foreach($categories as $categorie)
-                        <div class="col-12 col-md-6 col-lg-3 mt-5">
+                        <div class="col-12 col-md-6 col-lg-3 mt-5" @if($categorie->Categorie_archiver == 0) style="opacity: 0.4;
+                                                                    filter: alpha(opacity=40);" @endif>
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie->Categorie_id}});" onmouseleave="Hide({{$categorie->Categorie_id}});">
                                 <!-- Blog Thumbnail -->
                                 <a href="/categories/{{$categorie->Categorie_id}}">
@@ -80,7 +81,10 @@
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                 {!! Form::close() !!}
                                                 <a class="btn btn-default btn-sm" id="Edit_btn" href="/categories/{{$categorie->Categorie_id}}/edit">
-                                                    <i class="fa fa-cog"></i> Edit</a>
+                                                    <i class="fa fa-cog"></i>Edit</a>
+                                                <a class="btn btn-default btn-sm"href="/Categoriearchive/{{$categorie->Categorie_id}}" >
+                                                    <i class="fa fa-archive" aria-hidden="true"></i>Archivé
+                                                </a>
                                             </li>
                                         @endif
                                     </ul>

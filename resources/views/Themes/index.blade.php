@@ -42,7 +42,8 @@
 
                 @if(isset($themes) && count($themes)>0)
                     @foreach($themes as $theme)
-                            <div class="col-12 col-md-6 col-lg-4 mt-5">
+                            <div class="col-12 col-md-6 col-lg-4 mt-5" @if($theme->Theme_archiver == 0) style="opacity: 0.4;
+                                                                    filter: alpha(opacity=40);" @endif>
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$theme->Theme_id}});" onmouseleave="Hide({{$theme->Theme_id}});"
                                  style="border:1px solid #ccc!important;
                                         box-shadow: 1px 1px 9px #b8b894;">
@@ -74,13 +75,18 @@
                                             @endfor
                                                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                                     <li class="list-group-item d-none" id="manager_btn_{{$theme->Theme_id}}">
+
                                                         {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$theme->Theme_id]) !!}
                                                         {{ Form::hidden('_method','DELETE') }}
                                                         <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
-                                                            <i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                                                            <i class="fa fa-trash-o"></i> Delete</button>
                                                         {!! Form::close() !!}
                                                         <a class="btn btn-default btn-sm" id="Edit_btn" href="/themes/{{$theme->Theme_id}}/edit">
                                                             <i class="fa fa-cog"></i> Edit</a>
+                                                        <a class="btn btn-default btn-sm"href="/Themearchive/{{$theme->Theme_id}}" >
+                                                            <i class="fa fa-archive" aria-hidden="true"></i>Archivé
+                                                        </a>
+
                                                     </li>
                                                 @endif
                                         </ul>

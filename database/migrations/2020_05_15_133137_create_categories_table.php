@@ -19,8 +19,10 @@ class CreateCategoriesTable extends Migration
             $table->string('Categorie_intitule')->unique();
             $table->string('Categorie_image');
             $table->string('Categorie_description');
+            $table->boolean('Categorie_archiver')->default(1);
             $table->integer('Cat_id')->unsigned()->nullable();
             $table->integer('Theme_id')->unsigned();
+
             $table->timestamps();
         });
         Schema::table('categories',function (Blueprint $table){

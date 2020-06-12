@@ -61,7 +61,8 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div class="about-us-content wow fadeInLeftBig" data-wow-delay="0.5">
+                    <div class="about-us-content wow fadeInLeftBig" data-wow-delay="0.5" @if($article->Article_archiver == 0) style="opacity: 0.4;
+                                                                    filter: alpha(opacity=40);" @endif >
                         <div class="row no-gutters align-items-center" style="border-bottom:1px solid #ccc!important;
                                                                                 box-shadow: 1px 1px 50px #b8b894;">
                             <div class="col-12">
@@ -76,11 +77,14 @@
                                         <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
                                             {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
                                             {{ Form::hidden('_method','DELETE') }}
-                                            <button class="btn btn-danger"  onclick="document.getElementById('form_{{$article->Article_id}}').submit();">
+                                            <button class="btn btn-danger btn-sm"  onclick="document.getElementById('form_{{$article->Article_id}}').submit();">
                                                 <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                             {!! Form::close() !!}
                                             <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
                                                 <i class="fa fa-cog"></i> Edit</a>
+                                            <a class="btn btn-default btn-sm"href="/Articlearchive/{{$article->Article_id}}" >
+                                                <i class="fa fa-archive" aria-hidden="true"></i>Archivé
+                                            </a>
                                         </li>
                                     @endif
                                 </div>

@@ -16,10 +16,7 @@
                         </a>
 
                         <input id="thumbnail" class="form-control input100" type="text" name="image" hidden="">
-                        <script>
-                           var img = document.getElementById('thumbnail');
 
-                        </script>
                     </div>
                     <div class="col-1">
 

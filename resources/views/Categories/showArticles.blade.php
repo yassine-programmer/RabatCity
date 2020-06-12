@@ -50,7 +50,8 @@
                     @php(exit())
                     @endif
                     @foreach($articles as $article)
-                        <div class="col-12 col-md-6 col-lg-4 mt-5">
+                        <div class="col-12 col-md-6 col-lg-4 mt-5" @if($article->Article_archiver == 0) style="opacity: 0.4;
+                                                                    filter: alpha(opacity=40);" @endif>
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
                                 <!-- Blog Thumbnail -->
                                 <a href="/Articles/{{$article->Article_id}}">
@@ -63,11 +64,14 @@
                                             <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
                                                 {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
-                                                <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$article->Article_id}}').submit();">
+                                                <button type="button" class="btn btn-danger btn-sm"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$article->Article_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                 {!! Form::close() !!}
                                                 <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
                                                     <i class="fa fa-cog"></i> Edit</a>
+                                                <a class="btn btn-default btn-sm"href="/Articlearchive/{{$article->Article_id}}" >
+                                                    <i class="fa fa-archive" aria-hidden="true"></i>Archivé
+                                                </a>
                                             </li>
                                         @endif
                                     </ul>

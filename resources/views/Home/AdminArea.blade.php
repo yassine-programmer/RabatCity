@@ -3,7 +3,7 @@
     <!-- Tabs Titles -->
     <div class="card-header  justify-content-start" >
         <div class="row d-flex align-items-center">
-            <div class="col-8">
+            <div class="col-12">
                 <b id="result" style="font-size: 150%">Admin Area :</b>
             </div>
             @if(Session::get('role')=='admin')
