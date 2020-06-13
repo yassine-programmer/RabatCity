@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-3 justify-content-end">
 
-                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
+                        <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white bg-transparent">
                             <img src="{{$user->image}}" class="imgHome">
                         </a>
 

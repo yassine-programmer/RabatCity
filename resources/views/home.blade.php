@@ -14,6 +14,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/77c9077a65.js"></script>
 
+    <!--New look -->
+
+
 
 </header>
 <body @if(isset($test) && $test == 'pw' || isset($match) && $match == 'pw') onload="document.getElementById('nav-profile-tab').click()"@endif>
