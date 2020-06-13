@@ -89,7 +89,7 @@
 
 <div id="main">
     <div id="sidediv" style="position: fixed;margin-left: -17px;">
-        <img src="https://i.imgur.com/GLGbIBs.png"
+        <img src="storage/photos/shares/config.png"
              onclick="openNav()" style=" margin-top: 9rem; max-width: 25%; background-color: #3771b0;">
     </div>
     <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
