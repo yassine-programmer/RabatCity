@@ -454,7 +454,8 @@
                                                             <div class="weekly2-caption">
 
                                                                 <h4><a href="/Articles/{{$PopularArticle->Article_id}}">@php($titre = substr($PopularArticle->Article_titre,0,17)){{$titre}}...</a></h4>
-                                                                <p>Nombre de Visite - {{$PopularArticle->Article_vue}}</p>
+                                                                 <p><i class="fa fa-eye" aria-hidden="true"></i> {{$PopularArticle->Article_vue}}</p>
+
                                                             </div>
                                                         </div>
                                                     @endforeach

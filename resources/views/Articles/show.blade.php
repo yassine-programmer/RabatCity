@@ -71,7 +71,8 @@
                                     <hr>
                                     <p class="text-right">Publier le -  {{$article->created_at}}</p>
                                     <br>
-                                    <p class="text-right">Nombre de Visite : {{$article->Article_vue}}</p>
+                                    <p class="text-right"><i class="fa fa-eye" aria-hidden="true"></i>
+                                        {{$article->Article_vue}}</p>
                                     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                         <br>
                                         <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">

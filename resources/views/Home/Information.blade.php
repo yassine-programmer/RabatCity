@@ -11,11 +11,24 @@
                     </div>
                     <div class="col-3 justify-content-end">
 
+                        <!--
                         <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white bg-transparent">
                             <img src="{{$user->image}}" class="imgHome">
                         </a>
 
                         <input id="thumbnail" class="form-control input100" type="text" name="image" hidden="">
+                        -->
+
+
+
+                            <div class="d-flex  align-items-center vertical-align-top text-center ">
+                            <a href="#" class=" bg-transparent" data-toggle="modal" data-target="#profileModal">
+                                <img src="{{$user->image}}" class="profilepic">
+                                <br>
+                                <div class="mt-3 mr-3">Modifier</div>
+                            </a>
+
+                            </div>
 
                     </div>
                     <div class="col-1">

@@ -90,6 +90,9 @@ Route::get('/Categoriearchive/{id}','ArchiveController@Categoriearchive');
 Route::get('/Articlearchive/{id}','ArchiveController@Articlearchive');
 
 
+Route::resource('images','ImagesController');
+
+
 Route::get('/test',function (){
     return view('test');
 });
