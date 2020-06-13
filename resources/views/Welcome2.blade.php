@@ -156,7 +156,7 @@
                                     <div class="tab-pane fade show active DivHome" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites'))order by created_at desc LIMIT 5"))
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites')) and  Article_archiver=1 order by created_at desc LIMIT 5"))
                                             @if(!empty($newArticle[0]))
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="whats-news-single mb-40 mb-40">
@@ -203,7 +203,7 @@
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'services'))order by created_at desc LIMIT 5"))
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'services')) and  Article_archiver=1 order by created_at desc LIMIT 5"))
                                             @if(!empty($newArticle[0]))
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="whats-news-single mb-40 mb-40">
@@ -252,7 +252,7 @@
                                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'activites'))order by created_at desc LIMIT 5"))
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'activites')) and  Article_archiver=1 order by created_at desc LIMIT 5"))
                                             @if(!empty($newArticle[0]))
                                             <div class="col-xl-6 col-lg-12">
                                                 <div class="whats-news-single mb-40 mb-40">
@@ -300,7 +300,7 @@
                                     <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'evenement'))order by created_at desc LIMIT 5"))
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'evenement')) and  Article_archiver=1 order by created_at desc LIMIT 5"))
                                             @if(!empty($newArticle[0]))
                                                 <div class="col-xl-6 col-lg-12">
                                                     <div class="whats-news-single mb-40 mb-40">
@@ -348,7 +348,7 @@
                                     <div class="tab-pane fade" id="nav-nav-Sport" role="tabpanel" aria-labelledby="nav-Sports">
                                         <div class="row">
                                             <!-- Left Details Caption -->
-                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'commune'))order by created_at desc LIMIT 5"))
+                                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'commune')) and  Article_archiver=1 order by created_at desc LIMIT 5"))
                                             @if(!empty($newArticle[0]))
                                                 <div class="col-xl-6 col-lg-12">
                                                     <div class="whats-news-single mb-40 mb-40">
@@ -444,7 +444,7 @@
                                 <div class="col-lg-12">
                                     <div class="weekly2-news-active d-flex">
                                         <!-- Single -->
-                                        @php($PopularArticles = App\Article::orderby('Article_vue','desc')->take(4)->get() )
+                                        @php($PopularArticles = App\Article::where('Article_archiver',1)->orderby('Article_vue','desc')->take(4)->get() )
                                         @if(count($PopularArticles)>0)
                                                 @foreach($PopularArticles as $PopularArticle)
                                                         <div class="weekly2-single">

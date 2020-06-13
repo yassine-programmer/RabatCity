@@ -33,6 +33,7 @@ class SearchController extends Controller
         }
 
         $articles= DB::table('articles')->select('*')
+            ->where('Article_archiver','=',1)
             ->whereIn( 'Article_id',$ids)
             ->orderby('created_at','desc')
             ->paginate(6);

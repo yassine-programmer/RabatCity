@@ -25,6 +25,7 @@
                 <!-- Tabs Titles -->
                     <div class="card-header  justify-content-center"><i class="fa fa-home fa-4x grow Myicone" aria-hidden="true"></i>
                         <div class="small "><b>{{Session::get('role')}}</b>
+
                             @if($user->confirmed) <i class="fa fa-check-circle " aria-hidden="true"></i>
                             @endif
                         </div>
