@@ -77,7 +77,7 @@
                     <div class="container">
                         <div class="row">
                             <!-- Single Feature -->
-                            @php($newArticles = \Illuminate\Support\Facades\DB::select("select * from articles  order by created_at desc LIMIT 3"))
+                            @php($newArticles = \Illuminate\Support\Facades\DB::select("select * from articles where Article_archiver=1 order by created_at desc LIMIT 3"))
                             @foreach($newArticles as $newArticle)
                                 <div class="col-12 col-md-6 col-lg-4 grow">
                                     <div class="fplus-single-feature wow fadeInUp" data-wow-delay="1s">
