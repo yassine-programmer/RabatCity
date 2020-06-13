@@ -90,7 +90,7 @@ class CategoriesController extends Controller
      */
     public function show($id) //id is the parent categorie id
     {
-        if(Session::get('role')== 'admin')
+        if(Session::get('role')== 'admin' || Session::get('role')== 'moderator')
         {
             $categorie_parent=Categorie::where("Categorie_id",$id)->first();;
             $categories_fils=Categorie::where("Cat_id",$id)->get();

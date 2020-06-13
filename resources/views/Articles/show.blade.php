@@ -76,16 +76,18 @@
                                     @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                         <br>
                                         <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
-                                            {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
-                                            {{ Form::hidden('_method','DELETE') }}
-                                            <button class="btn btn-danger btn-sm"  onclick="document.getElementById('form_{{$article->Article_id}}').submit();">
-                                                <i class="fa fa-trash-o fa-lg"></i> Delete</button>
-                                            {!! Form::close() !!}
                                             <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
                                                 <i class="fa fa-cog"></i> Edit</a>
                                             <a class="btn btn-default btn-sm"href="/Articlearchive/{{$article->Article_id}}" >
                                                 <i class="fa fa-archive" aria-hidden="true"></i>Archivé
                                             </a>
+                                            @if(Session::get('role')=='admin')
+                                                {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
+                                                {{ Form::hidden('_method','DELETE') }}
+                                                <button class="btn btn-danger btn-sm"  onclick="document.getElementById('form_{{$article->Article_id}}').submit();">
+                                                    <i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                                                {!! Form::close() !!}
+                                                @endif
                                         </li>
                                     @endif
                                 </div>
