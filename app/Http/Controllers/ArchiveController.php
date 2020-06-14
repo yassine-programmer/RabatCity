@@ -22,7 +22,7 @@ class ArchiveController extends Controller
                 //journal
                 $journal = new Journal;
                 $journal->Journal_action = 'archiver';
-                $journal->Journal_table = 'Theme';
+                $journal->Journal_table = 'themes';
                 $journal->Journal_intitule = $theme->Theme_intitule;
                 $journal->Journal_user = Session::get('name');
                 $journal->save();
@@ -35,7 +35,7 @@ class ArchiveController extends Controller
                 //journal
                 $journal = new Journal;
                 $journal->Journal_action = 'desarchiver';
-                $journal->Journal_table = 'Theme';
+                $journal->Journal_table = 'themes';
                 $journal->Journal_intitule = $theme->Theme_intitule;
                 $journal->Journal_user = Session::get('name');
                 $journal->save();
@@ -55,7 +55,7 @@ class ArchiveController extends Controller
                 //journal
                 $journal = new Journal;
                 $journal->Journal_action = 'archiver';
-                $journal->Journal_table = 'Categorie';
+                $journal->Journal_table = 'categories';
                 $journal->Journal_intitule = $categorie->Categorie_intitule;
                 $journal->Journal_user = Session::get('name');
                 $journal->save();
@@ -68,7 +68,7 @@ class ArchiveController extends Controller
                 //journal
                 $journal = new Journal;
                 $journal->Journal_action = 'desarchiver';
-                $journal->Journal_table = 'Categorie';
+                $journal->Journal_table = 'categories';
                 $journal->Journal_intitule = $categorie->Categorie_intitule;
                 $journal->Journal_user = Session::get('name');
                 $journal->save();
@@ -88,7 +88,7 @@ class ArchiveController extends Controller
                 //journal
                 $journal = new Journal;
                 $journal->Journal_action = 'archiver';
-                $journal->Journal_table = 'Article';
+                $journal->Journal_table = 'articles';
                 $journal->Journal_intitule = $article->Article_titre;
                 $journal->Journal_user = Session::get('name');
                 $journal->save();
@@ -100,7 +100,7 @@ class ArchiveController extends Controller
                 //journal
                 $journal = new Journal;
                 $journal->Journal_action = 'desarchiver';
-                $journal->Journal_table = 'Article';
+                $journal->Journal_table = 'articles';
                 $journal->Journal_intitule = $article->Article_titre;
                 $journal->Journal_user = Session::get('name');
                 $journal->save();

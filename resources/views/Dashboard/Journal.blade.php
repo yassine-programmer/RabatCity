@@ -3,7 +3,15 @@
     @if(count($journals)==0)
         <div class="text-center bold">Le journal est vide</div>
     @else
-    <table class="table table-striped" >
+        <input type="text" id="myInput2" onkeyup="Recherche2()" placeholder="Search for names.." title="Type in a name">
+        <select id="type2">
+            <option value="0">Action</option>
+            <option value="1">Table</option>
+            <option value="2">Intitule</option>
+            <option value="3">Utilisateur</option>
+            <option value="4">Date Action</option>
+        </select>
+        <table id="myTable2" class="table table-striped" >
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>

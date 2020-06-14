@@ -1,7 +1,13 @@
 <div id="listeAlluser" style="width: 700px;">
 <div id="users" style=" margin-top: 50px;" class="container text-center">
     {!! Form::open([ 'action' => ['HomeController@update',$users[0]->id],'method' => 'post']) !!}
-    <table class="table table-striped" >
+    <input type="text" id="myInput" onkeyup="Recherche()" placeholder="Search for names.." title="Type in a name">
+    <select id="type">
+        <option value="0">Nom</option>
+        <option value="1">Email</option>
+        <option value="2">Role</option>
+    </select>
+    <table id="myTable" class="table table-striped" >
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
