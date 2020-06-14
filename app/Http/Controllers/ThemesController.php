@@ -18,7 +18,7 @@ class ThemesController extends Controller
      */
     public function afficher($Theme_type)
     {
-            if(Session::get('role')== 'admin')
+            if(Session::get('role')== 'admin' || Session::get('role')== 'moderator')
             $themes = Theme::where('Theme_type',$Theme_type)->get();
                 else
             $themes = Theme::where([['Theme_type',$Theme_type],['Theme_archiver',1]])->get();
@@ -82,7 +82,7 @@ class ThemesController extends Controller
     {
 
         $theme = Theme::find($id);
-        if(Session::get('role')== 'admin')
+        if(Session::get('role')== 'admin' || Session::get('role')== 'moderator')
         $catgories = Categorie::where([['Theme_id',$id],['Cat_id',null]])->get();
         else
         $catgories = Categorie::where([['Theme_id',$id],['Cat_id',null],['Categorie_archiver',1]])->get();
