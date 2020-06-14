@@ -58,7 +58,7 @@ class ImagesController extends Controller
                // to finally create image instances
             $image = $manager->make($image)->resize(300, 300)->save(public_path('/../storage/app/public/photos/avatars/'.$fileNameToStore));
             // Adding image to user DataBase
-            $path = 'storage/photos/avatars/'.$fileNameToStore;
+            $path = '/storage/photos/avatars/'.$fileNameToStore;
             $user = User::find(Auth::user()->id);
             $user->image = $path;
             $user->save();

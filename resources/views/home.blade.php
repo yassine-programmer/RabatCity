@@ -93,7 +93,7 @@
 <div id="main">
     @if($user->confirmed)
     <div id="sidediv" style="position: fixed;margin-left: -17px;">
-        <img id="config" src="storage/photos/shares/config.png"
+        <img id="config" src="/storage/photos/shares/config.png"
              onclick="openNav()" onmouseup="closeNav()" style=" margin-top: 9rem; max-width: 25%; background-color: #3771b0;">
     </div>
     @endif
@@ -142,162 +142,6 @@
                 @endif
             </div>
         </div>
-        <script src="js/ListAllUsers.js"></script>
-        <!-- Scripts -->
-        <script type="application/javascript">
-            function afficher($id) {
-                var val = document.getElementById($id);
-                for (i  = 1;i<6;i++){
-                    if($id == i){
-                        if(val.classList.contains('active')){
-                        }
-                        else{
-                            val.classList.add('show');
-                            val.classList.add('active');
-                        }
-                    }
-                    else{
-                        if(document.getElementById(i).classList.contains('active')){
-                            document.getElementById(i).classList.remove('show');
-                            document.getElementById(i).classList.remove('active');
-                        }
-                    }
-                }
-            }
-        </script>
-        <script>
-            var myInput = document.getElementById("password");
-            var letter = document.getElementById("letter");
-            var capital = document.getElementById("capital");
-            var number = document.getElementById("number");
-            var length = document.getElementById("length");
-
-            // When the user clicks on the password field, show the message box
-            myInput.onfocus = function() {
-                document.getElementById("message").style.display = "block";
-            };
-
-            // When the user clicks outside of the password field, hide the message box
-            myInput.onblur = function() {
-                document.getElementById("message").style.display = "none";
-            };
-
-            // When the user starts to type something inside the password field
-            myInput.onkeyup = function() {
-                // Validate lowercase letters
-                var lowerCaseLetters = /[a-z]/g;
-                if(myInput.value.match(lowerCaseLetters)) {
-                    letter.classList.remove("invalid");
-                    letter.classList.add("valid");
-                } else {
-                    letter.classList.remove("valid");
-                    letter.classList.add("invalid");
-                }
-
-                // Validate capital letters
-                var upperCaseLetters = /[A-Z]/g;
-                if(myInput.value.match(upperCaseLetters)) {
-                    capital.classList.remove("invalid");
-                    capital.classList.add("valid");
-                } else {
-                    capital.classList.remove("valid");
-                    capital.classList.add("invalid");
-                }
-
-                // Validate numbers
-                var numbers = /[0-9]/g;
-                if(myInput.value.match(numbers)) {
-                    number.classList.remove("invalid");
-                    number.classList.add("valid");
-                } else {
-                    number.classList.remove("valid");
-                    number.classList.add("invalid");
-                }
-
-                // Validate length
-                if(myInput.value.length >= 8) {
-                    length.classList.remove("invalid");
-                    length.classList.add("valid");
-                } else {
-                    length.classList.remove("valid");
-                    length.classList.add("invalid");
-                }
-            }
-        </script>
-        <script type="application/javascript">
-            var password = document.getElementById("password")
-                , confirm_password = document.getElementById("confirm_password")
-                , btn_pw = document.getElementById("btn_pw");
-
-            function validatePassword(){
-                if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords Don't Match");
-                    password.style.borderColor = "red";
-                    confirm_password.style.borderColor = "red";
-                } else {
-                    confirm_password.setCustomValidity('');
-                    password.style.borderColor = "green";
-                    confirm_password.style.borderColor = "green";
-                }
-            }
-            function validatePassword2(){
-                if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords Don't Match");
-                    password.style.borderColor = "red";
-                    confirm_password.style.borderColor = "red";
-                } else {
-                    confirm_password.setCustomValidity('');
-                    document.getElementById('form').submit();
-                }
-            }
-            confirm_password.onkeyup = validatePassword;
-            btn_pw.onclick = validatePassword2;
-
-        </script>
-
-        <script type="application/javascript">
-            (function( $ ){
-                $.fn.filemanager = function(type, options) {
-                    type = type || 'file';
-
-                    $("a#lfm").on('click', function(e) {
-                        var route_prefix = (options && options.prefix) ? options.prefix : '/filemanager';
-                        var target_input = $('#' + $(this).data('input'));
-                        var target_preview = $('#' + $(this).data('preview'));
-                        window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
-                        window.SetUrl = function (items) {
-                            var file_path = items.map(function (item) {
-                                return item.url;
-                            }).join(',');
-
-                            // set the value of the desired input to image url
-                            target_input.val('').val(file_path).trigger('change');
-
-                            // clear previous preview
-                            target_preview.html('');
-
-                            // set or change the preview image src
-                            items.forEach(function (item) {
-                                target_preview.append(
-                                    $('<img>').css('height', '5rem').attr('src', item.thumb_url)
-                                );
-                            });
-
-                            // trigger change event
-                            target_preview.trigger('change');
-                        };
-                        return false;
-                    });
-                }
-
-            })(jQuery);
-
-        </script>
-
-        <script type="application/javascript">
-
-            $('#lfm').filemanager('image');
-        </script>
     </section>
     </div>
 </div>
@@ -305,6 +149,162 @@
     @include("email.EmailSent")
 @endif
 @include("Home.EditPic")
+<script src="js/ListAllUsers.js"></script>
+<!-- Scripts -->
+<script type="application/javascript">
+    function afficher($id) {
+        var val = document.getElementById($id);
+        for (i  = 1;i<6;i++){
+            if($id == i){
+                if(val.classList.contains('active')){
+                }
+                else{
+                    val.classList.add('show');
+                    val.classList.add('active');
+                }
+            }
+            else{
+                if(document.getElementById(i).classList.contains('active')){
+                    document.getElementById(i).classList.remove('show');
+                    document.getElementById(i).classList.remove('active');
+                }
+            }
+        }
+    }
+</script>
+<script >
+    var myInput = document.getElementById("password");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+
+    // When the user clicks on the password field, show the message box
+    myInput.onfocus = function() {
+        document.getElementById("message").style.display = "block";
+    };
+
+    // When the user clicks outside of the password field, hide the message box
+    myInput.onblur = function() {
+        document.getElementById("message").style.display = "none";
+    };
+
+    // When the user starts to type something inside the password field
+    myInput.onkeyup = function() {
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if(myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+        } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if(myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+        } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if(myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+        } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+        }
+
+        // Validate length
+        if(myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+    }
+</script>
+<script type="application/javascript">
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password")
+        , btn_pw = document.getElementById("btn_pw");
+
+    function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+            password.style.borderColor = "red";
+            confirm_password.style.borderColor = "red";
+        } else {
+            confirm_password.setCustomValidity('');
+            password.style.borderColor = "green";
+            confirm_password.style.borderColor = "green";
+        }
+    }
+    function validatePassword2(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+            password.style.borderColor = "red";
+            confirm_password.style.borderColor = "red";
+        } else {
+            confirm_password.setCustomValidity('');
+            document.getElementById('form').submit();
+        }
+    }
+    confirm_password.onkeyup = validatePassword;
+    btn_pw.onclick = validatePassword2;
+
+</script>
+
+<script type="application/javascript">
+    (function( $ ){
+        $.fn.filemanager = function(type, options) {
+            type = type || 'file';
+
+            $("a#lfm").on('click', function(e) {
+                var route_prefix = (options && options.prefix) ? options.prefix : '/filemanager';
+                var target_input = $('#' + $(this).data('input'));
+                var target_preview = $('#' + $(this).data('preview'));
+                window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
+                window.SetUrl = function (items) {
+                    var file_path = items.map(function (item) {
+                        return item.url;
+                    }).join(',');
+
+                    // set the value of the desired input to image url
+                    target_input.val('').val(file_path).trigger('change');
+
+                    // clear previous preview
+                    target_preview.html('');
+
+                    // set or change the preview image src
+                    items.forEach(function (item) {
+                        target_preview.append(
+                            $('<img>').css('height', '5rem').attr('src', item.thumb_url)
+                        );
+                    });
+
+                    // trigger change event
+                    target_preview.trigger('change');
+                };
+                return false;
+            });
+        }
+
+    })(jQuery);
+
+</script>
+
+<script type="application/javascript">
+
+    $('#lfm').filemanager('image');
+</script>
 <script>
     window.addEventListener('click', function(e){
         if (document.getElementById('main2').contains(e.target)){
@@ -321,6 +321,7 @@
 
         var x = document.getElementById("mySidenav");
         if (x.classList.contains("d-inline")) {
+            x.classList.remove('d-inline');
             closeNav();
         }
         else {
@@ -332,8 +333,7 @@
         document.getElementById("mySidenav").style.width = "6px";
         document.getElementById("main").style.marginLeft= "6px";
         document.body.style.backgroundColor = "white";
-        var x = document.getElementById("mySidenav");
-            x.classList.remove('d-inline');
+
     }
 </script>
 
