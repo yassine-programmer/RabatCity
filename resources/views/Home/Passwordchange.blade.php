@@ -31,10 +31,7 @@
                     </div>
                     <div class="col-8 justify-content-start">
                         <input id="password" type="password" placeholder="Nouveau" class="form-control @error('password') is-invalid @enderror" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="new-password">
-                        <div id="message">
-                            <p id="letter" class="invalid" style="line-height:2px;"><b>Minuscule </b> lettere</p>
-                            <p id="capital" class="invalid" style="line-height:2px;"><b>Majuscule</b> lettere</p>
-                            <p id="number" class="invalid" style="line-height:2px;"><b>Numero</b></p>
+                        <div class="justify-content-center" id="message">
                             <p id="length" class="invalid" style="line-height:2px;">Taille Min <b>8 characters</b></p>
                         </div>
                     </div>

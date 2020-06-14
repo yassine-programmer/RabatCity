@@ -75,19 +75,29 @@
                                             @endfor
                                                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                                     <li class="list-group-item d-none" id="manager_btn_{{$theme->Theme_id}}">
+                                                        <div class="row">
+                                                            <a class="col-5 btn btn-outline-secondary btn-sm float-left" id="Edit_btn" href="/themes/{{$theme->Theme_id}}/edit">
+                                                                <i class="fa fa-cog"></i> Edit</a>
+                                                            <a class="col-2"></a>
+                                                            <a class="col-5  btn btn-outline-danger btn-sm float-right"href="/Themearchive/{{$theme->Theme_id}}">
+                                                                <i class="fa fa-archive" aria-hidden="true"></i> Archiver
+                                                            </a>
+                                                        </div>
+                                                        <br>
 
-                                                        <a class="btn btn-default btn-sm" id="Edit_btn" href="/themes/{{$theme->Theme_id}}/edit">
-                                                            <i class="fa fa-cog"></i> Edit</a>
-                                                        <a class="btn btn-default btn-sm"href="/Themearchive/{{$theme->Theme_id}}" >
-                                                            <i class="fa fa-archive" aria-hidden="true"></i>Archiver
-                                                        </a>
                                                         @if(Session::get('role')=='admin')
-                                                            <br>
-                                                        {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$theme->Theme_id]) !!}
-                                                        {{ Form::hidden('_method','DELETE') }}
-                                                        <button type="button" class="btn btn-danger"  onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
-                                                            <i class="fa fa-trash-o"></i> Delete</button>
-                                                        {!! Form::close() !!}
+                                                            <div class="row justify-content-center d-flex">
+                                                                <div style="display:none;">
+                                                                    {!! Form::open([ 'action'=>['ThemesController@destroy',$theme->Theme_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$theme->Theme_id]) !!}
+                                                                </div>
+                                                                    {{ Form::hidden('_method','DELETE') }}
+                                                                    <button type="button" class="btn btn-danger w-100"   onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
+                                                                        <i class="fa fa-trash-o"></i> Delete</button>
+                                                                    {!! Form::close() !!}
+
+
+                                                            </div>
+
                                                             @endif
                                                     </li>
                                                 @endif

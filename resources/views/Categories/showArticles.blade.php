@@ -62,10 +62,10 @@
                                     <ul class="list-group list-group-flush">
                                         @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                             <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">
-                                                <a class="btn btn-default btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
+                                                <a class="btn btn-outline-secondary btn-sm float-left" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
                                                     <i class="fa fa-cog"></i> Edit</a>
-                                                <a class="btn btn-default btn-sm"href="/Articlearchive/{{$article->Article_id}}" >
-                                                    <i class="fa fa-archive" aria-hidden="true"></i>Archivé
+                                                <a class="btn btn-outline-danger btn-sm ml-sm-1"href="/Articlearchive/{{$article->Article_id}}" >
+                                                    <i class="fa fa-archive" aria-hidden="true"></i>Archiver
                                                 </a>
                                                 @if(Session::get('role')=='admin')
                                                     {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
