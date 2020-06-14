@@ -1,4 +1,4 @@
-<div>
+<div style="width: 700px;">
 <div id="users" style=" margin-top: 50px;" class="container text-center d-none">
     {!! Form::open([ 'action' => ['HomeController@update',$users[0]->id],'method' => 'post']) !!}
     <table class="table table-striped" >

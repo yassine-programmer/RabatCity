@@ -1,7 +1,7 @@
 
-<div id="formContent" style="text-align: left">
+<div id="formContent" >
     <!-- Tabs Titles -->
-    <div class="card-header  justify-content-start" >
+    <div class="card-body  d-flex align-items-center justify-content-center text-center" >
         <div class="row d-flex align-items-center">
             <div class="col-12">
                 <b id="result" style="font-size: 150%">Admin Area :</b>
