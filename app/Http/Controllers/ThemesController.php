@@ -7,7 +7,7 @@ use App\Theme;
 use App\Categorie;
 use App\Journal;
 use Illuminate\Support\Facades\Session;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ThemesController extends Controller
 {

@@ -44,7 +44,7 @@
     @else
         <br>
         <div class="alert alert-info">
-            <strong>Info!</strong> Aucune categorie est archivé.
+            <strong>Info!</strong> Aucun article est archivé.
         </div>
     @endif
 </div>

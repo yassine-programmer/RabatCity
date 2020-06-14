@@ -21,7 +21,9 @@
                     <br>
                         <div id="FB" class="d-none">
                             <div class="container">
-                                <h3>Clickez ici pour mettre à jour les postes Facebook :</h3>
+                                <div class="alert alert-warning" role="alert">
+                                    Clickez ici pour mettre à jour les postes Facebook :
+                                </div>
                                 <br>
                                 <a href="/scraping" class="btn btn-outline-secondary" onclick="return confirm('Est-ce que vous voulez mettre a jour les posts facebook ?')" style="width: 300px;">Update Post Facebook</a>
                             </div> </div>
