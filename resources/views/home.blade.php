@@ -69,6 +69,7 @@
 <body>
 @if(isset($test) && $test == 'pw' || isset($match) && $match == 'pw') onload="document.getElementById('nav-profile-tab').click()"@endif>
 @include("inc.navbar")
+@php($user = Auth::user())
 <script>
     @if(isset($test))
     alert('Mot de passe invalide !!');
@@ -77,6 +78,7 @@
     alert("Nouveau mot de passe doit etre different d'ancien mot de passe  !!");
     @endif
 </script>
+@if($user->confirmed)
 <div id="mySidenav" class="sidenav" >
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher(1)" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
@@ -85,33 +87,33 @@
     <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher(4)" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
     @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher(5)" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Admin Area</a>@endif
 </div>
+@endif
 
 
 <div id="main">
+    @if($user->confirmed)
     <div id="sidediv" style="position: fixed;margin-left: -17px;">
-        <img src="storage/photos/shares/config.png"
-             onclick="openNav()" style=" margin-top: 9rem; max-width: 25%; background-color: #3771b0;">
+        <img id="config" src="storage/photos/shares/config.png"
+             onclick="openNav()" onmouseup="closeNav()" style=" margin-top: 9rem; max-width: 25%; background-color: #3771b0;">
     </div>
-    <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
+    @endif
+    <div id="main2">
+      <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
         <div class="container align-items-center " style="margin-left: 25%; ">
             <div class="row d-flex align-items-center vertical-align-center ">
-                <div class="wrapper fadeInDown col-md-8 " style="padding-top: 120px !important;">
+                <div class="wrapper fadeInDown col-md-8 " style="padding-top: 100px !important;">
                     <div id="formContent">
-                    @php($user = Auth::user())
                     <!-- Tabs Titles -->
                         <div class="card-header  justify-content-center"><i class="fa fa-home fa-4x grow Myicone" aria-hidden="true"></i>
                             <div class="small "><b>{{Session::get('role')}}</b>
                                 @if($user->confirmed) <i class="fa fa-check-circle " aria-hidden="true"></i>
                                 @endif
-
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                @if($user->confirmed == false)
-                    @include('Home.Verify')
+                @if(!$user->confirmed)
+                    @include("Home.Verify")
                 @else
                     <div class="wrapper fadeInDown col-8" style="padding-top: 80px !important; margin-left: 3%;">
                         <div class="tab-content" id="nav-tabContent">
@@ -137,15 +139,9 @@
                             @endif
                         </div>
                     </div>
+                @endif
             </div>
-            @endif
         </div>
-
-        @if(session()->has('email_sent'))
-            @include("email.EmailSent")
-        @endif
-
-
         <script src="js/ListAllUsers.js"></script>
         <!-- Scripts -->
         <script type="application/javascript">
@@ -303,9 +299,21 @@
             $('#lfm').filemanager('image');
         </script>
     </section>
+    </div>
 </div>
+@if(session()->has('email_sent'))
+    @include("email.EmailSent")
+@endif
 @include("Home.EditPic")
 <script>
+    window.addEventListener('click', function(e){
+        if (document.getElementById('main2').contains(e.target)){
+            // Clicked in box
+            closeNav();
+        } else{
+
+        }
+    });
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
@@ -313,20 +321,19 @@
 
         var x = document.getElementById("mySidenav");
         if (x.classList.contains("d-inline")) {
-            x.classList.remove('d-inline');
             closeNav();
         }
         else {
             x.classList.add('d-inline');
         }
-
-
     }
 
     function closeNav() {
         document.getElementById("mySidenav").style.width = "6px";
         document.getElementById("main").style.marginLeft= "6px";
         document.body.style.backgroundColor = "white";
+        var x = document.getElementById("mySidenav");
+            x.classList.remove('d-inline');
     }
 </script>
 
