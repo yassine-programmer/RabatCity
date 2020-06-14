@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/add.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('css/add.css') }}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
@@ -16,55 +17,7 @@
 
     <!--New look -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            transition: background-color .5s;
-        }
 
-        .sidenav {
-            height: 100%;
-            width: 6px;
-            position: fixed;
-            z-index: 1;
-            top: 5rem;
-            left: 0;
-            background-color: #3771b0;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 17%;
-        }
-
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #fff;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
-
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        #main {
-            transition: margin-left .5s;
-            padding: 16px;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
-        }
-    </style>
 </head>
 <body>
 @if(isset($test) && $test == 'pw' || isset($match) && $match == 'pw') onload="document.getElementById('nav-profile-tab').click()"@endif>
@@ -82,9 +35,13 @@
 <div id="mySidenav" class="sidenav" >
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher(1)" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
-    <a class="nav-item nav-link" id="nav-profile-tab"  onclick="afficher(2)" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
+    <hr class="My_hr">
+    <a class="nav-item nav-link My_link" id="nav-profile-tab"  onclick="afficher(2)" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
+    <hr class="My_hr">
     <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher(3)" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
-    <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher(4)" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
+    <hr class="My_hr">
+    <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher(4)" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Archive</a>
+    <hr class="My_hr">
     @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher(5)" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fa fa-star" aria-hidden="true"></i>
         Admin Area</a>@endif
 </div>
@@ -100,7 +57,7 @@
     @endif
     <div id="main2">
       <section class="fplus-about-us-area bg-gray section-padding-120" id="about">
-        <div class="container align-items-center " style="margin-left: 25%; ">
+        <div class="container align-items-center " style="margin-left: 350px; ">
             <div class="row d-flex align-items-center vertical-align-center ">
                 <div class="wrapper fadeInDown col-md-8 " style="padding-top: 100px !important;">
                     <div id="formContent">
@@ -116,7 +73,7 @@
                 @if(!$user->confirmed)
                     @include("Home.Verify")
                 @else
-                    <div class="wrapper fadeInDown col-8" style="padding-top: 80px !important; margin-left: 3%;">
+                    <div class="wrapper fadeInDown col-lg-8 " style="padding-top: 80px !important; margin-left: 40px;">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active " id="1" role="tabpanel" aria-labelledby="nav-home-tab">
                                 @include('Home.Information')
@@ -129,10 +86,11 @@
                             <div class="tab-pane fade" id="3" role="tabpanel" aria-labelledby="nav-contact-tab">
                                 c
                             </div>
-
+                            @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                             <div class="tab-pane fade" id="4" role="tabpanel" aria-labelledby="nav-last-tab">
-                                d
+                                @include('Home.Archiver')
                             </div>
+                            @endif
                             @if(Session::get('role')=='admin')
                                 <div class="tab-pane fade" id="5" role="tabpanel" aria-labelledby="nav-Sports">
                                     @include('Home.AdminArea')

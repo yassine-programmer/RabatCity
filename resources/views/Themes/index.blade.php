@@ -79,7 +79,7 @@
                                                             <a class="col-5 btn btn-outline-secondary btn-sm float-left" id="Edit_btn" href="/themes/{{$theme->Theme_id}}/edit">
                                                                 <i class="fa fa-cog"></i> Edit</a>
                                                             <a class="col-2"></a>
-                                                            <a class="col-5  btn btn-outline-danger btn-sm float-right"href="/Themearchive/{{$theme->Theme_id}}">
+                                                            <a class="col-5  btn btn-outline-danger btn-sm float-right" href="/Themearchive/{{$theme->Theme_id}}">
                                                                 <i class="fa fa-archive" aria-hidden="true"></i> Archiver
                                                             </a>
                                                         </div>

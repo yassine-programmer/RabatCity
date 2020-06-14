@@ -1,11 +1,61 @@
+
 function showdiv($id) {
     var x = document.getElementById($id);
+    var users = document.getElementById('users');
+    var journal = document.getElementById('journals');
+    var fb = document.getElementById('FB');
+
     if (x.classList.contains("d-none")) {
         x.classList.remove('d-none');
         x.classList.add('d-inline');
-    } else {
-        x.classList.remove('d-inline');
-        x.classList.add('d-none');
+    }
+    if (x == users) {
+        journal.classList.remove('d-inline');
+        journal.classList.add('d-none');
+        fb.classList.remove('d-inline');
+        fb.classList.add('d-none');
+    }
+    else if (x == journal) {
+        users.classList.remove('d-inline');
+        users.classList.add('d-none');
+        fb.classList.remove('d-inline');
+        fb.classList.add('d-none');
+    }
+    else if (x == fb){
+        users.classList.remove('d-inline');
+        users.classList.add('d-none');
+        journal.classList.remove('d-inline');
+        journal.classList.add('d-none');
+    }
+}
+
+function showdiv2($id) {
+    var x = document.getElementById($id);
+    var themes = document.getElementById('themes');
+    var categories = document.getElementById('categories');
+    var articles = document.getElementById('articles');
+
+    if (x.classList.contains("d-none")) {
+        x.classList.remove('d-none');
+        x.classList.add('d-inline');
+    }
+    if (x == themes) {
+        categories.classList.remove('d-inline');
+        categories.classList.add('d-none');
+        articles.classList.remove('d-inline');
+        articles.classList.add('d-none');
+    }
+    else if (x == categories) {
+        themes.classList.remove('d-inline');
+        themes.classList.add('d-none');
+        articles.classList.remove('d-inline');
+        articles.classList.add('d-none');
+    }
+    else if (x == articles){
+        themes.classList.remove('d-inline');
+        themes.classList.add('d-none');
+        categories.classList.remove('d-inline');
+        categories.classList.add('d-none');
     }
 }
 function showvalider($id){
@@ -100,4 +150,16 @@ function AddNameAttribute($id) {
 }
 function ShowFromImage(){
     document.getElementById('999').scrollIntoView();
+}
+//show button
+function ShowOnHover($id) {
+    var x = document.getElementById('manager_btn_'+$id);
+
+    x.classList.remove('d-none');
+    x.classList.add('d-inline');
+}
+function Hide($id){
+    var x = document.getElementById('manager_btn_'+$id);
+    x.classList.remove('d-inline');
+    x.classList.add('d-none');
 }

@@ -55,8 +55,8 @@
                             <div class="col-9 d-flex align-items-center justify-content-start " >
                                 <a class="text-left" href="/Articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>
                             </div>
-
-                        </div></div>
+                         </div>
+                     </div>
 
                  @endforeach
                  <div class=" mt-5 text-center">
