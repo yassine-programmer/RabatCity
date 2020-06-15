@@ -94,14 +94,11 @@
                                                                     <button type="button" class="btn btn-danger w-100"   onclick="if(confirm('Est-ce que vous voulez supprimer?\r\nCela peut engendrer la supression d autre table'))document.getElementById('form_{{$theme->Theme_id}}').submit();">
                                                                         <i class="fa fa-trash-o"></i> Delete</button>
                                                                     {!! Form::close() !!}
-
-
                                                             </div>
-
                                                             @endif
                                                     </li>
                                                 @endif
-                                        </ul>
+                                            </ul>
 
                                 </div>
 

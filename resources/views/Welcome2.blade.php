@@ -45,7 +45,10 @@
                         <!-- Trending Top -->
                         <div class="slider-active">
                             <!-- Single -->
-                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id in (select Categorie_id from categories where Theme_id in (select Theme_id from themes where Theme_type = 'actualites'))order by created_at desc LIMIT 1"))
+                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Article_home1=0 LIMIT 1"))
+                            @if(count($newArticle) < 1)
+                                @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles order by created_at desc LIMIT 1"))
+                            @endif
                             @if(count($newArticle)==1)
                             <div class="single-slider">
                                 <div class="trending-top mb-30 " >
@@ -86,19 +89,22 @@
                                     </div>
                                 </div>
                             </div>
-                            @php($Presidant = \Illuminate\Support\Facades\DB::select("select * from articles where Article_titre = 'Mot du président'"))
-                            @if(count($Presidant) == 1)
+                            @php($newArticle2 = \Illuminate\Support\Facades\DB::select("select * from articles where Article_home2=0 LIMIT 1"))
+                            @if(count($newArticle2) < 1)
+                                @php($newArticle2 = \Illuminate\Support\Facades\DB::select("select * from articles order by created_at desc LIMIT 1"))
+                            @endif
+                            @if(count($newArticle2)>0)
                             <div class="col-lg-12 col-md-6 col-sm-6">
                                 <div class="trending-top mb-30">
                                     <div class="trend-top-img imgHome1" style="border:1px solid #ccc!important;
                                                                             box-shadow: 4px 4px 12px #b8b894;">
-                                        <a href="/Articles/{{$Presidant[0]->Article_id}}">
-                                        <img src="{{$Presidant[0]->Article_image}}" alt="">
+                                        <a href="/Articles/{{$newArticle2[0]->Article_id}}">
+                                        <img src="{{$newArticle2[0]->Article_image}}" alt="">
                                         </a>
                                         <div class="trend-top-cap trend-top-cap2">
                                             <span class="bgg">Mot </span>
-                                            <h2><a class="homeTitle" href="/Articles/{{$Presidant[0]->Article_id}}">{{$Presidant[0]->Article_titre}}</a></h2>
-                                            <p>{{$Presidant[0]->created_at}}</p>
+                                            <h2><a class="homeTitle" href="/Articles/{{$newArticle2[0]->Article_id}}">{{$newArticle2[0]->Article_titre}}</a></h2>
+                                            <p>{{$newArticle2[0]->created_at}}</p>
                                         </div>
                                     </div>
                                 </div>

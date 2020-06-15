@@ -74,6 +74,12 @@
                                                         <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                     {!! Form::close() !!}
                                                     @endif
+                                                <br>
+                                                <div class="row justify-content-center d-flex">
+                                                    <a href="/HomeArticles1/{{$article->Article_id}}" @if($article->Article_home1 == 0)  class="col-5 btn btn-success btn-sm float-left mt-sm-2" @else class="col-5 btn btn-info btn-sm float-left mt-sm-2" @endif>Home 1</a>
+                                                    <a class="col-2"></a>
+                                                    <a href="/HomeArticles2/{{$article->Article_id}}" @if($article->Article_home2 == 0)  class="col-5 btn btn-success btn-sm float-left mt-sm-2" @else class="col-5 btn btn-info btn-sm float-left mt-sm-2" @endif>Home 2</a>
+                                                </div>
                                             </li>
                                         @endif
                                     </ul>

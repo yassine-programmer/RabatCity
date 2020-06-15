@@ -92,6 +92,8 @@ Route::get('/Articlearchive/{id}','ArchiveController@Articlearchive');
 
 Route::resource('images','ImagesController');
 
+Route::get('HomeArticles1/{id}','HomeArticlesController@home1');
+Route::get('HomeArticles2/{id}','HomeArticlesController@home2');
 
 Route::get('/test',function (){
     return view('test');
