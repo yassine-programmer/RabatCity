@@ -82,6 +82,11 @@
                                             <a class="btn btn-outline-danger btn-sm"href="/Articlearchive/{{$article->Article_id}}" >
                                                 <i class="fa fa-archive" aria-hidden="true"></i>Archiver
                                             </a>
+
+                                            <a href="/HomeArticles1/{{$article->Article_id}}" @if($article->Article_home1 == 0)  class="btn btn-success btn-sm" @else class="btn btn-info btn-sm" @endif>Home 1</a>
+
+                                            <a href="/HomeArticles2/{{$article->Article_id}}" @if($article->Article_home2 == 0)  class="btn btn-success btn-sm" @else class="btn btn-info btn-sm" @endif>Home 2</a>
+
                                             @if(Session::get('role')=='admin')
                                                 {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
