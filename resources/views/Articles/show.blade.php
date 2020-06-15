@@ -3,6 +3,7 @@
 @section('css')
     <link  href="/css/styleTheme.css" rel="stylesheet">
     <link  href="/css/responsive/responsive.css" rel="stylesheet">
+    <link href="/css/add.css" rel="stylesheet">
 @endsection
 
 
@@ -79,7 +80,7 @@
                                         <li class="list-group-item d-none border-0" id="manager_btn_{{$article->Article_id}}">
                                             <a class="btn btn-outline-secondary btn-sm" id="Edit_btn" href="/articles/{{$article->Article_id}}/edit">
                                                 <i class="fa fa-cog"></i> Edit</a>
-                                            <a class="btn btn-outline-danger btn-sm"href="/Articlearchive/{{$article->Article_id}}" >
+                                            <a class="btn btn-outline-danger btn-sm" href="/Articlearchive/{{$article->Article_id}}" >
                                                 <i class="fa fa-archive" aria-hidden="true"></i>Archiver
                                             </a>
 
