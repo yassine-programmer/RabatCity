@@ -20,14 +20,16 @@
             <th scope="col">Action</th>
         </tr>
         </thead>
-        <tbody>
 
         @if(isset($users))
+            <tbody onmouseover="ShowProfileCard()" onmouseleave="HideProfileCard()">
+            <div id="ProfileCard" class="ProfileCard"></div>
             @foreach($users as $user)
                 <input class="d-inline" type="hidden" value="{{$user->id}}" name="" id="hidden_id_user_{{$user->id}}">
-                <tr>
+                <div class="d-none">@include("Home.ProfileCard")</div>
+                <tr onmouseover="ChangeProfileCard({{$user->id}})" >
                     <th scope="row">{{$user->id}}</th>
-                    <td >
+                    <td>
                         <div id="name_user_{{$user->id}}" onclick="textToInput('name',{{$user->id}})">{{$user->name}}</div>
                         <input id="name_user_input_{{$user->id}}" oninput="showvalider({{$user->id}})" class="d-none" type="text" name="" value="{{$user->name}}">
                     </td>
@@ -56,9 +58,10 @@
                     </td>
                 </tr>
             @endforeach
+            </tbody>
         @endif
 
-        </tbody>
+
     </table>
 </div>
 

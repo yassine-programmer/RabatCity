@@ -204,3 +204,44 @@ function Recherche2() {
         }
     }
 }
+
+
+
+function ShowProfileCard(){
+ var ProfileCard = document.getElementById('ProfileCard');
+    if (ProfileCard.classList.contains("d-none")) {
+        ProfileCard.classList.remove('d-none');
+        ProfileCard.classList.add('d-inline');
+    }
+    var H = ProfileCard.offsetHeight;
+
+ document.addEventListener('mousemove',function (e) {
+   var x=e.pageX;
+   var y=e.pageY;
+
+     var S = document.getElementById("mySidenav");
+
+     if (S.style.width == "6px"){
+         ProfileCard.style.left = x-340 + 'px';
+         ProfileCard.style.top = y-H-200 + 'px';
+
+     }
+     else {
+         ProfileCard.style.left = x-569 + 'px';
+         ProfileCard.style.top = y-H-200 + 'px';
+     }
+ });
+
+}
+function HideProfileCard(){
+    var ProfileCard = document.getElementById('ProfileCard');
+    if (!ProfileCard.classList.contains("d-none")) {
+        ProfileCard.classList.remove('d-inline');
+        ProfileCard.classList.add('d-none');
+    }
+}
+function ChangeProfileCard($id) {
+    var ProfileCard = document.getElementById('ProfileCard');
+    var ProfileCardChild = document.getElementById('ProfileCardChild_'+$id);
+    ProfileCard.innerHTML = ProfileCardChild.innerHTML
+}

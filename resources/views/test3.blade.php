@@ -1,36 +1,25 @@
 
 @extends("layouts.app")
+@section("css")
+    <link href="{{ asset('css/add.css') }}" rel="stylesheet">
+    @endsection
 @section("content")
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="max-width: 45%;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-center" id="exampleModalLabel">Modifier votre photo de profile</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center" style="background-color: #d4ecf8;">
-                    <img src="https://psdgang.com//wp-content/uploads/2017/04/002.gif" style="width: 50%">
-                </div>
-                <div class="modal-body text-center bg-light">
-                    <div id="upload_form" class="text-center " >
-                        <!--  Form::open(['action'=>'ImagesController@store','method'=>'POST','enctype'=>'multipart/form-data']) !!} -->
-                        <div class="form-group pt-lg-5 pb-lg-3">
-                            {{Form::file('image')}}
-                        </div>
-                        <br>
-                    </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    {{Form::submit('Upload',['class'=>'btn btn-primary','formaction'=>'ImagesController@store'])}}
-                </div>
+
+    <div class="justify-content-center align-items-center" style="margin-top: 100px; margin-bottom: 1500px; margin-left: 45%">
+    <div class="ProfileCard">
+        <div class="ProfileCardChild align-items-center">
+              <img class="profilepic4" src="http://127.0.0.1:8000/storage/photos/shares/default_avatar.png">
+              <div style="margin-bottom: 30px"><b>Yassine </b><small>(admin)</small>  <i class="fa fa-check-circle " aria-hidden="true"></i></div>
+            <div class="w-100 text-center pb-3" style="margin-left: 7rem" >
+                <div class="p"><div class="float-left ProfileCardTitre">-Nom:</div> Razaq</div>
+                <div class="p"><div class="float-left ProfileCardTitre">-Prenom: </div> Yassine</div>
+                <div class="p"><div class="float-left ProfileCardTitre">-Sexe:</div> Homme</div>
+                <div class="p"><div class="float-left ProfileCardTitre">-CIN:</div> AD129321</div>
+                <div class="p"><div class="float-left ProfileCardTitre">-Tel:</div> 06221223</div>
+                <div class="p"><div class="float-left ProfileCardTitre">-Cree a:</div> 10-12-21</div>
             </div>
         </div>
     </div>
-
+    </div>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi, architecto atque debitis dicta dolorem doloremque dolorum explicabo itaque iusto labore molestiae molestias perferendis, possimus quibusdam repudiandae sint, vel veniam! Ad alias aliquam architecto assumenda autem culpa cum excepturi fugit illo ipsum laudantium modi mollitia porro ratione, saepe vel vero?
 @endsection

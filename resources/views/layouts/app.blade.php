@@ -37,7 +37,7 @@
 <body>
 <div id="app">
     <a id="ToTopbutton"></a>
-   @include("inc.navbar")
+
     @include('searchbar.searchbar')
 
     <main class="py-4">
