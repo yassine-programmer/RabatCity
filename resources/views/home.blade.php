@@ -34,16 +34,16 @@
 @if($user->confirmed)
 <div id="mySidenav" class="sidenav" >
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher(1)" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
+    <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher(1)" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
-    <a class="nav-item nav-link My_link" id="nav-profile-tab"  onclick="afficher(2)" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe</a>
+    <a class="nav-item nav-link My_link" id="nav-profile-tab"  onclick="afficher(2)" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
-    <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher(3)" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
+    <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher(3)" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
-    <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher(4)" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Archive</a>
+    <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher(4)" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Archive<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
     @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher(5)" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fa fa-star" aria-hidden="true"></i>
-        Admin Area</a>@endif
+        Admin Area<i class="Myfa fa fa-angle-right float-right"></i></a>@endif
 </div>
 @endif
 
