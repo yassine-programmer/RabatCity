@@ -4,7 +4,7 @@
         <div class="text-center bold">Le journal est vide</div>
     @else
         <input type="text" id="myInput2" onkeyup="Recherche2()" placeholder="Search for names.." title="Type in a name">
-        <select id="type2">
+        <select id="type2" style=" margin: 5px!important;">
             <option value="0">Action</option>
             <option value="1">Table</option>
             <option value="2">Intitule</option>
