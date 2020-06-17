@@ -92,15 +92,15 @@ class CategoriesController extends Controller
     {
         if(Session::get('role')== 'admin' || Session::get('role')== 'moderator')
         {
-            $categorie_parent=Categorie::where("Categorie_id",$id)->first();;
+            $categorie_parent=Categorie::where("Categorie_id",$id)->first();
             $categories_fils=Categorie::where("Cat_id",$id)->get();
             $articles = Article::where("Categorie_id",$id)->get();
         }
         else
         {
-            $categorie_parent=Categorie::where(["Categorie_id",$id],['Categorie_archiver',1])->first();;
-            $categories_fils=Categorie::where(["Cat_id",$id],['Categorie_archiver',1])->get();
-            $articles = Article::where(["Categorie_id",$id],['Article_archiver',1])->get();
+            $categorie_parent=Categorie::where([['Categorie_id',$id],['Categorie_archiver',1]])->first();
+            $categories_fils=Categorie::where([['Cat_id',$id],['Categorie_archiver',1]])->get();
+            $articles = Article::where([['Categorie_id',$id],['Article_archiver',1]])->get();
         }
 
 

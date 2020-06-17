@@ -102,7 +102,7 @@
                                         <img src="{{$newArticle2[0]->Article_image}}" alt="">
                                         </a>
                                         <div class="trend-top-cap trend-top-cap2">
-                                            <span class="bgg">Mot </span>
+                                            <span class="bgg">NEWS</span>
                                             <h2><a class="homeTitle" href="/Articles/{{$newArticle2[0]->Article_id}}">{{$newArticle2[0]->Article_titre}}</a></h2>
                                             <p>{{$newArticle2[0]->created_at}}</p>
                                         </div>
