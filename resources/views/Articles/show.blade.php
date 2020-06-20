@@ -174,4 +174,7 @@
                     <script type="application/javascript" src="/js/others/plugins.js"></script>
                     <!-- Active JS -->
                     <script type="application/javascript" src="/js/active.js"></script>
-@endsection
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eee22241346a95b"></script>
+
+                @endsection

@@ -37,6 +37,7 @@
 
 <main>
     <!-- Trending Area Start -->
+
     <div class="trending-area fix pt-25" style="background-color: #f9f9f9">
         <div class="container" style="background-color: #f9f9f9">
             <div class="trending-main" style="background-color: #f9f9f9">

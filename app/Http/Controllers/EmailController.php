@@ -156,7 +156,7 @@ class EmailController extends Controller
             $user->save();
             // send email
             $domain = parse_url(request()->root())['host'];
-            $link= $domain.'/verify/'.$user_id.'/'.$random;
+            $link= 'https://www.'.$domain.'/verify/'.$user_id.'/'.$random;
             //
             $recepient= $user->email;
             $subject = 'Email de confirmation';
