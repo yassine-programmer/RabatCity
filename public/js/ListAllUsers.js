@@ -222,7 +222,7 @@ function ShowProfileCard(){
      var S = document.getElementById("mySidenav");
 
      if (S.style.width == "6px"){
-         ProfileCard.style.left = x-340 + 'px';
+         ProfileCard.style.left = x-340  + 'px';
          ProfileCard.style.top = y-H-200 + 'px';
 
      }

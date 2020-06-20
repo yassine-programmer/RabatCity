@@ -45,7 +45,7 @@ class ImagesController extends Controller
         //File Uploading
         if ($request->hasFile('image')) {
             // extention
-            $extension=$request->file('image')->getClientOriginalExtension();
+            $extension=strtolower($request->file('image')->getClientOriginalExtension());
             // fileName To Store
             $fileNameToStore=Auth::user()->name.'.'.$extension;
 

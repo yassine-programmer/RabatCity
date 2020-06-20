@@ -116,7 +116,7 @@ class CategoriesController extends Controller
         }
         $l_categories=array_reverse($l_categories);
         // return
-        
+
         if (count($categories_fils)>0)
          return view('Categories.show')->with(['categories_fils'=>$categories_fils,'categorie_parent'=>$categorie_parent,'l_categories'=>$l_categories]);
         elseif (count($articles)>0)
@@ -182,7 +182,7 @@ class CategoriesController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     *();;
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
