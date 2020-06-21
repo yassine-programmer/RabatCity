@@ -3,6 +3,7 @@
 @section("css")
     <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
     <link rel="stylesheet" type="text/css" href="/css/crud.css">
+    <link rel="stylesheet" type="text/css" href="/css/add.css">
 @endsection
 @section("content")
 

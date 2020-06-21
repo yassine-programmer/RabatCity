@@ -30,7 +30,7 @@
                         <b style="font-size: 20px">Nouveau mot de passe :</b>
                     </div>
                     <div class="col-8 justify-content-start">
-                        <input id="password" type="password" placeholder="Nouveau" class="form-control @error('password') is-invalid @enderror" name="password"  required autocomplete="new-password">
+                        <input id="password" type="password" placeholder="Nouveau" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                     </div>
 
 

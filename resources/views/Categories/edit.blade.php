@@ -1,6 +1,7 @@
 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
 @extends("layouts.app")
 @section("css")
+    <link rel="stylesheet" type="text/css" href="/css/add.css">
     <link rel="stylesheet" type="text/css" href="/css/styleForm.css">
     <link rel="stylesheet" type="text/css" href="/css/crud.css">
 @endsection
