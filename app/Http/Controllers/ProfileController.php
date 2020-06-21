@@ -117,7 +117,7 @@ class ProfileController extends Controller
                 }
             }
         }
-        return back()->withInput();
+        return redirect()->back()->withInput();
     }
 
     /**
