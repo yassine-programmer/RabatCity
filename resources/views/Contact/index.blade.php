@@ -1,12 +1,13 @@
 
 
-@if(!empty($result))
-    @if($result == 'Y')
+@if(session()->has('result'))
+    @if(session('result') == 'Y')
         <script>alert('Votre message ete envoye avec succes')</script>
         @else
-        <script>alert('Votre n est pas bie envoye. Resssayez plus tard')</script>
+        <script>alert('Votre message n est envoye. Resssayez plus tard ')</script>
         @endif
 @endif
+    @php(print (session('result')))
 	<div class="container-contact100">
 		<div class="wrap-contact100">
 

@@ -1,3 +1,4 @@
+@if(Session::get('role')=='admin' || Session::get('role')=='moderator')
 <div class="d-none" id="categories" style="margin-top: 30px;">
     @php($Categories = \Illuminate\Support\Facades\DB::select("select * from categories where Categorie_archiver=0 order by created_at desc"))
     @if(count($Categories)>0)
@@ -48,3 +49,6 @@
         </div>
     @endif
 </div>
+@else
+    @include('errors.404')
+@endif
