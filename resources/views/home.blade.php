@@ -30,6 +30,10 @@
     @if(isset($match))
     alert("Nouveau mot de passe doit etre different d'ancien mot de passe  !!");
     @endif
+    @if(session()->has('changed'))
+    alert('Password changed succesfuly!!');
+    @endif
+
 </script>
 @if($user->confirmed)
 <div id="mySidenav" class="sidenav" >

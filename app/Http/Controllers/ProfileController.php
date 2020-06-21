@@ -98,7 +98,7 @@ class ProfileController extends Controller
                     {
                     $user->password = Hash::make($request->input('password'));
                     $user->save();
-                    return view('home')->with('match', $btn);
+                    return back()->with('changed',$btn);
                 }
                 else {
                     if (Auth::user()->role == 'admin') {
