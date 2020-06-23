@@ -25,7 +25,7 @@
                                 <a class="col-12 btn btn-outline-secondary btn-sm ml-sm-1 border-0" id="Edit_btn" href="/categories/{{$categorie->Categorie_id}}/edit">
                                     <i class="fa fa-cog"></i> Edit</a>
                                 <a class=" col-12 btn btn-outline-danger btn-sm ml-sm-1 border-0" href="/Categoriearchive/{{$categorie->Categorie_id}}" >
-                                    <i class="fa fa-archive" aria-hidden="true"></i>Archiver
+                                    <i class="fa fa-archive" aria-hidden="true"></i>Desarchiver
                                 </a>
                                 @if(Session::get('role')=='admin')
                                     <div style="display: none;">

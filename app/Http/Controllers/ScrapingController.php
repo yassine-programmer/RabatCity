@@ -29,12 +29,14 @@ class ScrapingController extends Controller
                     else
                         $text = 'Arrondissement Agdal Ryad - مجلس مقاطعة أكدال الرياض';
                     //filtre text endtimestampContent
+
                     //filtre image begin
                     if ($post->filter('.uiScaledImageContainer > img ')->count() > 0)
                         $image = $post->filter('.uiScaledImageContainer > img')->attr('src');
                     else
                         $image = 'https://pic.clubic.com/v1/images/1772114/raw?width=1200&fit=max&hash=61fb71ec095d0f49728f96275a11724e1ae3fd15';
                     //filtre image end
+
                     //filtre time start
                     if ($post->filter('.timestampContent')->count() > 0)
                         $time = $post->filter('.timestampContent')->text();
@@ -42,6 +44,7 @@ class ScrapingController extends Controller
                     else
                         $time = '00.00';
                     //filtre time end
+
                     //filtre url start
                     if ($post->filter('._5pcq')->count() > 0)
                         $url = $post->filter('._5pcq')->attr('href');
@@ -61,6 +64,7 @@ class ScrapingController extends Controller
 
                 });
                 Facebook::truncate();
+
                 foreach ($posts as $post) {
                     $fb = new Facebook;
                     $fb->Facebook_text = $post[0]['text'];
