@@ -106,9 +106,9 @@
         </script>
 
         <script type="application/javascript">
-
             $('#lfm').filemanager('image');
         </script>
+
 @endsection
 
 @section('script')

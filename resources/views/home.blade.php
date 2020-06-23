@@ -42,7 +42,7 @@
     <hr class="My_hr">
     <a class="nav-item nav-link My_link" id="nav-profile-tab"  onclick="afficher(2)" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Changer Mot le passe<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
-    <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher(3)" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités<i class="Myfa fa fa-angle-right float-right"></i></a>
+    <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher(3)" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">######<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
     <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher(4)" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Archive<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
@@ -88,7 +88,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="3" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                c
+
                             </div>
                             @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                             <div class="tab-pane fade" id="4" role="tabpanel" aria-labelledby="nav-last-tab">
