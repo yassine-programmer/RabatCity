@@ -10,6 +10,7 @@ use App\Theme;
 use App\Journal;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ArchiveController extends Controller
 {
@@ -32,6 +33,15 @@ class ArchiveController extends Controller
             else {
                 $theme->Theme_archiver = 0 ;
                 $theme->save();
+                DB::table('categories')->where('Theme_id',$theme->Theme_id)->update(['Categorie_archiver'=> 0]);
+                $categories =Categorie::where('Theme_id',$theme->Theme_id)->get();
+                if(count($categories)>0){
+                    foreach ($categories as $categorie)
+                    {
+                        DB::table('articles')->where('Categorie_id',$categorie->Categorie_id)->update(['Article_archiver'=> 0]);
+                    }
+                }
+
                 //journal
                 $journal = new Journal;
                 $journal->Journal_action = 'archivage';
@@ -41,12 +51,10 @@ class ArchiveController extends Controller
                 $journal->save();
                 //end journal
             }
-
-
         //send alert to all admins if the user is a moderator
         $user_id=Auth::id();
         app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
-        return back();
+        return back()->withInput();
     }
 
     public function Categoriearchive($id)
@@ -68,6 +76,7 @@ class ArchiveController extends Controller
             else {
                 $categorie->Categorie_archiver = 0;
                 $categorie->save();
+                DB::table('articles')->where('Categorie_id',$categorie->Categorie_id)->update(['Article_archiver'=> 0]);
                 //journal
                 $journal = new Journal;
                 $journal->Journal_action = 'archivage';
@@ -82,7 +91,7 @@ class ArchiveController extends Controller
         //send alert to all admins if the user is a moderator
         $user_id=Auth::id();
         app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
-        return back();
+        return back()->withInput();
     }
 
     public function Articlearchive($id)

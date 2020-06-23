@@ -46,7 +46,7 @@
                         <!-- Trending Top -->
                         <div class="slider-active">
                             <!-- Single -->
-                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Article_home1=0 LIMIT 1"))
+                            @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles where Article_home1=0 and Article_archiver=1 LIMIT 1"))
                             @if(count($newArticle) < 1)
                                 @php($newArticle = \Illuminate\Support\Facades\DB::select("select * from articles order by created_at desc LIMIT 1"))
                             @endif
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @php($newArticle2 = \Illuminate\Support\Facades\DB::select("select * from articles where Article_home2=0 LIMIT 1"))
+                            @php($newArticle2 = \Illuminate\Support\Facades\DB::select("select * from articles where Article_home2=0 and Article_archiver=1 LIMIT 1"))
                             @if(count($newArticle2) < 1)
                                 @php($newArticle2 = \Illuminate\Support\Facades\DB::select("select * from articles order by created_at desc LIMIT 1"))
                             @endif
