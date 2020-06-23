@@ -21,8 +21,8 @@ class EmailController extends Controller
     public function AlertDelete($journal, $user_id)
     {
         $user = User::find($user_id);
-        $subject = 'Alerte de SUPPRESSION';
-        $message = 'Le moderateur ' . $user->name . ' a effectue une <b>' . $journal->Journal_action . '</b> d un/une ' . $journal->Journal_table . ' sous le titre de : ' . $journal->Journal_intitule
+        $subject = 'Alerte : '.strtoupper($journal->Journal_action);
+        $message = 'Le moderateur ' . $user->name . ' a effectue un <b>' . $journal->Journal_action . '</b> d un/une ' . $journal->Journal_table . ' sous le titre de : ' . $journal->Journal_intitule
             . '<br>Veuillez consulter le journal dans votre espace admin : <a href="https://emsipfa.tk/home">www.emsipfa.tk/home</a>';
 
         if ($user->role == 'moderator') {

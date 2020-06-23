@@ -79,7 +79,7 @@
                                                     <a class="col-12 btn btn-outline-secondary btn-sm float-left" id="Edit_btn" href="/categories/{{$categorie->Categorie_id}}/edit">
                                                         <i class="fa fa-cog"></i>Edit</a>
                                                     <a class="col-12 btn btn-outline-danger btn-sm float-righ mt-sm-1"href="/Categoriearchive/{{$categorie->Categorie_id}}" >
-                                                        <i class="fa fa-archive" aria-hidden="true"></i>Archiver
+                                                        <i class="fa fa-archive" aria-hidden="true"></i>@if($categorie->Categorie_archiver == 1) Archiver @else Desarchiver @endif
                                                     </a>
                                                 </div>
                                                 <br>

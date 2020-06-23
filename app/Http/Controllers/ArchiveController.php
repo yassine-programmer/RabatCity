@@ -21,7 +21,7 @@ class ArchiveController extends Controller
                 $theme->save();
                 //journal
                 $journal = new Journal;
-                $journal->Journal_action = 'archiver';
+                $journal->Journal_action = 'desarchivage';
                 $journal->Journal_table = 'themes';
                 $journal->Journal_intitule = $theme->Theme_intitule;
                 $journal->Journal_user = Session::get('name');
@@ -34,7 +34,7 @@ class ArchiveController extends Controller
                 $theme->save();
                 //journal
                 $journal = new Journal;
-                $journal->Journal_action = 'desarchiver';
+                $journal->Journal_action = 'archivage';
                 $journal->Journal_table = 'themes';
                 $journal->Journal_intitule = $theme->Theme_intitule;
                 $journal->Journal_user = Session::get('name');
@@ -43,6 +43,9 @@ class ArchiveController extends Controller
             }
 
 
+        //send alert to all admins if the user is a moderator
+        $user_id=Auth::id();
+        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
         return back();
     }
 
@@ -54,7 +57,7 @@ class ArchiveController extends Controller
                 $categorie->save();
                 //journal
                 $journal = new Journal;
-                $journal->Journal_action = 'archiver';
+                $journal->Journal_action = 'desarchivage';
                 $journal->Journal_table = 'categories';
                 $journal->Journal_intitule = $categorie->Categorie_intitule;
                 $journal->Journal_user = Session::get('name');
@@ -67,7 +70,7 @@ class ArchiveController extends Controller
                 $categorie->save();
                 //journal
                 $journal = new Journal;
-                $journal->Journal_action = 'desarchiver';
+                $journal->Journal_action = 'archivage';
                 $journal->Journal_table = 'categories';
                 $journal->Journal_intitule = $categorie->Categorie_intitule;
                 $journal->Journal_user = Session::get('name');
@@ -76,6 +79,9 @@ class ArchiveController extends Controller
             }
 
 
+        //send alert to all admins if the user is a moderator
+        $user_id=Auth::id();
+        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
         return back();
     }
 
@@ -87,7 +93,7 @@ class ArchiveController extends Controller
                 $article->save();
                 //journal
                 $journal = new Journal;
-                $journal->Journal_action = 'archiver';
+                $journal->Journal_action = 'desarchivage';
                 $journal->Journal_table = 'articles';
                 $journal->Journal_intitule = $article->Article_titre;
                 $journal->Journal_user = Session::get('name');
@@ -99,7 +105,7 @@ class ArchiveController extends Controller
                 $article->save();
                 //journal
                 $journal = new Journal;
-                $journal->Journal_action = 'desarchiver';
+                $journal->Journal_action = 'archivage';
                 $journal->Journal_table = 'articles';
                 $journal->Journal_intitule = $article->Article_titre;
                 $journal->Journal_user = Session::get('name');
@@ -107,6 +113,10 @@ class ArchiveController extends Controller
                 //end journal
             }
 
+
+        //send alert to all admins if the user is a moderator
+        $user_id=Auth::id();
+        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
 
         $Article = new ArticlesController();
         return $Article->show($id);

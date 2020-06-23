@@ -80,7 +80,7 @@
                                                                 <i class="fa fa-cog"></i> Edit</a>
                                                             <a class="col-2"></a>
                                                             <a class="col-5  btn btn-outline-danger btn-sm float-right" href="/Themearchive/{{$theme->Theme_id}}">
-                                                                <i class="fa fa-archive" aria-hidden="true"></i> Archiver
+                                                                <i class="fa fa-archive" aria-hidden="true"></i> @if($theme->Theme_archiver == 1) Archiver @else Desarchiver @endif
                                                             </a>
                                                         </div>
                                                         <br>

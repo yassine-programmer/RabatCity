@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Journal;
 use Illuminate\Http\Request;
 
-class JournalsController extends Controller
+class   JournalsController extends Controller
 {
     /**
      * Display a listing of the resource.
