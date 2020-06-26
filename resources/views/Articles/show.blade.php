@@ -13,31 +13,14 @@
     <section class="fplus-hero-area" style="background-image: url({{$categorie[0]->Categorie_image}})" id="home">
         <div class="hero-content-area d-flex justify-content-center">
             <div class="hero-text">
-                @php($testArticles = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id = ".$categorie[0]->Categorie_id.""))
-                @if(count($testArticles) > 1)
                     @php($theme = App\Theme::find($categorie[0]->Theme_id))
                 <!-- link display -->
                     <a href="/Themes/{{$theme->Theme_type}}">{{$theme->Theme_type}}</a> / <a href="/themes/{{$theme->Theme_id}}">{{$theme->Theme_intitule}}</a> /
                     <!-- showing all categories-->
                     @foreach($l_categories as $l_categorie)
-
                         <a href="/categories/{{$l_categorie->Categorie_id}}">{{$l_categorie->Categorie_intitule}}</a> /
                     @endforeach
-                @else
-                    @if(empty($categorie[0]->Cat_id))
-                        <h2>
-                            <a href="/themes/{{$categorie[0]->Theme_id}}">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i>{{$categorie[0]->Categorie_intitule}}
-                            </a>
-                        </h2>
-                    @else
-                        <h2>
-                            <a href="/categories/{{$categorie[0]->Cat_id}}">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i>{{$categorie[0]->Categorie_intitule}}
-                            </a>
-                        </h2>
-                        @endif
-                @endif
+
 
 
                     <h5>{{$categorie[0]->Categorie_description}}</h5>
