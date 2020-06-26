@@ -44,8 +44,10 @@
     <hr class="My_hr">
     <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher(3)" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">######<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
+    @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
     <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher(4)" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Archive<i class="Myfa fa fa-angle-right float-right"></i></a>
     <hr class="My_hr">
+    @endif
     @if(Session::get('role')=='admin')<a class="nav-item nav-link" id="nav-Sports"  onclick="afficher(5)" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fa fa-star" aria-hidden="true"></i>
         Admin Area<i class="Myfa fa fa-angle-right float-right"></i></a>@endif
 </div>
