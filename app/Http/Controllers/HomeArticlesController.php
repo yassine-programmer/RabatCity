@@ -16,16 +16,16 @@ class HomeArticlesController extends Controller
                 DB::table('articles')->where('Article_home1', '=', 0)->update(array('Article_home1' => 1));
                 $article->Article_home1 = 0;
                 $article->save();
-                return back();
+                return back()->withInput();
             }else {
-                return back();
+                return back()->withInput();
             }
 
         }
         else{
             $article->Article_home1 = 1;
             $article->save();
-            return back();
+            return back()->withInput();
         }
     }
     public function home2($id){
@@ -35,16 +35,16 @@ class HomeArticlesController extends Controller
                 DB::table('articles')->where('Article_home2', '=', 0)->update(array('Article_home2' => 1));
                 $article->Article_home2 = 0;
                 $article->save();
-                return back();
+                return back()->withInput();
             }else {
-                return back();
+                return back()->withInput();
             }
 
         }
         else{
             $article->Article_home2 = 1;
             $article->save();
-            return back();
+            return back()->withInput();
         }
     }
 }
