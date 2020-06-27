@@ -319,7 +319,7 @@ animation: zoom-in 2s;
 }
 /*Divs With Fixed Backgrounds*/
 div.fixed-bg-img1{
-    background-image: url("https://i.imgur.com/3j0wWHu.png");
+    background-image: url("https://yassinedrive.blob.core.windows.net/rabatcitycontainer/RabatBGImage.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
