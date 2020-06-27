@@ -10,11 +10,10 @@
 @section("content")
 
     <!-- ****** Welcome Area Start ****** -->
-    <section class="fplus-hero-area" style="background-image: url({{$categorie[0]->Categorie_image}})" id="home">
+    <section class="fplus-hero-area" style="background-image: url({{$article->Article_image}})" id="home">
         <div class="hero-content-area d-flex justify-content-center">
             <div class="hero-text">
-                @php($testArticles = \Illuminate\Support\Facades\DB::select("select * from articles where Categorie_id = ".$categorie[0]->Categorie_id.""))
-                @if(count($testArticles) > 1)
+
                     @php($theme = App\Theme::find($categorie[0]->Theme_id))
                 <!-- link display -->
                     <a href="/Themes/{{$theme->Theme_type}}">{{$theme->Theme_type}}</a> / <a href="/themes/{{$theme->Theme_id}}">{{$theme->Theme_intitule}}</a> /
@@ -23,21 +22,7 @@
 
                         <a href="/categories/{{$l_categorie->Categorie_id}}">{{$l_categorie->Categorie_intitule}}</a> /
                     @endforeach
-                @else
-                    @if(empty($categorie[0]->Cat_id))
-                        <h2>
-                            <a href="/themes/{{$categorie[0]->Theme_id}}">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i>{{$categorie[0]->Categorie_intitule}}
-                            </a>
-                        </h2>
-                    @else
-                        <h2>
-                            <a href="/categories/{{$categorie[0]->Cat_id}}">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i>{{$categorie[0]->Categorie_intitule}}
-                            </a>
-                        </h2>
-                        @endif
-                @endif
+                        <div style="margin-bottom: 70px;margin-top: 10px;font-weight: bold; font-size: 200%">{{$article->Article_titre}}</div>
 
 
                     <h5>{{$categorie[0]->Categorie_description}}</h5>
@@ -134,7 +119,7 @@
                                 <div class="fplus-single-feature wow fadeInUp grow" data-wow-delay="1s"
                                      style="border-bottom:1px solid #ccc!important;
                                             box-shadow: 1px 1px 12px #b8b894;">
-                                    <a href="#">
+                                    <a href="/Articles/{{$newArticle->Article_id}}">
                                         <img  src="{{$newArticle->Article_image}}"  alt="" style="height: 200px;width:400px; ">
                                     </a>
                                     <div class="feature-title d-flex align-items-center text-center" style="margin-top: 20px">
