@@ -10,7 +10,7 @@
                     <div class="footer-nav-widget">
                         <nav>
                             <ul>
-                                <img src="https://i.imgur.com/8lIvLPL.png" alt="" style="width: 124px;margin-top: -20px;padding-bottom: 19px;" >
+                                <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/LogoMakr_3lfcP2.png" alt="" style="width: 124px;margin-top: -20px;padding-bottom: 19px;" >
                                 <li><a href="#">Accueil</a></li>
                                 <li><a href="#">Services</a></li>
                                 <li><a href="#">Activites</a></li>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-3 grow">
-                       <a href="/Arrondissements"><img src="https://i.imgur.com/wRtCpzt.png?1"></a>
+                       <a href="/Arrondissements"><img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/RabatMap.png"></a>
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="subscribe-widget">

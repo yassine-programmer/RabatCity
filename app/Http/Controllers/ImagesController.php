@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 
 
@@ -51,17 +52,24 @@ class ImagesController extends Controller
 
             //UPLOAD THE IMAGE
             $image = $request->file('image');
-//            $realpath = $request->file('image')->storeAs('public/photos/avatars',$fileNameToStore);
+//            $realpath = $request->file('image')->storeAs('public/photos/avatars',$fileNameToStore );
             // resize
             // create an image manager instance with favored driver
                 $manager = new ImageManager(array('driver' => 'gd'));
-               // to finally create image instances
-            $image = $manager->make($image)->resize(300, 300)->save(public_path('/../storage/app/public/photos/avatars/'.$fileNameToStore));
+               // Store in storage with gd driver
+//            $image = $manager->make($image)->resize(300, 300)->save(public_path('/../storage/app/public/photos/avatars/'.$fileNameToStore));
+            // Store in Azure with gd driver
+            $image = $manager->make($image)->resize(300, 300)->stream();
+            $path = '/photos/avatars/'.$fileNameToStore;
+            $azure = Storage::disk('azure');
+            $azure->put('/'.$path, $image, 'public');
             // Adding image to user DataBase
-            $path = '/storage/photos/avatars/'.$fileNameToStore;
+
+            $path= Storage::disk('azure')->url($path);
             $user = User::find(Auth::user()->id);
             $user->image = $path;
             $user->save();
+
             return back()->withInput();
         }
         else{
