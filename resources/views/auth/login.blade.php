@@ -51,9 +51,7 @@
                     </button>
                     <div id="formFooter" style="margin-top: 20px;">
 
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            Mot de passe oublié ?
-                        </a>
+                        <a  href="{{ route('register') }}">{{ __('Register') }}</a>
 
 
                     </div>

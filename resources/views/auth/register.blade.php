@@ -29,7 +29,7 @@
                 <!-- Login Form -->
                 <form method="POST" action="{{ route('register') }}" style="margin-top: 20px;">
                     @csrf
-                    <input id="name" type="text" placeholder="Nom d'utilisateur" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input id="name" type="text" placeholder="Pseudo" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                     @error('name')
                     <span class="invalid-feedback" role="alert">

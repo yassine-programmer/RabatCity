@@ -20,8 +20,12 @@
                     @foreach($l_categories as $l_categorie)
                         <a href="/categories/{{$l_categorie->Categorie_id}}">{{$l_categorie->Categorie_intitule}}</a> /
                     @endforeach
-                <h2>{{$categorie_parent->Categorie_intitule}}</h2>
-                <h5>{{$categorie_parent->Categorie_description}}</h5>
+                <h4>{{$categorie_parent->Categorie_intitule}}</h4>
+                    <hr>
+                <h6 data-toggle="tooltip" data-placement="top" title="{{$categorie_parent->Categorie_description}}">
+                    @php($titre = substr($categorie_parent->Categorie_description,0,50))
+                    @if(strlen($categorie_parent->Categorie_description)>50){{$titre}}...@else {{$titre}} @endif
+                </h6>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                     <a href="/categories/{{$categorie_parent->Categorie_id}}/create-sous-categorie" class="view-portfolio-btn" id="scrollDown">
                         <i class="fa fa-plus" aria-hidden="true"></i>Creer sous categories</a>
@@ -50,28 +54,32 @@
                                                                     filter: alpha(opacity=40);" @endif>
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$categorie->Categorie_id}});" onmouseleave="Hide({{$categorie->Categorie_id}});">
                                 <!-- Blog Thumbnail -->
-                                <a href="/categories/{{$categorie->Categorie_id}}">
+                                <a href="/categories/{{$categorie->Categorie_id}}" data-toggle="tooltip" data-placement="top" title="{{$categorie->Categorie_intitule}}">
                                     <img  src="{{$categorie->Categorie_image}}"  alt="" class="grow" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
 
                                 <div class="fplus-blog-content">
 
                                     <a class="text-center" href="/categories/{{$categorie->Categorie_id}}" >
-                                        <h4>{{$categorie->Categorie_intitule}}</h4></a>
+                                        <h4 data-toggle="tooltip" data-placement="top" title="{{$categorie->Categorie_intitule}}">
+                                            @php($titre = substr($categorie->Categorie_intitule,0,12))
+                                            @if(strlen($categorie->Categorie_intitule)>12){{$titre}}...@else {{$titre}} @endif</h4></a>
 
                                     @php($categories = App\Categorie::where('Cat_id',$categorie->Categorie_id)->take(3)->get())
                                     @php($articles = App\Article::where('Categorie_id',$categorie->Categorie_id)->take(3)->get())
                                     <ul class="list-group list-group-flush">
                                         @for($i=0;$i<3;$i++)
                                             @if(isset($categories[$i]))
-                                                <li class="list-group-item"><a href="/categories/{{$categories[$i]->Categorie_id}}" >
-                                                        {{$categories[$i]->Categorie_intitule}}
+                                                <li class="list-group-item"><a href="/categories/{{$categories[$i]->Categorie_id}}" data-toggle="tooltip" data-placement="top" title="{{$categories[$i]->Categorie_intitule}}">
+                                                        @php($titre = substr($categories[$i]->Categorie_intitule,0,20))
+                                                        @if(strlen($categories[$i]->Categorie_intitule)>20){{$titre}}...@else {{$titre}} @endif
                                                     </a></li>
                                             @elseif(isset($articles[$i]))
                                                 <li class="list-group-item">
-                                                    <a href="/articles/{{$articles[$i]->Article_id}}" >
-                                                        <i class="fa fa-file" aria-hidden="true"></i>
-                                                        {{$articles[$i]->Article_titre}}
+                                                    <a href="/articles/{{$articles[$i]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$articles[$i]->Article_titre}}">
+                                                        @php($titre = substr($articles[$i]->Article_titre,0,13))
+                                                        @if(strlen($articles[$i]->Article_titre)>13)<i class="fa fa-file" aria-hidden="true"></i>{{$titre}}...
+                                                        @else<i class="fa fa-file" aria-hidden="true"></i>{{$titre}} @endif
                                                     </a></li>
                                             @else
                                                 <li class="list-group-item"><a href="#">

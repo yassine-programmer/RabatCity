@@ -551,4 +551,12 @@ textarea.input100 {
     transform: scale(1.1);
   }
 }
-
+#result{
+  color:#051441!important;
+  font-size:35px!important;
+  transition: all 0.2s ease-in-out;
+}
+#result:hover {
+  text-decoration: underline;
+  color: #0056b3!important;
+}

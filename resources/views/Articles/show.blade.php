@@ -22,10 +22,10 @@
 
                         <a href="/categories/{{$l_categorie->Categorie_id}}">{{$l_categorie->Categorie_intitule}}</a> /
                     @endforeach
-                        <div style="margin-bottom: 70px;margin-top: 10px;font-weight: bold; font-size: 200%">{{$article->Article_titre}}</div>
+                        <h4>{{$article->Article_titre}}</h4>
+                        <hr>
 
-
-                    <h5>{{$categorie[0]->Categorie_description}}</h5>
+                    <h6 data-toggle="tooltip" data-placement="top" title="{{$categorie[0]->Categorie_description}}">{{$categorie[0]->Categorie_description}}</h6>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                     <a href="/articles/create/{{$categorie[0]->Categorie_id}}" class="view-portfolio-btn" id="scrollDown">
                         <i class="fa fa-plus" aria-hidden="true"></i>Creer un nouveau Article</a>
@@ -116,14 +116,21 @@
                             @php($newArticles = \Illuminate\Support\Facades\DB::select("select * from articles where Article_id <> ".$article->Article_id." and Article_archiver = 1 order by created_at desc LIMIT 3"))
                             @foreach($newArticles as $newArticle)
                             <div class="col-12 col-md-6 col-lg-4">
-                                <div class="fplus-single-feature wow fadeInUp grow" data-wow-delay="1s"
+                                <div class="fplus-single-feature wow fadeInUp" data-wow-delay="1s"
                                      style="border-bottom:1px solid #ccc!important;
                                             box-shadow: 1px 1px 12px #b8b894;">
-                                    <a href="/Articles/{{$newArticle->Article_id}}">
-                                        <img  src="{{$newArticle->Article_image}}"  alt="" style="height: 200px;width:400px; ">
+                                    <a href="/Articles/{{$newArticle->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle->Article_titre}}">
+                                        <img class="grow" src="{{$newArticle->Article_image}}"  alt="" style="height: 200px;width:400px; ">
                                     </a>
+                                    <hr>
                                     <div class="feature-title d-flex align-items-center text-center" style="margin-top: 20px">
-                                        <h5>{{$newArticle->Article_titre}}</h5>
+                                        <h6 data-toggle="tooltip" data-placement="top" title="{{$newArticle->Article_titre}}">
+                                            <a href="/Articles/{{$newArticle->Article_id}}">
+                                            @php($titre = substr($newArticle->Article_titre,0,20))
+                                            @if(strlen($newArticle->Article_titre)>20)<i class="fa fa-file" aria-hidden="true"></i>{{$titre}}...
+                                            @else<i class="fa fa-file" aria-hidden="true"></i>{{$titre}} @endif
+                                            </a>
+                                            </h6>
                                     </div>
                                 </div>
                             </div>

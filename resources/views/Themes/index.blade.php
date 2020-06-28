@@ -10,7 +10,7 @@
 
     <!-- ****** Welcome Area Start ****** -->
     <section class="fplus-hero-area"  id="home"
-             style="background-image: url(/storage/photos/shares/Rabatbg.jpg);">
+             style="background-image: url(https://yassinedrive.blob.core.windows.net/rabatcitycontainer/photos/shares/Rabatbg.jpg);">
         <div class="cube">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">
@@ -48,24 +48,27 @@
                                  style="border:1px solid #ccc!important;
                                         box-shadow: 1px 1px 9px #b8b894;">
                                 <!-- Blog Thumbnail -->
-                                <a href="/themes/{{$theme->Theme_id}}">
+                                <a href="/themes/{{$theme->Theme_id}}" data-toggle="tooltip" data-placement="top" title="{{$theme->Theme_intitule}}">
                                     <img  src="{{$theme->Theme_image}}"  alt="" class="grow" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
 
                                 <div class="fplus-blog-content">
 
-                                    <a class="text-center" href="/themes/{{$theme->Theme_id}}"><h4 class="grow">{{$theme->Theme_intitule}}</h4></a>
+                                    <a class="text-center" href="/themes/{{$theme->Theme_id}}"><h4 class="grow" data-toggle="tooltip" data-placement="top" title="{{$theme->Theme_intitule}}">
+                                            @php($titre = substr($theme->Theme_intitule,0,20))
+                                            @if(strlen($theme->Theme_intitule)>20){{$titre}}...@else {{$titre}} @endif</h4></a>
                                     <hr>
-                                    <h6><?php
-                                        echo substr($theme->Theme_description, 0, 28);
-                                        ?>...</h6>
+                                    <h6 data-toggle="tooltip" data-placement="top" title="{{$theme->Theme_description}}">@php($titre = substr($theme->Theme_description,0,30))
+                                        @if(strlen($theme->Theme_description)>30){{$titre}}...@else {{$titre}} @endif
+                                    </h6>
                                     @php($categories = App\Categorie::where([['Theme_id',$theme->Theme_id],['Cat_id',null]])->take(3)->get())
 
                                         <ul class="list-group list-group-flush">
                                             @for($i=0;$i<3;$i++)
                                             @if(isset($categories[$i]))
-                                            <li class="list-group-item"><a href="/categories/{{$categories[$i]->Categorie_id}}" >
-                                                        {{$categories[$i]->Categorie_intitule}}
+                                            <li class="list-group-item"><a href="/categories/{{$categories[$i]->Categorie_id}}" data-placement="top" title="{{$categories[$i]->Categorie_intitule}}">
+                                                    @php($titre = substr($categories[$i]->Categorie_intitule,0,26))
+                                                    @if(strlen($categories[$i]->Categorie_intitule)>26){{$titre}}...@else {{$titre}} @endif
                                                 </a></li>
                                             @else
                                                     <li class="list-group-item"><a href="#">
