@@ -110,6 +110,7 @@
       <path value="$PROJECT_DIR$/vendor/league/flysystem-azure-blob-storage" />
       <path value="$PROJECT_DIR$/vendor/microsoft/azure-storage-blob" />
       <path value="$PROJECT_DIR$/vendor/microsoft/azure-storage-common" />
+      <path value="$PROJECT_DIR$/vendor/google/recaptcha" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

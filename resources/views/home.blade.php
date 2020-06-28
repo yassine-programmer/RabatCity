@@ -112,6 +112,9 @@
 @if(session()->has('email_sent'))
     @include("email.EmailSent")
 @endif
+@if(session()->has('email_failed'))
+    <script> alert('Erreur d\'envoie d\'email de confirmation \n Merci contacter le support technique le plutot possible')</script>
+@endif
 @include("Home.EditPic")
 <script src="js/ListAllUsers.js"></script>
 <script src="js/homePW.js"></script>
