@@ -37,27 +37,39 @@
 					<span class="focus-input100"></span>
 				</div>
 
+                <div class=" container row d-flex align-items-center justify-content-center ">
+                    <!--reCAPTCHA -->
+                    <div id="captcha" class="col-6 float-right">
+                        <div class="g-recaptcha" data-sitekey="{{env('reCAPTCHA_site_key')}}" required></div>
+                        @if($errors->has('g-recaptcha-response'))
+                            <span class="invalid-feedback" style="display: block">
+                             <strong>{{$errors->first('g-recaptcha-response')}}</strong>
+                         </span>
+                        @endif
+                    </div>
+                    <div class="container-contact100-form-btn col-6" style="margin-top:0; padding-left:14%">
+                        {{Form::submit('Envoyer',['class' =>'contact100-form-btn'])}}
+                    </div>
 
-				<div class="container-contact100-form-btn">
-                    {{Form::submit('Envoyer',['class' =>'contact100-form-btn'])}}
-				</div>
+                </div>
 				<span class="contact100-more text-end" style="padding-top: 40px">
 				Pour plus d'information 24/7 apeler le centre: <span class="contact100-more-highlight">+212 537 45 44 40</span>
 				</span>
                 {!! Form::close() !!}
 
-                <!--reCAPTCHA -->
-                <button class="g-recaptcha"
-                        data-sitekey="reCAPTCHA_site_key"
-                        data-callback='onSubmit'
-                        data-action='submit'>Submit</button>
 
             </div>
-
-
 		</div>
 	</div>
+<script>
+    var captcha ={
+        "success": true|false,
+        "challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+        "hostname": string,         // the hostname of the site where the reCAPTCHA was solved
+        "error-codes": 'Faut'        // optional
+    }
 
+</script>
 
 
 

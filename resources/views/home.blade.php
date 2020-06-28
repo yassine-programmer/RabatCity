@@ -53,11 +53,10 @@
 </div>
 @endif
 
-
 <div id="main">
     @if($user->confirmed)
     <div id="sidediv" style="position: fixed;margin-left: -17px;">
-        <img id="config" src="/storage/photos/shares/config.png"
+        <img id="config" src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/config.png"
              onclick="openNav()" onmouseup="closeNav()" style=" margin-top: 9rem; max-width: 25%; background-color: #3771b0;">
     </div>
     @endif
@@ -112,6 +111,9 @@
 </div>
 @if(session()->has('email_sent'))
     @include("email.EmailSent")
+@endif
+@if(session()->has('email_failed'))
+    <script> alert('Erreur d\'envoie d\'email de confirmation \n Merci contacter le support technique le plutot possible')</script>
 @endif
 @include("Home.EditPic")
 <script src="js/ListAllUsers.js"></script>

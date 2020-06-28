@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class CreateUsersTable extends Migration
 {
@@ -19,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role')->default('user');
-            $table->string('image')->default('/storage/photos/shares/default_avatar.png');
+            $table->string('image')->default(Storage::disk('azure')->url('/photos/shares/default_avatar.png'));
             $table->string('Nom')->nullable();
             $table->string('Prenom')->nullable();
             $table->date('Date_naissance')->nullable();

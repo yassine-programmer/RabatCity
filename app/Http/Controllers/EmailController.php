@@ -15,6 +15,7 @@ use DB;
 use Illuminate\Support\Facades\Redirect;
 // Load Composer's autoloader
 require '../vendor/autoload.php';
+use App\Rules\Captcha;
 
 class EmailController extends Controller
 {
@@ -72,10 +73,11 @@ class EmailController extends Controller
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 $mail->send();
-                $result = 'Y';
+                $result = true;
             } catch (Exception $e) {
-                $result = "N";
+                $result = false;
             }
+            return $result;
         }
     }
 
@@ -94,7 +96,8 @@ class EmailController extends Controller
         $this->validate($request, [
                 'name' => 'required',
                 'email' => 'required',
-                'message' => 'nullable'
+                'message' => 'nullable',
+                'g-recaptcha-response' => new Captcha()
             ]
         );
         $name = $request->input('name');
@@ -161,9 +164,10 @@ class EmailController extends Controller
             $recepient= $user->email;
             $subject = 'Email de confirmation';
             $message ='<a href="'.$link.'" >'.$link.'</a>';
-            $this->SendEmail($recepient, $subject, $message);
-
-            return back()->with('email_sent', 'true');
+            if($this->SendEmail($recepient, $subject, $message))
+             return back()->with('email_sent', 'true');
+            else
+             return back()->with('email_failed', 'true');
         }
       }
     }

@@ -39,7 +39,7 @@
 
     <div class="container align-items-center vertical-align-center" style="padding: 70px; margin: 0 auto;">
         <div class="d-flex align-items-center justify-content-center  " style="border-radius:200px; height:250px; width:250px; background: #F8FAF5; margin:0 auto; ">
-            <img src="../img/emoji.png">
+            <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/emoji.png">
         </div>
         <div class="text-center">
             <h1 class="success ">Desole</h1>
