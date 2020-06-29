@@ -160,10 +160,73 @@ class EmailController extends Controller
             // send email
             $domain = parse_url(request()->root())['host'];
             $link= 'https://www.'.$domain.'/verify/'.$user_id.'/'.$random;
+            $utilisateur = Auth::user()->name ;
             //
             $recepient= $user->email;
             $subject = 'Email de confirmation';
-            $message ='<a href="'.$link.'" >'.$link.'</a>';
+            $message ='
+            
+            <div style="display: block;height: 100%!important;width: 100%!important;">
+                 <center>
+                     <div>
+                        <table cellspacing="0" cellpadding="0" border="0" style="display: table-row-group;
+                                                                                        vertical-align: middle;
+                                                                                        border-color: inherit;
+                                                                                        height: 100%!important;
+                                                                                        width: 100%!important;">
+                          <tr style="display: table-row;vertical-align: inherit;border-color: inherit;height: 100%!important;
+                                                                                                       width: 100%!important;">
+                            <th width="600" style="background-color: #f8f8f8;
+                                                    border-bottom: 1px solid #ddd;
+                                                    color: #505050;
+                                                    font-family: Helvetica;
+                                                    font-size: 20px;
+                                                    font-weight: 700;
+                                                    line-height: 100%;
+                                                    text-align: left;
+                                                    vertical-align: middle;
+                                                    padding: 20px;
+                                                    text-align: center">
+                                <a href="#">
+                                    <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/LogoMakr_5AoF95.png" >
+                                </a>
+                            </th>
+                          </tr>
+                          <tr>  
+                            <td width="600" style="padding: 20px;">
+                                Cher '.$utilisateur.',
+                                <br>
+                                Merci de vous etre inscrit sur notre site Rabat-City.
+                                <br><br>
+                                <div style="color: #856404;background-color: #fff3cd;border-color: #ffeeba;text-align: center">
+                                Veuillez cliquer sur le lien ci-dessous pour activer votre inscription:
+                                </div>
+                                <br>
+                                <form action="'.$link.'" style="text-align: center">
+                                    <input type="submit" value="Activation" style="text-decoration: none;
+                                                                            background-color: #005ebb;
+                                                                            display: inline-block;
+                                                                            border-radius: 3px;
+                                                                            color: #fff;
+                                                                            font-weight: bold;
+                                                                            padding: 5px 10px;
+                                                                            font-size: 12px;"/>
+                                </form>
+                                <p style="font-size: 16px">
+                                    Lorsque vous visitez le lien ci-dessus, votre compte sera activer. Rabat-City - Portail de la ville Rabat.
+                                </p>
+                                <p style="color: grey;font-size: 12px;text-align: center" >
+                                    Copyright © Rabat-City, All rights reserved.
+                                </p>
+                            </td>
+                          </tr>
+                        </table>
+                     </div>   
+                 </center>
+            </div>
+           
+            
+            ';
             if($this->SendEmail($recepient, $subject, $message))
              return back()->with('email_sent', 'true');
             else
