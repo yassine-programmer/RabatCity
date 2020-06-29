@@ -12,9 +12,13 @@
             </a>
             <div class="most-recent-cap">
                 <span class="bgbeg">Facebook</span>
-                <h4 class="text-right pr-4"><a href="https://www.facebook.com{{$post[1]->Facebook_url ?? ''}}"><?php
-                        echo substr($post[1]->Facebook_text ?? '', 0, 100);
-                        ?>...</a></h4>
+                <h4 class="text-right pr-4"><a href="https://www.facebook.com{{$post[1]->Facebook_url ?? ''}}"
+                                               data-toggle="tooltip" data-placement="top" title="{{$post[1]->Facebook_text}}"
+                    >
+                        @php($titre = substr($post[1]->Facebook_text,0,100))
+                        @if(strlen($post[1]->Facebook_text)>100){{$titre}}...
+                        @else{{$titre}} @endif
+                        </a></h4>
 
                 <p class="text-center">Publier - {{$post[1]->Facebook_time ?? ''}}</p>
             </div>
@@ -30,11 +34,12 @@
                 <img style="max-width: 6em;" src="{{$post[$i]->Facebook_image ?? ''}}" alt=""></a>
         </div>
         <div class="most-recent-capt">
-            <h4 class="text-right pr-4" ><a href="https://www.facebook.com{{$post[$i]->Facebook_url ?? ''}}">
-
-                        <?php
-                        echo substr($post[$i]->Facebook_text ?? '', 0, 100).'...';
-                        ?>
+            <h4 class="text-right pr-4" ><a href="https://www.facebook.com{{$post[$i]->Facebook_url ?? ''}}"
+                                            data-toggle="tooltip" data-placement="top" title="{{$post[$i]->Facebook_text}}"
+                >
+                    @php($titre = substr($post[$i]->Facebook_text,0,100))
+                    @if(strlen($post[$i]->Facebook_text)>100){{$titre}}...
+                    @else{{$titre}} @endif
                     </a></h4>
             <hr>
             <p class="text-center" style="padding-bottom: 8px">Publier - {{$post[$i]->Facebook_time ?? ''}}</p>

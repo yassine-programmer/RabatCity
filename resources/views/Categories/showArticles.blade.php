@@ -21,8 +21,12 @@
 
                         <a href="/categories/{{$l_categorie->Categorie_id}}">{{$l_categorie->Categorie_intitule}}</a> /
                     @endforeach
-                <h2>{{$categorie_parent->Categorie_intitule}}</h2>
-                <h5>{{$categorie_parent->Categorie_description}}</h5>
+                <h4>{{$categorie_parent->Categorie_intitule}}</h4>
+                    <hr>
+                <h6 data-toggle="tooltip" data-placement="top" title="{{$categorie_parent->Categorie_description}}">
+                    @php($titre = substr($categorie_parent->Categorie_description,0,50))
+                    @if(strlen($categorie_parent->Categorie_description)>50){{$titre}}...@else {{$titre}} @endif
+                </h6>
                 @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                     <a href="/articles/create/{{$categorie_parent->Categorie_id}}" class="view-portfolio-btn" id="scrollDown">
                         <i class="fa fa-plus" aria-hidden="true"></i>Ajouter article</a>
@@ -54,11 +58,15 @@
                                                                     filter: alpha(opacity=40);" @endif>
                             <div class="fplus-single-blog-area wow fadeInUp" data-wow-delay="0.5s" onmouseover="ShowOnHover({{$article->Article_id}});" onmouseleave="Hide({{$article->Article_id}});">
                                 <!-- Blog Thumbnail -->
-                                <a href="/Articles/{{$article->Article_id}}">
+                                <a href="/Articles/{{$article->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$article->Article_titre}}">
                                     <img  src="{{$article->Article_image}}"  alt="" class="grow" style="height: 200px;width:400px; "></a>
                                 <!-- Blog Content -->
                                 <div class="fplus-blog-content">
-                                    <a class="text-center" href="/Articles/{{$article->Article_id}}"><h4>{{$article->Article_titre}}</h4></a>
+                                    <a class="text-center" href="/Articles/{{$article->Article_id}}"><h4 data-toggle="tooltip" data-placement="top" title="{{$article->Article_titre}}">
+                                            @php($titre = substr($article->Article_titre,0,14))
+                                            @if(strlen($article->Article_titre)>14)<i class="fa fa-file" aria-hidden="true"></i>{{$titre}}...
+                                            @else<i class="fa fa-file" aria-hidden="true"></i>{{$titre}} @endif
+                                        </h4></a>
                                     <ul class="list-group list-group-flush">
                                         @if(Session::get('role')=='admin' || Session::get('role')=='moderator')
                                             <li class="list-group-item d-none" id="manager_btn_{{$article->Article_id}}">

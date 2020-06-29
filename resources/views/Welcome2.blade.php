@@ -57,7 +57,7 @@
                                                               border-bottom: 0;
                                                               box-shadow: 5px 6px 12px #b8b894;">
                                         <a href="/Articles/{{$newArticle[0]->Article_id}}">
-                                        <img src="{{$newArticle[0]->Article_image}}" alt="" style="height: 680px; object-fit: ">
+                                        <img src="{{$newArticle[0]->Article_image}}" alt="" style="height: 680px;">
                                         </a>
                                         <div class="trend-top-cap">
                                             <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">News</span>
@@ -129,7 +129,7 @@
                         <div class="row justify-content-between align-items-end mb-15 ">
                             <div class="col-xl-4">
                                 <div class="section-tittle mb-30">
-                                    <h3 class="grow" id="result">Actualités</h3>
+                                    <a href="/Themes/actualites" class="grow" id="result" >Actualités</a>
                                 </div>
                             </div>
                             <div class="col-xl-8 col-md-9">
@@ -137,11 +137,11 @@
                                     <!--Nav Button  -->
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher('nav-home-tab')" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Actualités</a>
-                                            <a class="nav-item nav-link" id="nav-profile-tab"  onclick="afficher('nav-profile-tab')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Service</a>
-                                            <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher('nav-contact-tab')" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
-                                            <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher('nav-last-tab')" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
-                                            <a class="nav-item nav-link" id="nav-Sports"  onclick="afficher('nav-Sports')" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Commune</a>
+                                            <a class="nav-item nav-link active" id="nav-home-tab" onclick="afficher('nav-home-tab','actualites')" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Actualités</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab"  onclick="afficher('nav-profile-tab','services')" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Service</a>
+                                            <a class="nav-item nav-link" id="nav-contact-tab"  onclick="afficher('nav-contact-tab','activites')" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Activités</a>
+                                            <a class="nav-item nav-link" id="nav-last-tab"  onclick="afficher('nav-last-tab','evenement')" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Événement</a>
+                                            <a class="nav-item nav-link" id="nav-Sports"  onclick="afficher('nav-Sports','commune')" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Commune</a>
                                         </div>
                                     </nav>
                                     <!--End Nav Button  -->
@@ -149,9 +149,12 @@
                             </div>
                         </div>
                         <script type="application/javascript">
-                            function afficher($id) {
+                            function afficher($id,$link) {
                                var val = document.getElementById($id).innerText;
                                 document.getElementById("result").innerHTML= val ;
+                                var a = document.getElementById('result');
+                                var lin = "/Themes/";
+                                a.href=lin.concat($link);
                             }
                         </script>
                         <!-- Tab content -->
@@ -171,7 +174,7 @@
                                                         <a href="/Articles/{{$newArticle[0]->Article_id}}"><img src="{{$newArticle[0]->Article_image}}" alt=""></a>
                                                     </div>
                                                     <div class="whates-caption">
-                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[0]->Article_titre}}">@php($titre = substr($newArticle[0]->Article_titre,0,60))@if(strlen($newArticle[0]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                         <span>posted   -   {{$newArticle[0]->created_at}}</span>
                                                     </div>
                                                 </div>
@@ -195,7 +198,7 @@
                                                                     </div>
                                                                     <div class="whats-right-cap">
                                                                         <span class="colorb">News</span>
-                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[$i]->Article_titre}}">@php($titre = substr($newArticle[$i]->Article_titre,0,48))@if(strlen($newArticle[$i]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                                         <p>posted   -   {{$newArticle[$i]->created_at}}</p>
                                                                     </div>
                                                                 </div>
@@ -220,7 +223,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="whates-caption">
-                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[0]->Article_titre}}">@php($titre = substr($newArticle[0]->Article_titre,0,60))@if(strlen($newArticle[0]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                         <span>posted   -   {{$newArticle[0]->created_at}}</span>
                                                     </div>
                                                 </div>
@@ -244,7 +247,7 @@
                                                                     </div>
                                                                     <div class="whats-right-cap">
                                                                         <span class="colorb">service</span>
-                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[$i]->Article_titre}}">@php($titre = substr($newArticle[$i]->Article_titre,0,48))@if(strlen($newArticle[$i]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                                         <p>{{$newArticle[$i]->created_at}}</p>
                                                                     </div>
                                                                 </div>
@@ -269,7 +272,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="whates-caption">
-                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                        <h4><a href="/Articles/{{$newArticle[0]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[0]->Article_titre}}">@php($titre = substr($newArticle[0]->Article_titre,0,60))@if(strlen($newArticle[0]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                         <span>posted   -   {{$newArticle[0]->created_at}}</span>
                                                     </div>
                                                 </div>
@@ -292,7 +295,7 @@
                                                                     </div>
                                                                     <div class="whats-right-cap">
                                                                         <span class="colorb">activité</span>
-                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[$i]->Article_titre}}">@php($titre = substr($newArticle[$i]->Article_titre,0,48))@if(strlen($newArticle[$i]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                                         <p>{{$newArticle[$i]->created_at}}</p>
                                                                     </div>
                                                                 </div>
@@ -317,7 +320,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="whates-caption">
-                                                            <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                            <h4><a href="/Articles/{{$newArticle[0]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[0]->Article_titre}}">@php($titre = substr($newArticle[0]->Article_titre,0,60))@if(strlen($newArticle[0]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                             <span>posted   -   {{$newArticle[0]->created_at}}</span>
                                                         </div>
                                                     </div>
@@ -340,7 +343,7 @@
                                                                     </div>
                                                                     <div class="whats-right-cap">
                                                                         <span class="colorb">événement</span>
-                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[$i]->Article_titre}}">@php($titre = substr($newArticle[$i]->Article_titre,0,48))@if(strlen($newArticle[$i]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                                         <p>{{$newArticle[$i]->created_at}}</p>
                                                                     </div>
                                                                 </div>
@@ -365,7 +368,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="whates-caption">
-                                                            <h4><a href="/Articles/{{$newArticle[0]->Article_id}}">{{$newArticle[0]->Article_titre}}</a></h4>
+                                                            <h4><a href="/Articles/{{$newArticle[0]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[0]->Article_titre}}">@php($titre = substr($newArticle[0]->Article_titre,0,60))@if(strlen($newArticle[0]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                             <span>posted   -   {{$newArticle[0]->created_at}}</span>
                                                         </div>
                                                     </div>
@@ -388,7 +391,7 @@
                                                                     </div>
                                                                     <div class="whats-right-cap">
                                                                         <span class="colorb">commune</span>
-                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}">{{$newArticle[$i]->Article_titre}}</a></h4>
+                                                                        <h4><a href="/Articles/{{$newArticle[$i]->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle[$i]->Article_titre}}">@php($titre = substr($newArticle[$i]->Article_titre,0,48))@if(strlen($newArticle[$i]->Article_titre)>60){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                                         <p>{{$newArticle[$i]->created_at}}</p>
                                                                     </div>
                                                                 </div>
@@ -460,7 +463,7 @@
                                                             </div>
                                                             <div class="weekly2-caption">
 
-                                                                <h4><a href="/Articles/{{$PopularArticle->Article_id}}">@php($titre = substr($PopularArticle->Article_titre,0,17)){{$titre}}...</a></h4>
+                                                                <h4><a href="/Articles/{{$PopularArticle->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$PopularArticle->Article_titre}}">@php($titre = substr($PopularArticle->Article_titre,0,32))@if(strlen($PopularArticle->Article_titre)>32){{$titre}}...@else {{$titre}} @endif</a></h4>
                                                                  <p><i class="fa fa-eye" aria-hidden="true"></i> {{$PopularArticle->Article_vue}}</p>
 
                                                             </div>
