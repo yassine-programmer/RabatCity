@@ -130,11 +130,11 @@ class HomeController extends Controller
     public function notification(){
 
         $user=Auth::user();
-        return $user;
         if ($user->Admin_notify)
-        $user->Admin_notify = false;
+        $user->Admin_notify = 0;
         else
-            $user->Admin_notify = true;
+            $user->Admin_notify = 1;
+        $user->save();
         return back()->withInput();
     }
 

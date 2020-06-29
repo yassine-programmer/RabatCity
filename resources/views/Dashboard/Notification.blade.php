@@ -15,7 +15,7 @@
                 </div>
                  @else
                 <div class=" container alert alert-danger">
-                    <div class="text-left">Desactiver les notifications par Mmail
+                    <div class="text-left">Desactiver les notifications par Mail
                         <a href="/notify"><button style="margin-top: -7px" class="btn btn-danger float-right">Desactiver</button></a>
                     </div>
                 </div>
