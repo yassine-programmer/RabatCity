@@ -284,10 +284,12 @@ class EmailController extends Controller
     }
     public function NotifySubs($article){
         $Subs=Newsletter::all();
+        $domain = parse_url(request()->root())['host'];
+        $link= 'https://www.'.$domain.'/Articles/'.$article->Article_id;
         $content = '                        <!-- content-->
-                        <div style="text-align: center; border-style: dashed">
+                        <div style="text-align: center;border: 1px solid #ccc!important;padding: 0.01em 16px;border-radius: 16px;display: block;background-color: #f3f2f2">
                             <div style="background-color: #f8f8f8;">
-                            <a href="#">
+                            <a href="'.$link.'">
                                 <img style=\'max-width: 366px;min-width: 366px;\' src="'.$article->Article_image.'" >
                             </a>
                             </div>
