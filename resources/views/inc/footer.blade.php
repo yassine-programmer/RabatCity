@@ -11,8 +11,8 @@
                         <nav>
                             <ul>
                                 <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/LogoMakr_3lfcP2.png" alt="" style="width: 124px;margin-top: -20px;padding-bottom: 19px;" >
-                                <li><a href="#">Accueil</a></li>
-                                <li><a href="#">Services</a></li>
+                                <li><a href="/">Accueil</a></li>
+                                <li><a href="/">Services</a></li>
                                 <li><a href="#">Activites</a></li>
                                 <li><a href="#">Contactez-nous</a></li>
                             </ul>
@@ -37,10 +37,10 @@
                 <div class="col-12 col-md-3">
                     <div class="subscribe-widget">
                         <p>Abonnez-vous</p>
-                        <form action="#">
+                        {!! Form::open(['action' => 'NewsletterController@store', 'method' => 'post']) !!}
                             <input type="email" name="s-email" id="subscribeEmail" placeholder="Entrer votre email">
                             <button type="submit"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-                        </form>
+                    {!! Form::close() !!}
                     </div>
                     <div class="footer-social-widget">
                         <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>

@@ -105,3 +105,4 @@ Route::get('/test2',function (){
 Route::get('/test3',function (){
     return view('test3');
 });
+Route::resource('subscribe','NewsletterController');

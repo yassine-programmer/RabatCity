@@ -12,6 +12,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use App\User;
 use DB;
+use App\Newsletter;
 use Illuminate\Support\Facades\Redirect;
 // Load Composer's autoloader
 require '../vendor/autoload.php';
@@ -20,6 +21,8 @@ use App\Rules\Captcha;
 class EmailController extends Controller
 {
     public function emailTemplate($contenue){
+        $domain = parse_url(request()->root())['host'];
+        $link= 'https://www.'.$domain;
         $message ='
             <div style="display: block;height: 100%!important;width: 100%!important;">
                  <center>
@@ -42,7 +45,7 @@ class EmailController extends Controller
                                                     vertical-align: middle;
                                                     padding: 20px;
                                                     text-align: center">
-                                <a href="#">
+                                <a href="'.$link.'">
                                     <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/LogoMakr_5AoF95.png" >
                                 </a>
                             </th>
@@ -276,5 +279,29 @@ class EmailController extends Controller
         else{
             $user->confirmation_code += 1000000000;
             return view('email.verificationFail');}
+    }
+    public function NotifySubs($article){
+        $Subs=Newsletter::all();
+        $content = '                        <!-- content-->
+                        <div style="text-align: center; border-style: dashed">
+                            <div style="background-color: #f8f8f8;">
+                            <a href="#">
+                                <img style=\'max-width: 366px;min-width: 366px;\' src="'.$article->Article_image.'" >
+                            </a>
+                            </div>
+                            <p style="font-weight: bold;font-size: 22px;">
+                                <u>'.$article->Article_titre.'</u>
+                            </p>
+                            <p>'.$article->Article_text.'</p>
+                        </div>
+                        <p style="color: grey;font-size: 12px;text-align: center" >
+                            Copyright © Rabat-City, All rights reserved.
+                        </p>
+                        <!-- end content -->
+';
+        $content = $this->emailTemplate($content);
+        foreach ($Subs as $sub){
+            $this->SendEmail($sub->Subscriber_email,'RabatCity: '.$article->Article_titre,$content);
+        }
     }
 }

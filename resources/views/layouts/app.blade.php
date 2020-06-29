@@ -57,6 +57,10 @@
        @include('Contact.BannerContact')
    @endif
 
+    @if(session()->has('newSub'))
+        @include('email.subscribed')
+        @endif
+
    @include('inc.footer')
 @yield('script')
 </div>

@@ -81,7 +81,7 @@
                                             @if(Session::get('role')=='admin')
                                                 {!! Form::open([ 'action'=>['ArticlesController@destroy',$article->Article_id],'method' => 'post' ,'class'=>'pull-right hidden','id'=>'form_'.$article->Article_id]) !!}
                                                 {{ Form::hidden('_method','DELETE') }}
-                                                <button class="btn btn-danger btn-sm"  onclick="document.getElementById('form_{{$article->Article_id}}').submit();">
+                                                <button class="btn btn-danger btn-sm" onclick="if(confirm('Est-ce que vous voulez supprimer?\r\n'))document.getElementById('form_{{$article->Article_id}}').submit();">
                                                     <i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                                 {!! Form::close() !!}
                                                 @endif

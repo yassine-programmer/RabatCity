@@ -9,6 +9,7 @@ use App\Categorie;
 use App\Journal;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
@@ -55,7 +56,7 @@ class ArticlesController extends Controller
         if ( $request->input('Article_image'))
         $article->Article_image = $request->input('Article_image');
         else
-        $article->Article_image= "/storage/photos/shares/noimage.jpg";
+        $article->Article_image= Storage::disk('azure')->url('photos/shares/noimage.jpg');
         $article->Categorie_id = $request->input('Categorie_id');
         $article->save();
         //journal
@@ -68,6 +69,8 @@ class ArticlesController extends Controller
         //end journal
         //send alert to all admins if the user is a moderator
         $this->notify($journal);
+        //send notifications to subscribers
+        app('App\Http\Controllers\EmailController')->NotifySubs($article);
         return $this->show($article->Article_id);
     }
 
