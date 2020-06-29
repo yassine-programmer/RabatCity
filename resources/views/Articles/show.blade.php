@@ -10,7 +10,7 @@
 @section("content")
 
     <!-- ****** Welcome Area Start ****** -->
-    <section class="fplus-hero-area" style="background-image: url({{$article->Article_image}})" id="home">
+    <section class="fplus-hero-area" style="background-image: url({{$article->Article_image}}); background-size: auto;background-position-x: right;" id="home">
         <div class="hero-content-area d-flex justify-content-center">
             <div class="hero-text">
 
@@ -125,7 +125,7 @@
                                      style="border-bottom:1px solid #ccc!important;
                                             box-shadow: 1px 1px 12px #b8b894;">
                                     <a href="/Articles/{{$newArticle->Article_id}}" data-toggle="tooltip" data-placement="top" title="{{$newArticle->Article_titre}}">
-                                        <img class="grow" src="{{$newArticle->Article_image}}"  alt="" style="height: 200px;width:400px; ">
+                                        <img class="grow" src="{{$newArticle->Article_image}}"  alt="" style="height: 200px;width:400px;">
                                     </a>
                                     <hr>
                                     <div class="feature-title d-flex align-items-center text-center" style="margin-top: 20px">
