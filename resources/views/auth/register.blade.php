@@ -53,7 +53,7 @@
                     <input id="password-confirm" placeholder="Confirmer mot de passe" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     <br>
                     <!--reCAPTCHA -->
-                    <div id="captcha" class="" >
+                    <div id="captcha" class="d-flex align-content-center justify-content-center" >
                         <div class="g-recaptcha" data-sitekey="{{env('reCAPTCHA_site_key')}}" required></div>
                         @if($errors->has('g-recaptcha-response'))
                             <span class="invalid-feedback" style="display: block">
