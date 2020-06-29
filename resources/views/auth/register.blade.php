@@ -55,13 +55,12 @@
                     <!--reCAPTCHA -->
                     <div id="captcha" class="d-flex align-content-center justify-content-center" >
                         <div class="g-recaptcha" data-sitekey="{{env('reCAPTCHA_site_key')}}" required></div>
-                        @if($errors->has('g-recaptcha-response'))
-                            <span class="invalid-feedback" style="display: block">
-                             <strong>{{$errors->first('g-recaptcha-response')}}</strong>
-                         </span>
-                        @endif
                     </div>
-
+                    @if($errors->has('g-recaptcha-response'))
+                        <span class="invalid-feedback" style="display: block">
+                             <strong>{{$errors->first('g-recaptcha-response')}}</strong>
+                           </span>
+                    @endif
                     <div id="formFooter" style="margin-top: 20px;">
                         <button type="submit" class="btn btn-primary">
                             S'enregitrer
