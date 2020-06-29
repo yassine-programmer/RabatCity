@@ -24,11 +24,11 @@ class EmailController extends Controller
             <div style="display: block;height: 100%!important;width: 100%!important;">
                  <center>
                      <div>
-                        <table cellspacing="0" cellpadding="0" border="0" style="display: table-row-group;
+                        <table cellspacing="0" cellpadding="0" style="display: table-row-group;
                                                                                         vertical-align: middle;
-                                                                                        border-color: inherit;
                                                                                         height: 100%!important;
-                                                                                        width: 100%!important;">
+                                                                                        width: 100%!important;
+                                                                                        border: 1px solid #ccc!important;padding: 0.01em 16px;border-radius: 16px;">
                           <tr style="display: table-row;vertical-align: inherit;border-color: inherit;height: 100%!important;
                                                                                                        width: 100%!important;">
                             <th width="600" style="background-color: #f8f8f8;
@@ -182,12 +182,14 @@ class EmailController extends Controller
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Contact Rabat (' . $name . ')';
             $contenue = '
-            <h1 style="text-decoration: underline; text-align: center">Contact : </h1>
-            <pre><b style="font-size: 20px;">Nom       : </b> ' . $name . '<br></pre>
-            <pre><b>Emetteur  : </b> ' . $email . '<br><br> </pre>
-            <pre><b>Message   : </b><br></pre>
-            <p style="color: #0c2e5f;text-align: center;font-size: 17px;font-weight: 900;">' . $message.'</p>
-            <p style="color: grey;font-size: 12px;text-align: center" >
+            <h1 style="text-decoration: underline; text-align: center;font-size: 30px;">Contact : </h1>
+            <pre><b style="font-size: 23px;">Nom       : ' . $name . '</b> <br></pre>
+            <pre><b style="font-size: 23px;">Emetteur  : ' . $email . '</b><br></pre>
+            <pre><b style="font-size: 23px;">Message   : </b><br></pre>
+            <div style="border: 1px solid #ccc!important;padding: 0.01em 16px;border-radius: 16px;display: block;background-color: #f3f2f2">
+            <p style="color: #0c2e5f;text-align: left;font-size: 17px;font-weight: 900;margin-left: 20px">' . $message.'</p>
+            </div>
+             <p style="color: grey;font-size: 12px;text-align: center" >
                                     Copyright © Rabat-City, All rights reserved.
                 </p>    
             ';
