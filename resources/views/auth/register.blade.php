@@ -51,7 +51,16 @@
                                             </span>
                     @enderror
                     <input id="password-confirm" placeholder="Confirmer mot de passe" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-
+                    <br>
+                    <!--reCAPTCHA -->
+                    <div id="captcha" class="col-6 float-right">
+                        <div class="g-recaptcha" data-sitekey="{{env('reCAPTCHA_site_key')}}" required></div>
+                        @if($errors->has('g-recaptcha-response'))
+                            <span class="invalid-feedback" style="display: block">
+                             <strong>{{$errors->first('g-recaptcha-response')}}</strong>
+                         </span>
+                        @endif
+                    </div>
                     <div id="formFooter" style="margin-top: 20px;">
                             <button type="submit" class="btn btn-primary">
                                 S'enregitrer
@@ -66,6 +75,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var captcha ={
+            "success": true|false,
+            "challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+            "hostname": string,         // the hostname of the site where the reCAPTCHA was solved
+            "error-codes": 'Faut'        // optional
+        }
+
+    </script>
 
 </section>
 </body>
