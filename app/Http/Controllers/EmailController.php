@@ -19,16 +19,70 @@ use App\Rules\Captcha;
 
 class EmailController extends Controller
 {
+    public function emailTemplate($contenue){
+        $message ='
+            <div style="display: block;height: 100%!important;width: 100%!important;">
+                 <center>
+                     <div>
+                        <table cellspacing="0" cellpadding="0" border="0" style="display: table-row-group;
+                                                                                        vertical-align: middle;
+                                                                                        border-color: inherit;
+                                                                                        height: 100%!important;
+                                                                                        width: 100%!important;">
+                          <tr style="display: table-row;vertical-align: inherit;border-color: inherit;height: 100%!important;
+                                                                                                       width: 100%!important;">
+                            <th width="600" style="background-color: #f8f8f8;
+                                                    border-bottom: 1px solid #ddd;
+                                                    color: #505050;
+                                                    font-family: Helvetica;
+                                                    font-size: 20px;
+                                                    font-weight: 700;
+                                                    line-height: 100%;
+                                                    text-align: left;
+                                                    vertical-align: middle;
+                                                    padding: 20px;
+                                                    text-align: center">
+                                <a href="#">
+                                    <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/LogoMakr_5AoF95.png" >
+                                </a>
+                            </th>
+                          </tr>
+                          <tr>  
+                            <td width="600" style="padding: 20px;">
+                                '.$contenue.'
+                            </td>
+                          </tr>
+                        </table>
+                     </div>   
+                 </center>
+            </div>
+';
+        return $message;
+
+    }
     public function Alert($journal, $user)
     {
         $subject = 'Alerte : '.strtoupper($journal->Journal_action);
-        $message = 'Le '.$user->role .' ' . $user->name . ' a effectue un <b>' . $journal->Journal_action . '</b> d un/une ' . $journal->Journal_table . ' sous le titre de : ' . $journal->Journal_intitule
-            . '<br>Veuillez consulter le journal dans votre espace admin pour plus de detail : <a href="https://emsipfa.tk/home">www.emsipfa.tk/home</a>';
+        $contenue = '
+                <h2 style="text-decoration: underline">Action :</h2>
+                <b>Role : </b> '.$user->role .'.<br>
+                <b>Utilisateur : </b> ' . $user->name . '.<br>
+                <b>Action : </b> ' . $journal->Journal_action . '<br>
+                <b>Table : </b> ' . $journal->Journal_table . '.<br> 
+                <b>Intitule : </b>' . $journal->Journal_intitule.'.<br>
+                <br>
+                Veuillez consulter le journal dans votre espace admin pour plus de detail : <a href="https://emsipfa.tk/home" style="text-decoration:none;background-color:#005ebb;display:inline-block;border-radius:3px;color:#fff;font-weight:bold;padding:5px 10px;font-size:12px">Rabat-City</a>
+                <br>
+                <p style="color: grey;font-size: 12px;text-align: center" >
+                                    Copyright © Rabat-City, All rights reserved.
+                </p>
+';
+        $message = $this->emailTemplate($contenue);
 
         $admins = DB::table('users')->where('role', '=', 'admin')->get();
         foreach ($admins as $admin)
         {
-            if ($admin->Admin_notify_email)
+
             $this->SendEmail($admin->email, $subject, $message);
         }
     }
@@ -127,7 +181,17 @@ class EmailController extends Controller
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Contact Rabat (' . $name . ')';
-            $mail->Body = 'Nom  = ' . $name . '<br>Adresse Email: ' . $email . '<br>Message: ' . $message;
+            $contenue = '
+            <h1 style="text-decoration: underline; text-align: center">Contact : </h1>
+            <pre><b style="font-size: 20px;">Nom       : </b> ' . $name . '<br></pre>
+            <pre><b>Emetteur  : </b> ' . $email . '<br><br> </pre>
+            <pre><b>Message   : </b><br></pre>
+            <p style="color: #0c2e5f;text-align: center;font-size: 17px;font-weight: 900;">' . $message.'</p>
+            <p style="color: grey;font-size: 12px;text-align: center" >
+                                    Copyright © Rabat-City, All rights reserved.
+                </p>    
+            ';
+            $mail->Body = $this->emailTemplate($contenue);
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
@@ -160,36 +224,8 @@ class EmailController extends Controller
             //
             $recepient= $user->email;
             $subject = 'Email de confirmation';
-            $message ='
-            
-            <div style="display: block;height: 100%!important;width: 100%!important;">
-                 <center>
-                     <div>
-                        <table cellspacing="0" cellpadding="0" border="0" style="display: table-row-group;
-                                                                                        vertical-align: middle;
-                                                                                        border-color: inherit;
-                                                                                        height: 100%!important;
-                                                                                        width: 100%!important;">
-                          <tr style="display: table-row;vertical-align: inherit;border-color: inherit;height: 100%!important;
-                                                                                                       width: 100%!important;">
-                            <th width="600" style="background-color: #f8f8f8;
-                                                    border-bottom: 1px solid #ddd;
-                                                    color: #505050;
-                                                    font-family: Helvetica;
-                                                    font-size: 20px;
-                                                    font-weight: 700;
-                                                    line-height: 100%;
-                                                    text-align: left;
-                                                    vertical-align: middle;
-                                                    padding: 20px;
-                                                    text-align: center">
-                                <a href="#">
-                                    <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/LogoMakr_5AoF95.png" >
-                                </a>
-                            </th>
-                          </tr>
-                          <tr>  
-                            <td width="600" style="padding: 20px;">
+            $contenue = '
+                                <h2 style="text-decoration: underline">Confirmation :</h2>
                                 Cher '.$utilisateur.',
                                 <br>
                                 Merci de vous etre inscrit sur notre site Rabat-City.
@@ -210,15 +246,8 @@ class EmailController extends Controller
                                 <p style="color: grey;font-size: 12px;text-align: center" >
                                     Copyright © Rabat-City, All rights reserved.
                                 </p>
-                            </td>
-                          </tr>
-                        </table>
-                     </div>   
-                 </center>
-            </div>
-           
-            
             ';
+            $message =$this->emailTemplate($contenue);
             if($this->SendEmail($recepient, $subject, $message))
              return back()->with('email_sent', 'true');
             else

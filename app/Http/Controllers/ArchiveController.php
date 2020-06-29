@@ -133,7 +133,7 @@ class ArchiveController extends Controller
         $user=Auth::user();
         if($user->role == 'moderator')
         {
-            app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user);
+            app('App\Http\Controllers\EmailController')->Alert($journal,$user);
         }
 
     }
