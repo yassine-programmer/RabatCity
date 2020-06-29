@@ -76,7 +76,6 @@ class ScrapingController extends Controller
             }
         }
 
-
-        return view('Welcome2');
+        return redirect('/');
     }
 }

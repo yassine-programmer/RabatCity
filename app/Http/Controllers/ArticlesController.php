@@ -169,6 +169,7 @@ class ArticlesController extends Controller
         return redirect('categories/'.$cat);
     }
     function notify($journal){
+        return 1;
         $user=Auth::user();
         if($user->role == 'moderator')
         {

@@ -88,4 +88,5 @@ class   JournalsController extends Controller
     {
         //
     }
+
 }

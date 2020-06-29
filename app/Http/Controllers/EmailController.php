@@ -28,7 +28,7 @@ class EmailController extends Controller
         $admins = DB::table('users')->where('role', '=', 'admin')->get();
         foreach ($admins as $admin)
         {
-            if ($admin->Admin_notify_email)
+            if ($admin->Admin_notify)
             $this->SendEmail($admin->email, $subject, $message);
         }
     }

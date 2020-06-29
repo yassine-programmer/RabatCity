@@ -33,6 +33,7 @@ Auth::routes(['verify' => true]);
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('userupdate','HomeController@update');
 Route::resource('home','HomeController');
+Route::get('/notify','HomeController@notification');
 
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

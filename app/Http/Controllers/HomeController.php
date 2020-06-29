@@ -127,5 +127,15 @@ class HomeController extends Controller
         $user->delete();
         return back()->withInput();
     }
+    public function notification(){
+
+        $user=Auth::user();
+        return $user;
+        if ($user->Admin_notify)
+        $user->Admin_notify = false;
+        else
+            $user->Admin_notify = true;
+        return back()->withInput();
+    }
 
 }
