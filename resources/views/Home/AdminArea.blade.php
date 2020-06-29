@@ -8,7 +8,7 @@
             </div>
             @if(Session::get('role')=='admin')
                 <div class="container text-center" style="margin: 100px;margin-top: 10px!important;">
-                    <div class="btn-group">
+                    <div class="btn-group mb-5">
                         <button class="btn btn-outline-secondary" onclick="showdiv('users')" >Afficher les utilisateurs</button>
                         <button class="btn btn-outline-secondary" onclick="showdiv('journals')">Afficher le journal</button>
                         <button class="btn btn-outline-secondary" onclick="showdiv('FB')">Update Post Facebook</button>

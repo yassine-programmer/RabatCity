@@ -1,6 +1,6 @@
 <div id="Notification" class="d-none">
 
-        <div class="mt-5 container align-items-center ">
+        <div class="container align-items-center ">
 
             <div>
                 <h4><b>Activer ou desactiver les notifications</b></h4>

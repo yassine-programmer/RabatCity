@@ -60,7 +60,7 @@ class ThemesController extends Controller
         if ( $request->input('Theme_image'))
         $theme->Theme_image = $request->input('Theme_image');
         else
-            $theme->Theme_image = '/storage/photos/shares/noimage.jpg';
+            $theme->Theme_image = Storage::disk('azure')->url('photos/shares/noimage.jpg');
         $theme->save();
         //Journal
         $journal = new Journal;

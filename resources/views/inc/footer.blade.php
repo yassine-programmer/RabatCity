@@ -11,10 +11,10 @@
                         <nav>
                             <ul>
                                 <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/LogoMakr_3lfcP2.png" alt="" style="width: 124px;margin-top: -20px;padding-bottom: 19px;" >
-                                <li><a href="/">Accueil</a></li>
-                                <li><a href="/">Services</a></li>
-                                <li><a href="#">Activites</a></li>
-                                <li><a href="#">Contactez-nous</a></li>
+                                <li><a href="/Themes/actualites">Actualités</a></li>
+                                <li><a href="/Themes/services">Services</a></li>
+                                <li><a href="/Themes/activites">Activites</a></li>
+                                <li><a href="/Themes/evenement">Evénements</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -23,10 +23,10 @@
                     <div class="footer-nav-widget">
                         <nav>
                             <ul>
-                                <li><a href="#">Arrondissement</a></li>
-                                <li><a href="#">Commune</a></li>
-                                <li><a href="#">Agdal</a></li>
-                                <li><a href="#">Riad</a></li>
+                                <br>
+                                <li><a href="/Arrondissements">Arrondissement</a></li>
+                                <li><a href="/Themes/commune">Commune</a></li>
+                                <li><a href="/#contact">Contactez-nous</a></li>
                             </ul>
                         </nav>
                     </div>
