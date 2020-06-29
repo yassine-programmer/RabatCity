@@ -51,9 +51,10 @@ class ArchiveController extends Controller
                 $journal->save();
                 //end journal
             }
+
         //send alert to all admins if the user is a moderator
-        $user_id=Auth::id();
-        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
+        $this->notify($journal);
+
         return back()->withInput();
     }
 
@@ -88,9 +89,10 @@ class ArchiveController extends Controller
             }
 
 
+
         //send alert to all admins if the user is a moderator
-        $user_id=Auth::id();
-        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
+        $this->notify($journal);
+
         return back()->withInput();
     }
 
@@ -122,12 +124,18 @@ class ArchiveController extends Controller
                 //end journal
             }
 
+            //send alert to all admins if the user is a moderator
+            $this->notify($journal);
 
-        //send alert to all admins if the user is a moderator
-        $user_id=Auth::id();
-        app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
+            return back()->withInput();
+    }
+    function notify($journal){
+        $user=Auth::user();
+        if($user->role == 'moderator')
+        {
+            app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user);
+        }
 
-        $Article = new ArticlesController();
-        return $Article->show($id);
     }
 }
+

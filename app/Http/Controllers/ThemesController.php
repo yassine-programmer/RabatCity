@@ -69,6 +69,8 @@ class ThemesController extends Controller
         $journal->Journal_intitule = $theme->Theme_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
+        //send alert to all admins if the user is a moderator
+        $this->notify($journal);
         return $this->afficher($theme->Theme_type);
     }
 
@@ -131,6 +133,8 @@ class ThemesController extends Controller
         $journal->Journal_intitule = $theme->Theme_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
+        //send alert to all admins if the user is a moderator
+        $this->notify($journal);
         return  $this->afficher($theme->Theme_type);
 
 
@@ -159,5 +163,13 @@ class ThemesController extends Controller
         $user_id=Auth::id();
         app('App\Http\Controllers\EmailController')->AlertDelete($journal,$user_id);
         return  redirect('Themes/'.$theme->Theme_type);
+    }
+    function notify($journal){
+        $user=Auth::user();
+        if($user->role == 'moderator')
+        {
+            app('App\Http\Controllers\EmailController')->Alert($journal,$user);
+        }
+
     }
 }

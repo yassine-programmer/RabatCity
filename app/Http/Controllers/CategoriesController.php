@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Categorie;
 use App\Theme;
 use App\Journal;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 
@@ -71,6 +72,8 @@ class CategoriesController extends Controller
         $journal->Journal_intitule = $categorie->Categorie_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
+        //send alert to all admins if the user is a moderator
+        $this->notify($journal);
 
         if(empty($categorie->Cat_id)){
 
@@ -169,6 +172,8 @@ class CategoriesController extends Controller
         $journal->Journal_intitule = $categorie->Categorie_intitule;
         $journal->Journal_user = Session::get('name');
         $journal->save();
+        //send alert to all admins if the user is a moderator
+        $this->notify($journal);
 
         if(empty($categorie->Cat_id)){
 
@@ -198,5 +203,13 @@ class CategoriesController extends Controller
         $journal->Journal_user = Session::get('name');
         $journal->save();
         return back()->withInput();
+    }
+    function notify($journal){
+        $user=Auth::user();
+        if($user->role == 'moderator')
+        {
+            app('App\Http\Controllers\EmailController')->Alert($journal,$user);
+        }
+
     }
 }

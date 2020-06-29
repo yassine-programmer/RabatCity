@@ -22,9 +22,6 @@ class ArticlesController extends Controller
     {
         $articles = Article::find($Article_id);
         return $this->show($Article_id);
-
-
-
     }
 
     /**
@@ -69,6 +66,8 @@ class ArticlesController extends Controller
         $journal->Journal_user = Session::get('name');
         $journal->save();
         //end journal
+        //send alert to all admins if the user is a moderator
+        $this->notify($journal);
         return $this->show($article->Article_id);
     }
 
@@ -142,8 +141,9 @@ class ArticlesController extends Controller
         $journal->Journal_user = Session::get('name');
         $journal->save();
         //end journal
+        //send alert to all admins if the user is a moderator
+        $this->notify($journal);
         return $this->show($id);
-        return redirect('Articles/'.$article->Categorie_id);
     }
 
     /**
@@ -166,7 +166,15 @@ class ArticlesController extends Controller
         $journal->Journal_user = Session::get('name');
         $journal->save();
         //end journal
-
         return redirect('categories/'.$cat);
     }
+    function notify($journal){
+        $user=Auth::user();
+        if($user->role == 'moderator')
+        {
+            app('App\Http\Controllers\EmailController')->Alert($journal,$user);
+        }
+
+    }
+
 }

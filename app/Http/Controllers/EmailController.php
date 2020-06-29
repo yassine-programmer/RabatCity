@@ -19,22 +19,18 @@ use App\Rules\Captcha;
 
 class EmailController extends Controller
 {
-    public function AlertDelete($journal, $user_id)
+    public function Alert($journal, $user)
     {
-        $user = User::find($user_id);
         $subject = 'Alerte : '.strtoupper($journal->Journal_action);
-        $message = 'Le moderateur ' . $user->name . ' a effectue un <b>' . $journal->Journal_action . '</b> d un/une ' . $journal->Journal_table . ' sous le titre de : ' . $journal->Journal_intitule
-            . '<br>Veuillez consulter le journal dans votre espace admin : <a href="https://emsipfa.tk/home">www.emsipfa.tk/home</a>';
+        $message = 'Le '.$user->role .' ' . $user->name . ' a effectue un <b>' . $journal->Journal_action . '</b> d un/une ' . $journal->Journal_table . ' sous le titre de : ' . $journal->Journal_intitule
+            . '<br>Veuillez consulter le journal dans votre espace admin pour plus de detail : <a href="https://emsipfa.tk/home">www.emsipfa.tk/home</a>';
 
-        if ($user->role == 'moderator') {
-            $admins = DB::table('users')->where('role', '=', 'admin')->get();
-
-            foreach ($admins as $admin) {
-                $this->SendEmail($admin->email, $subject, $message);
-            }
+        $admins = DB::table('users')->where('role', '=', 'admin')->get();
+        foreach ($admins as $admin)
+        {
+            if ($admin->Admin_notify_email)
+            $this->SendEmail($admin->email, $subject, $message);
         }
-
-
     }
 
     public function SendEmail($recepient, $subject, $message)

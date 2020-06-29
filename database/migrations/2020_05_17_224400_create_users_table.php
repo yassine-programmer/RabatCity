@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->integer('Tel')->nullable();
             $table->boolean('confirmed')->default(false);
             $table->integer('confirmation_code')->nullable();
+            $table->boolean('Admin_notify')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

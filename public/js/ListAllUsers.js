@@ -4,6 +4,7 @@ function showdiv($id) {
     var users = document.getElementById('users');
     var journal = document.getElementById('journals');
     var fb = document.getElementById('FB');
+    var notification = document.getElementById('Notification');
 
     if (x.classList.contains("d-none")) {
         x.classList.remove('d-none');
@@ -14,18 +15,32 @@ function showdiv($id) {
         journal.classList.add('d-none');
         fb.classList.remove('d-inline');
         fb.classList.add('d-none');
+        notification.classList.remove('d-inline');
+        notification.classList.add('d-none');
     }
     else if (x == journal) {
         users.classList.remove('d-inline');
         users.classList.add('d-none');
         fb.classList.remove('d-inline');
         fb.classList.add('d-none');
+        notification.classList.remove('d-inline');
+        notification.classList.add('d-none');
     }
     else if (x == fb){
         users.classList.remove('d-inline');
         users.classList.add('d-none');
         journal.classList.remove('d-inline');
         journal.classList.add('d-none');
+        notification.classList.remove('d-inline');
+        notification.classList.add('d-none');
+    }
+    else if (x == notification){
+        users.classList.remove('d-inline');
+        users.classList.add('d-none');
+        journal.classList.remove('d-inline');
+        journal.classList.add('d-none');
+        fb.classList.remove('d-inline');
+        fb.classList.add('d-none');
     }
 }
 
