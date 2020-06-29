@@ -198,18 +198,14 @@ class EmailController extends Controller
                                 Veuillez cliquer sur le lien ci-dessous pour activer votre inscription:
                                 </div>
                                 <br>
-                                <form action="'.$link.'" style="text-align: center">
-                                    <input type="submit" value="Activation" style="text-decoration: none;
-                                                                            background-color: #005ebb;
-                                                                            display: inline-block;
-                                                                            border-radius: 3px;
-                                                                            color: #fff;
-                                                                            font-weight: bold;
-                                                                            padding: 5px 10px;
-                                                                            font-size: 12px;"/>
-                                </form>
+                                <div style="align-items: center; text-align: center" >
+                                 <a href="'.$link.'" style="text-decoration:none;background-color:#005ebb;display:inline-block;border-radius:3px;color:#fff;font-weight:bold;padding:5px 10px;font-size:12px">Activation </a>
+                                </div>
+                               
                                 <p style="font-size: 16px">
-                                    Lorsque vous visitez le lien ci-dessus, votre compte sera activer. Rabat-City - Portail de la ville Rabat.
+                                    Lorsque vous visitez le lien ci-dessus, votre compte sera activer.
+                                    <br>
+                                    Rabat-City - Portail de la ville Rabat.
                                 </p>
                                 <p style="color: grey;font-size: 12px;text-align: center" >
                                     Copyright © Rabat-City, All rights reserved.
