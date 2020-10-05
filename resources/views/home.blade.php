@@ -56,7 +56,7 @@
 <div id="main">
     @if($user->confirmed)
     <div id="sidediv" style="position: fixed;margin-left: -17px;">
-        <img id="config" src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/config.png"
+        <img id="config" src="/storage/config.png"
              onclick="openNav()" onmouseup="closeNav()" style=" margin-top: 9rem; max-width: 25%; background-color: #3771b0;">
     </div>
     @endif

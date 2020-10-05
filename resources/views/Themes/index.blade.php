@@ -10,7 +10,7 @@
 
     <!-- ****** Welcome Area Start ****** -->
     <section class="fplus-hero-area"  id="home"
-             style="background-image: url(https://yassinedrive.blob.core.windows.net/rabatcitycontainer/photos/shares/Rabatbg.jpg);">
+             style="background-image: url(/storage/photos/shares/Rabatbg.jpg);">
         <div class="cube">
         <div class="hero-content-area d-flex justify-content-end">
             <div class="hero-text">

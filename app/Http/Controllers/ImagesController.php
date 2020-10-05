@@ -52,20 +52,28 @@ class ImagesController extends Controller
 
             //UPLOAD THE IMAGE
             $image = $request->file('image');
+                //Store in local without rsize
 //            $realpath = $request->file('image')->storeAs('public/photos/avatars',$fileNameToStore );
+
             // resize
             // create an image manager instance with favored driver
                 $manager = new ImageManager(array('driver' => 'gd'));
-               // Store in storage with gd driver
-//            $image = $manager->make($image)->resize(300, 300)->save(public_path('/../storage/app/public/photos/avatars/'.$fileNameToStore));
-            // Store in Azure with gd driver
-            $image = $manager->make($image)->resize(300, 300)->stream();
-            $path = '/photos/avatars/'.$fileNameToStore;
-            $azure = Storage::disk('azure');
-            $azure->put('/'.$path, $image, 'public');
-            // Adding image to user DataBase
+               // Store in local storage with gd driver
+            $image = $manager->make($image)->resize(300, 300)->save(public_path('/../storage/app/public/photos/avatars/'.$fileNameToStore));
+            $path = '/storage/photos/avatars/'.$fileNameToStore;
 
-            $path= Storage::disk('azure')->url($path);
+
+                    // Store in Azure with gd driver
+            $image = $manager->make($image)->resize(300, 300)->stream();
+//            $path = '/photos/avatars/'.$fileNameToStore;
+//            $azure = Storage::disk('azure');
+//            $azure->put('/'.$path, $image, 'public');
+//            $path= Storage::disk('azure')->url($path);
+
+
+
+
+            // Adding image to user DataBase
             $user = User::find(Auth::user()->id);
             $user->image = $path;
             $user->save();

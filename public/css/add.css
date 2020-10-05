@@ -319,7 +319,7 @@ animation: zoom-in 2s;
 }
 /*Divs With Fixed Backgrounds*/
 div.fixed-bg-img1{
-    background-image: url("https://yassinedrive.blob.core.windows.net/rabatcitycontainer/RabatBGImage.png");
+    background-image: url("/storage/RabatBGImage.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -716,4 +716,7 @@ input[type=checkbox]:checked:disabled + label:before {
     transition: all 0.5s ease-in-out;
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
+}
+img{
+    object-fit: cover;
 }

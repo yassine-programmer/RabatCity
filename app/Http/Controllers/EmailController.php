@@ -296,7 +296,7 @@ class EmailController extends Controller
                             <p style="font-weight: bold;font-size: 22px;">
                                 <u>'.$article->Article_titre.'</u>
                             </p>
-                            <p>'.$article->Article_text.'</p>
+                            <p  >'.$article->Article_text.'</p>
                         </div>
                         <p style="color: grey;font-size: 12px;text-align: center" >
                             Copyright © Rabat-City, All rights reserved.

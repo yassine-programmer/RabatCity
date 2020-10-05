@@ -80,7 +80,7 @@
                                     <div class="trend-top-img imgHome1" style="border:1px solid #ccc!important;
                                                                             box-shadow: 4px 4px 12px #b8b894;">
                                         <a href="/Themes/rabat">
-                                        <img src="https://yassinedrive.blob.core.windows.net/rabatcitycontainer/photos/shares/Rabat_theme.jpg" alt="">
+                                        <img src="/storage/photos/shares/Rabat_theme.jpg" alt="">
                                         </a>
                                         <div class="trend-top-cap trend-top-cap2">
                                             <span class="bgb">Rabat</span>
