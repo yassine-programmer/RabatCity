@@ -416,11 +416,11 @@
                     <!-- Flow Socail -->
 
                     <!-- Most Recent Area -->
-                    <div class="most-recent-area"   style="border:1px solid #ccc!important;
-                                                              border-bottom: 0;
-                                                              box-shadow: 1px 1px 12px #b8b894;height: 100%">
-                       @include('Scrap.post')
-                    </div>
+{{--                    <div class="most-recent-area"   style="border:1px solid #ccc!important;--}}
+{{--                                                              border-bottom: 0;--}}
+{{--                                                              box-shadow: 1px 1px 12px #b8b894;height: 100%">--}}
+{{--                       @include('Scrap.post')--}}
+{{--                    </div>--}}
                 </div>
 
 
